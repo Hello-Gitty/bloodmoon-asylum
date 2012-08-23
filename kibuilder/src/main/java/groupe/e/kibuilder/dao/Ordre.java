@@ -19,7 +19,7 @@ public class Ordre extends Element{
 	 */
 	protected String description;
 	protected TypeOrdre type;
-	protected List<Jet> jet;
+	protected Jet jet;
     protected TypeLegalite legal;
 	
 	// faire un ordre entrainement pour chaque caractéristique.
@@ -41,11 +41,11 @@ public class Ordre extends Element{
         this.type = type;
     }
 
-    public List<Jet> getJet() {
+    public Jet getJet() {
         return jet;
     }
 
-    public void setJet(List<Jet> jet) {
+    public void setJet(Jet jet) {
         this.jet = jet;
     }
 

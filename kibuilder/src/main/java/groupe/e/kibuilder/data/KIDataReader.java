@@ -20,10 +20,7 @@ import java.util.*;
  * Time: 09:23
  * To change this template use File | Settings | File Templates.
  */
-public class KIDataReader extends  KIModelData{
-
-
-
+public class KIDataReader extends KIModelData {
 
 
     public static Map<String, Caracteristique> mapCaracteristique = new HashMap<String, Caracteristique>();
@@ -48,17 +45,17 @@ public class KIDataReader extends  KIModelData{
         mapCompetence = getComptetencesFromElement(racineElement);
         mapCaracteristique = getCaracteristiquesFromElement(racineElement);
 
-       /* File fichierOrdres = new File("");
-        Document docOrdre = sxb.build(fichierOrdres);
-        Element racineOrdre = docOrdre.getRootElement();
-        mapOrdres = getOrdresFromElement(racineOrdre);
+        /* File fichierOrdres = new File("");
+  Document docOrdre = sxb.build(fichierOrdres);
+  Element racineOrdre = docOrdre.getRootElement();
+  mapOrdres = getOrdresFromElement(racineOrdre);
 
-        File fichierVocation = new File("");
-        Document docVocation = sxb.build(fichierVocation);
-        Element racineVocation = docVocation.getRootElement();
-        mapVocation = getVocationsFromElement(racineVocation);
+  File fichierVocation = new File("");
+  Document docVocation = sxb.build(fichierVocation);
+  Element racineVocation = docVocation.getRootElement();
+  mapVocation = getVocationsFromElement(racineVocation);
 
-              */
+        */
         // Par courir les vocations pour y ajouter les ordres des vocations
 
 
@@ -228,101 +225,96 @@ public class KIDataReader extends  KIModelData{
     }
 
 
-    public static List<Jet> getJetsFromElement(Element el) {
-        LinkedList<Jet> result = new LinkedList<Jet>();
+    public static Jet getJetsFromElement(Element el) {
+        Jet jet = new Jet();
 
-        Element tags = el.getChild(JETS);
+        Element elJet = el.getChild(JET);
 
-        if (tags == null || tags.getChildren(JET) == null) {
-            return result;
+        if (elJet == null) {
+            return jet;
         }
 
-        for (Object oCar : tags.getChildren(JET)) {
-            Element elJet = (Element) oCar;
-            Jet jet = new Jet();
 
-            boolean automatique = false;
-            Double coutPv = 0d;
-            Double coutArgent = 0d;
-            Caracteristique car = null;
-            Competence comp = null;
-            Caracteristique carOpos = null;
-            int potentielBase = 0;
-            int difficutle = 0;
-            String description = "";
+        boolean automatique = false;
+        Double coutPv = 0d;
+        Double coutArgent = 0d;
+        Caracteristique car = null;
+        Competence comp = null;
+        Caracteristique carOpos = null;
+        int potentielBase = 0;
+        int difficutle = 0;
+        String description = "";
 
-            try {
-                Element elTemp = elJet.getChild(AUTOMATIQUE);
+        try {
+            Element elTemp = elJet.getChild(AUTOMATIQUE);
 
-                if (elTemp != null) {
-                    automatique = Boolean.valueOf(elTemp.getText());
-                }
-
-                elTemp = elJet.getChild(COUT_ARGENT);
-
-                if (elTemp != null) {
-                    coutArgent = Double.parseDouble(elTemp.getText());
-                }
-
-                elTemp = elJet.getChild(COUT_PV);
-
-                if (elTemp != null) {
-                    coutPv = Double.parseDouble(elTemp.getText());
-                }
-
-                elTemp = elJet.getChild(CARACTERISTIQUE);
-
-                if (elTemp != null) {
-                    car = mapCaracteristique.get(elTemp.getText());
-                }
-
-                elTemp = elJet.getChild(CARACTERISTIQUE_OPOSEE);
-
-                if (elTemp != null) {
-                    carOpos = mapCaracteristique.get(elTemp.getText());
-                }
-
-                elTemp = elJet.getChild(COMPETENCE);
-
-                if (elTemp != null) {
-                    comp = mapCompetence.get(elTemp.getText());
-                }
-
-                elTemp = elJet.getChild(DESCRIPTION);
-
-                if (elTemp != null) {
-                    description = elTemp.getText();
-                }
-
-                elTemp = elJet.getChild(POTENTIEL);
-
-                if (elTemp != null) {
-                    potentielBase = Integer.parseInt(elTemp.getText());
-                }
-
-                elTemp = elJet.getChild(DIFFICULTE);
-
-                if (elTemp != null) {
-                    difficutle = Integer.parseInt(elTemp.getText());
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();  //TODO handle this.
+            if (elTemp != null) {
+                automatique = Boolean.valueOf(elTemp.getText());
             }
-            jet.setAutomatique(automatique);
-            jet.setCaract(car);
-            jet.setCaractOpose(carOpos);
-            jet.setCompt(comp);
-            jet.setDescription(description);
-            jet.setPotentielBase(potentielBase);
-            jet.setDifficutle(difficutle);
-            jet.setCoutArgent(coutArgent);
-            jet.setCoutPV(coutPv);
 
-            result.add(jet);
+            elTemp = elJet.getChild(COUT_ARGENT);
+
+            if (elTemp != null) {
+                coutArgent = Double.parseDouble(elTemp.getText());
+            }
+
+            elTemp = elJet.getChild(COUT_PV);
+
+            if (elTemp != null) {
+                coutPv = Double.parseDouble(elTemp.getText());
+            }
+
+            elTemp = elJet.getChild(CARACTERISTIQUE);
+
+            if (elTemp != null) {
+                car = mapCaracteristique.get(elTemp.getText());
+            }
+
+            elTemp = elJet.getChild(CARACTERISTIQUE_OPOSEE);
+
+            if (elTemp != null) {
+                carOpos = mapCaracteristique.get(elTemp.getText());
+            }
+
+            elTemp = elJet.getChild(COMPETENCE);
+
+            if (elTemp != null) {
+                comp = mapCompetence.get(elTemp.getText());
+            }
+
+            elTemp = elJet.getChild(DESCRIPTION);
+
+            if (elTemp != null) {
+                description = elTemp.getText();
+            }
+
+            elTemp = elJet.getChild(POTENTIEL);
+
+            if (elTemp != null) {
+                potentielBase = Integer.parseInt(elTemp.getText());
+            }
+
+            elTemp = elJet.getChild(DIFFICULTE);
+
+            if (elTemp != null) {
+                difficutle = Integer.parseInt(elTemp.getText());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();  //TODO handle this.
         }
+        jet.setAutomatique(automatique);
+        jet.setCaract(car);
+        jet.setCaractOpose(carOpos);
+        jet.setCompt(comp);
+        jet.setDescription(description);
+        jet.setPotentielBase(potentielBase);
+        jet.setDifficutle(difficutle);
+        jet.setCoutArgent(coutArgent);
+        jet.setCoutPV(coutPv);
 
-        return result;
+
+        return jet;
     }
 
 
@@ -405,14 +397,8 @@ public class KIDataReader extends  KIModelData{
     }
 
 
-
-
-
-    public static Fiche getFicheFromElement(Element racine){
+    public static Fiche getFicheFromElement(Element racine) {
         Fiche result = new Fiche();
-
-
-
 
 
         return result;
