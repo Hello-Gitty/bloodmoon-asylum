@@ -3,6 +3,7 @@ package groupe.e.kibuilder.ihm;
 import groupe.e.kibuilder.ModeleLibrairie;
 
 import javax.swing.*;
+
 import java.awt.*;
 
 /**
@@ -14,13 +15,22 @@ import java.awt.*;
  */
 public class OngletVocation extends JPanel {
 
-
     private JPanel panelSelection;
-    private JPanel panelEdition;
+    private JScrollPane panelEdition;
+    private JPanel paneButton;
+    private JComboBox filterTypeCombo;
+    private JTextField filterFieldNom;
+
+    private JTextArea areaOrdre;
+
+    private JButton nouveau = new JButton("Nouveau");
+    private JButton modifier = new JButton("Modifier");
+    private JButton supprimer = new JButton("Supprimer");
+
+
 
     private ModeleLibrairie model;
-
-
+    
     public OngletVocation(ModeleLibrairie model){
         this.model = model;
 
@@ -38,15 +48,18 @@ public class OngletVocation extends JPanel {
 
 
         panelSelection = new JPanel();
-        panelEdition = new JPanel();
+        
+        areaOrdre = new JTextArea();
+        panelEdition = new JScrollPane(areaOrdre);
+        areaOrdre.setEditable(false);
+        paneButton = new JPanel();
 
 
+        JLabel labelNomFiltre = new JLabel("Nom :");
+        JLabel labelTypeFiltre = new JLabel("Type :");
 
-        JLabel nom = new JLabel("Nom :");
-        JLabel type = new JLabel("Type :");
-
-        JComboBox typeCombo = new JComboBox();
-        JTextField fieldNom = new JTextField();
+        filterTypeCombo = new JComboBox();
+        filterFieldNom = new JTextField();
 
         JList listOrdre = new JList();
 
@@ -60,20 +73,20 @@ public class OngletVocation extends JPanel {
         panelFiltre.setLayout(layoutFiltre);
 
         IHMUtil.donnerContrainte(contrainte,0,0,1,1,1,1, GridBagConstraints.NONE);
-        layoutFiltre.setConstraints(nom,contrainte);
-        panelFiltre.add(nom);
+        layoutFiltre.setConstraints(labelNomFiltre,contrainte);
+        panelFiltre.add(labelNomFiltre);
 
         IHMUtil.donnerContrainte(contrainte,1,0,4,1,4,1, GridBagConstraints.HORIZONTAL);
-        layoutFiltre.setConstraints(fieldNom,contrainte);
-        panelFiltre.add(fieldNom);
+        layoutFiltre.setConstraints(filterFieldNom,contrainte);
+        panelFiltre.add(filterFieldNom);
 
         IHMUtil.donnerContrainte(contrainte,0,1,1,1,1,1, GridBagConstraints.NONE);
-        layoutFiltre.setConstraints(type,contrainte);
-        panelFiltre.add(type);
+        layoutFiltre.setConstraints(labelTypeFiltre,contrainte);
+        panelFiltre.add(labelTypeFiltre);
 
         IHMUtil.donnerContrainte(contrainte,1,1,4,1,4,1, GridBagConstraints.HORIZONTAL);
-        layoutFiltre.setConstraints(typeCombo,contrainte);
-        panelFiltre.add(typeCombo);
+        layoutFiltre.setConstraints(filterTypeCombo,contrainte);
+        panelFiltre.add(filterTypeCombo);
 
 
         IHMUtil.donnerContrainte(contrainte,0,0,1,1,1,1);
@@ -84,17 +97,39 @@ public class OngletVocation extends JPanel {
         layoutSelection.setConstraints(listOrdre,contrainte);
         panelSelection.add(listOrdre);
 
+         // http://docs.oracle.com/javase/tutorial/uiswing/layout/group.html
+        // essayer un group layout
+
+
+        paneButton.add(nouveau);
+
+        paneButton.add(modifier);
+
+        paneButton.add(supprimer);
+
+
         // Ajout des panels
-        IHMUtil.donnerContrainte(contrainte,0,0,1,1,1,1);
+        
+        JPanel empty = new JPanel();        
+        
+        
+        IHMUtil.donnerContrainte(contrainte,1,0,1,1,1,1);
+        layout.setConstraints(empty,contrainte);
+        this.add(empty);
+        
+        IHMUtil.donnerContrainte(contrainte,0,0,1,2,1,1);
         layout.setConstraints(panelSelection,contrainte);
         this.add(panelSelection);
 
 
-        IHMUtil.donnerContrainte(contrainte,1,0,1,1,4,1);
+        IHMUtil.donnerContrainte(contrainte,1,1,1,1,3,7);
         layout.setConstraints(panelEdition,contrainte);
         this.add(panelEdition);
 
 
+        IHMUtil.donnerContrainte(contrainte,1,2,1,1,1,1);
+        layout.setConstraints(paneButton,contrainte);
+        this.add(paneButton);
 
 
 

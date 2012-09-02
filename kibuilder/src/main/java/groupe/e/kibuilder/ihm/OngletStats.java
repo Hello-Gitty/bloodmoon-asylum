@@ -10,4 +10,8 @@ import javax.swing.*;
  * To change this template use File | Settings | File Templates.
  */
 public class OngletStats extends JPanel {
+    
+    
+    
+    
 }

@@ -19,8 +19,15 @@ public class Ordre extends Element{
 	 */
 	protected String description;
 	protected TypeOrdre type;
-	protected Jet jet;
+	protected List<Jet> jet;
     protected TypeLegalite legal;
+    protected Caracteristique caract;
+    protected Caracteristique caractOpose;
+    protected Double coutPV;
+    protected Double coutArgent;
+    protected Competence compt;
+    protected String potentielPlus;
+    protected boolean automatique;
 	
 	// faire un ordre entrainement pour chaque caractéristique.
 
@@ -41,11 +48,11 @@ public class Ordre extends Element{
         this.type = type;
     }
 
-    public Jet getJet() {
+    public List<Jet> getJet() {
         return jet;
     }
 
-    public void setJet(Jet jet) {
+    public void setJet(List<Jet> jet) {
         this.jet = jet;
     }
 
@@ -56,4 +63,63 @@ public class Ordre extends Element{
     public void setLegal(TypeLegalite legal) {
         this.legal = legal;
     }
+
+    public Caracteristique getCaract() {
+        return caract;
+    }
+
+    public void setCaract(Caracteristique caract) {
+        this.caract = caract;
+    }
+
+    public Caracteristique getCaractOpose() {
+        return caractOpose;
+    }
+
+    public void setCaractOpose(Caracteristique caractOpose) {
+        this.caractOpose = caractOpose;
+    }
+
+    public Double getCoutPV() {
+        return coutPV;
+    }
+
+    public void setCoutPV(Double coutPV) {
+        this.coutPV = coutPV;
+    }
+
+    public Double getCoutArgent() {
+        return coutArgent;
+    }
+
+    public void setCoutArgent(Double coutArgent) {
+        this.coutArgent = coutArgent;
+    }
+
+    public Competence getCompt() {
+        return compt;
+    }
+
+    public void setCompt(Competence compt) {
+        this.compt = compt;
+    }
+
+
+    public String getPotentielPlus() {
+        return potentielPlus;
+    }
+
+    public void setPotentielPlus(String potentielPlus) {
+        this.potentielPlus = potentielPlus;
+    }
+
+    public boolean isAutomatique() {
+        return automatique;
+    }
+
+    public void setAutomatique(boolean automatique) {
+        this.automatique = automatique;
+    }
+    
+    
 }

@@ -40,7 +40,7 @@ public abstract class  KIModelData {
     public static String COUT_PV = "COUT-PV";
     public static String COUT_ARGENT = "COUT-ARGENT";
 
-    public static String POTENTIEL = "POTENTIEL";
+    public static String BONUS = "BONUS";
     public static String DIFFICULTE = "DIFFICULTE";
     public static String AUTOMATIQUE = "AUTOMATIQUE";
     public static String LEGALITE = "LEGALITE";

@@ -16,19 +16,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Dart
- * Date: 21/08/12
- * Time: 17:12
- * To change this template use File | Settings | File Templates.
+ * Created with IntelliJ IDEA. User: Dart Date: 21/08/12 Time: 17:12 To change
+ * this template use File | Settings | File Templates.
  */
 public class KIModelWriter extends KIModelData {
-
 
     public static void ecrireFiche(Fiche fiche) {
 
         File fichier = new File("");
-
 
         Document docElement = new Document();
 
@@ -49,7 +44,6 @@ public class KIModelWriter extends KIModelData {
         racine.addContent(compts);
         racine.addContent(vocations);
         racine.addContent(pv);
-
 
         for (Competence compt : fiche.getComperences()) {
             Element elCompt = new Element(COMPETENCE);
@@ -78,7 +72,8 @@ public class KIModelWriter extends KIModelData {
             caracts.addContent(elCaract);
         }
 
-        for (Map.Entry<TypeVocation, Vocation> entry : fiche.getVocations().entrySet()) {
+        for (Map.Entry<TypeVocation, Vocation> entry : fiche.getVocations()
+                .entrySet()) {
 
             Element elCaract = new Element(VOCATION);
 
@@ -102,16 +97,14 @@ public class KIModelWriter extends KIModelData {
         try {
             sortie.output(docElement, new FileOutputStream(fichier));
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace(); // To change body of catch statement use File |
+                                 // Settings | File Templates.
         }
-
 
     }
 
-
     public static void ecrireOrdres(ModeleLibrairie model) {
         File fichier = new File("");
-
 
         Document docElement = new Document();
         Element racine = new Element(ORDRES);
@@ -120,6 +113,7 @@ public class KIModelWriter extends KIModelData {
 
         for (Ordre ordre : model.getOrdres()) {
 
+            racine.addContent(ordreElementFactory(ordre));
 
         }
 
@@ -144,7 +138,6 @@ public class KIModelWriter extends KIModelData {
         racine.addContent(compts);
         racine.addContent(caracts);
 
-
         for (Competence compt : model.getCompetences()) {
             Element elCompts = new Element(COMPETENCE);
 
@@ -154,11 +147,9 @@ public class KIModelWriter extends KIModelData {
             compts.addContent(elCompts);
             elCompts.addContent(nom);
 
-
             tagsElementFactory(compt, elCompts);
 
         }
-
 
         for (Caracteristique carac : model.getCaracteristiques()) {
 
@@ -173,10 +164,8 @@ public class KIModelWriter extends KIModelData {
             caracts.addContent(elCarac);
             elCarac.addContent(nom);
 
-
             tagsElementFactory(carac, elCarac);
         }
-
 
         XMLOutputter sortie = new XMLOutputter(Format.getPrettyFormat());
 
@@ -190,14 +179,13 @@ public class KIModelWriter extends KIModelData {
     public static void ecrireVocations(ModeleLibrairie model) {
         File fichier = new File("");
 
-
         Document docElement = new Document();
 
         Element racine = new Element(VOCATIONS);
         docElement.addContent(racine);
 
-
-        for (Map.Entry<TypeVocation, List<Vocation>> entry : model.getVocations().entrySet()) {
+        for (Map.Entry<TypeVocation, List<Vocation>> entry : model
+                .getVocations().entrySet()) {
             Element type = new Element(TYPE);
             Attribute namA = new Attribute(name, entry.getKey().name());
             type.setAttribute(namA);
@@ -215,11 +203,9 @@ public class KIModelWriter extends KIModelData {
                 descriptionJet.setText(voc.getDescription());
                 vocation.addContent(descriptionJet);
 
-
                 for (Perks perk : voc.getPerks()) {
                     Element elPerks = new Element(PERKS);
                     vocation.addContent(elPerks);
-
 
                     Element nomVoc = new Element(NOM);
                     nomVoc.setText(perk.getNom());
@@ -241,10 +227,8 @@ public class KIModelWriter extends KIModelData {
 
                 tagsElementFactory(voc, vocation);
 
-
             }
         }
-
 
         XMLOutputter sortie = new XMLOutputter(Format.getPrettyFormat());
 
@@ -255,11 +239,9 @@ public class KIModelWriter extends KIModelData {
         }
     }
 
-
     protected static Element ordreElementFactory(Ordre ordre) {
 
         Element elOrdre = new Element(ORDRE);
-
 
         Element nom = new Element(NOM);
         nom.setText(ordre.getNom());
@@ -267,85 +249,83 @@ public class KIModelWriter extends KIModelData {
         Element description = new Element(DESCRIPTION);
         description.setText(ordre.getDescription());
 
-
         Element legal = new Element(LEGALITE);
         legal.setText(ordre.getLegal().name());
 
-
         Element type = new Element(TYPE);
         type.setText(ordre.getType().name());
-
-        Element elJets = new Element(JETS);
 
         elOrdre.addContent(elOrdre);
         elOrdre.addContent(nom);
         elOrdre.addContent(description);
         elOrdre.addContent(type);
-        elOrdre.addContent(elJets);
 
-        for (Jet jet : ordre.getJet()) {
-            Element elJet = new Element(JET);
+        if (ordre.getCoutPV() != null) {
+            Element coutPV = new Element(COUT_PV);
+            coutPV.setText(ordre.getCoutPV().toString());
+            elOrdre.addContent(coutPV);
+        }
 
-            if (jet.getCoutPV() != null) {
-                Element coutPV = new Element(COUT_PV);
-                coutPV.setText(jet.getCoutPV().toString());
-                elJet.addContent(coutPV);
+        if (ordre.getCoutArgent() != null) {
+            Element coutArgent = new Element(COUT_ARGENT);
+            coutArgent.setText(ordre.getCoutArgent().toString());
+            elOrdre.addContent(coutArgent);
+        }
+
+        if (ordre.isAutomatique()) {
+            Element automatique = new Element(AUTOMATIQUE);
+            automatique.setText(((Boolean) ordre.isAutomatique()).toString());
+            elOrdre.addContent(automatique);
+        } else {
+
+            Element caract = new Element(CARACTERISTIQUE);
+            caract.setText(ordre.getCaract().getNom());
+            elOrdre.addContent(caract);
+
+            Element comp = new Element(COMPETENCE);
+            comp.setText(ordre.getCompt().getNom());
+            elOrdre.addContent(comp);
+
+            Element poten = new Element(BONUS);
+            poten.setText(ordre.getPotentielPlus());
+            elOrdre.addContent(poten);
+
+            if (ordre.getCaractOpose() != null) {
+                Element caractO = new Element(CARACTERISTIQUE_OPOSEE);
+                caractO.setText(ordre.getCaractOpose().getNom());
+                elOrdre.addContent(caractO);
             }
+        }
 
-            if (jet.getCoutArgent() != null) {
-                Element coutArgent = new Element(COUT_ARGENT);
-                coutArgent.setText(jet.getCoutArgent().toString());
-                elJet.addContent(coutArgent);
-            }
+        if (ordre.getJet() != null) {
+            Element elJets = new Element(JETS);
+            elOrdre.addContent(elJets);
 
-            if (jet.getDescription() != null) {
-                Element descriptionJet = new Element(DESCRIPTION);
-                descriptionJet.setText(jet.getDescription());
-                elJet.addContent(descriptionJet);
-            }
+            for (Jet jet : ordre.getJet()) {
+                Element elJet = new Element(JET);
 
-
-            if (jet.isAutomatique()) {
-                Element automatique = new Element(AUTOMATIQUE);
-                automatique.setText(((Boolean) jet.isAutomatique()).toString());
-                elJet.addContent(automatique);
-            } else {
-
-                Element caract = new Element(CARACTERISTIQUE);
-                caract.setText(jet.getCaract().getNom());
-                elJet.addContent(caract);
-
-                Element comp = new Element(COMPETENCE);
-                comp.setText(jet.getCompt().getNom());
-                elJet.addContent(comp);
-
-                Element poten = new Element(POTENTIEL);
-                poten.setText(jet.getPotentielBase().toString());
-                elJet.addContent(poten);
+                if (jet.getDescription() != null) {
+                    Element descriptionJet = new Element(DESCRIPTION);
+                    descriptionJet.setText(jet.getDescription());
+                    elJet.addContent(descriptionJet);
+                }
 
                 Element diff = new Element(DIFFICULTE);
                 diff.setText(jet.getDifficutle().toString());
                 elJet.addContent(diff);
 
+                elJets.addContent(elJet);
 
-                if (jet.getCaractOpose() != null) {
-                    Element caractO = new Element(CARACTERISTIQUE_OPOSEE);
-                    caractO.setText(jet.getCaractOpose().getNom());
-                    elJet.addContent(caractO);
-                }
             }
-
         }
 
-
         tagsElementFactory(ordre, elOrdre);
-
 
         return elOrdre;
     }
 
-
-    protected static Element tagsElementFactory(groupe.e.kibuilder.dao.Element data, Element racine) {
+    protected static Element tagsElementFactory(
+            groupe.e.kibuilder.dao.Element data, Element racine) {
 
         if (data.getTags() != null && data.getTags().size() > 0) {
 
@@ -362,8 +342,6 @@ public class KIModelWriter extends KIModelData {
         }
         return null;
 
-
     }
-
 
 }

@@ -33,33 +33,33 @@ public class ModeleLibrairie {
     protected List<Caracteristique> caracteristiques;
     protected List<Ordre> ordres;
 
-    public static Map<String, Caracteristique> mapCaracteristique = new HashMap<String, Caracteristique>();
+    public Map<String, Caracteristique> mapCaracteristique = new HashMap<String, Caracteristique>();
 
-    public static Map<String, Competence> mapCompetence = new HashMap<String, Competence>();
-    public static Map<TypeOrdre, List<Ordre>> mapOrdres = new HashMap<TypeOrdre, List<Ordre>>();
+    public Map<String, Competence> mapCompetence = new HashMap<String, Competence>();
+    public Map<TypeOrdre, List<Ordre>> mapOrdres = new HashMap<TypeOrdre, List<Ordre>>();
 
-    public static Map<String, Caracteristique> getMapCaracteristique() {
+    public Map<String, Caracteristique> getMapCaracteristique() {
         return mapCaracteristique;
     }
 
-    public static void setMapCaracteristique(Map<String, Caracteristique> mapCaracteristique) {
-        ModeleLibrairie.mapCaracteristique = mapCaracteristique;
+    public void setMapCaracteristique(Map<String, Caracteristique> mapCaracteristique) {
+        this.mapCaracteristique = mapCaracteristique;
     }
 
-    public static Map<String, Competence> getMapCompetence() {
+    public  Map<String, Competence> getMapCompetence() {
         return mapCompetence;
     }
 
-    public static void setMapCompetence(Map<String, Competence> mapCompetence) {
-        ModeleLibrairie.mapCompetence = mapCompetence;
+    public  void setMapCompetence(Map<String, Competence> mapCompetence) {
+        this.mapCompetence = mapCompetence;
     }
 
-    public static Map<TypeOrdre, List<Ordre>> getMapOrdres() {
+    public Map<TypeOrdre, List<Ordre>> getMapOrdres() {
         return mapOrdres;
     }
 
-    public static void setMapOrdres(Map<TypeOrdre, List<Ordre>> mapOrdres) {
-        ModeleLibrairie.mapOrdres = mapOrdres;
+    public void setMapOrdres(Map<TypeOrdre, List<Ordre>> mapOrdres) {
+        this.mapOrdres = mapOrdres;
     }
 
     private Vector<String> pouvoir = new Vector<String>();

@@ -1,7 +1,6 @@
 
 package groupe.e.kibuilder.dao;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**

@@ -40,7 +40,7 @@ public class FenetreBuilder extends JFrame {
     private void init (){
         paneOnglet = new JTabbedPane();
         paneOnglet.add("Fiche",new OngletFiche(modele));
-        paneOnglet.add("Ordres",new OngletOrdre(modele));
+        paneOnglet.add("Ordres",new OngletOrdre(this,modele));
         paneOnglet.add("Vocations",new OngletVocation(modele));
         paneOnglet.add("Stats",new OngletStats());
 

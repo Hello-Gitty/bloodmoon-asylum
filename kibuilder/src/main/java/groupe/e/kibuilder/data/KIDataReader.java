@@ -14,14 +14,10 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Dart
- * Date: 18/08/12
- * Time: 09:23
- * To change this template use File | Settings | File Templates.
+ * Created with IntelliJ IDEA. User: Dart Date: 18/08/12 Time: 09:23 To change
+ * this template use File | Settings | File Templates.
  */
 public class KIDataReader extends KIModelData {
-
 
     public static Map<String, Caracteristique> mapCaracteristique = new HashMap<String, Caracteristique>();
 
@@ -29,35 +25,32 @@ public class KIDataReader extends KIModelData {
     public static Map<TypeOrdre, List<Ordre>> mapOrdres = new TreeMap<TypeOrdre, List<Ordre>>();
     public static Map<TypeVocation, List<Vocation>> mapVocation = new TreeMap<TypeVocation, List<Vocation>>();
 
-
-    public static ModeleLibrairie getModeleLibrairie() throws JDOMException, IOException {
+    public static ModeleLibrairie getModeleLibrairie() throws JDOMException,
+            IOException {
 
         ModeleLibrairie model = new ModeleLibrairie();
-
 
         SAXBuilder sxb = new SAXBuilder();
 
         File fichierElement = new File("Element.xml");
-
 
         Document docElement = sxb.build(fichierElement);
         Element racineElement = docElement.getRootElement();
         mapCompetence = getComptetencesFromElement(racineElement);
         mapCaracteristique = getCaracteristiquesFromElement(racineElement);
 
-        /* File fichierOrdres = new File("");
-  Document docOrdre = sxb.build(fichierOrdres);
-  Element racineOrdre = docOrdre.getRootElement();
-  mapOrdres = getOrdresFromElement(racineOrdre);
-
-  File fichierVocation = new File("");
-  Document docVocation = sxb.build(fichierVocation);
-  Element racineVocation = docVocation.getRootElement();
-  mapVocation = getVocationsFromElement(racineVocation);
-
-        */
+        /*
+         * File fichierOrdres = new File(""); Document docOrdre =
+         * sxb.build(fichierOrdres); Element racineOrdre =
+         * docOrdre.getRootElement(); mapOrdres =
+         * getOrdresFromElement(racineOrdre);
+         * 
+         * File fichierVocation = new File(""); Document docVocation =
+         * sxb.build(fichierVocation); Element racineVocation =
+         * docVocation.getRootElement(); mapVocation =
+         * getVocationsFromElement(racineVocation);
+         */
         // Par courir les vocations pour y ajouter les ordres des vocations
-
 
         model.setMapCaracteristique(mapCaracteristique);
         model.setMapCompetence(mapCompetence);
@@ -67,10 +60,9 @@ public class KIDataReader extends KIModelData {
         return model;
     }
 
-
-    public static Map<TypeVocation, List<Vocation>> getVocationsFromElement(Element racine) {
+    public static Map<TypeVocation, List<Vocation>> getVocationsFromElement(
+            Element racine) {
         Map<TypeVocation, List<Vocation>> result = new HashMap<TypeVocation, List<Vocation>>();
-
 
         if (racine.getChildren(TYPE) == null) {
             return result;
@@ -79,7 +71,8 @@ public class KIDataReader extends KIModelData {
         for (Object oo : racine.getChildren(TYPE)) {
             Element el = (Element) oo;
 
-            TypeVocation type = TypeVocation.valueOf(el.getAttribute(name).getValue());
+            TypeVocation type = TypeVocation.valueOf(el.getAttribute(name)
+                    .getValue());
 
             List<Vocation> listVocation = new LinkedList<Vocation>();
             result.put(type, listVocation);
@@ -87,7 +80,6 @@ public class KIDataReader extends KIModelData {
             if (el == null || el.getChildren(VOCATION) == null) {
                 return result;
             }
-
 
             for (Object oCar : el.getChildren(VOCATION)) {
                 Element elVoc = (Element) oCar;
@@ -113,10 +105,8 @@ public class KIDataReader extends KIModelData {
 
     }
 
-
     public static TreeSet<Perks> getPerksFromElement(Element el) {
         TreeSet<Perks> result = new TreeSet<Perks>();
-
 
         if (el.getChildren(PERKS) == null) {
             return result;
@@ -126,14 +116,13 @@ public class KIDataReader extends KIModelData {
             Element elJet = (Element) oCar;
             Perks perk = new Perks();
 
-
             Attribute idAtt = elJet.getAttribute(niveau);
             if (idAtt != null) {
                 int idval = 0;
                 try {
                     idval = idAtt.getIntValue();
                 } catch (DataConversionException e) {
-                    e.printStackTrace();  //TODO handle this.
+                    e.printStackTrace(); // TODO handle this.
                 }
                 perk.setNiveau(idval);
             }
@@ -149,20 +138,17 @@ public class KIDataReader extends KIModelData {
 
             perk.setOrdre(getOrdreFromElement(elTemp));
 
-
             perk.setTags(getTagsFromElement(elJet));
             result.add(perk);
 
         }
 
-
         return result;
     }
 
-
-    public static Map<TypeOrdre, List<Ordre>> getOrdresFromElement(Element racine) {
+    public static Map<TypeOrdre, List<Ordre>> getOrdresFromElement(
+            Element racine) {
         Map<TypeOrdre, List<Ordre>> result = new TreeMap<TypeOrdre, List<Ordre>>();
-
 
         Element elOrdres = racine.getChild(ORDRES);
 
@@ -184,7 +170,6 @@ public class KIDataReader extends KIModelData {
             listOrdre.add(ordre);
         }
 
-
         return result;
     }
 
@@ -195,11 +180,7 @@ public class KIDataReader extends KIModelData {
             return result;
         }
 
-
-        if (elOrdre == null) {
-            return result;
-        }
-
+        
         Element elTemp = elOrdre.getChild(NOM);
         String temp = elTemp.getText();
         result.setNom(temp);
@@ -207,7 +188,6 @@ public class KIDataReader extends KIModelData {
         elTemp = elOrdre.getChild(DESCRIPTION);
         temp = elTemp.getText();
         result.setDescription(temp);
-
 
         elTemp = elOrdre.getChild(LEGALITE);
         temp = elTemp.getText();
@@ -217,106 +197,113 @@ public class KIDataReader extends KIModelData {
         temp = elTemp.getText();
         result.setType(TypeOrdre.valueOf(temp));
 
-        result.setTags(getTagsFromElement(elOrdre));
-        result.setJet(getJetsFromElement(elOrdre));
-
-
-        return result;
-    }
-
-
-    public static Jet getJetsFromElement(Element el) {
-        Jet jet = new Jet();
-
-        Element elJet = el.getChild(JET);
-
-        if (elJet == null) {
-            return jet;
-        }
-
+        elTemp = elOrdre.getChild(AUTOMATIQUE);
 
         boolean automatique = false;
         Double coutPv = 0d;
         Double coutArgent = 0d;
         Caracteristique car = null;
-        Competence comp = null;
         Caracteristique carOpos = null;
-        int potentielBase = 0;
-        int difficutle = 0;
-        String description = "";
+        String potentielBase = "";
+        Competence comp = null;
 
-        try {
-            Element elTemp = elJet.getChild(AUTOMATIQUE);
-
-            if (elTemp != null) {
-                automatique = Boolean.valueOf(elTemp.getText());
-            }
-
-            elTemp = elJet.getChild(COUT_ARGENT);
-
-            if (elTemp != null) {
-                coutArgent = Double.parseDouble(elTemp.getText());
-            }
-
-            elTemp = elJet.getChild(COUT_PV);
-
-            if (elTemp != null) {
-                coutPv = Double.parseDouble(elTemp.getText());
-            }
-
-            elTemp = elJet.getChild(CARACTERISTIQUE);
-
-            if (elTemp != null) {
-                car = mapCaracteristique.get(elTemp.getText());
-            }
-
-            elTemp = elJet.getChild(CARACTERISTIQUE_OPOSEE);
-
-            if (elTemp != null) {
-                carOpos = mapCaracteristique.get(elTemp.getText());
-            }
-
-            elTemp = elJet.getChild(COMPETENCE);
-
-            if (elTemp != null) {
-                comp = mapCompetence.get(elTemp.getText());
-            }
-
-            elTemp = elJet.getChild(DESCRIPTION);
-
-            if (elTemp != null) {
-                description = elTemp.getText();
-            }
-
-            elTemp = elJet.getChild(POTENTIEL);
-
-            if (elTemp != null) {
-                potentielBase = Integer.parseInt(elTemp.getText());
-            }
-
-            elTemp = elJet.getChild(DIFFICULTE);
-
-            if (elTemp != null) {
-                difficutle = Integer.parseInt(elTemp.getText());
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();  //TODO handle this.
+        if (elTemp != null) {
+            automatique = Boolean.valueOf(elTemp.getText());
         }
-        jet.setAutomatique(automatique);
-        jet.setCaract(car);
-        jet.setCaractOpose(carOpos);
-        jet.setCompt(comp);
-        jet.setDescription(description);
-        jet.setPotentielBase(potentielBase);
-        jet.setDifficutle(difficutle);
-        jet.setCoutArgent(coutArgent);
-        jet.setCoutPV(coutPv);
 
+        elTemp = elOrdre.getChild(COUT_ARGENT);
 
-        return jet;
+        if (elTemp != null) {
+            coutArgent = Double.parseDouble(elTemp.getText());
+        }
+
+        elTemp = elOrdre.getChild(COUT_PV);
+
+        if (elTemp != null) {
+            coutPv = Double.parseDouble(elTemp.getText());
+        }
+
+        elTemp = elOrdre.getChild(CARACTERISTIQUE);
+
+        if (elTemp != null) {
+            car = mapCaracteristique.get(elTemp.getText());
+        }
+
+        elTemp = elOrdre.getChild(CARACTERISTIQUE_OPOSEE);
+
+        if (elTemp != null) {
+            carOpos = mapCaracteristique.get(elTemp.getText());
+        }
+
+        elTemp = elOrdre.getChild(COMPETENCE);
+
+        if (elTemp != null) {
+            comp = mapCompetence.get(elTemp.getText());
+        }
+
+        elTemp = elOrdre.getChild(BONUS);
+
+        if (elTemp != null) {
+            potentielBase = elTemp.getText();
+        }
+
+        result.setAutomatique(automatique);
+        result.setCaract(car);
+        result.setCaractOpose(carOpos);
+        result.setCompt(comp);
+        result.setPotentielPlus(potentielBase);
+        result.setCoutArgent(coutArgent);
+        result.setCoutPV(coutPv);
+
+        result.setTags(getTagsFromElement(elOrdre));
+        result.setJet(getJetsFromElement(elOrdre));
+
+        return result;
     }
 
+    public static List<Jet> getJetsFromElement(Element el) {
+        List<Jet> jets = new LinkedList<Jet>();
+
+        Element elJets = el.getChild(JETS);
+
+        if (elJets == null || elJets.getChildren(JET) == null) {
+            return jets;
+        }
+
+        for (Object oo : elJets.getChildren(JET)) {
+            Element elJet = (Element) oo;
+            Jet jet = new Jet();
+
+            int difficutle = 0;
+            String description = "";
+
+            try {
+
+                Element elTemp = elJet.getChild(DESCRIPTION);
+
+                if (elTemp != null) {
+                    description = elTemp.getText();
+                }
+
+                elTemp = elJet.getChild(DIFFICULTE);
+
+                if (elTemp != null) {
+                    difficutle = Integer.parseInt(elTemp.getText());
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace(); // TODO handle this.
+            }
+
+            jet.setDescription(description);
+
+            jet.setDifficutle(difficutle);
+            jets.add(jet);
+
+        }
+
+        return jets;
+    }
 
     public static List<Tag> getTagsFromElement(Element el) {
         LinkedList<Tag> result = new LinkedList<Tag>();
@@ -335,14 +322,15 @@ public class KIDataReader extends KIModelData {
         return result;
     }
 
-
-    public static Map<String, Caracteristique> getCaracteristiquesFromElement(Element racine) {
+    public static Map<String, Caracteristique> getCaracteristiquesFromElement(
+            Element racine) {
 
         Map<String, Caracteristique> result = new TreeMap<String, Caracteristique>();
 
         Element caracteristiques = racine.getChild(CARACTERISTIQUES);
 
-        if (caracteristiques == null || caracteristiques.getChildren(CARACTERISTIQUE) == null) {
+        if (caracteristiques == null
+                || caracteristiques.getChildren(CARACTERISTIQUE) == null) {
             return result;
         }
 
@@ -358,7 +346,6 @@ public class KIDataReader extends KIModelData {
             String nomCourtVal = elNomCourt.getText();
             caract.setNomCourt(nomCourtVal);
 
-
             List<Tag> tags = getTagsFromElement(elCompetence);
             caract.setTags(tags);
             result.put(caract.getNom(), caract);
@@ -368,8 +355,8 @@ public class KIDataReader extends KIModelData {
         return result;
     }
 
-
-    public static Map<String, Competence> getComptetencesFromElement(Element racine) {
+    public static Map<String, Competence> getComptetencesFromElement(
+            Element racine) {
 
         Map<String, Competence> result = new TreeMap<String, Competence>();
         Element competences = racine.getChild(COMPETENCES);
@@ -392,14 +379,11 @@ public class KIDataReader extends KIModelData {
             result.put(competence.getNom(), competence);
         }
 
-
         return result;
     }
 
-
     public static Fiche getFicheFromElement(Element racine) {
         Fiche result = new Fiche();
-
 
         return result;
     }
