@@ -10,6 +10,7 @@ public class Fiche {
 	protected List<Caracteristique> caracteristiques;
 	protected List<Competence> comperences;
 	protected Map<TypeVocation, Vocation> vocations;
+	protected Map<TypeVocation, Integer> niveauVocations;
 	protected Integer PA;
 	protected Integer pointDeVie;
 	
@@ -59,4 +60,14 @@ public class Fiche {
     public void setPA(Integer PA) {
         this.PA = PA;
     }
+
+	public Map<TypeVocation, Integer> getNiveauVocations() {
+		return niveauVocations;
+	}
+
+	public void setNiveauVocations(Map<TypeVocation, Integer> niveauVocations) {
+		this.niveauVocations = niveauVocations;
+	}
+    
+    
 }

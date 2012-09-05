@@ -137,7 +137,8 @@ public class KIDataReader extends KIModelData {
             elTemp = elJet.getChild(ORDRE);
 
             perk.setOrdre(getOrdreFromElement(elTemp));
-
+            perk.getOrdre().setOrdreVocation(true);
+            
             perk.setTags(getTagsFromElement(elJet));
             result.add(perk);
 

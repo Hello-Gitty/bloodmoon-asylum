@@ -53,7 +53,6 @@ public class PopOrdre extends JDialog {
     private JButton annuler = new JButton("Annuler");
 
     private JButton modif = new JButton("Nouveau");
-    private JButton ajout = new JButton("Sauvegarder");
     private JButton supprimer = new JButton("Supprimer");
 
     private Ordre ordre;

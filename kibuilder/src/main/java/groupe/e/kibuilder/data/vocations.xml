@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE VOCATIONS SYSTEM "Vocation.dtd" >
+<VOCATIONS>
+  <TYPE name="CARRIERE">
+    <VOCATION>
+      <NOM>NOM</NOM>
+      <DESCRIPTION>DESCRIPTION</DESCRIPTION>
+    </VOCATION>
+  </TYPE>
+  
+    <TYPE name="TYPE">
+    <VOCATION>
+      <NOM>NOM</NOM>
+      <DESCRIPTION>DESCRIPTION</DESCRIPTION>
+    </VOCATION>
+  </TYPE>
+  
+  
+    <TYPE name="POLITIQUE">
+    <VOCATION>
+      <NOM>NOM</NOM>
+      <DESCRIPTION>DESCRIPTION</DESCRIPTION>
+    </VOCATION>
+  </TYPE>
+  
+  
+    <TYPE name="COMBAT">
+    <VOCATION>
+      <NOM>NOM</NOM>
+      <DESCRIPTION>DESCRIPTION</DESCRIPTION>
+    </VOCATION>
+  </TYPE>
+  
+    <TYPE name="POUVOIR">
+    <VOCATION>
+      <NOM>NOM</NOM>
+      <DESCRIPTION>DESCRIPTION</DESCRIPTION>
+    </VOCATION>
+  </TYPE>
+  
+  
+</VOCATIONS>

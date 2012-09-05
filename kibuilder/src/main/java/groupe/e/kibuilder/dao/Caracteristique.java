@@ -9,7 +9,7 @@ package groupe.e.kibuilder.dao;
  *
  * @author Manou
  */
-public class Caracteristique extends Element{
+public class Caracteristique extends Element implements Ordinal{
     
 	protected String nomCourt;
 
@@ -20,7 +20,6 @@ public class Caracteristique extends Element{
     public void setNomCourt(String nomCourt) {
         this.nomCourt = nomCourt;
     }
-// TODO XXX FIXME JAXB - marshmal
 
     
 }

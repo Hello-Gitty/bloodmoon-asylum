@@ -28,9 +28,9 @@ public class Ordre extends Element{
     protected Competence compt;
     protected String potentielPlus;
     protected boolean automatique;
-	
+    protected boolean ordreVocation = false;
+	// TODO
 	// faire un ordre entrainement pour chaque caractéristique.
-
 
     public String getDescription() {
         return description;
@@ -120,6 +120,14 @@ public class Ordre extends Element{
     public void setAutomatique(boolean automatique) {
         this.automatique = automatique;
     }
+
+	public boolean isOrdreVocation() {
+		return ordreVocation;
+	}
+
+	public void setOrdreVocation(boolean ordreVocation) {
+		this.ordreVocation = ordreVocation;
+	}
     
     
 }

@@ -49,7 +49,6 @@ public class PanelPopVocation extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -90,9 +89,7 @@ public class PanelPopVocation extends javax.swing.JPanel {
 
         jLabel10.setText("Description :");
 
-        jButton3.setText("Ajout");
-
-        jButton4.setText("Modification");
+        jButton4.setText("Nouveau");
 
         jButton5.setText("Suppression");
 
@@ -113,8 +110,6 @@ public class PanelPopVocation extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton5))
@@ -195,7 +190,6 @@ public class PanelPopVocation extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3)
                             .addComponent(jButton4)
                             .addComponent(jButton5)))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -221,7 +215,6 @@ public class PanelPopVocation extends javax.swing.JPanel {
     private javax.swing.JTextArea descriptionArea1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboBox1;
@@ -245,4 +238,14 @@ public class PanelPopVocation extends javax.swing.JPanel {
     private javax.swing.JTextField nomField;
     private javax.swing.JComboBox typeCombo;
     // End of variables declaration//GEN-END:variables
+    
+    /* TODO fonctionnement de la gestion des perks pareils que les JETS
+     * Quand on clique sur un jet de la liste il apparait dans les champs
+     * si on modifie les champs ça modifie direct le jet
+     * 
+     * si on supprime il est supprimé
+     * si on fait nouveau ou ajout alors un jet vide est ajouté dans la liste et apparait comme vide.
+     * 
+     */
+    
 }

@@ -13,9 +13,9 @@ public class Plan {
      * Calcul à partir du plan le nombre de jour nécessaire
      * @return le plan dans un string buffer
      */
-    public StringBuffer calculPlan () {
+    public StringBuilder calculPlan () {
         
-        StringBuffer sb = new StringBuffer();
+    	StringBuilder sb = new StringBuilder();
         
         int paDisponible = 50;
         int paPremierJour = 25;

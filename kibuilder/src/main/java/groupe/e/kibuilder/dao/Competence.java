@@ -8,6 +8,6 @@ package groupe.e.kibuilder.dao;
  *
  * @author Manou
  */
-public class Competence extends Element{
+public class Competence extends Element implements Ordinal{
     
 }

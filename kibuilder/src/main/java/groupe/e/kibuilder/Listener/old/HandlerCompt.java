@@ -1,5 +1,8 @@
-
-package groupe.e.kibuilder.Listener;
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package groupe.e.kibuilder.Listener.old;
 
 import groupe.e.kibuilder.ModeleFiche;
 import groupe.e.kibuilder.PACalculator;
@@ -8,10 +11,10 @@ import java.awt.event.KeyListener;
 import javax.swing.JTextField;
 
 /**
- *gestion des caract
+ * gestion des compt
  * @author 794
  */
-public class HandlerCaract implements KeyListener {
+public class HandlerCompt implements KeyListener {
 
     private int min;
     private int max;
@@ -20,7 +23,7 @@ public class HandlerCaract implements KeyListener {
     private JTextField fieldCaract;
     private int number;
 
-    public HandlerCaract(int min, int max, ModeleFiche frame, JTextField fieldPa, JTextField fieldCaract, int number) {
+    public HandlerCompt(int min, int max, ModeleFiche frame, JTextField fieldPa, JTextField fieldCaract, int number) {
         this.min = min;
         this.max = max;
         this.frame = frame;
@@ -34,7 +37,7 @@ public class HandlerCaract implements KeyListener {
 
 
         try {
-            /**
+             /**
              * On calcul le nombre de pa récupéré entre la valeur précédente
              * et la nouvelle pour ensuite retrancher ou ajouter des PA
              */
@@ -46,10 +49,10 @@ public class HandlerCaract implements KeyListener {
                 return;
             }
 
-            Integer oldValue = frame.getCarac(number);
+            Integer oldValue = frame.getCompt(number);
             oldValue = oldValue == null ? min : oldValue;
 
-            int diffPa = PACalculator.getDiffCoutCaract(oldValue, val);
+            int diffPa = PACalculator.getDiffCoutCompt(oldValue, val);
 
              /*
              * On met a jour les PA
@@ -62,9 +65,8 @@ public class HandlerCaract implements KeyListener {
             frame.setPaValue(frame.getPaValue() + diffPa);
 
             //
-            frame.setCarac(number, val);
+            frame.setCompt(number, val);
             fieldPa.setText(frame.getPaValue().toString());
-            
             fieldCaract.setText(valtext);
             e.consume();
 

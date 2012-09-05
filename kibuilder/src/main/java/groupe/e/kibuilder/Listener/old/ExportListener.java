@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package groupe.e.kibuilder.Listener;
+package groupe.e.kibuilder.Listener.old;
 
 import groupe.e.kibuilder.ModeleFiche;
 import java.awt.Frame;

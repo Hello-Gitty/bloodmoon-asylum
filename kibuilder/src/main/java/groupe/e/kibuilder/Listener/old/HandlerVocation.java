@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package groupe.e.kibuilder.Listener;
+package groupe.e.kibuilder.Listener.old;
 
 import groupe.e.kibuilder.ModeleFiche;
 import groupe.e.kibuilder.PACalculator;
@@ -11,10 +11,10 @@ import java.awt.event.KeyListener;
 import javax.swing.JTextField;
 
 /**
- * gestion des compt
+ * gestion des vocations
  * @author 794
  */
-public class HandlerCompt implements KeyListener {
+public class HandlerVocation implements KeyListener {
 
     private int min;
     private int max;
@@ -23,7 +23,7 @@ public class HandlerCompt implements KeyListener {
     private JTextField fieldCaract;
     private int number;
 
-    public HandlerCompt(int min, int max, ModeleFiche frame, JTextField fieldPa, JTextField fieldCaract, int number) {
+    public HandlerVocation(int min, int max, ModeleFiche frame, JTextField fieldPa, JTextField fieldCaract, int number) {
         this.min = min;
         this.max = max;
         this.frame = frame;
@@ -32,14 +32,14 @@ public class HandlerCompt implements KeyListener {
         this.number = number;
     }
 
-    
     public void keyTyped(KeyEvent e) {
 
 
         try {
-             /**
-             * On calcul le nombre de pa récupéré entre la valeur précédente
-             * et la nouvelle pour ensuite retrancher ou ajouter des PA
+            /**
+             * On récupère le caractère qui a été tapé
+             * si c'est pas un chiffre ou un chiffre dans les valeurs 
+             * min max on s'arrête
              */
             String valtext = ((Character) e.getKeyChar()).toString();
             valtext = valtext.equals("") ? "0" : valtext;
@@ -49,23 +49,25 @@ public class HandlerCompt implements KeyListener {
                 return;
             }
 
-            Integer oldValue = frame.getCompt(number);
+            Integer oldValue = frame.getVoca(number);
             oldValue = oldValue == null ? min : oldValue;
+            /**
+             * On calcul le nombre de pa récupéré entre la valeur précédente
+             * et la nouvelle pour ensuite retrancher ou ajouter des PA
+             */
+            int diffPa = PACalculator.getDiffCoutVocation(oldValue, val);
 
-            int diffPa = PACalculator.getDiffCoutCompt(oldValue, val);
-
-             /*
+            /*
              * On met a jour les PA
              * et la valeur du champ
              * 
              * et dans le model aussi
              */
 
-
             frame.setPaValue(frame.getPaValue() + diffPa);
 
             //
-            frame.setCompt(number, val);
+            frame.setVoca(number, val);
             fieldPa.setText(frame.getPaValue().toString());
             fieldCaract.setText(valtext);
             e.consume();

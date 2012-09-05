@@ -56,7 +56,6 @@ public class PanelPopOrdre extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         libelleField = new javax.swing.JTextField();
         ajoutButton = new javax.swing.JButton();
-        modifButton = new javax.swing.JButton();
         suprrButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         descriptionArea = new javax.swing.JTextArea();
@@ -103,10 +102,7 @@ public class PanelPopOrdre extends javax.swing.JPanel {
         jLabel12.setText("Libellé :");
 
        
-        ajoutButton.setText("Ajout");
-
-        modifButton.setText("Modif");
-
+        ajoutButton.setText("Nouveau");
         suprrButton.setText("Supprimer");
 
         descriptionArea.setColumns(20);
@@ -199,8 +195,6 @@ public class PanelPopOrdre extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(ajoutButton)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(modifButton)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(suprrButton))))
                             .addComponent(jLabel10))
                         .addGap(0, 28, Short.MAX_VALUE)))
@@ -271,7 +265,6 @@ public class PanelPopOrdre extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ajoutButton)
-                            .addComponent(modifButton)
                             .addComponent(suprrButton))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -314,10 +307,19 @@ public class PanelPopOrdre extends javax.swing.JPanel {
     private javax.swing.JList jetList;
     private javax.swing.JComboBox legalCombo;
     private javax.swing.JTextField libelleField;
-    private javax.swing.JButton modifButton;
     private javax.swing.JTextField nomField;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton suprrButton;
     private javax.swing.JComboBox typeCombo;
     // End of variables declaration//GEN-END:variables
+    
+    
+    /* TODO fonctionnement de la gestion des JETS
+     * Quand on clique sur un jet de la liste il apparait dans les champs
+     * si on modifie les champs ça modifie direct le jet
+     * 
+     * si on supprime il est supprimé
+     * si on fait nouveau ou ajout alors un jet vide est ajouté dans la liste et apparait comme vide.
+     * 
+     */
 }

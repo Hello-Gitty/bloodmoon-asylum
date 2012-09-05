@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package groupe.e.kibuilder;
 
 import groupe.e.kibuilder.dao.Caracteristique;
@@ -22,11 +19,6 @@ import java.util.Vector;
  */
 public class ModeleLibrairie {
     
-	
-
-
-
-
 	protected Map<TypeVocation, List<Vocation>> vocations;
 
     protected List<Competence> competences;

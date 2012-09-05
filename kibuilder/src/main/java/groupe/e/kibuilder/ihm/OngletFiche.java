@@ -2,14 +2,20 @@ package groupe.e.kibuilder.ihm;
 
 import groupe.e.kibuilder.ModeleFiche;
 import groupe.e.kibuilder.ModeleLibrairie;
+import groupe.e.kibuilder.Listener.ComptListener;
+import groupe.e.kibuilder.Listener.NiveauVocationListener;
+import groupe.e.kibuilder.Listener.VocationListener;
 import groupe.e.kibuilder.dao.Caracteristique;
 import groupe.e.kibuilder.dao.Competence;
 import groupe.e.kibuilder.dao.Fiche;
+import groupe.e.kibuilder.dao.Vocation;
 import groupe.e.kibuilder.dao.type.TypeVocation;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,11 +42,16 @@ public class OngletFiche extends JPanel {
     private String[] val = {"0","1","2","3","4","5","6"};
 
 
+    private Fiche fiche;
 
 
     public OngletFiche(ModeleLibrairie model){
          this.model = model;
-
+         Fiche fiche = new Fiche();
+         
+         
+         
+         
          this.init();
 
 
@@ -54,7 +65,21 @@ public class OngletFiche extends JPanel {
         this.setLayout(layout);
         GridBagConstraints contrainte=new GridBagConstraints();
 
+        List<Caracteristique> cars = new ArrayList<Caracteristique>(model.getMapCaracteristique().values());
+        fiche.setCaracteristiques(cars);
+        
+        List<Competence> compts = new ArrayList<Competence>(model.getCompetences());
+        fiche.setComperences(compts);
 
+        Map<TypeVocation, Vocation> vocationsFiches = new HashMap<TypeVocation, Vocation>();
+        Map<TypeVocation, Integer> niveauVocation = new HashMap<TypeVocation, Integer>();
+        fiche.setVocations(vocationsFiches);
+        fiche.setNiveauVocations(niveauVocation);
+        for (TypeVocation type : TypeVocation.values()){
+        	fiche.getNiveauVocations().put(type, 0);
+        	fiche.getVocations().put(type, Vocation.vocationVide.get(type));
+        }
+        
         paneBase = new JPanel();
 
         paneVocation = new JPanel();
@@ -92,7 +117,7 @@ public class OngletFiche extends JPanel {
             grid.setConstraints(field,contrainte);
             paneComptInside.add(field);
 
-
+            field.addActionListener(new ComptListener(compt, this, field));
             competences.put(compt.getNom(), field);
             compteur++;
         }
@@ -123,6 +148,9 @@ public class OngletFiche extends JPanel {
             IHMUtil.donnerContrainte(contrainte,2,compteur,1,1,1,0);
             layoutVoca.setConstraints(field,contrainte);
             paneVocation.add(field);
+            field.addActionListener(new NiveauVocationListener(type, this, fiche, field));
+            combo.addActionListener(new VocationListener(type, fiche, combo, this));
+            
             compteur ++;
         }
 
@@ -192,6 +220,7 @@ public class OngletFiche extends JPanel {
 
 
 
+
         // Ajout des panels
         IHMUtil.donnerContrainte(contrainte,0,0,1,1,1,1);
         layout.setConstraints(paneBase,contrainte);
@@ -219,4 +248,21 @@ public class OngletFiche extends JPanel {
 
 
 
+    public void pushPa( int pa){
+    	fiche.setPA(fiche.getPA() + pa);
+    	PA.setText(fiche.getPA().toString());
+    }
+    
+    public void miseAjourVocation ( TypeVocation vocation){
+    	
+    }
+    
+    public void miseAjourCompetence(Competence compt){
+    	
+
+    }
+    
+    public void miseAjoutCaracteristique (Caracteristique carac){
+    	
+    }
 }

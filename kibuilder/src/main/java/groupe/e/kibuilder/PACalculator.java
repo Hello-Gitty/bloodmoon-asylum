@@ -76,18 +76,42 @@ public class PACalculator {
         return getCoutVoc(val, multiVocation);
     }
 
+    /**
+     * 
+     * @param val1 oldValue
+     * @param val2 NewValue
+     * @return
+     */
     public static int getDiffCoutVocation(int val1, int val2) {
         return getCoutPaVocation(val2) - getCoutPaVocation(val1);
     }
 
+    /**
+     * 
+     * @param val1 oldValue
+     * @param val2 NewValue
+     * @return
+     */
     public static int getDiffCoutCompt(int val1, int val2) {
         return getCoutPaCompetence(val2) - getCoutPaCompetence(val1);
     }
 
+    /**
+     * 
+     * @param val1 oldValue
+     * @param val2 NewValue
+     * @return
+     */
     public static int getDiffCoutCaract(int val1, int val2) {
         return getCoutPaCaract(val2) - getCoutPaCaract(val1);
     }
 
+    /**
+     * 
+     * @param val1 oldValue
+     * @param val2 NewValue
+     * @return
+     */
     public static int getDiffCoutPV(int val1, int val2) {
         return getCoutPaPV(val2) - getCoutPaPV(val1);
     }
