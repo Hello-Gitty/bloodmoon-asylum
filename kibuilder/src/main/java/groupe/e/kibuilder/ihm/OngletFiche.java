@@ -2,6 +2,8 @@ package groupe.e.kibuilder.ihm;
 
 import groupe.e.kibuilder.ModeleFiche;
 import groupe.e.kibuilder.ModeleLibrairie;
+import groupe.e.kibuilder.PACalculator;
+import groupe.e.kibuilder.Listener.CaractListener;
 import groupe.e.kibuilder.Listener.ComptListener;
 import groupe.e.kibuilder.Listener.NiveauVocationListener;
 import groupe.e.kibuilder.Listener.VocationListener;
@@ -73,7 +75,7 @@ public class OngletFiche extends JPanel {
         List<Caracteristique> cars = new ArrayList<Caracteristique>(model.getMapCaracteristique().values());
         fiche.setCaracteristiques(cars);
         
-        List<Competence> compts = new ArrayList<Competence>(model.getCompetences());
+        List<Competence> compts = new ArrayList<Competence>(model.getMapCompetence().values());
         fiche.setComperences(compts);
 
         Map<TypeVocation, Vocation> vocationsFiches = new HashMap<TypeVocation, Vocation>();
@@ -84,6 +86,7 @@ public class OngletFiche extends JPanel {
         	fiche.getNiveauVocations().put(type, 0);
         	fiche.getVocations().put(type, Vocation.vocationVide.get(type));
         }
+        fiche.setPA(0);
         
         paneBase = new JPanel();
 
@@ -113,7 +116,7 @@ public class OngletFiche extends JPanel {
 
             JLabel label = new JLabel(compt.getNom() + " : ");
 
-
+            compt.setValeur(PACalculator.min);
             IHMUtil.donnerContrainte(contrainte,0,compteur,1,1,5,0);
             grid.setConstraints(label,contrainte);
             paneComptInside.add(label);
@@ -153,6 +156,7 @@ public class OngletFiche extends JPanel {
             IHMUtil.donnerContrainte(contrainte,2,compteur,1,1,1,0);
             layoutVoca.setConstraints(field,contrainte);
             paneVocation.add(field);
+            fiche.getNiveauVocations().put(type, 0);
             field.addActionListener(new NiveauVocationListener(type, this, fiche, field));
             combo.addActionListener(new VocationListener(type, fiche, combo, this));
             
@@ -170,7 +174,7 @@ public class OngletFiche extends JPanel {
         JLabel paLabel = new JLabel( "Nombre de PA : ");
         PA = new JTextField();
         PA.setEditable(false);
-
+        PA.setText(fiche.getPA().toString());
 
         IHMUtil.donnerContrainte(contrainte,0,compteur,1,1,1,0);
         gridBase.setConstraints(paLabel,contrainte);
@@ -209,8 +213,11 @@ public class OngletFiche extends JPanel {
 
             IHMUtil.donnerContrainte(contrainte,compteur,0,1,1,1,0);
             gridCaract.setConstraints(label,contrainte);
-              caractPane.add(label);
-
+            caractPane.add(label);
+            car.setValeur(PACalculator.minCaract);
+            
+            combo.addActionListener(new CaractListener(car, this, combo)); 
+              
             IHMUtil.donnerContrainte(contrainte,compteur,1,1,1,1,0);
             gridCaract.setConstraints(combo,contrainte);
             caractPane.add(combo);

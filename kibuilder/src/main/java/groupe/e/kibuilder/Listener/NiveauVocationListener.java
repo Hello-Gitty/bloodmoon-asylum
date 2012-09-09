@@ -30,12 +30,12 @@ public class NiveauVocationListener implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		
-		if (fiche.getVocations().get(type) != Vocation.vocationVide.get(type)) {
+	//	if (fiche.getVocations().get(type) != Vocation.vocationVide.get(type)) {
 			Integer newValeur = Integer.parseInt(target.getSelectedItem().toString());
 			Integer pa = PACalculator.getDiffCoutVocation(fiche.getNiveauVocations().get(type), newValeur);
 			ongletFiche.pushPa(pa);
 			fiche.getNiveauVocations().put(type, newValeur);
 			ongletFiche.miseAjourVocation(type);
-		}
+	//	}
 	}
 }
