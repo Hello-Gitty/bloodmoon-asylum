@@ -8,6 +8,7 @@ import groupe.e.kibuilder.Listener.VocationListener;
 import groupe.e.kibuilder.dao.Caracteristique;
 import groupe.e.kibuilder.dao.Competence;
 import groupe.e.kibuilder.dao.Fiche;
+import groupe.e.kibuilder.dao.Ordre;
 import groupe.e.kibuilder.dao.Vocation;
 import groupe.e.kibuilder.dao.type.TypeVocation;
 
@@ -15,6 +16,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -36,6 +38,9 @@ public class OngletFiche extends JPanel {
     private JPanel paneVocation;
     private JScrollPane paneMessage;
 
+    private List<Ordre> ordreSurveille;
+    private List<Ordre> ordreVocation;
+    
     private ModeleLibrairie model;
 
     private String[] carVal = {"1","2","3","4","5","6"};
@@ -47,9 +52,9 @@ public class OngletFiche extends JPanel {
 
     public OngletFiche(ModeleLibrairie model){
          this.model = model;
-         Fiche fiche = new Fiche();
-         
-         
+         fiche = new Fiche();
+         ordreSurveille = new LinkedList<Ordre>();
+         ordreVocation = new LinkedList<Ordre>();
          
          
          this.init();
@@ -246,8 +251,6 @@ public class OngletFiche extends JPanel {
 
     }
 
-
-
     public void pushPa( int pa){
     	fiche.setPA(fiche.getPA() + pa);
     	PA.setText(fiche.getPA().toString());
@@ -258,11 +261,14 @@ public class OngletFiche extends JPanel {
     }
     
     public void miseAjourCompetence(Competence compt){
-    	
 
     }
     
     public void miseAjoutCaracteristique (Caracteristique carac){
+    	
+    }
+    
+    public void surveillerOrdre(Ordre ordre) {
     	
     }
 }

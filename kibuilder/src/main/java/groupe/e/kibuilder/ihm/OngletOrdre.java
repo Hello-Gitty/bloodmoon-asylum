@@ -20,6 +20,9 @@ public class OngletOrdre extends JPanel{
     private JScrollPane panelEdition;
     private JPanel paneButton;
     private JComboBox filterTypeCombo;
+    private JComboBox filterComptCombo;
+    private JComboBox filterCaracCombo;
+    private JCheckBox vocationFilter;
     private JTextField filterFieldNom;
 
     private JTextArea areaOrdre;
