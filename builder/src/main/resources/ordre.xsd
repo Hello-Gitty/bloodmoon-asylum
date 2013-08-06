@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="calafie/builder/ordre" xmlns:tns="calafie/builder/ordre" elementFormDefault="qualified">
+
+
+    <complexType name="ordre">
+    	<sequence>
+    		<element name="pv" type="float" minOccurs="1"></element>
+    		<element name="argent" type="double" minOccurs="1"></element>
+    		<element name="difficulte" type="int" minOccurs="0"></element>
+    		<element name="automatique" type="boolean" minOccurs="1"></element>
+    		<element name="nom" type="string" minOccurs="1"></element>
+    		<element name="type" type="string" minOccurs="1"></element>
+    		<element name="competence" type="string" minOccurs="0"></element>
+    		<element name="caracteristique" type="string"
+    			minOccurs="0">
+    		</element>
+    		<element name="oposition" type="string" minOccurs="0"></element>
+    		<element name="legal" type="boolean" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
+    		<element name="politique" type="boolean" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="gravite" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="description" type="string" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+
+
+
+
+
+    <complexType name="ordres">
+    	<sequence>
+    		<element name="ordre" type="tns:ordre" minOccurs="0" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="ordres" type="tns:ordres"></element>
+</schema>

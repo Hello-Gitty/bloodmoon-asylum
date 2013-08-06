@@ -1,0 +1,1070 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="panelVocation" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="panelCaract" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="panelFiche" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="panelCompt" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="panelOrdresVocation" min="-2" pref="479" max="-2" attributes="0"/>
+                          <Component id="panelOrdres" min="-2" pref="480" max="-2" attributes="0"/>
+                          <Component id="panelNote" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="panelButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="panelOrdresVocation" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="panelFiche" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="panelCaract" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="panelVocation" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="panelOrdres" min="-2" pref="185" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="panelNote" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="panelButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="panelCompt" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="panelCaract">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="carForField" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="carForLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="carVolField" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="carVolLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="carChaField" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="carChaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="carGesField" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="carGesLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="carIntField" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="carIntLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="carPerField" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="carPerLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="carForLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="carForField" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="carVolLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="carVolField" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="carChaLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="carChaField" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="carGesLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="carGesField" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="carIntLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="carPerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="carIntField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="carPerField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="carForLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="FOR"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="carVolLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="VOL"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="carChaLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CHA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="carGesLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="GES"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="carIntLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="INT"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="carPerLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="PER"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="carForField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="carVolField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="carChaField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="carGesField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="carIntField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="carPerField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField3"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="panelVocation">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="vocPolitiqueLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="vocPolitiqueCombo" pref="132" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="vocCombatLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="vocCombatCombo" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="vocPouvoirLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="vocPouvoirCombo" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="vocTypeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="vocCarriereLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="vocCarriereCombo" max="32767" attributes="0"/>
+                              <Component id="vocTypeCombo" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="vocCarriereField" pref="25" max="32767" attributes="0"/>
+                      <Component id="vocTypeField" pref="0" max="32767" attributes="0"/>
+                      <Component id="vocPolitiqueField" pref="0" max="32767" attributes="0"/>
+                      <Component id="vocCombatField" pref="0" max="32767" attributes="0"/>
+                      <Component id="vocPouvoirField" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="vocCarriereLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="vocCarriereCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="vocCarriereField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="vocTypeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="vocTypeCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="vocTypeField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="vocPolitiqueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="vocPolitiqueCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="vocPolitiqueField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="vocCombatCombo" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="vocCombatLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="vocCombatField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="vocPouvoirCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="vocPouvoirLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="vocPouvoirField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="vocCarriereLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel9"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="vocTypeLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel10"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="vocPolitiqueLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel11"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="vocCombatLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel12"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="vocPouvoirLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel13"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="vocCarriereCombo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="vocTypeCombo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vocTypeComboActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="vocPolitiqueCombo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="vocCombatCombo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="vocPouvoirCombo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="vocCarriereField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField8"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="vocTypeField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField9"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="vocPolitiqueField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField10"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="vocCombatField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField11"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="vocPouvoirField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField12"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="panelCompt">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="pouvoirLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="pouvoirField" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="baratinLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="informatiqueLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="foiLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="falsificationLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="eloquenceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="discretionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="demolitionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="commerceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="combDistanceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="combContactLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="combMainNuLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="31" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="informatiqueField" alignment="1" pref="0" max="32767" attributes="0"/>
+                              <Component id="foiField" alignment="1" max="32767" attributes="0"/>
+                              <Component id="falsificationField" alignment="1" pref="0" max="32767" attributes="0"/>
+                              <Component id="eloquenceField" alignment="1" pref="0" max="32767" attributes="0"/>
+                              <Component id="discretionField" alignment="1" pref="0" max="32767" attributes="0"/>
+                              <Component id="demolitionField" alignment="1" pref="0" max="32767" attributes="0"/>
+                              <Component id="commerceField" alignment="1" pref="0" max="32767" attributes="0"/>
+                              <Component id="combDistanceField" alignment="1" pref="0" max="32767" attributes="0"/>
+                              <Component id="combContactField" alignment="1" pref="0" max="32767" attributes="0"/>
+                              <Component id="combMainNuField" alignment="1" pref="0" max="32767" attributes="0"/>
+                              <Component id="baratinField" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="medecineLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="medecineField" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="observationLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="observationField" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="organisationLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="organisationField" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="seductionLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="seductionField" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="survieLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="survieField" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="volLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="volField" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="baratinLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="baratinField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="combMainNuLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="combMainNuField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="combContactLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="combContactField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="combDistanceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="combDistanceField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="commerceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="commerceField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="demolitionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="demolitionField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="discretionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="discretionField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="eloquenceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="eloquenceField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="falsificationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="falsificationField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="foiLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="foiField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="informatiqueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="informatiqueField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="medecineLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="medecineField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="observationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="observationField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="organisationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="organisationField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="pouvoirLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pouvoirField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="seductionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="seductionField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="survieLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="survieField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="volLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="volField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="baratinLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="baratin"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="combMainNuLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="main nue"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="combContactLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="contact"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="combDistanceLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="distance"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="commerceLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="commerce"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="demolitionLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="demolition"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="discretionLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="discretion"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="eloquenceLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="eloquence"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="falsificationLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="falsification"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="foiLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="foi"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="informatiqueLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="informatique"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="medecineLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="medecine"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="observationLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="observation"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="organisationLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="organisation"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="pouvoirLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="pouvoir"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="seductionLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="seduction"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="survieLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="survie"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="volLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="vol"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="baratinField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="baratin"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="baratinFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="combMainNuField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="main nue"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="combContactField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="contact"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="combDistanceField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="distance"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combDistanceFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="commerceField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="commerce"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="demolitionField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="demotion"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="demolitionFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="discretionField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="discretion"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="discretionFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="eloquenceField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="eloquence"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eloquenceFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="falsificationField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="falsification"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="foiField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="foi"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="informatiqueField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="informatique"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="medecineField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="medecine"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="observationField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="observation"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="organisationField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="organisation"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="organisationFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="pouvoirField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="pouvoir"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="seductionField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="seduction"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="survieField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="survie"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="survieFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="volField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="vol"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="panelFiche">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="nomLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="nomField" pref="167" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="paLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="paField" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="pvLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="pvCombo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="nomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nomField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="paField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="paLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="pvCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pvLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="nomLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="nom"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="nomField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="paLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="pa"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="paField">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="pafield"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="pvLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="pv"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="pvCombo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="panelOrdresVocation">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Ordre vocation"/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jTable1">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              </Table>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="panelOrdres">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Ordres"/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jTable2">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              </Table>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="panelButton">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Component id="exportButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="saveButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="loadButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="exportButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="saveButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="loadButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="exportButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jButton1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="saveButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jButton2"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="loadButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jButton3"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="panelNote">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="noteLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="scrollNote" pref="456" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="noteLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="scrollNote" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="noteLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Note"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="scrollNote">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="jTextArea1">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

@@ -1,0 +1,36 @@
+package calafie.builder.ihm.controleur;
+
+import calafie.builder.PACalculator;
+import calafie.builder.ihm.generated.PanelFicheG;
+import calafie.builder.ihm.modele.Caracteristique;
+import calafie.builder.ihm.modele.type.CaractEnum;
+
+public class CaractListener extends NumericKeyListener {
+
+    
+    private PanelFicheG paneFiche;
+    private CaractEnum caracteristique;
+    
+    
+    
+    public CaractListener(PanelFicheG pane, CaractEnum caract) {
+        super(PACalculator.minCaract, PACalculator.max);
+        paneFiche = pane;
+        caracteristique=caract;
+        //CaractListenerFiche
+    }
+
+
+
+    @Override
+    protected void process(int value) {
+        
+        Caracteristique car = paneFiche.getModeleFiche().getCaracteristiques().get(caracteristique);
+        
+        int pa = PACalculator.getDiffCoutCaract(car.getValeur(), value);
+        paneFiche.addPA(pa);
+        car.setValeur(value);
+    }
+
+
+}

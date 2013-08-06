@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="calafie/builder/fiche" xmlns:tns="calafie/builder/fiche" elementFormDefault="qualified">
+
+
+	<complexType name="caracteristiques">
+		<sequence>
+			<element name="force" type="int"></element>
+			<element name="volonte" type="int"></element>
+			<element name="charisme" type="int"></element>
+			<element name="gestion" type="int"></element>
+			<element name="intelligence" type="int"></element>
+			<element name="perception" type="int"></element>
+		</sequence>
+	</complexType>
+
+    <complexType name="competences">
+    	<sequence>
+			<element name="baratin" type="int"></element>
+			<element name="combatMainsNues" type="int"></element>
+			<element name="combatContact	" type="int"></element>
+			<element name="combatDistance" type="int"></element>
+			<element name="commerce" type="int"></element>
+			<element name="demolition" type="int"></element>
+			<element name="discretion" type="int"></element>
+			<element name="eloquence" type="int"></element>
+			<element name="falsification" type="int"></element>
+			<element name="foi" type="int"></element>
+			<element name="informatique" type="int"></element>
+			<element name="medecine" type="int"></element>
+			<element name="observation" type="int"></element>
+			<element name="organisation" type="int"></element>
+			<element name="pouvoir" type="int"></element>
+			<element name="seduction" type="int"></element>
+			<element name="survie" type="int"></element>
+			<element name="vol" type="int"></element>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="vocationType">
+    	<sequence>
+    		<element name="nom" type="string"></element>
+    		<element name="niveau" type="int"></element>
+    	</sequence>
+    </complexType>
+
+
+	
+
+
+
+
+    <complexType name="fiche">
+    	<sequence>
+    		<element name="nom" type="string"></element>
+    		<element name="pointDeVie" type="int"></element>
+    		<element name="carriere" type="tns:vocationType"></element>
+    		<element name="type" type="tns:vocationType"></element>
+    		<element name="politique" type="tns:vocationType"></element>
+    		<element name="combat" type="tns:vocationType"></element>
+    		<element name="pouvoir" type="tns:vocationType"></element>
+    		<element name="caracteristiques"
+    			type="tns:caracteristiques">
+    		</element>
+    		<element name="competences" type="tns:competences"></element>
+
+    		
+    		<element name="note" type="string"></element>
+    		
+    	</sequence>
+    </complexType>
+
+    <element name="fiche" type="tns:fiche"></element>
+</schema>
