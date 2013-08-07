@@ -1,19 +1,19 @@
 package calafie.builder.ihm.controleur;
 
 import calafie.builder.PACalculator;
-import calafie.builder.ihm.generated.PanelFicheG;
+import calafie.builder.ihm.generated.PaneFiche;
 import calafie.builder.ihm.modele.Caracteristique;
 import calafie.builder.ihm.modele.type.CaractEnum;
 
 public class CaractListener extends NumericKeyListener {
 
     
-    private PanelFicheG paneFiche;
+    private PaneFiche paneFiche;
     private CaractEnum caracteristique;
     
     
     
-    public CaractListener(PanelFicheG pane, CaractEnum caract) {
+    public CaractListener(PaneFiche pane, CaractEnum caract) {
         super(PACalculator.minCaract, PACalculator.max);
         paneFiche = pane;
         caracteristique=caract;

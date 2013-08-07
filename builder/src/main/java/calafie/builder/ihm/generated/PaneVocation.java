@@ -8,12 +8,12 @@ package calafie.builder.ihm.generated;
  *
  * @author Dart
  */
-public class PanelVocationG extends javax.swing.JPanel {
+public class PaneVocation extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelVocationG
      */
-    public PanelVocationG() {
+    public PaneVocation() {
         initComponents();
     }
 

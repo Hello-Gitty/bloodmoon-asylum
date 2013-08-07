@@ -4,15 +4,18 @@
  */
 package calafie.builder.ihm.generated;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import calafie.builder.PACalculator;
 import calafie.builder.Util;
 import calafie.builder.ihm.controleur.CaractListener;
+import calafie.builder.ihm.controleur.ComboVocFicheListener;
 import calafie.builder.ihm.controleur.CompetenceListener;
+import calafie.builder.ihm.controleur.FieldFocusListener;
 import calafie.builder.ihm.controleur.PVListener;
+import calafie.builder.ihm.controleur.VocationFieldListener;
+import calafie.builder.ihm.modele.ChoixVocation;
 import calafie.builder.ihm.modele.Fiche;
 import calafie.builder.ihm.modele.type.CaractEnum;
 import calafie.builder.ihm.modele.type.ComptEnum;
@@ -22,14 +25,14 @@ import calafie.builder.ihm.modele.type.TypeVocation;
  * 
  * @author Dart
  */
-public class PanelFicheG extends javax.swing.JPanel {
-    
-    
-    
+public class PaneFiche extends javax.swing.JPanel {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 5838032844148107833L;
     private int nombrePA = 0;
     private Fiche modeleFiche;
-    
-    
 
     public Fiche getModeleFiche() {
         return modeleFiche;
@@ -42,56 +45,69 @@ public class PanelFicheG extends javax.swing.JPanel {
     /**
      * Creates new form PanelFicheG
      */
-    public PanelFicheG() {
+    public PaneFiche() {
         initComponents();
-        
-        
+
         paField.setText("0");
         paField.setEditable(false);
-        
-        
-        carForField.addKeyListener(new CaractListener (this, CaractEnum.FOR));
-        carChaField.addKeyListener(new CaractListener (this, CaractEnum.CHA));
-        carIntField.addKeyListener(new CaractListener (this, CaractEnum.INT));
-        carPerField.addKeyListener(new CaractListener (this, CaractEnum.PER));
-        carVolField.addKeyListener(new CaractListener (this, CaractEnum.VOL));
-        carGesField.addKeyListener(new CaractListener (this, CaractEnum.GES));
-        
-        
+
+        carForField.addKeyListener(new CaractListener(this, CaractEnum.FOR));
+        carChaField.addKeyListener(new CaractListener(this, CaractEnum.CHA));
+        carIntField.addKeyListener(new CaractListener(this, CaractEnum.INT));
+        carPerField.addKeyListener(new CaractListener(this, CaractEnum.PER));
+        carVolField.addKeyListener(new CaractListener(this, CaractEnum.VOL));
+        carGesField.addKeyListener(new CaractListener(this, CaractEnum.GES));
+
+        FieldFocusListener.addFocusListener(carForField);
+        FieldFocusListener.addFocusListener(carChaField);
+        FieldFocusListener.addFocusListener(carIntField);
+        FieldFocusListener.addFocusListener(carPerField);
+        FieldFocusListener.addFocusListener(carVolField);
+        FieldFocusListener.addFocusListener(carGesField);
+
         carForField.setText(CaractEnum.base.toString());
         carChaField.setText(CaractEnum.base.toString());
         carIntField.setText(CaractEnum.base.toString());
         carPerField.setText(CaractEnum.base.toString());
         carVolField.setText(CaractEnum.base.toString());
         carGesField.setText(CaractEnum.base.toString());
-        
-        // listener sur combo voc
-        
-        //listener sur field voc
-        
-        // TODO faire gaffe pour les changements de vocation et de niveau ça changera les ordres affiché
-        
+
         // listener sur field competence
-        baratinField.addKeyListener(new CompetenceListener (this, ComptEnum.BARATIN));
-        combMainNuField.addKeyListener(new CompetenceListener (this, ComptEnum.COMBAT_MN));
-        combContactField.addKeyListener(new CompetenceListener (this, ComptEnum.COMBAT_CT));
-        combDistanceField.addKeyListener(new CompetenceListener (this, ComptEnum.COMVAT_DI));
-        commerceField.addKeyListener(new CompetenceListener (this, ComptEnum.COMMERCE));
-        demolitionField.addKeyListener(new CompetenceListener (this, ComptEnum.DISCRETION));
-        discretionField.addKeyListener(new CompetenceListener (this, ComptEnum.DEMOLITION));
-        eloquenceField.addKeyListener(new CompetenceListener (this, ComptEnum.ELOQUENCE));
-        falsificationField.addKeyListener(new CompetenceListener (this, ComptEnum.FALSIFICATION));
-        foiField.addKeyListener(new CompetenceListener (this, ComptEnum.FOI));
-        informatiqueField.addKeyListener(new CompetenceListener (this, ComptEnum.INFORMATIQUE));
-        medecineField.addKeyListener(new CompetenceListener (this, ComptEnum.MEDECINE));
-        observationField.addKeyListener(new CompetenceListener (this, ComptEnum.OBSERVATION));
-        organisationField.addKeyListener(new CompetenceListener (this, ComptEnum.ORGANISATION));
-        pouvoirField.addKeyListener(new CompetenceListener (this, ComptEnum.POUVOIR));
-        seductionField.addKeyListener(new CompetenceListener (this, ComptEnum.SEDUCTION));
-        survieField.addKeyListener(new CompetenceListener (this, ComptEnum.SURVIE));
-        volField.addKeyListener(new CompetenceListener (this, ComptEnum.VOL));
-        
-        
+        baratinField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.BARATIN));
+        combMainNuField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.COMBAT_MN));
+        combContactField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.COMBAT_CT));
+        combDistanceField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.COMVAT_DI));
+        commerceField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.COMMERCE));
+        demolitionField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.DISCRETION));
+        discretionField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.DEMOLITION));
+        eloquenceField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.ELOQUENCE));
+        falsificationField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.FALSIFICATION));
+        foiField.addKeyListener(new CompetenceListener(this, ComptEnum.FOI));
+        informatiqueField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.INFORMATIQUE));
+        medecineField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.MEDECINE));
+        observationField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.OBSERVATION));
+        organisationField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.ORGANISATION));
+        pouvoirField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.POUVOIR));
+        seductionField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.SEDUCTION));
+        survieField.addKeyListener(new CompetenceListener(this,
+                ComptEnum.SURVIE));
+        volField.addKeyListener(new CompetenceListener(this, ComptEnum.VOL));
+
         baratinField.setText(ComptEnum.base.toString());
         combMainNuField.setText(ComptEnum.base.toString());
         combContactField.setText(ComptEnum.base.toString());
@@ -110,29 +126,71 @@ public class PanelFicheG extends javax.swing.JPanel {
         seductionField.setText(ComptEnum.base.toString());
         survieField.setText(ComptEnum.base.toString());
         volField.setText(ComptEnum.base.toString());
-        
-        
-        
-        pvCombo.addActionListener(new PVListener(pvCombo, this));
-        
-        
-        
-        
-        
-        pvCombo.setModel(new javax.swing.DefaultComboBoxModel(PACalculator.getListPv()));
-        
-        
-        
-        
-        
-        
-        
 
-        // Mettre les PV dedans
-        
-        
+        FieldFocusListener.addFocusListener(baratinField);
+        FieldFocusListener.addFocusListener(combMainNuField);
+        FieldFocusListener.addFocusListener(combContactField);
+        FieldFocusListener.addFocusListener(combDistanceField);
+        FieldFocusListener.addFocusListener(commerceField);
+        FieldFocusListener.addFocusListener(demolitionField);
+        FieldFocusListener.addFocusListener(discretionField);
+        FieldFocusListener.addFocusListener(eloquenceField);
+        FieldFocusListener.addFocusListener(falsificationField);
+        FieldFocusListener.addFocusListener(foiField);
+        FieldFocusListener.addFocusListener(informatiqueField);
+        FieldFocusListener.addFocusListener(medecineField);
+        FieldFocusListener.addFocusListener(observationField);
+        FieldFocusListener.addFocusListener(organisationField);
+        FieldFocusListener.addFocusListener(pouvoirField);
+        FieldFocusListener.addFocusListener(seductionField);
+        FieldFocusListener.addFocusListener(survieField);
+        FieldFocusListener.addFocusListener(volField);
+
+        // listener sur combo voc
+        // listener sur field voc
+
+        vocCarriereField.setText(TypeVocation.base.toString());
+        vocTypeField.setText(TypeVocation.base.toString());
+        vocPolitiqueField.setText(TypeVocation.base.toString());
+        vocCombatField.setText(TypeVocation.base.toString());
+        vocPouvoirField.setText(TypeVocation.base.toString());
+
+        FieldFocusListener.addFocusListener(vocCarriereField);
+        FieldFocusListener.addFocusListener(vocTypeField);
+        FieldFocusListener.addFocusListener(vocPolitiqueField);
+        FieldFocusListener.addFocusListener(vocCombatField);
+        FieldFocusListener.addFocusListener(vocPouvoirField);
+
+        vocCarriereField.addKeyListener(new VocationFieldListener(this,
+                TypeVocation.CARRIERE));
+        vocTypeField.addKeyListener(new VocationFieldListener(this,
+                TypeVocation.TYPE));
+        vocPolitiqueField.addKeyListener(new VocationFieldListener(this,
+                TypeVocation.POLITIQUE));
+        vocCombatField.addKeyListener(new VocationFieldListener(this,
+                TypeVocation.COMBAT));
+        vocPouvoirField.addKeyListener(new VocationFieldListener(this,
+                TypeVocation.POUVOIR));
+
+        vocCarriereCombo.addActionListener(new ComboVocFicheListener(this,
+                TypeVocation.CARRIERE));
+        vocTypeCombo.addActionListener(new ComboVocFicheListener(this,
+                TypeVocation.TYPE));
+        vocPolitiqueCombo.addActionListener(new ComboVocFicheListener(this,
+                TypeVocation.POLITIQUE));
+        vocCombatCombo.addActionListener(new ComboVocFicheListener(this,
+                TypeVocation.COMBAT));
+        vocPouvoirCombo.addActionListener(new ComboVocFicheListener(this,
+                TypeVocation.POUVOIR));
+
+        // Listener pour les points de vie.
+        pvCombo.addActionListener(new PVListener(pvCombo, this));
+        pvCombo.setModel(new javax.swing.DefaultComboBoxModel(PACalculator
+                .getListPv()));
+
+        // Initialisation du modele de fiche.
         modeleFiche = new Fiche();
-        
+
     }
 
     /**
@@ -140,13 +198,8 @@ public class PanelFicheG extends javax.swing.JPanel {
      * WARNING: Do NOT modify this code. The content of this method is always
      * regenerated by the Form Editor.
      */
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed"
-    // desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        
-        
         panelCaract = new javax.swing.JPanel();
         JLabel carForLabel = new javax.swing.JLabel();
         JLabel carVolLabel = new javax.swing.JLabel();
@@ -1208,7 +1261,6 @@ public class PanelFicheG extends javax.swing.JPanel {
 
         pvLabel.setText("pv");
 
-
         javax.swing.GroupLayout panelFicheLayout = new javax.swing.GroupLayout(
                 panelFiche);
         panelFiche.setLayout(panelFicheLayout);
@@ -1575,24 +1627,25 @@ public class PanelFicheG extends javax.swing.JPanel {
                                                         Short.MAX_VALUE))
                                 .addContainerGap()));
     }// </editor-fold>//GEN-END:initComponents
-    
-    
-    
-    
-    
-    
-    
-    
-    public void addPA(int val ){
+
+    public void addPA(int val) {
         nombrePA += val;
         Integer temp = new Integer(nombrePA);
         paField.setText(temp.toString());
     }
-    
-    
-    
-    
-    
+
+    public void fireVocationChanged(TypeVocation typeVocation, Integer value) {
+
+        if (value != null) {
+            ChoixVocation voc = modeleFiche.getVocations().get(typeVocation);
+            // if (
+            // !voc.getNom().equalsIgnoreCase(ChoixVocation.VOCACTION_VIDE))
+            int pa = PACalculator.getDiffCoutVocation(voc.getValeur(), value);
+            addPA(pa);
+            voc.setValeur(value);
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField baratinField;

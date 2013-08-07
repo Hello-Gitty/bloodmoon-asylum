@@ -8,12 +8,12 @@ package calafie.builder.ihm.generated;
  *
  * @author Dart
  */
-public class PanelOrdreG extends javax.swing.JPanel {
+public class PaneOrdre extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelOrdreG
      */
-    public PanelOrdreG() {
+    public PaneOrdre() {
         initComponents();
     }
 

@@ -8,9 +8,9 @@ import javax.swing.JTabbedPane;
 
 import calafie.builder.Util;
 import calafie.builder.ihm.controleur.ListernerGeneraux;
-import calafie.builder.ihm.generated.PanelFicheG;
-import calafie.builder.ihm.generated.PanelOrdreG;
-import calafie.builder.ihm.generated.PanelVocationG;
+import calafie.builder.ihm.generated.PaneFiche;
+import calafie.builder.ihm.generated.PaneOrdre;
+import calafie.builder.ihm.generated.PaneVocation;
 
 public class Fenetre extends JFrame {
 
@@ -18,9 +18,9 @@ public class Fenetre extends JFrame {
      * 
      */
     private static final long serialVersionUID = 4407962868239058883L;
-    private PanelFicheG paneFiche;
-    private PanelOrdreG paneOrdre;
-    private PanelVocationG paneVocation;
+    private PaneFiche paneFiche;
+    private PaneOrdre paneOrdre;
+    private PaneVocation paneVocation;
 
     public Fenetre() {
         super(Util.getMessage("builder.titre"));
@@ -44,9 +44,9 @@ public class Fenetre extends JFrame {
 
     protected void initIhm() {
         JTabbedPane pane = new JTabbedPane();
-        paneFiche = new PanelFicheG();
-        paneOrdre = new PanelOrdreG();
-        paneVocation = new PanelVocationG();
+        paneFiche = new PaneFiche();
+        paneOrdre = new PaneOrdre();
+        paneVocation = new PaneVocation();
 
         pane.addTab(Util.getMessage("builder.tab.fiche.titre"), paneFiche);
         pane.addTab(Util.getMessage("builder.tab.ordre.titre"), paneOrdre);
