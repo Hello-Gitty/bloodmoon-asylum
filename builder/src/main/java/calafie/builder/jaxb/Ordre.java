@@ -66,7 +66,7 @@ public class Ordre {
     protected float pv;
     protected double argent;
     protected Integer difficulte;
-    protected boolean automatique;
+    protected boolean automatique = false;
     @XmlElement(required = true)
     protected String nom;
     @XmlElement(required = true)
@@ -74,7 +74,7 @@ public class Ordre {
     protected String competence;
     protected String caracteristique;
     protected String oposition;
-    protected boolean legal;
+    protected boolean legal = true;
     protected Boolean politique;
     protected String gravite;
     @XmlElement(required = true)

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 
+import javax.swing.JFileChooser;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -19,34 +20,69 @@ import calafie.builder.Constantes;
 
 public class InterfaceJaxb {
 
-    public void sauvegarderVocation(Vocations voc) {
+    public void sauvegarde(Object oo) {
+        try {
+            JFileChooser chooser = new JFileChooser();
 
+            int returnVal = chooser.showOpenDialog(null);
+            if (returnVal == JFileChooser.CANCEL_OPTION) {
+                return;
+            }
+
+            File fichier = chooser.getSelectedFile();
+
+            String contenu = encode(oo);
+
+            ecrire(fichier, contenu);
+
+        } catch (IOException e) {
+            return;
+        }
     }
 
-    public void sauvegarderOrdres(Vocations voc) {
+    public Object charger() {
+        try {
+            JFileChooser chooser = new JFileChooser();
 
+            int returnVal = chooser.showOpenDialog(null);
+            if (returnVal == JFileChooser.CANCEL_OPTION) {
+                return null;
+            }
+
+            File fichier = chooser.getSelectedFile();
+            String contenu = lire(fichier);
+
+            return decode(contenu);
+
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    public void sauvegarderVocation(Vocations voc) {
+        sauvegarde(voc);
+    }
+
+    public void sauvegarderOrdres(Ordres voc) {
+        sauvegarde(voc);
     }
 
     public Vocations chargementVocation() {
-
-        return null;
-
+        return (Vocations) charger();
     }
 
     public Ordres chargementOrdres() {
-        return null;
-
+        return (Ordres) charger();
     }
 
     public void ecrire(File file, String data) throws IOException {
-        
-        
-        if (file.exists()){
+
+        if (file.exists()) {
             file.delete();
             file.createNewFile();
         }
-        
-        BufferedWriter writer = new BufferedWriter( new FileWriter(file));
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
         writer.write(data);
         writer.close();
 
@@ -72,14 +108,12 @@ public class InterfaceJaxb {
                 }
 
             }
-    
+
             readerbuffe.close();
         } catch (IOException e) {
-            // 
+            //
             e.printStackTrace();
         }
-
-        // readerbuffe.readLine()
 
         return result.toString();
     }

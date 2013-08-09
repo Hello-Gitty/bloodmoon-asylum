@@ -11,7 +11,7 @@ public enum ComptEnum {
             "Survie"), VOL("Vol");
 
     public static Integer base = 0;
-    
+
     private String nom;
 
     private ComptEnum(String nom) {
@@ -20,6 +20,15 @@ public enum ComptEnum {
 
     public String getNom() {
         return nom;
+    }
+
+    public static String[] getModele() {
+
+        String[] types = new String[values().length];
+        for (int i = 0; i < values().length; i++) {
+            types[i] = values()[i].getNom();
+        }
+        return types;
     }
 
 }

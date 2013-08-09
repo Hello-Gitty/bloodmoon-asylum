@@ -21,5 +21,16 @@ public enum TypeVocation {
     public String getNom() {
         return nom;
     }
+ 
     
+    public static String[] getModele(){
+        
+        String[] types = new String[values().length];
+        for (int i = 0; i < values().length; i++) {
+            types[i] = values()[i].getNom();
+        }
+        return types;
+    }
+
+
 }
