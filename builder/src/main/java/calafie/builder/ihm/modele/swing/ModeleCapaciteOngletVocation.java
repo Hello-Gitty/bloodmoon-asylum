@@ -1,23 +1,63 @@
 package calafie.builder.ihm.modele.swing;
 
-import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ModeleCapaciteOngletVocation extends AbstractTableModel {
+import javax.swing.DefaultListModel;
 
-    public int getRowCount() {
-        // TODO Auto-generated method stub
-        return 0;
+import calafie.builder.jaxb.Capacite;
+
+
+public class ModeleCapaciteOngletVocation extends DefaultListModel {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -2686544520735865107L;
+    private List<Capacite> capacites = new ArrayList<Capacite>();
+
+    public int getSize() {
+        return capacites.size();
     }
 
-    public int getColumnCount() {
-        // TODO Auto-generated method stub
-        return 0;
+    // NOM | NIVEAU
+    public Object getElementAt(int index) {
+
+        Capacite capa = capacites.get(index);
+        String result = "Niveau " + capa.getNiveau() + " :" + capa.getNom();
+
+        return result;
+    }
+    
+    public List<Capacite> getListCapacite() {
+        return capacites;
     }
 
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        return null;
+    public void modif() {
+        fireIntervalAdded(this, 0, getSize());
+
     }
+
+    public void suppression(int index) {
+        fireIntervalRemoved(this, 0, getSize());
+    }
+    
+    public Capacite getItem(int index) {
+        return capacites.get(index);
+    }
+    
+    public void deleteItem(int index) {
+        capacites.remove(index);
+    }
+    
+    public void addItem(Capacite capa) {
+        capacites.add(capa);
+        modif();
+    }
+    
+}
+    
 
     
-     // NOM | NIVEAU
-}
+    
+

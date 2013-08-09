@@ -9,7 +9,7 @@
 		<sequence>
 			<element name="nom" type="string" minOccurs="1"></element>
 			<element name="niveau" type="int" minOccurs="1"></element>
-			<element name="ordres" type="pref:ordres" minOccurs="0"></element>
+			<element name="ordres" type="pref:ordre" minOccurs="0" maxOccurs="unbounded"></element>
 		</sequence>
 	</complexType>
 
@@ -34,5 +34,5 @@
 		</sequence>
 	</complexType>
 
-    <element name="vocations" type="tns:vocations"></element>
+
 </schema>

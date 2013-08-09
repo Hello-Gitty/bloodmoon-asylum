@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import calafie.builder.Builder;
 import calafie.builder.Util;
 import calafie.builder.ihm.controleur.DefaultNumericListener;
+import calafie.builder.ihm.modele.swing.FloatDocument;
 import calafie.builder.ihm.modele.type.CaractEnum;
 import calafie.builder.ihm.modele.type.ComptEnum;
 import calafie.builder.ihm.modele.type.TypeLegalite;
@@ -45,15 +46,21 @@ public class PopUpOrdre extends JDialog {
         typeLegalCombo.setModel(new javax.swing.DefaultComboBoxModel(
                 TypeLegalite.getModele()));
 
-        caractCombo.setModel(new javax.swing.DefaultComboBoxModel(CaractEnum
-                .getModele()));
+        String[] caractOppo = new String[CaractEnum.getModele().length + 1];
+        caractOppo[0] = "";
+        for (int i = 1; i <= CaractEnum.getModele().length; i++) {
+            caractOppo[i] = CaractEnum.getModele()[i - 1];
+        }
+
+        caractOppoCombo.setModel(new javax.swing.DefaultComboBoxModel(
+                caractOppo));
 
         competeCombo.setModel(new javax.swing.DefaultComboBoxModel(ComptEnum
                 .getModele()));
 
-        caractOppoCombo.setModel(new javax.swing.DefaultComboBoxModel(
-                CaractEnum.getModele()));
-        typeField.setModel(new javax.swing.DefaultComboBoxModel(TypeOrdre
+        caractCombo.setModel(new javax.swing.DefaultComboBoxModel(CaractEnum
+                .getModele()));
+        typeCombo.setModel(new javax.swing.DefaultComboBoxModel(TypeOrdre
                 .getModele()));
 
     }
@@ -73,7 +80,7 @@ public class PopUpOrdre extends JDialog {
         JLabel nomLabel = new javax.swing.JLabel();
         nomFiled = new javax.swing.JTextField();
         JLabel typeLabel = new javax.swing.JLabel();
-        typeField = new javax.swing.JComboBox();
+        typeCombo = new javax.swing.JComboBox();
         JLabel descriptionLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         descriptionArea = new javax.swing.JTextArea();
@@ -95,16 +102,10 @@ public class PopUpOrdre extends JDialog {
         JLabel coutArgentLabel = new javax.swing.JLabel();
         coutArgentField = new javax.swing.JTextField();
 
-        automatiqueCheck.setText(Util
-                .getMessage("builder.popOrdre.element.automatique"));
-        legalCheck.setText(Util.getMessage("builder.popOrdre.element.legal"));
-        politiqueChech.setText(Util
-                .getMessage("builder.popOrdre.element.politique"));
 
-        diffField.setText("0");
         diffField.addKeyListener(new DefaultNumericListener());
         coutArgentField.addKeyListener(new DefaultNumericListener());
-        coutPvField.addKeyListener(new DefaultNumericListener());
+        coutPvField.setDocument(new FloatDocument());
 
         nomLabel.setText(Util.getMessage(Util
                 .getMessage("builder.popOrdre.element.nom")));
@@ -122,6 +123,12 @@ public class PopUpOrdre extends JDialog {
         coutArgentLabel.setText(Util
                 .getMessage("builder.popOrdre.element.cout"));
         coutPvLabel.setText(Util.getMessage("builder.popOrdre.element.coutpv"));
+
+        automatiqueCheck.setText(Util
+                .getMessage("builder.popOrdre.element.automatique"));
+        legalCheck.setText(Util.getMessage("builder.popOrdre.element.legal"));
+        politiqueChech.setText(Util
+                .getMessage("builder.popOrdre.element.politique"));
 
         okButton.setText(Util.getMessage("builder.button.save"));
 
@@ -149,17 +156,13 @@ public class PopUpOrdre extends JDialog {
         cancelButton.setText(Util.getMessage("builder.button.cancel"));
 
         legalCheck.addActionListener(new ActionListener() {
-            
+
             public void actionPerformed(ActionEvent e) {
-               clicLegal();
+                clicLegal();
             }
         });
-        
-        
-        
-        
-        descriptionArea.setColumns(20);
-        descriptionArea.setRows(5);
+
+
         jScrollPane1.setViewportView(descriptionArea);
 
         JPanel panel = new JPanel();
@@ -168,310 +171,121 @@ public class PopUpOrdre extends JDialog {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
                 getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(layout
-                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(
-                        layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(
-                                        layout.createParallelGroup(
-                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(
-                                                        layout.createSequentialGroup()
-                                                                .addGroup(
-                                                                        layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addGroup(
-                                                                                        layout.createSequentialGroup()
-                                                                                                .addGap(0,
-                                                                                                        0,
-                                                                                                        Short.MAX_VALUE)
-                                                                                                .addComponent(
-                                                                                                        okButton)
-                                                                                                .addPreferredGap(
-                                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                .addComponent(
-                                                                                                        cancelButton))
-                                                                                .addGroup(
-                                                                                        javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                        layout.createSequentialGroup()
-                                                                                                .addGroup(
-                                                                                                        layout.createParallelGroup(
-                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                                false)
-                                                                                                                .addComponent(
-                                                                                                                        jScrollPane1,
-                                                                                                                        javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                .addGroup(
-                                                                                                                        layout.createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                .addGroup(
-                                                                                                                                        layout.createSequentialGroup()
-                                                                                                                                                .addComponent(
-                                                                                                                                                        nomLabel)
-                                                                                                                                                .addGap(18,
-                                                                                                                                                        18,
-                                                                                                                                                        18)
-                                                                                                                                                .addComponent(
-                                                                                                                                                        nomFiled,
-                                                                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                        160,
-                                                                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                                                .addGroup(
-                                                                                                                                        layout.createSequentialGroup()
-                                                                                                                                                .addComponent(
-                                                                                                                                                        typeLabel)
-                                                                                                                                                .addGap(18,
-                                                                                                                                                        18,
-                                                                                                                                                        18)
-                                                                                                                                                .addComponent(
-                                                                                                                                                        typeField,
-                                                                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                        102,
-                                                                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                                                .addComponent(
-                                                                                                                                        descriptionLabel)))
-                                                                                                .addGap(18,
-                                                                                                        18,
-                                                                                                        18)
-                                                                                                .addGroup(
-                                                                                                        layout.createParallelGroup(
-                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                .addGroup(
-                                                                                                                        layout.createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                                false)
-                                                                                                                                .addComponent(
-                                                                                                                                        legalCheck,
-                                                                                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                        Short.MAX_VALUE)
-                                                                                                                                .addComponent(
-                                                                                                                                        politiqueChech))
-                                                                                                                .addGroup(
-                                                                                                                        layout.createSequentialGroup()
-                                                                                                                                .addComponent(
-                                                                                                                                        typeLegalLabel)
-                                                                                                                                .addPreferredGap(
-                                                                                                                                        javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                                .addComponent(
-                                                                                                                                        typeLegalCombo,
-                                                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                                .addGap(0,
-                                                                                                        79,
-                                                                                                        Short.MAX_VALUE)))
-                                                                .addContainerGap())
-                                                .addGroup(
-                                                        layout.createSequentialGroup()
-                                                                .addGroup(
-                                                                        layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addGroup(
-                                                                                        layout.createSequentialGroup()
-                                                                                                .addComponent(
-                                                                                                        automatiqueCheck)
-                                                                                                .addGap(18,
-                                                                                                        18,
-                                                                                                        18)
-                                                                                                .addComponent(
-                                                                                                        diffLabel)
-                                                                                                .addGap(18,
-                                                                                                        18,
-                                                                                                        18)
-                                                                                                .addComponent(
-                                                                                                        diffField,
-                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                        20,
-                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                .addGroup(
-                                                                                        layout.createSequentialGroup()
-                                                                                                .addGroup(
-                                                                                                        layout.createParallelGroup(
-                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                .addComponent(
-                                                                                                                        caractLabel)
-                                                                                                                .addComponent(
-                                                                                                                        competeLabel))
-                                                                                                .addGap(28,
-                                                                                                        28,
-                                                                                                        28)
-                                                                                                .addGroup(
-                                                                                                        layout.createParallelGroup(
-                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                false)
-                                                                                                                .addComponent(
-                                                                                                                        competeCombo,
-                                                                                                                        0,
-                                                                                                                        117,
-                                                                                                                        Short.MAX_VALUE)
-                                                                                                                .addComponent(
-                                                                                                                        caractCombo,
-                                                                                                                        0,
-                                                                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                        Short.MAX_VALUE))
-                                                                                                .addPreferredGap(
-                                                                                                        javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                .addComponent(
-                                                                                                        caractOppoLabel)
-                                                                                                .addPreferredGap(
-                                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                .addComponent(
-                                                                                                        caractOppoCombo,
-                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                        109,
-                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                .addGroup(
-                                                                                        layout.createSequentialGroup()
-                                                                                                .addComponent(
-                                                                                                        coutPvLabel)
-                                                                                                .addGap(27,
-                                                                                                        27,
-                                                                                                        27)
-                                                                                                .addComponent(
-                                                                                                        coutPvField,
-                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                        30,
-                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addPreferredGap(
-                                                                                                        javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                .addComponent(
-                                                                                                        coutArgentLabel)
-                                                                                                .addGap(18,
-                                                                                                        18,
-                                                                                                        18)
-                                                                                                .addComponent(
-                                                                                                        coutArgentField,
-                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                        45,
-                                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                .addGap(0,
-                                                                        0,
-                                                                        Short.MAX_VALUE)))));
-        layout.setVerticalGroup(layout
-                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(
-                        javax.swing.GroupLayout.Alignment.TRAILING,
-                        layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(
-                                        layout.createParallelGroup(
-                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(nomLabel)
-                                                .addComponent(
-                                                        nomFiled,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(legalCheck))
-                                .addPreferredGap(
-                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(
-                                        layout.createParallelGroup(
-                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(typeLabel)
-                                                .addComponent(
-                                                        typeField,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(politiqueChech))
-                                .addPreferredGap(
-                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(
-                                        layout.createParallelGroup(
-                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(descriptionLabel)
-                                                .addComponent(typeLegalLabel)
-                                                .addComponent(
-                                                        typeLegalCombo,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(9, 9, 9)
-                                .addComponent(jScrollPane1,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        81,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(
-                                        layout.createParallelGroup(
-                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(
-                                                        layout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(
-                                                                        diffLabel)
-                                                                .addComponent(
-                                                                        diffField,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addComponent(automatiqueCheck))
-                                .addPreferredGap(
-                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(
-                                        layout.createParallelGroup(
-                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(
-                                                        layout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(
-                                                                        caractOppoLabel)
-                                                                .addComponent(
-                                                                        caractOppoCombo,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(
-                                                        layout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                .addComponent(
-                                                                        caractLabel)
-                                                                .addComponent(
-                                                                        caractCombo,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(
-                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(
-                                        layout.createParallelGroup(
-                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(competeLabel)
-                                                .addComponent(
-                                                        competeCombo,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(
-                                        javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(
-                                        layout.createParallelGroup(
-                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(
-                                                        coutPvField,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(coutPvLabel)
-                                                .addComponent(coutArgentLabel)
-                                                .addComponent(
-                                                        coutArgentField,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(
-                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                        Short.MAX_VALUE)
-                                .addGroup(
-                                        layout.createParallelGroup(
-                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(okButton)
-                                                .addComponent(cancelButton))
-                                .addContainerGap()));
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(okButton)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(cancelButton))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(nomLabel)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(nomFiled, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(typeLabel)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(typeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(descriptionLabel))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(legalCheck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(politiqueChech))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(typeLegalLabel)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(typeLegalCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(0, 100, Short.MAX_VALUE)))
+                            .addContainerGap())
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(automatiqueCheck)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(diffLabel)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(diffField, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(caractLabel)
+                                        .addComponent(competeLabel))
+                                    .addGap(28, 28, 28)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(caractCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(101, 101, 101)
+                                            .addComponent(caractOppoLabel)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(caractOppoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(competeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(coutPvLabel)
+                                    .addGap(27, 27, 27)
+                                    .addComponent(coutPvField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(coutArgentLabel)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(coutArgentField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1))
+                            .addGap(0, 0, Short.MAX_VALUE))))
+            );
+            layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nomLabel)
+                        .addComponent(nomFiled, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(legalCheck))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(typeLabel)
+                        .addComponent(typeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(politiqueChech))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(descriptionLabel)
+                        .addComponent(typeLegalLabel)
+                        .addComponent(typeLegalCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(9, 9, 9)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(automatiqueCheck)
+                        .addComponent(diffLabel)
+                        .addComponent(diffField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(caractOppoLabel)
+                            .addComponent(caractOppoCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(caractLabel)
+                            .addComponent(caractCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(competeLabel)
+                        .addComponent(competeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(coutPvField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(coutPvLabel)
+                        .addComponent(coutArgentLabel)
+                        .addComponent(coutArgentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(okButton)
+                        .addComponent(cancelButton))
+                    .addContainerGap())
+            );
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -489,45 +303,106 @@ public class PopUpOrdre extends JDialog {
     private javax.swing.JTextField nomFiled;
     private javax.swing.JButton okButton;
     private javax.swing.JCheckBox politiqueChech;
-    private javax.swing.JComboBox typeField;
+    private javax.swing.JComboBox typeCombo;
     private javax.swing.JComboBox typeLegalCombo;
 
     // End of variables declaration//GEN-END:variables
 
     public Ordre ouverture(Ordre ordre) {
-        
+
         if (ordre == null) {
             ordre = new Ordre();
+            coutPvField.setText("0");
+            coutArgentField.setText("0");
+            diffField.setText("0");
+            nomFiled.setText("");
+            descriptionArea.setText("");
+            typeCombo.setSelectedIndex(0);
+            
+            legalCheck.setSelected(false);
+            automatiqueCheck.setSelected(false);
+            
+            
+            competeCombo.setSelectedIndex(0);
+            caractCombo.setSelectedIndex(0);
+            caractOppoCombo.setSelectedIndex(0);
+            
         } else {
 
+            nomFiled.setText(ordre.getNom());
+            descriptionArea.setText(ordre.getDescription());
+            typeCombo.setSelectedItem(ordre.getType());
+            
+            legalCheck.setSelected(!ordre.isLegal());
+            automatiqueCheck.setSelected(ordre.isAutomatique());
+            
+            if (legalCheck.isSelected()) {
+                politiqueChech.setSelected(ordre.isPolitique());
+                typeLegalCombo.setSelectedItem(ordre.getGravite());
+            }
+            
+            if (!automatiqueCheck.isSelected()) {
+                competeCombo.setSelectedItem(ordre.getCompetence());
+                caractCombo.setSelectedItem(ordre.getCaracteristique());
+                caractOppoCombo.setSelectedItem(ordre.getOposition());
+                diffField.setText(ordre.getDifficulte().toString());
+            }
+            
+            
+            
+            coutArgentField.setText(""+ordre.getArgent());
+            coutPvField.setText(""+ordre.getPv());
             
             
         }
 
-        
+        // Initialisation de la partie légal et jet
         clicLegal();
         clicAutomatique();
+
         
+        // Bloquant, la suite du traitement n'est effectué uniquement lorsque la popup n'est plus affichée.
         setVisible(true);
+        // Si on a cliqué sur annuler on renvoi null
+        // sinon on remplit l'ordre et on renvoi l'ordre
         if (!save) {
             return null;
         }
-        
+
         ordre.setNom(nomFiled.getText());
         ordre.setAutomatique(automatiqueCheck.isSelected());
         ordre.setLegal(!legalCheck.isSelected());
-        
-        
         ordre.setDescription(descriptionArea.getText());
-       // ordre.setDifficulte(Integer.parseInt(diffField.getText()));
-       // ordre.setArgent(Double.parseDouble(diffField.getText()));
-      //  ordre.setPv(Float.parseFloat(coutPvField.getText()));
-     
-        
-        ordre.setCompetence(competeCombo.getSelectedItem().toString());
-        ordre.setCaracteristique(caractCombo.getSelectedItem().toString());
-        
-        
+
+        ordre.setType(typeCombo.getSelectedItem().toString());
+
+        if (!ordre.isLegal()) {
+            ordre.setPolitique(politiqueChech.isSelected());
+            ordre.setGravite(typeLegalCombo.getSelectedItem().toString());
+        }
+
+        if (!ordre.isAutomatique()) {
+            ordre.setCompetence(competeCombo.getSelectedItem().toString());
+            ordre.setCaracteristique(caractCombo.getSelectedItem().toString());
+            ordre.setOposition(caractOppoCombo.getSelectedItem().toString());
+
+            String coutPv = coutPvField.getText();
+            String cout = coutArgentField.getText();
+            String diff = diffField.getText();
+            
+            if (coutPv.length() > 0) {
+                ordre.setPv(Float.parseFloat(coutPv));
+            }
+
+            if (cout.length() > 0) {
+                ordre.setArgent(Double.parseDouble(cout));
+            }
+
+            if (diff.length() > 0) {
+                ordre.setDifficulte(Integer.parseInt(diff));
+            }
+
+        }
 
         return ordre;
     }
@@ -549,12 +424,11 @@ public class PopUpOrdre extends JDialog {
         competeCombo.setEnabled(enable);
         diffField.setEnabled(enable);
     }
-    
+
     private void clicLegal() {
         boolean enable = legalCheck.isSelected();
         typeLegalCombo.setEnabled(enable);
         politiqueChech.setEnabled(enable);
     }
-
 
 }

@@ -1,24 +1,23 @@
 package calafie.builder.ihm.modele.swing;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
 import calafie.builder.jaxb.Ordre;
 
-public class ModeleOrdreOngletOrdre extends AbstractTableModel {
+public class ModeleOrdreOngletVocation extends AbstractTableModel {
 
     /**
      * 
      */
     private static final long serialVersionUID = -7114068558872331484L;
     private List<Ordre> ordres;
-    private String[] colmnName = { "Nom", "Type", "Legal", "Caracteristique",
-            "Caracteristique Adv.", "Competence", "Cout", "PV" };
+    private String[] colmnName = { "Nom",  "Caracteristique",
+            "Caracteristique Adv.", "Competence" };
 
-    public ModeleOrdreOngletOrdre() {
+    public ModeleOrdreOngletVocation() {
         ordres = new ArrayList<Ordre>();
     }
 
@@ -44,35 +43,14 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel {
             result = ordre.getNom();
             break;
         case 1:
-            result = ordre.getType();
-            break;
-        case 2:
-            if (!ordre.isLegal()) {
-                result = ordre.getGravite();
-                if (ordre.isPolitique()) {
-                    result += " Politique";
-                }
-            } else {
-                result = "-";
-            }
-
-            break;
-        case 3:
             result = ordre.getCaracteristique();
             break;
-        case 4:
+        case 2:
             result = ordre.getOposition();
             break;
-        case 5:
+        case 3:
             result = ordre.getCompetence();
             break;
-        case 6:
-            result = "" + ordre.getArgent();
-            break;
-        case 7:
-            result = "" + ordre.getPv();
-            break;
-
         default:
             result = "Undefined";
             break;
@@ -81,7 +59,7 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel {
         return result;
     }
 
-    // NOM | TYPE | LEGAL | CAR | CAR OPP | COMPT |
+    // NOM | CAR | CAR OPP | COMPT |
 
     public void addOrdre(Ordre ordre) {
         ordres.add(ordre);

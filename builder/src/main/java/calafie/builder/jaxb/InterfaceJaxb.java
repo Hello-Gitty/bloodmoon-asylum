@@ -16,6 +16,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+import calafie.builder.Builder;
 import calafie.builder.Constantes;
 
 public class InterfaceJaxb {
@@ -24,7 +25,7 @@ public class InterfaceJaxb {
         try {
             JFileChooser chooser = new JFileChooser();
 
-            int returnVal = chooser.showOpenDialog(null);
+            int returnVal = chooser.showSaveDialog(Builder.fenetre);
             if (returnVal == JFileChooser.CANCEL_OPTION) {
                 return;
             }
@@ -44,7 +45,7 @@ public class InterfaceJaxb {
         try {
             JFileChooser chooser = new JFileChooser();
 
-            int returnVal = chooser.showOpenDialog(null);
+            int returnVal = chooser.showOpenDialog(Builder.fenetre);
             if (returnVal == JFileChooser.CANCEL_OPTION) {
                 return null;
             }
@@ -55,6 +56,7 @@ public class InterfaceJaxb {
             return decode(contenu);
 
         } catch (IOException e) {
+            e.printStackTrace();
             return null;
         }
     }

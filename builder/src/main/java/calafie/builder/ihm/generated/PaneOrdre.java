@@ -7,8 +7,23 @@ package calafie.builder.ihm.generated;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.RowSorter;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableRowSorter;
+
+
 
 import calafie.builder.Util;
 import calafie.builder.ihm.modele.swing.ModeleOrdreOngletOrdre;
@@ -21,18 +36,19 @@ import calafie.builder.jaxb.Ordres;
  * 
  * @author Dart
  */
-public class PaneOrdre extends javax.swing.JPanel {
+public class PaneOrdre extends JPanel {
 
     /**
      * 
      */
     private static final long serialVersionUID = -5667852833993737108L;
-    private JLabel descriptionLabel;
+    private JTextArea descriptionLabel;
     private JLabel nomOrdreLabel;
     private JLabel potLabel;
     private JLabel coutLabel;
     private ModeleOrdreOngletOrdre modeleOrdre;
     private PopUpOrdre popOrdre;
+    private RowSorter<ModeleOrdreOngletOrdre> sorter;
 
     /**
      * Creates new form PanelOrdreG
@@ -43,7 +59,7 @@ public class PaneOrdre extends javax.swing.JPanel {
         popOrdre = new PopUpOrdre();
         tableOrdres.setModel(modeleOrdre);
 
-        typeFiltreCombo.setModel(new javax.swing.DefaultComboBoxModel(TypeOrdre
+        typeFiltreCombo.setModel(new DefaultComboBoxModel(TypeOrdre
                 .getModele()));
 
     }
@@ -55,29 +71,31 @@ public class PaneOrdre extends javax.swing.JPanel {
      */
     private void initComponents() {
 
-        paneButtonOrdre = new javax.swing.JPanel();
-        newButton = new javax.swing.JButton();
-        editButton = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
-        paneButtonLoadSaveData = new javax.swing.JPanel();
-        saveButton = new javax.swing.JButton();
-        loadButton = new javax.swing.JButton();
-        JScrollPane tableListe = new javax.swing.JScrollPane();
-        tableOrdres = new javax.swing.JTable();
-        paneOrdre = new javax.swing.JPanel();
-        JScrollPane jScrollPane2 = new javax.swing.JScrollPane();
-        descriptionLabel = new javax.swing.JLabel();
-        nomOrdreLabel = new javax.swing.JLabel();
-        coutLabel = new javax.swing.JLabel();
-        potLabel = new javax.swing.JLabel();
-        JLabel filtreNomLabel = new javax.swing.JLabel();
-        filtreField = new javax.swing.JTextField();
-        JLabel typeFiltreLabel = new javax.swing.JLabel();
-        typeFiltreCombo = new javax.swing.JComboBox();
+        paneButtonOrdre = new JPanel();
+        newButton = new JButton();
+        editButton = new JButton();
+        deleteButton = new JButton();
+        paneButtonLoadSaveData = new JPanel();
+        saveButton = new JButton();
+        loadButton = new JButton();
+        JScrollPane tableListe = new JScrollPane();
+        tableOrdres = new JTable();
+        paneOrdre = new JPanel();
+        JScrollPane jScrollPane2 = new JScrollPane();
+        descriptionLabel = new JTextArea();
+        nomOrdreLabel = new JLabel();
+        coutLabel = new JLabel();
+        potLabel = new JLabel();
+        JLabel filtreNomLabel = new JLabel();
+        filtreField = new JTextField();
+        JLabel typeFiltreLabel = new JLabel();
+        typeFiltreCombo = new JComboBox();
 
-        paneButtonOrdre.setBorder(javax.swing.BorderFactory
+        paneButtonOrdre.setBorder(BorderFactory
                 .createEtchedBorder());
 
+        descriptionLabel.setEditable(false);
+        
         filtreNomLabel.setText(Util.getMessage("builder.paneOrdre.filtre"));
         typeFiltreLabel.setText(Util
                 .getMessage("builder.popOrdre.element.type"));
@@ -105,7 +123,6 @@ public class PaneOrdre extends javax.swing.JPanel {
 
             public void actionPerformed(ActionEvent e) {
                 ouvrirPopUp(true);
-
             }
         });
 
@@ -113,10 +130,29 @@ public class PaneOrdre extends javax.swing.JPanel {
 
             public void actionPerformed(ActionEvent e) {
                 ouvrirPopUp(false);
-
             }
         });
 
+        deleteButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                supprimer();
+            }
+        });
+        tableOrdres.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        
+        
+        tableOrdres.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            
+            public void valueChanged(ListSelectionEvent e) {
+                selection();                
+            }
+        });
+        
+        //sorter = new TableRowSorter<ModeleOrdreOngletOrdre>(modeleOrdre);
+        //tableOrdres.setRowSorter(sorter);
+        
         org.jdesktop.layout.GroupLayout paneButtonOrdreLayout = new org.jdesktop.layout.GroupLayout(
                 paneButtonOrdre);
         paneButtonOrdre.setLayout(paneButtonOrdreLayout);
@@ -142,7 +178,7 @@ public class PaneOrdre extends javax.swing.JPanel {
                                 org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(newButton).add(editButton).add(deleteButton)));
 
-        paneButtonLoadSaveData.setBorder(javax.swing.BorderFactory
+        paneButtonLoadSaveData.setBorder(BorderFactory
                 .createEtchedBorder());
 
         org.jdesktop.layout.GroupLayout paneButtonLoadSaveDataLayout = new org.jdesktop.layout.GroupLayout(
@@ -171,11 +207,11 @@ public class PaneOrdre extends javax.swing.JPanel {
                                         org.jdesktop.layout.GroupLayout.BASELINE)
                                 .add(saveButton).add(loadButton)));
 
-        tableListe.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tableListe.setBorder(BorderFactory.createEtchedBorder());
 
         tableListe.setViewportView(tableOrdres);
 
-        paneOrdre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        paneOrdre.setBorder(BorderFactory.createEtchedBorder());
         jScrollPane2.setViewportView(descriptionLabel);
 
         org.jdesktop.layout.GroupLayout paneOrdreLayout = new org.jdesktop.layout.GroupLayout(
@@ -343,23 +379,59 @@ public class PaneOrdre extends javax.swing.JPanel {
                         .addContainerGap()));
     }// </editor-fold>//GEN-END:initComponents
 
-    private javax.swing.JButton deleteButton;
-    private javax.swing.JButton editButton;
-    private javax.swing.JTextField filtreField;
-    private javax.swing.JButton loadButton;
-    private javax.swing.JButton newButton;
-    private javax.swing.JPanel paneButtonLoadSaveData;
-    private javax.swing.JPanel paneButtonOrdre;
-    private javax.swing.JPanel paneOrdre;
-    private javax.swing.JButton saveButton;
-    private javax.swing.JTable tableOrdres;
-    private javax.swing.JComboBox typeFiltreCombo;
+    private JButton deleteButton;
+    private JButton editButton;
+    private JTextField filtreField;
+    private JButton loadButton;
+    private JButton newButton;
+    private JPanel paneButtonLoadSaveData;
+    private JPanel paneButtonOrdre;
+    private JPanel paneOrdre;
+    private JButton saveButton;
+    private JTable tableOrdres;
+    private JComboBox typeFiltreCombo;
 
+    
+    private void clearOrdre(){
+        descriptionLabel.setText("");
+        nomOrdreLabel.setText("");
+        coutLabel.setText("");
+        potLabel.setText("");
+    }
+    
     public void setOrdre(Ordre ordre) {
+
+        String titre = "";
+
+        titre += ordre.getNom();
+        if (!ordre.isLegal()) {
+            String gravite = ordre.getGravite();
+            gravite = gravite.substring(0, 1)
+                    + gravite.toLowerCase().substring(1);
+            titre += " (" + gravite + (ordre.isPolitique() ? " politique" : "")
+                    + ")";
+        }
+        
+        String pot = "";
+        String cout = "Coût : ";
+        cout += ordre.getArgent() + "fk |";
+        cout += " Fatigue: " + ordre.getPv() + " PdV ";
+
+        if (ordre.isAutomatique()) {
+            cout += " | Automatique";
+        } else {
+            cout += " | Difficulté: " + ordre.getDifficulte();
+            pot = "Potentiel : " + ordre.getCaracteristique();
+            if (ordre.getOposition().length() > 0) {
+                pot += "-" + ordre.getOposition();
+            }
+            pot += "+" + ordre.getCompetence();
+        }
+
         descriptionLabel.setText(ordre.getDescription());
-        nomOrdreLabel.setText(ordre.getNom());
-        coutLabel.setText("jLabel3");
-        potLabel.setText("jLabel4");
+        nomOrdreLabel.setText(titre);
+        coutLabel.setText(cout);
+        potLabel.setText(pot);
     }
 
     public void exporter() {
@@ -372,18 +444,34 @@ public class PaneOrdre extends javax.swing.JPanel {
 
     private void ouvrirPopUp(boolean modif) {
 
-        if (modif) {
-            tableOrdres.getSelectedRow();
+        clearOrdre();
 
+        
+        if (modif) {
+            int index = tableOrdres.getSelectedRow();
+            if (index == -1){
+                return;
+             }
+            Ordre ordre = popOrdre.ouverture(modeleOrdre.getItem(index));
+            if (ordre != null) {
+                modeleOrdre.modif();
+                setOrdre(ordre);
+            }
         } else {
             Ordre ordre = popOrdre.ouverture(null);
             if (ordre != null) {
                 modeleOrdre.addOrdre(ordre);
             }
-            
+
         }
     }
 
+    private void supprimer(){
+        int index = tableOrdres.getSelectedRow();
+        modeleOrdre.removeItem(index);
+    }
+    
+    
     public void importer() {
         InterfaceJaxb inter = new InterfaceJaxb();
         modeleOrdre.getListOrdre().clear();
@@ -391,6 +479,17 @@ public class PaneOrdre extends javax.swing.JPanel {
         if (res != null) {
             modeleOrdre.getListOrdre().addAll(res.getOrdre());
         }
+        modeleOrdre.modif();
     }
 
+    private void selection() {
+        int index = tableOrdres.getSelectedRow();
+        if (index == -1){
+           return;
+        }
+        Ordre ordre = modeleOrdre.getItem(index);
+        setOrdre(ordre);
+
+    }
+    
 }

@@ -13,39 +13,34 @@ import javax.swing.JPanel;
 
 import calafie.builder.Builder;
 import calafie.builder.Util;
-import calafie.builder.ihm.modele.type.TypeVocation;
-import calafie.builder.jaxb.Capacites;
+import calafie.builder.jaxb.Capacite;
 import calafie.builder.jaxb.Vocation;
 
 /**
  * 
  * @author Dart
  */
-public class PopVocation extends JDialog {
+public class PopCapacite extends JDialog {
 
+    private boolean save;
     /**
      * 
      */
     private static final long serialVersionUID = -748261308233014072L;
-    
-    private boolean save;
-    
 
     /**
      * Creates new form PopUpVocation
      */
-    public PopVocation() {
+    public PopCapacite() {
         super(Builder.fenetre, true);
         initComponents();
         setSize(290, 150);
         setResizable(false);
-        
-        typeCombo.setModel(new javax.swing.DefaultComboBoxModel(TypeVocation
-                .getModele()));
 
+        String[] niveaux = { "1", "2", "3", "4", "5", "6" };
+        niveauCombo.setModel(new javax.swing.DefaultComboBoxModel(niveaux));
     }
 
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,7 +51,7 @@ public class PopVocation extends JDialog {
         JLabel nomLabel = new javax.swing.JLabel();
         nomField = new javax.swing.JTextField();
         JLabel typeLabel = new javax.swing.JLabel();
-        typeCombo = new javax.swing.JComboBox();
+        niveauCombo = new javax.swing.JComboBox();
         okButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
 
@@ -66,6 +61,9 @@ public class PopVocation extends JDialog {
 
         okButton.setText(Util.getMessage("builder.button.save"));
         cancelButton.setText(Util.getMessage("builder.button.cancel"));
+
+        JPanel panel = new JPanel();
+        this.add(panel);
 
         okButton.addActionListener(new ActionListener() {
 
@@ -80,12 +78,6 @@ public class PopVocation extends JDialog {
                 clicCancel();
             }
         });
-        
-        
-        
-        
-        JPanel panel = new JPanel();
-        this.add(panel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(panel);
         panel.setLayout(layout);
@@ -126,7 +118,7 @@ public class PopVocation extends JDialog {
                                                                         117,
                                                                         Short.MAX_VALUE)
                                                                 .addComponent(
-                                                                        typeCombo,
+                                                                        niveauCombo,
                                                                         0,
                                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                         Short.MAX_VALUE)))
@@ -154,7 +146,7 @@ public class PopVocation extends JDialog {
                                                 javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(typeLabel)
                                                 .addComponent(
-                                                        typeCombo,
+                                                        niveauCombo,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -174,42 +166,42 @@ public class PopVocation extends JDialog {
     private javax.swing.JButton cancelButton;
     private javax.swing.JTextField nomField;
     private javax.swing.JButton okButton;
-    private javax.swing.JComboBox typeCombo;
+    private javax.swing.JComboBox niveauCombo;
 
     // End of variables declaration//GEN-END:variables
 
     public Vocation getVocation() {
         Vocation result = new Vocation();
         result.setNom(nomField.getText());
-        result.setType(typeCombo.getSelectedItem().toString());
+        result.setType(niveauCombo.getSelectedItem().toString());
         return result;
     }
 
-    public Vocation ouverture(Vocation voca) {
+    public Capacite ouverture(Capacite capa) {
 
-        if (voca == null) {
-            voca = new Vocation();
-            voca.setCapacites(new Capacites());
+        if (capa == null) {
+            capa = new Capacite();
             nomField.setText("");
-            typeCombo.setSelectedIndex(0);
+            niveauCombo.setSelectedIndex(0);
         } else {
-            nomField.setText(voca.getNom());
-            typeCombo.setSelectedItem(voca.getType());
+            nomField.setText(capa.getNom());
+            niveauCombo.setSelectedItem(Integer.toString(capa.getNiveau()));
         }
-        
-        
-        // Bloquant, la suite du traitement n'est effectué uniquement lorsque la popup n'est plus affichée.
+
+        // Bloquant, la suite du traitement n'est effectué uniquement lorsque la
+        // popup n'est plus affichée.
         setVisible(true);
         // Si on a cliqué sur annuler on renvoi null
         // sinon on remplit l'ordre et on renvoi l'ordre
         if (!save) {
             return null;
         }
-        
-        voca.setNom(nomField.getText());
-        voca.setType(typeCombo.getSelectedItem().toString());
-        
-        return voca;
+
+        capa.setNom(nomField.getText());
+        capa.setNiveau(Integer.parseInt(niveauCombo.getSelectedItem()
+                .toString()));
+
+        return capa;
     }
 
     private void clicSave() {
@@ -221,6 +213,5 @@ public class PopVocation extends JDialog {
         save = false;
         setVisible(false);
     }
-    
-    
+
 }

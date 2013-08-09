@@ -70,5 +70,5 @@
     	</sequence>
     </complexType>
 
-    <element name="fiche" type="tns:fiche"></element>
+
 </schema>

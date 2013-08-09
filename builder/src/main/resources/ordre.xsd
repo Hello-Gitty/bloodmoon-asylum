@@ -39,5 +39,5 @@
     	</sequence>
     </complexType>
 
-    <element name="ordres" type="tns:ordres"></element>
+
 </schema>

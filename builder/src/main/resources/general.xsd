@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="calafie"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="calafie" xmlns:pref="calafie/builder/fiche" xmlns:pref1="calafie/builder/ordre" xmlns:pref2="calafie/builder/vocation">
+	<import schemaLocation="fiche.xsd"
+		namespace="calafie/builder/fiche">
+	</import>
+	<import schemaLocation="ordre.xsd"
+		namespace="calafie/builder/ordre">
+	</import>
+	<import schemaLocation="vocation.xsd" namespace="calafie/builder/vocation"></import>
+
+    <element name="fiche" type="pref:fiche"></element>
+
+    <element name="ordres" type="pref1:ordres"></element>
+
+    <element name="vocations" type="pref2:vocations"></element>
+</schema>
