@@ -1,7 +1,6 @@
 package calafie.builder.ihm.modele.swing;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
@@ -97,16 +96,24 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel {
         fireTableDataChanged();
     }
 
-    public List<Ordre> getListOrdre() {
-        return ordres;
-    }
-    
     public Ordre getItem(int index) {
         return ordres.get(index);
     }
     
     
+    public void addItems (List<Ordre> list) {
+        if (list == null){
+            return;
+        }
+        ordres.clear();
+        ordres.addAll(list);
+        modif();
+    }
     
+    public void clear(){
+        ordres.clear();
+        modif();
+    }
     
 
 }

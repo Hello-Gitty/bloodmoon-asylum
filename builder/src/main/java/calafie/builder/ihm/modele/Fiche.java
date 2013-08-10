@@ -44,7 +44,6 @@ public class Fiche {
             ChoixVocation choix = new ChoixVocation();
             choix.setValeur(TypeVocation.base);
             choix.setNom(ChoixVocation.VOCACTION_VIDE);
-            choix.setVocation(ChoixVocation.VOCACTION_VIDE);
             vocations.put(type, choix);
         }
     }

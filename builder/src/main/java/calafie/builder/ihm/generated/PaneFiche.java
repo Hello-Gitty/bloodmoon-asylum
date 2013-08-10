@@ -4,6 +4,10 @@
  */
 package calafie.builder.ihm.generated;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Map;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -15,11 +19,17 @@ import calafie.builder.ihm.controleur.CompetenceListener;
 import calafie.builder.ihm.controleur.FieldFocusListener;
 import calafie.builder.ihm.controleur.PVListener;
 import calafie.builder.ihm.controleur.VocationFieldListener;
+import calafie.builder.ihm.modele.Caracteristique;
 import calafie.builder.ihm.modele.ChoixVocation;
+import calafie.builder.ihm.modele.Competence;
 import calafie.builder.ihm.modele.Fiche;
 import calafie.builder.ihm.modele.type.CaractEnum;
 import calafie.builder.ihm.modele.type.ComptEnum;
 import calafie.builder.ihm.modele.type.TypeVocation;
+import calafie.builder.jaxb.Caracteristiques;
+import calafie.builder.jaxb.Competences;
+import calafie.builder.jaxb.InterfaceJaxb;
+import calafie.builder.jaxb.VocationType;
 
 /**
  * 
@@ -312,6 +322,31 @@ public class PaneFiche extends javax.swing.JPanel {
 
         carPerField.setHorizontalAlignment(JTextField.CENTER);
 
+        
+        saveButton.addActionListener( new ActionListener() {
+            
+            public void actionPerformed(ActionEvent e) {
+                exporter();
+
+            }
+        });
+        
+        loadButton.addActionListener(new ActionListener() {
+            
+            public void actionPerformed(ActionEvent e) {
+                importer();
+            }
+        });
+        
+
+        exportButton.addActionListener( new ActionListener() {
+            
+            public void actionPerformed(ActionEvent e) {
+                exporterText();
+
+            }
+        });
+        
         javax.swing.GroupLayout panelCaractLayout = new javax.swing.GroupLayout(
                 panelCaract);
         panelCaract.setLayout(panelCaractLayout);
@@ -1731,5 +1766,252 @@ public class PaneFiche extends javax.swing.JPanel {
 
     private javax.swing.JTextField volField;
 
-    // End of variables declaration//GEN-END:variables
+
+    
+    private void importer() {
+        InterfaceJaxb inter = new InterfaceJaxb();
+        calafie.builder.jaxb.Fiche fiche = inter.chargementFiche();
+        if (fiche == null) {
+            return;
+        }
+        modeleFiche = new Fiche();
+        modeleFiche.setPV(fiche.getPointDeVie());
+        noteArea.setText(fiche.getNote());
+        nomField.setText(fiche.getNom());
+        pvCombo.setSelectedItem(""+fiche.getPointDeVie());
+        paField.setText("0");
+        nombrePA = 0;
+
+        Competences competence = fiche.getCompetences();
+        Map<ComptEnum, Competence> compt = modeleFiche.getCompetences();
+        compt.get(ComptEnum.BARATIN).setValeur(competence.getBaratin());
+        compt.get(ComptEnum.COMBAT_CT).setValeur(competence.getCombatContact());
+        compt.get(ComptEnum.COMVAT_DI)
+                .setValeur(competence.getCombatDistance());
+        compt.get(ComptEnum.COMBAT_MN).setValeur(
+                competence.getCombatMainsNues());
+        compt.get(ComptEnum.COMMERCE).setValeur(competence.getCommerce());
+        compt.get(ComptEnum.DEMOLITION).setValeur(competence.getDemolition());
+        compt.get(ComptEnum.DISCRETION).setValeur(competence.getDiscretion());
+        compt.get(ComptEnum.ELOQUENCE).setValeur(competence.getEloquence());
+        compt.get(ComptEnum.FALSIFICATION).setValeur(
+                competence.getFalsification());
+        compt.get(ComptEnum.FOI).setValeur(competence.getFoi());
+        compt.get(ComptEnum.INFORMATIQUE).setValeur(
+                competence.getInformatique());
+        compt.get(ComptEnum.MEDECINE).setValeur(competence.getMedecine());
+        compt.get(ComptEnum.OBSERVATION).setValeur(competence.getObservation());
+        compt.get(ComptEnum.ORGANISATION).setValeur(
+                competence.getOrganisation());
+        compt.get(ComptEnum.POUVOIR).setValeur(competence.getPouvoir());
+        compt.get(ComptEnum.SEDUCTION).setValeur(competence.getSeduction());
+        compt.get(ComptEnum.SURVIE).setValeur(competence.getSurvie());
+        compt.get(ComptEnum.VOL).setValeur(competence.getVol());
+
+        baratinField.setText(""+competence.getBaratin());
+        combMainNuField.setText(""+competence.getCombatMainsNues());
+        combContactField.setText(""+competence.getCombatContact());
+        combDistanceField.setText(""+competence.getCombatDistance());
+        commerceField.setText(""+competence.getCommerce());
+        demolitionField.setText(""+competence.getDemolition());
+        discretionField.setText(""+competence.getDiscretion());
+        eloquenceField.setText(""+competence.getEloquence());
+        falsificationField.setText(""+competence.getFalsification());
+        foiField.setText(""+competence.getFoi());
+        informatiqueField.setText(""+competence.getInformatique());
+        medecineField.setText(""+competence.getMedecine());
+        observationField.setText(""+competence.getObservation());
+        organisationField.setText(""+competence.getOrganisation());
+        pouvoirField.setText(""+competence.getPouvoir());
+        seductionField.setText(""+competence.getSeduction());
+        survieField.setText(""+competence.getSurvie());
+        volField.setText(""+competence.getVol());
+        
+        
+        
+        Map<TypeVocation, ChoixVocation> vocations = modeleFiche.getVocations();
+        ChoixVocation carriere = vocations.get(TypeVocation.CARRIERE);
+        carriere.setNom(fiche.getCarriere().getNom());
+        carriere.setValeur(fiche.getCarriere().getNiveau());
+        vocCarriereField.setText(""+fiche.getCarriere().getNiveau());
+        
+        ChoixVocation type = vocations.get(TypeVocation.TYPE);
+        type.setNom(fiche.getType().getNom());
+        type.setValeur(fiche.getType().getNiveau());
+        vocTypeField.setText(""+fiche.getType().getNiveau());
+        
+        ChoixVocation politique = vocations.get(TypeVocation.POLITIQUE);
+        politique.setNom(fiche.getPolitique().getNom());
+        politique.setValeur(fiche.getPolitique().getNiveau());
+        vocPolitiqueField.setText(""+fiche.getPolitique().getNiveau());
+        
+        ChoixVocation combat = vocations.get(TypeVocation.COMBAT);
+        combat.setNom(fiche.getCombat().getNom());
+        combat.setValeur(fiche.getCombat().getNiveau());
+        vocCombatField.setText(""+fiche.getCombat().getNiveau());
+        
+        ChoixVocation pouvoir = vocations.get(TypeVocation.POUVOIR);
+        pouvoir.setNom(fiche.getPouvoir().getNom());
+        pouvoir.setValeur(fiche.getPouvoir().getNiveau());
+        vocPouvoirField.setText(""+fiche.getPouvoir().getNiveau());
+        
+        
+        
+        
+        
+        
+        
+        Map<CaractEnum, Caracteristique> caract = modeleFiche
+                .getCaracteristiques();
+
+        caract.get(CaractEnum.FOR).setValeur(fiche.getCaracteristiques().getForce());
+        caract.get(CaractEnum.CHA).setValeur(fiche.getCaracteristiques().getCharisme());
+        caract.get(CaractEnum.GES).setValeur(fiche.getCaracteristiques().getGestion());
+        caract.get(CaractEnum.INT).setValeur(fiche.getCaracteristiques().getIntelligence());
+        caract.get(CaractEnum.VOL).setValeur(fiche.getCaracteristiques().getVolonte());
+        caract.get(CaractEnum.PER).setValeur(fiche.getCaracteristiques().getPerception());
+        
+        carForField.setText(""+fiche.getCaracteristiques().getForce());
+        carChaField.setText(""+fiche.getCaracteristiques().getCharisme());
+        carIntField.setText(""+fiche.getCaracteristiques().getIntelligence());
+        carPerField.setText(""+fiche.getCaracteristiques().getPerception());
+        carVolField.setText(""+fiche.getCaracteristiques().getVolonte());
+        carGesField.setText(""+fiche.getCaracteristiques().getGestion());
+        
+        
+        // TODO remise à jour des élément de l'IHM bordel de pute
+        
+        recaculPa();
+    }
+    
+    private void recaculPa() {
+
+        int pa = 0;
+
+        pa += PACalculator.getCoutPaPV(modeleFiche.getPV());
+
+        for (TypeVocation voca : TypeVocation.values()) {
+            int val = modeleFiche.getVocations().get(voca).getValeur();
+            pa += PACalculator.getCoutPaVocation(val);
+        }
+
+        for (CaractEnum car : CaractEnum.values()) {
+
+            int val = modeleFiche.getCaracteristiques().get(car).getValeur();
+            pa += PACalculator.getCoutPaCaract(val);
+        }
+
+        for (ComptEnum car : ComptEnum.values()) {
+
+            int val = modeleFiche.getCompetences().get(car).getValeur();
+            pa += PACalculator.getCoutPaCompetence(val);
+        }
+        addPA(pa);
+
+    }
+
+    private void exporter(){
+        InterfaceJaxb inter = new InterfaceJaxb();
+        calafie.builder.jaxb.Fiche fiche = new calafie.builder.jaxb.Fiche();
+        
+        fiche.setNote(noteArea.getText());
+        fiche.setNom(nomField.getText());
+        fiche.setPointDeVie(modeleFiche.getPV());
+        
+        Caracteristiques caract = new Caracteristiques();
+        caract.setCharisme(modeleFiche.getCaracteristiques().get(CaractEnum.CHA).getValeur());
+        caract.setForce(modeleFiche.getCaracteristiques().get(CaractEnum.FOR).getValeur());
+        caract.setGestion(modeleFiche.getCaracteristiques().get(CaractEnum.GES).getValeur());
+        caract.setPerception(modeleFiche.getCaracteristiques().get(CaractEnum.PER).getValeur());
+        caract.setIntelligence(modeleFiche.getCaracteristiques().get(CaractEnum.INT).getValeur());
+        caract.setVolonte(modeleFiche.getCaracteristiques().get(CaractEnum.VOL).getValeur());
+        
+        fiche.setCaracteristiques(caract);
+        
+        fiche.setCarriere(convertion(modeleFiche.getVocations().get(TypeVocation.CARRIERE)));
+        fiche.setCombat(convertion(modeleFiche.getVocations().get(TypeVocation.COMBAT)));
+        fiche.setPolitique(convertion(modeleFiche.getVocations().get(TypeVocation.POLITIQUE)));
+        fiche.setPouvoir(convertion(modeleFiche.getVocations().get(TypeVocation.POUVOIR)));
+        fiche.setType(convertion(modeleFiche.getVocations().get(TypeVocation.TYPE)));
+        
+        
+        Competences competence = new Competences();
+        
+        Map<ComptEnum, Competence> compt = modeleFiche.getCompetences();
+        
+        competence.setBaratin(compt.get(ComptEnum.BARATIN).getValeur());
+        competence.setCombatContact(compt.get(ComptEnum.COMBAT_CT).getValeur());
+        competence.setCombatDistance(compt.get(ComptEnum.COMVAT_DI).getValeur());
+        competence.setCombatMainsNues(compt.get(ComptEnum.COMBAT_MN).getValeur());
+        competence.setCommerce(compt.get(ComptEnum.COMMERCE).getValeur());
+        competence.setDemolition(compt.get(ComptEnum.DEMOLITION).getValeur());
+        competence.setDiscretion(compt.get(ComptEnum.DISCRETION).getValeur());
+        competence.setEloquence(compt.get(ComptEnum.ELOQUENCE).getValeur());
+        competence.setFalsification(compt.get(ComptEnum.FALSIFICATION).getValeur());
+        competence.setFoi(compt.get(ComptEnum.FOI).getValeur());
+        competence.setInformatique(compt.get(ComptEnum.INFORMATIQUE).getValeur());
+        competence.setMedecine(compt.get(ComptEnum.MEDECINE).getValeur());
+        competence.setObservation(compt.get(ComptEnum.OBSERVATION).getValeur());
+        competence.setOrganisation(compt.get(ComptEnum.ORGANISATION).getValeur());
+        competence.setPouvoir(compt.get(ComptEnum.POUVOIR).getValeur());
+        competence.setSeduction(compt.get(ComptEnum.SEDUCTION).getValeur());
+        competence.setSurvie(compt.get(ComptEnum.SURVIE).getValeur());
+        competence.setVol(compt.get(ComptEnum.VOL).getValeur());
+        fiche.setCompetences(competence);
+        
+        inter.sauvegarderFiche(fiche);
+        
+        
+        
+           
+    }
+
+    private void exporterText() {
+
+        InterfaceJaxb inter = new InterfaceJaxb();
+
+        StringBuilder builder = new StringBuilder();
+
+        builder.append(nomField.getText());
+        builder.append("\n");
+        builder.append(paField.getText() + " PAs");
+        builder.append("\n \n");
+        builder.append(modeleFiche.getPV() + " PdV");
+        builder.append("\n \n");
+        for (TypeVocation voca : TypeVocation.values()) {
+            builder.append(voca.getNom());
+            builder.append(": ");
+            builder.append(modeleFiche.getVocations().get(voca).getNom());
+            builder.append(" ");
+            builder.append(modeleFiche.getVocations().get(voca).getValeur());
+            builder.append("\n");
+        }
+
+        for (CaractEnum car : CaractEnum.values()) {
+            builder.append(modeleFiche.getCaracteristiques().get(car).getNom());
+            builder.append(" ");
+            builder.append(modeleFiche.getCaracteristiques().get(car)
+                    .getValeur());
+            builder.append("\n");
+        }
+
+        for (ComptEnum car : ComptEnum.values()) {
+            builder.append(modeleFiche.getCompetences().get(car).getNom());
+            builder.append(" ");
+            builder.append(modeleFiche.getCompetences().get(car).getValeur());
+            builder.append("\n");
+        }
+
+        builder.append("\n");
+
+        builder.append(noteArea.getText());
+
+        inter.sauvegarde(builder.toString());
+
+    }
+
+    private VocationType convertion(ChoixVocation choix) {
+        VocationType result = new VocationType();
+        return result;
+    }
 }

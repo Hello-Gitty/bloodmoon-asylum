@@ -3,12 +3,12 @@ package calafie.builder.ihm.modele.swing;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.DefaultListModel;
+import javax.swing.AbstractListModel;
 
 import calafie.builder.jaxb.Capacite;
 
 
-public class ModeleCapaciteOngletVocation extends DefaultListModel {
+public class ModeleCapaciteOngletVocation extends AbstractListModel {
 
     /**
      * 
@@ -29,10 +29,6 @@ public class ModeleCapaciteOngletVocation extends DefaultListModel {
         return result;
     }
     
-    public List<Capacite> getListCapacite() {
-        return capacites;
-    }
-
     public void modif() {
         fireIntervalAdded(this, 0, getSize());
 
@@ -54,6 +50,21 @@ public class ModeleCapaciteOngletVocation extends DefaultListModel {
         capacites.add(capa);
         modif();
     }
+    
+    public void clear() {
+        capacites.clear();
+        modif();
+    }
+    
+    public void addItems (List<Capacite> list) {
+        if (list == null){
+            return;
+        }
+        capacites.clear();
+        capacites.addAll(list);
+        modif();
+    }
+    
     
 }
     

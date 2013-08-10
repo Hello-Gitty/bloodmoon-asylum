@@ -3,6 +3,7 @@ package calafie.builder.jaxb;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -11,6 +12,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -21,10 +23,60 @@ import calafie.builder.Constantes;
 
 public class InterfaceJaxb {
 
+    
+    public static FileFilter FILE_FILTER = new javax.swing.filechooser.FileFilter() {
+        
+        @Override
+        public String getDescription() {
+            return null;
+        }
+        
+        @Override
+        public boolean accept(File f) {
+            return f.getName().endsWith(".xml");
+        }
+    };
+    
+    public static FileFilter FILE_FILTER_TXT = new javax.swing.filechooser.FileFilter() {
+        
+        @Override
+        public String getDescription() {
+            return null;
+        }
+        
+        @Override
+        public boolean accept(File f) {
+            return f.getName().endsWith(".txt");
+        }
+    };
+    
+    
+    
+    
+    public void sauvegarde(String oo) {
+        try {
+            JFileChooser chooser = new JFileChooser();
+            chooser.setFileFilter(FILE_FILTER_TXT);
+            int returnVal = chooser.showSaveDialog(Builder.fenetre);
+            if (returnVal == JFileChooser.CANCEL_OPTION) {
+                return;
+            }
+
+            File fichier = chooser.getSelectedFile();
+
+
+            ecrire(fichier, oo);
+
+        } catch (IOException e) {
+            return;
+        }
+    }
+    
+    
     public void sauvegarde(Object oo) {
         try {
             JFileChooser chooser = new JFileChooser();
-
+            chooser.setFileFilter(FILE_FILTER);
             int returnVal = chooser.showSaveDialog(Builder.fenetre);
             if (returnVal == JFileChooser.CANCEL_OPTION) {
                 return;
@@ -44,7 +96,7 @@ public class InterfaceJaxb {
     public Object charger() {
         try {
             JFileChooser chooser = new JFileChooser();
-
+            chooser.setFileFilter(FILE_FILTER);
             int returnVal = chooser.showOpenDialog(Builder.fenetre);
             if (returnVal == JFileChooser.CANCEL_OPTION) {
                 return null;
@@ -69,6 +121,14 @@ public class InterfaceJaxb {
         sauvegarde(voc);
     }
 
+    public void sauvegarderFiche(Fiche voc) {
+        sauvegarde(voc);
+    }
+    
+    public Fiche chargementFiche() {
+        return (Fiche) charger();
+    }
+    
     public Vocations chargementVocation() {
         return (Vocations) charger();
     }

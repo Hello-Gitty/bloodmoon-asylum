@@ -75,15 +75,28 @@ public class ModeleOrdreOngletVocation extends AbstractTableModel {
         fireTableDataChanged();
     }
 
-    public List<Ordre> getListOrdre() {
-        return ordres;
-    }
-    
+   
     public Ordre getItem(int index) {
+        if (ordres.size()<=index){
+            return null;
+        }
         return ordres.get(index);
     }
-    
-    
+
+    public void clear() {
+        ordres.clear();
+        modif();
+        
+    }
+
+    public void addItems(List<Ordre> list) {
+        if (list == null){
+            return;
+        }
+        ordres.clear();
+        ordres.addAll(list);
+        modif();
+    }
     
     
 

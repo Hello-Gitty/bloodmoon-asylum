@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="baratin" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="combatMainsNues" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="combatContact " type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="combatContact" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="combatDistance" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="commerce" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="demolition" type="{http://www.w3.org/2001/XMLSchema}int"/>
@@ -54,7 +54,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "competences", namespace = "calafie/builder/fiche", propOrder = {
     "baratin",
     "combatMainsNues",
-    "combatContact0020",
+    "combatContact",
     "combatDistance",
     "commerce",
     "demolition",
@@ -75,8 +75,7 @@ public class Competences {
 
     protected int baratin;
     protected int combatMainsNues;
-    @XmlElement(name = "combatContact ")
-    protected int combatContact0020;
+    protected int combatContact;
     protected int combatDistance;
     protected int commerce;
     protected int demolition;
@@ -129,16 +128,16 @@ public class Competences {
      * Gets the value of the combatContact0020 property.
      * 
      */
-    public int getCombatContact_0020() {
-        return combatContact0020;
+    public int getCombatContact() {
+        return combatContact;
     }
 
     /**
      * Sets the value of the combatContact0020 property.
      * 
      */
-    public void setCombatContact_0020(int value) {
-        this.combatContact0020 = value;
+    public void setCombatContact(int value) {
+        this.combatContact = value;
     }
 
     /**

@@ -178,12 +178,6 @@ public class PopVocation extends JDialog {
 
     // End of variables declaration//GEN-END:variables
 
-    public Vocation getVocation() {
-        Vocation result = new Vocation();
-        result.setNom(nomField.getText());
-        result.setType(typeCombo.getSelectedItem().toString());
-        return result;
-    }
 
     public Vocation ouverture(Vocation voca) {
 
@@ -194,9 +188,8 @@ public class PopVocation extends JDialog {
             typeCombo.setSelectedIndex(0);
         } else {
             nomField.setText(voca.getNom());
-            typeCombo.setSelectedItem(voca.getType());
+            typeCombo.setSelectedItem(TypeVocation.valueOf(voca.getType()).getNom());
         }
-        
         
         // Bloquant, la suite du traitement n'est effectué uniquement lorsque la popup n'est plus affichée.
         setVisible(true);
@@ -207,7 +200,7 @@ public class PopVocation extends JDialog {
         }
         
         voca.setNom(nomField.getText());
-        voca.setType(typeCombo.getSelectedItem().toString());
+        voca.setType(TypeVocation.getTypeForName(typeCombo.getSelectedItem().toString()).name());
         
         return voca;
     }

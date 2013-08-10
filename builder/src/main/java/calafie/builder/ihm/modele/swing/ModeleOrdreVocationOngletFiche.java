@@ -4,6 +4,11 @@ import javax.swing.table.AbstractTableModel;
 
 public class ModeleOrdreVocationOngletFiche extends AbstractTableModel{
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -4796004018105123680L;
+
     public int getRowCount() {
         // TODO Auto-generated method stub
         return 0;

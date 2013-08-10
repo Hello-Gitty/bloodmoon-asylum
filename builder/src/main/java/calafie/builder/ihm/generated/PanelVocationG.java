@@ -6,6 +6,7 @@ package calafie.builder.ihm.generated;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
@@ -22,6 +23,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import calafie.builder.Builder;
 import calafie.builder.Util;
 import calafie.builder.ihm.modele.swing.ModeleCapaciteOngletVocation;
 import calafie.builder.ihm.modele.swing.ModeleOrdreOngletVocation;
@@ -293,6 +295,15 @@ public class PanelVocationG extends JPanel {
                 supprimerVoca();
 
             }
+        });
+
+        typeCombo.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                selectTypeVoca();
+
+            }
+
         });
 
         org.jdesktop.layout.GroupLayout panelButtonLayout = new org.jdesktop.layout.GroupLayout(
@@ -662,7 +673,7 @@ public class PanelVocationG extends JPanel {
     public void exporter() {
 
         Vocations voca = new Vocations();
-        voca.getVocation().addAll(modeleVocation.getListVocation());
+        voca.getVocation().addAll(Builder.kitheque.getAllVocations());
         InterfaceJaxb inter = new InterfaceJaxb();
         inter.sauvegarderVocation(voca);
     }
@@ -692,12 +703,14 @@ public class PanelVocationG extends JPanel {
     }
 
     private void clicVocation() {
-        modeleCap.getListCapacite().clear();
+        modeleCap.clear();
         int index = vocationList.getSelectedIndex();
         Vocation voca = modeleVocation.getItem(index);
-        modeleCap.getListCapacite().addAll(voca.getCapacites().getCapacite());
-        modeleCap.modif();
-        enableButtonCapa(true);
+        if (voca != null) {
+            modeleCap.addItems(voca.getCapacites().getCapacite());
+            modeleCap.modif();
+            enableButtonCapa(true);
+        }
     }
 
     private void enableButtonOrdre(boolean enable) {
@@ -714,10 +727,10 @@ public class PanelVocationG extends JPanel {
 
     private void clicCapacite() {
         clearOrdre();
-        modeleOrdre.getListOrdre().clear();
+        modeleOrdre.clear();
         int index = capaciteList.getSelectedIndex();
         Capacite capa = modeleCap.getItem(index);
-        modeleOrdre.getListOrdre().addAll(capa.getOrdres());
+        modeleOrdre.addItems(capa.getOrdres());
         modeleOrdre.modif();
         enableButtonOrdre(true);
     }
@@ -729,15 +742,22 @@ public class PanelVocationG extends JPanel {
             if (index == -1) {
                 return;
             }
+
             Vocation voca = modeleVocation.getItem(index);
+            TypeVocation oldType = TypeVocation.valueOf(voca.getType());
             voca = popVocation.ouverture(voca);
             if (voca != null) {
+
+                if (!TypeVocation.valueOf(voca.getType()).equals(oldType)) {
+                    Builder.kitheque.ajoutVoca(voca, true, oldType);
+                }
                 modeleVocation.modif();
             }
         } else {
             Vocation voca = popVocation.ouverture(null);
             if (voca != null) {
                 modeleVocation.addItem(voca);
+                Builder.kitheque.ajoutVoca(voca, false, null);
             }
 
         }
@@ -760,8 +780,9 @@ public class PanelVocationG extends JPanel {
         } else {
             Capacite capa = popCapacite.ouverture(null);
             if (capa != null) {
-                int indexVoca  = vocationList.getSelectedIndex();
-                modeleVocation.getItem(indexVoca).getCapacites().getCapacite().add(capa);
+                int indexVoca = vocationList.getSelectedIndex();
+                modeleVocation.getItem(indexVoca).getCapacites().getCapacite()
+                        .add(capa);
                 modeleCap.addItem(capa);
             }
         }
@@ -784,13 +805,12 @@ public class PanelVocationG extends JPanel {
 
     public void importer() {
         InterfaceJaxb inter = new InterfaceJaxb();
-        modeleVocation.getListVocation().clear();
+        modeleVocation.clear();
         Vocations res = inter.chargementVocation();
         if (res != null) {
-            modeleVocation.getListVocation().addAll(res.getVocation());
+            Builder.kitheque.importerListVocation(res);
+            selectTypeVoca();
         }
-
-        modeleVocation.modif();
     }
 
     private void selection() {
@@ -799,7 +819,35 @@ public class PanelVocationG extends JPanel {
             return;
         }
         Ordre ordre = modeleOrdre.getItem(index);
-        setOrdre(ordre);
+        if ( ordre != null){
+            setOrdre(ordre);
+        }
+    }
+
+    private void selectTypeVoca() {
+        clearSelection();
+
+        TypeVocation type = TypeVocation.values()[typeCombo.getSelectedIndex()];
+
+        List<Vocation> list = Builder.kitheque.getVocations().get(type);
+        modeleVocation.addItems(list);
+        modeleVocation.modif();
+
+    }
+
+    private void clearSelection() {
+        /*
+        vocationList.clearSelection();
+        tableOrdres.clearSelection();
+        capaciteList.clearSelection();
+        */
+        modeleVocation.clear();
+        modeleCap.clear();
+        modeleOrdre.clear();
+
+        enableButtonCapa(false);
+        enableButtonOrdre(false);
+
     }
 
 }

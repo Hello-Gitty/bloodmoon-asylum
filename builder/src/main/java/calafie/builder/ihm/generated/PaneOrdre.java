@@ -21,10 +21,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.RowSorter;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.table.TableRowSorter;
 
-
-
+import calafie.builder.Builder;
 import calafie.builder.Util;
 import calafie.builder.ihm.modele.swing.ModeleOrdreOngletOrdre;
 import calafie.builder.ihm.modele.type.TypeOrdre;
@@ -437,7 +435,7 @@ public class PaneOrdre extends JPanel {
     public void exporter() {
 
         Ordres ordres = new Ordres();
-        ordres.getOrdre().addAll(modeleOrdre.getListOrdre());
+        ordres.getOrdre().addAll(Builder.kitheque.getOrdres());
         InterfaceJaxb inter = new InterfaceJaxb();
         inter.sauvegarderOrdres(ordres);
     }
@@ -474,10 +472,14 @@ public class PaneOrdre extends JPanel {
     
     public void importer() {
         InterfaceJaxb inter = new InterfaceJaxb();
-        modeleOrdre.getListOrdre().clear();
+        Builder.kitheque.clearOrdres();
+        
+        modeleOrdre.clear();
+        
         Ordres res = inter.chargementOrdres();
         if (res != null) {
-            modeleOrdre.getListOrdre().addAll(res.getOrdre());
+            modeleOrdre.addItems(res.getOrdre());
+            Builder.kitheque.addOrdres(res);
         }
         modeleOrdre.modif();
     }

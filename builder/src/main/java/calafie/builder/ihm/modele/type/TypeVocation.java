@@ -32,5 +32,15 @@ public enum TypeVocation {
         return types;
     }
 
+    
+    public static TypeVocation getTypeForName (String name) {
+         for (TypeVocation temp : TypeVocation.values()){
+             if (temp.getNom().equalsIgnoreCase(name)){
+                 return temp;
+             }
+         }
+        return null;
+    }
+    
 
 }
