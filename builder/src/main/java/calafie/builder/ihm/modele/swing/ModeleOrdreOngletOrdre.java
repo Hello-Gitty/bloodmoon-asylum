@@ -94,6 +94,10 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel {
 
     public void modif() {
         fireTableDataChanged();
+        fireTableStructureChanged();
+        fireTableRowsInserted(0, ordres.size()-1);
+        
+        
     }
 
     public Ordre getItem(int index) {
@@ -115,5 +119,13 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel {
         modif();
     }
     
-
+    /**
+     *  Returns <code>Object.class</code> regardless of <code>columnIndex</code>.
+     *
+     *  @param columnIndex  the column being queried
+     *  @return the Object.class
+     */
+    public Class<?> getColumnClass(int columnIndex) {
+    return String.class;
+    }
 }

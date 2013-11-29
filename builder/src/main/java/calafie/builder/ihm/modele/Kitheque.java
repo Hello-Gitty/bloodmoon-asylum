@@ -17,9 +17,25 @@ public class Kitheque extends Observable {
     protected List<Ordre> ordres = new ArrayList<Ordre>();
     protected Map<TypeVocation, List<Vocation>> vocations = new HashMap<TypeVocation, List<Vocation>>();
     
+    public static Vocation VOCATION_VIDE = new Vocation();
+    {
+        VOCATION_VIDE.setNom("AUCUNE");
+    }
     
     
     
+    public Kitheque() {
+
+        for (TypeVocation type : TypeVocation.values()) {
+
+            List<Vocation> list = vocations.get(type);
+            if (list == null) {
+                list = new ArrayList<Vocation>();
+                vocations.put(type, list);
+            }
+
+        }
+    }
     
     
     public List<Ordre> getOrdres() {

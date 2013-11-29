@@ -7,6 +7,7 @@ package calafie.builder.ihm.generated;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -18,9 +19,9 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
-import javax.swing.RowSorter;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
 
 import calafie.builder.Builder;
 import calafie.builder.Util;
@@ -46,8 +47,7 @@ public class PaneOrdre extends JPanel {
     private JLabel coutLabel;
     private ModeleOrdreOngletOrdre modeleOrdre;
     private PopUpOrdre popOrdre;
-    private RowSorter<ModeleOrdreOngletOrdre> sorter;
-
+    
     /**
      * Creates new form PanelOrdreG
      */
@@ -94,10 +94,12 @@ public class PaneOrdre extends JPanel {
 
         descriptionLabel.setEditable(false);
         
-        filtreNomLabel.setText(Util.getMessage("builder.paneOrdre.filtre"));
+        /*
+        filtreNomLabel.setText(Util.getMessage("builder.paneOrdre.filtre"));//
         typeFiltreLabel.setText(Util
                 .getMessage("builder.popOrdre.element.type"));
 
+         */
         newButton.setText(Util.getMessage("builder.button.new"));
         editButton.setText(Util.getMessage("builder.button.edit"));
         deleteButton.setText(Util.getMessage("builder.button.delete"));
@@ -148,8 +150,9 @@ public class PaneOrdre extends JPanel {
             }
         });
         
-        //sorter = new TableRowSorter<ModeleOrdreOngletOrdre>(modeleOrdre);
+       // sorter = new TableRowSorter<ModeleOrdreOngletOrdre>(modeleOrdre);
         //tableOrdres.setRowSorter(sorter);
+        tableOrdres.setAutoCreateRowSorter(true);
         
         org.jdesktop.layout.GroupLayout paneButtonOrdreLayout = new org.jdesktop.layout.GroupLayout(
                 paneButtonOrdre);
@@ -212,6 +215,10 @@ public class PaneOrdre extends JPanel {
         paneOrdre.setBorder(BorderFactory.createEtchedBorder());
         jScrollPane2.setViewportView(descriptionLabel);
 
+        
+        
+        
+        
         org.jdesktop.layout.GroupLayout paneOrdreLayout = new org.jdesktop.layout.GroupLayout(
                 paneOrdre);
         paneOrdre.setLayout(paneOrdreLayout);
@@ -317,7 +324,7 @@ public class PaneOrdre extends JPanel {
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(
                                                                 org.jdesktop.layout.LayoutStyle.RELATED)
-                                                        .add(filtreField,
+                                                        .add(filtreNomLabel,
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                                 116,
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -328,7 +335,7 @@ public class PaneOrdre extends JPanel {
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(
                                                                 org.jdesktop.layout.LayoutStyle.RELATED)
-                                                        .add(typeFiltreCombo,
+                                                        .add(typeFiltreLabel,
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                                 110,
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
@@ -354,12 +361,12 @@ public class PaneOrdre extends JPanel {
                                 .createParallelGroup(
                                         org.jdesktop.layout.GroupLayout.BASELINE)
                                 .add(filtreNomLabel)
-                                .add(filtreField,
+                                .add(filtreNomLabel,
                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                         org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(typeFiltreLabel)
-                                .add(typeFiltreCombo,
+                                .add(typeFiltreLabel,
                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                         org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))

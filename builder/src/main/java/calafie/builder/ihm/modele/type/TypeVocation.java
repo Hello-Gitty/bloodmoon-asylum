@@ -12,6 +12,12 @@ public enum TypeVocation {
     
     public static Integer base = 0;
     
+    public static Integer[] getValues () {
+        return  new Integer[] {0,1,2,3,4,5,6};
+    }
+    
+    
+    
     private String nom;
 
     private TypeVocation(String nom) {

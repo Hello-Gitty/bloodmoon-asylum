@@ -6,6 +6,11 @@ public enum CaractEnum {
 
     public static Integer base = 1;
 
+    public static Integer[] getValues () {
+        return  new Integer[] {1,2,3,4,5,6};
+    }
+    
+    
     public static String[] getModele() {
 
         String[] types = new String[values().length];
