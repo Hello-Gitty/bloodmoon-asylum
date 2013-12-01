@@ -8,6 +8,7 @@ import javax.swing.JTabbedPane;
 
 import calafie.builder.Util;
 import calafie.builder.ihm.controleur.ListernerGeneraux;
+import calafie.builder.ihm.generated.FichePanBack;
 import calafie.builder.ihm.generated.PaneFiche;
 import calafie.builder.ihm.generated.PaneOrdre;
 import calafie.builder.ihm.generated.PanelVocationG;
@@ -18,7 +19,7 @@ public class Fenetre extends JFrame {
      * 
      */
     private static final long serialVersionUID = 4407962868239058883L;
-    private PaneFiche paneFiche;
+    private FichePanBack paneFiche;
     private PaneOrdre paneOrdre;
     private PanelVocationG paneVocation;
 
@@ -36,7 +37,7 @@ public class Fenetre extends JFrame {
 
         initIhm();
 
-        this.setSize(800, 900);
+        this.setSize(900, 730);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setResizable(false);
@@ -44,7 +45,7 @@ public class Fenetre extends JFrame {
 
     protected void initIhm() {
         JTabbedPane pane = new JTabbedPane();
-        paneFiche = new PaneFiche();
+        paneFiche = new FichePanBack();
         paneOrdre = new PaneOrdre();
         paneVocation = new PanelVocationG();
 
