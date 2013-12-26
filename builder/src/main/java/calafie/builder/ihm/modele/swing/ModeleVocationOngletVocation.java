@@ -45,7 +45,9 @@ public class ModeleVocationOngletVocation extends AbstractListModel {
     }
 
     public void deleteItem(int index) {
-        vocations.remove(index);
+        if ( index >= 0) {
+            vocations.remove(index);
+        }
     }
 
     public void addItem(Vocation voca) {

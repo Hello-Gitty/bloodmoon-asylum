@@ -3,7 +3,6 @@ package calafie.builder.jaxb;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -12,6 +11,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.filechooser.FileFilter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -22,6 +22,7 @@ import calafie.builder.Builder;
 import calafie.builder.Constantes;
 
 public class InterfaceJaxb {
+
 
     
     public static FileFilter FILE_FILTER = new javax.swing.filechooser.FileFilter() {
@@ -57,7 +58,7 @@ public class InterfaceJaxb {
         try {
             JFileChooser chooser = new JFileChooser();
             chooser.setFileFilter(FILE_FILTER_TXT);
-            int returnVal = chooser.showSaveDialog(Builder.fenetre);
+            int returnVal = chooser.showSaveDialog(getWindow());
             if (returnVal == JFileChooser.CANCEL_OPTION) {
                 return;
             }
@@ -77,7 +78,7 @@ public class InterfaceJaxb {
         try {
             JFileChooser chooser = new JFileChooser();
             chooser.setFileFilter(FILE_FILTER);
-            int returnVal = chooser.showSaveDialog(Builder.fenetre);
+            int returnVal = chooser.showSaveDialog(getWindow());
             if (returnVal == JFileChooser.CANCEL_OPTION) {
                 return;
             }
@@ -97,7 +98,7 @@ public class InterfaceJaxb {
         try {
             JFileChooser chooser = new JFileChooser();
             chooser.setFileFilter(FILE_FILTER);
-            int returnVal = chooser.showOpenDialog(Builder.fenetre);
+            int returnVal = chooser.showOpenDialog(getWindow());
             if (returnVal == JFileChooser.CANCEL_OPTION) {
                 return null;
             }
@@ -180,6 +181,7 @@ public class InterfaceJaxb {
         return result.toString();
     }
 
+    @SuppressWarnings("unchecked")
     public static <E> E decode(String ajout) {
 
         E unAjout = null;
@@ -216,4 +218,10 @@ public class InterfaceJaxb {
         return "";
     }
 
+    
+    
+    private JFrame getWindow() {
+        return Builder.getInstance().getFenetre();
+    }
+    
 }

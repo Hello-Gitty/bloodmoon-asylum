@@ -35,7 +35,7 @@ public class PopVocation extends JDialog {
      * Creates new form PopUpVocation
      */
     public PopVocation() {
-        super(Builder.fenetre, true);
+        super(Builder.getInstance().getFenetre(), true);
         initComponents();
         setSize(290, 150);
         setResizable(false);

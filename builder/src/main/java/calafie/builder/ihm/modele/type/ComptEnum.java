@@ -3,7 +3,7 @@ package calafie.builder.ihm.modele.type;
 public enum ComptEnum {
 
     BARATIN("Baratin"), COMBAT_MN("Combat Mains Nues"), COMBAT_CT(
-            "Combat Contact"), COMVAT_DI("Combat Distance"), COMMERCE(
+            "Combat Contact"), COMBAT_DI("Combat Distance"), COMMERCE(
             "Commerce"), DEMOLITION("Démolition"), DISCRETION("Discrétion"), ELOQUENCE(
             "Éloquence"), FALSIFICATION("Falsification"), FOI("Foi"), INFORMATIQUE(
             "Informatique"), MEDECINE("Médecine"), OBSERVATION("Observation"), ORGANISATION(

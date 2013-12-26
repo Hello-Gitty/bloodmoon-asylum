@@ -7,7 +7,6 @@ package calafie.builder.ihm.generated;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -442,7 +441,7 @@ public class PaneOrdre extends JPanel {
     public void exporter() {
 
         Ordres ordres = new Ordres();
-        ordres.getOrdre().addAll(Builder.kitheque.getOrdres());
+        ordres.getOrdre().addAll(Builder.getInstance().getBiblio().getOrdres());
         InterfaceJaxb inter = new InterfaceJaxb();
         inter.sauvegarderOrdres(ordres);
     }
@@ -479,14 +478,14 @@ public class PaneOrdre extends JPanel {
     
     public void importer() {
         InterfaceJaxb inter = new InterfaceJaxb();
-        Builder.kitheque.clearOrdres();
+        Builder.getInstance().getBiblio().clearOrdres();
         
         modeleOrdre.clear();
         
         Ordres res = inter.chargementOrdres();
         if (res != null) {
             modeleOrdre.addItems(res.getOrdre());
-            Builder.kitheque.addOrdres(res);
+            Builder.getInstance().getBiblio().addOrdres(res);
         }
         modeleOrdre.modif();
     }

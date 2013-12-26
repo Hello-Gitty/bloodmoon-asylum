@@ -18,6 +18,7 @@
     </repositories>
     <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
   </properties>
 
   <dependencies>
@@ -28,10 +29,11 @@
       <scope>test</scope>
     </dependency>
       <dependency>
-          <groupId>unknown.binary</groupId>
-          <artifactId>AbsoluteLayout</artifactId>
-          <version>SNAPSHOT</version>
+	<groupId>unknown.binary</groupId>
+	<artifactId>AbsoluteLayout</artifactId>
+	<version>SNAPSHOT</version>
       </dependency>
+      
     <dependency>
       <groupId>org.swinglabs</groupId>
       <artifactId>swing-layout</artifactId>

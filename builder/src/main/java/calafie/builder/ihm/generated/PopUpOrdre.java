@@ -38,7 +38,7 @@ public class PopUpOrdre extends JDialog {
      * Creates new form PopUpOrdreG
      */
     public PopUpOrdre() {
-        super(Builder.fenetre, true);
+        super(Builder.getInstance().getFenetre(), true);
         initComponents();
         setSize(530, 400);
         setResizable(false);

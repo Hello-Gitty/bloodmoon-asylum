@@ -6,10 +6,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTabbedPane;
 
+
+
 import calafie.builder.Util;
 import calafie.builder.ihm.controleur.ListernerGeneraux;
+import calafie.builder.ihm.generated.AffichageFiche;
 import calafie.builder.ihm.generated.FichePanBack;
-import calafie.builder.ihm.generated.PaneFiche;
 import calafie.builder.ihm.generated.PaneOrdre;
 import calafie.builder.ihm.generated.PanelVocationG;
 
@@ -37,10 +39,10 @@ public class Fenetre extends JFrame {
 
         initIhm();
 
-        this.setSize(900, 730);
+        this.setSize(920, 730);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     protected void initIhm() {
@@ -57,4 +59,14 @@ public class Fenetre extends JFrame {
 
     }
 
+    public void affichage() {
+        this.setVisible(true);
+    }
+
+    public AffichageFiche getPaneFiche() {
+        return paneFiche;
+    }
+    
+    
+    
 }

@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 
+
 import calafie.builder.ihm.modele.type.TypeVocation;
 import calafie.builder.jaxb.Ordre;
 import calafie.builder.jaxb.Ordres;
 import calafie.builder.jaxb.Vocation;
 import calafie.builder.jaxb.Vocations;
+
 
 public class Kitheque extends Observable {
 
@@ -103,6 +105,19 @@ public class Kitheque extends Observable {
         }
         
         list.add(voca);
+        misAJour(typeCourant);
+    }
+    
+    
+    
+    
+    private void misAJour(TypeVocation voc ) {
+        // TODO faire méthode pour passer le type et que l'observer ne modifie que ce qui est nécessaire.
+        
+        
+        
+        this.setChanged();
+        this.notifyObservers(voc);
     }
     
 }

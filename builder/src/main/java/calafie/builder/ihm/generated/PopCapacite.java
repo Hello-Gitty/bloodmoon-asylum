@@ -32,7 +32,7 @@ public class PopCapacite extends JDialog {
      * Creates new form PopUpVocation
      */
     public PopCapacite() {
-        super(Builder.fenetre, true);
+        super(Builder.getInstance().getFenetre(), true);
         initComponents();
         setSize(290, 150);
         setResizable(false);

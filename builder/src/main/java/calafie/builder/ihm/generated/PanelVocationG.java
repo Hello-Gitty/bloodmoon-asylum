@@ -17,11 +17,11 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-
 import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
 
 import calafie.builder.Builder;
 import calafie.builder.Util;
@@ -76,6 +76,7 @@ public class PanelVocationG extends JPanel {
     private PopVocation popVocation;
     private PopCapacite popCapacite;
 
+    
     /**
      * 
      */
@@ -673,7 +674,7 @@ public class PanelVocationG extends JPanel {
     public void exporter() {
 
         Vocations voca = new Vocations();
-        voca.getVocation().addAll(Builder.kitheque.getAllVocations());
+        voca.getVocation().addAll(Builder.getInstance().getBiblio().getAllVocations());
         InterfaceJaxb inter = new InterfaceJaxb();
         inter.sauvegarderVocation(voca);
     }
@@ -749,7 +750,7 @@ public class PanelVocationG extends JPanel {
             if (voca != null) {
 
                 if (!TypeVocation.valueOf(voca.getType()).equals(oldType)) {
-                    Builder.kitheque.ajoutVoca(voca, true, oldType);
+                    Builder.getInstance().getBiblio().ajoutVoca(voca, true, oldType);
                 }
                 modeleVocation.modif();
             }
@@ -757,7 +758,7 @@ public class PanelVocationG extends JPanel {
             Vocation voca = popVocation.ouverture(null);
             if (voca != null) {
                 modeleVocation.addItem(voca);
-                Builder.kitheque.ajoutVoca(voca, false, null);
+                Builder.getInstance().getBiblio().ajoutVoca(voca, false, null);
             }
 
         }
@@ -808,7 +809,7 @@ public class PanelVocationG extends JPanel {
         modeleVocation.clear();
         Vocations res = inter.chargementVocation();
         if (res != null) {
-            Builder.kitheque.importerListVocation(res);
+            Builder.getInstance().getBiblio().importerListVocation(res);
             selectTypeVoca();
         }
     }
@@ -829,7 +830,7 @@ public class PanelVocationG extends JPanel {
 
         TypeVocation type = TypeVocation.values()[typeCombo.getSelectedIndex()];
 
-        List<Vocation> list = Builder.kitheque.getVocations().get(type);
+        List<Vocation> list = Builder.getInstance().getBiblio().getVocations().get(type);
         modeleVocation.addItems(list);
         modeleVocation.modif();
 
