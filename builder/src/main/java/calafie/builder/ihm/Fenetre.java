@@ -1,13 +1,19 @@
 package calafie.builder.ihm;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 
-
-
+import calafie.builder.Builder;
 import calafie.builder.Util;
 import calafie.builder.ihm.controleur.ListernerGeneraux;
 import calafie.builder.ihm.generated.AffichageFiche;
@@ -30,8 +36,7 @@ public class Fenetre extends JFrame {
         JMenuBar menubar = new JMenuBar();
         this.setJMenuBar(menubar);
 
-        JMenuItem menuAPropos = new JMenuItem(
-                Util.getMessage("builder.menu.help.apropos"));
+        JMenuItem menuAPropos = new JMenuItem(Util.getMessage("builder.menu.help.apropos"));
         JMenu menu = new JMenu(Util.getMessage("builder.menu.help"));
         menu.add(menuAPropos);
         menuAPropos.addActionListener(ListernerGeneraux.getListenerAPropos());
@@ -39,24 +44,54 @@ public class Fenetre extends JFrame {
 
         initIhm();
 
-        this.setSize(920, 730);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        double height = screenSize.getHeight();
+
+        int heigt = 732;
+        boolean resizable = false;
+        if (height < 732) {
+            heigt = 560;
+            resizable = true;
+        }
+
+        this.setSize(910, heigt);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
+        this.setResizable(resizable);
         this.setLocationRelativeTo(null);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                    if (Builder.getInstance().getBiblio().isModif()) {
+                    int result = JOptionPane.showConfirmDialog(Builder.getInstance().getFenetre(),
+                            Util.getMessage("modif.message.confirm"), Util.getMessage("modif.title.confirm"),
+                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (result == JOptionPane.OK_OPTION) {
+                        Builder.getInstance().sauvegarderDonnees();
+                }
+                }
+                super.windowClosing(e);
+            }
+
+        });
+
     }
 
     protected void initIhm() {
+
         JTabbedPane pane = new JTabbedPane();
         paneFiche = new FichePanBack();
         paneOrdre = new PaneOrdre();
         paneVocation = new PanelVocationG();
 
-        pane.addTab(Util.getMessage("builder.tab.fiche.titre"), paneFiche);
-        pane.addTab(Util.getMessage("builder.tab.ordre.titre"), paneOrdre);
-        pane.addTab(Util.getMessage("builder.tab.vocation.titre"), paneVocation);
+        JScrollPane scrollTab1 = new JScrollPane(paneFiche);
+        JScrollPane scrollTab2 = new JScrollPane(paneOrdre);
+        JScrollPane scrollTab3 = new JScrollPane(paneVocation);
+
+        pane.addTab(Util.getMessage("builder.tab.fiche.titre"), scrollTab1);
+        pane.addTab(Util.getMessage("builder.tab.ordre.titre"), scrollTab2);
+        pane.addTab(Util.getMessage("builder.tab.vocation.titre"), scrollTab3);
 
         this.add(pane);
-
     }
 
     public void affichage() {
@@ -66,7 +101,5 @@ public class Fenetre extends JFrame {
     public AffichageFiche getPaneFiche() {
         return paneFiche;
     }
-    
-    
-    
+
 }

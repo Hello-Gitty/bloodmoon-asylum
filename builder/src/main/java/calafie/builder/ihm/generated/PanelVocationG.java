@@ -6,7 +6,6 @@ package calafie.builder.ihm.generated;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
@@ -22,7 +21,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-
 import calafie.builder.Builder;
 import calafie.builder.Util;
 import calafie.builder.ihm.modele.swing.ModeleCapaciteOngletVocation;
@@ -30,6 +28,7 @@ import calafie.builder.ihm.modele.swing.ModeleOrdreOngletVocation;
 import calafie.builder.ihm.modele.swing.ModeleVocationOngletVocation;
 import calafie.builder.ihm.modele.type.TypeVocation;
 import calafie.builder.jaxb.Capacite;
+import calafie.builder.jaxb.Capacites;
 import calafie.builder.jaxb.InterfaceJaxb;
 import calafie.builder.jaxb.Ordre;
 import calafie.builder.jaxb.Vocation;
@@ -76,7 +75,6 @@ public class PanelVocationG extends JPanel {
     private PopVocation popVocation;
     private PopCapacite popCapacite;
 
-    
     /**
      * 
      */
@@ -162,32 +160,22 @@ public class PanelVocationG extends JPanel {
         vocationList.setModel(modeleVocation);
         jScrollPane1.setViewportView(vocationList);
 
-        panelLoadData.setBorder(BorderFactory.createEtchedBorder());
-
-        org.jdesktop.layout.GroupLayout panelLoadDataLayout = new org.jdesktop.layout.GroupLayout(
-                panelLoadData);
-        panelLoadData.setLayout(panelLoadDataLayout);
-        panelLoadDataLayout
-                .setHorizontalGroup(panelLoadDataLayout
-                        .createParallelGroup(
-                                org.jdesktop.layout.GroupLayout.LEADING)
-                        .add(org.jdesktop.layout.GroupLayout.TRAILING,
-                                panelLoadDataLayout
-                                        .createSequentialGroup()
-                                        .addContainerGap(
-                                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)
-                                        .add(loadButton)
-                                        .addPreferredGap(
-                                                org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                        .add(saveButton).addContainerGap()));
-        panelLoadDataLayout.setVerticalGroup(panelLoadDataLayout
-                .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(panelLoadDataLayout
-                        .createParallelGroup(
-                                org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(saveButton).add(loadButton)));
-
+        if ( Util.isAfficherBouton()) {
+            panelLoadData.setBorder(BorderFactory.createEtchedBorder());
+    
+            org.jdesktop.layout.GroupLayout panelLoadDataLayout = new org.jdesktop.layout.GroupLayout(panelLoadData);
+            panelLoadData.setLayout(panelLoadDataLayout);
+            panelLoadDataLayout.setHorizontalGroup(panelLoadDataLayout.createParallelGroup(
+                    org.jdesktop.layout.GroupLayout.LEADING).add(
+                    org.jdesktop.layout.GroupLayout.TRAILING,
+                    panelLoadDataLayout.createSequentialGroup()
+                            .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).add(loadButton)
+                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED).add(saveButton).addContainerGap()));
+            panelLoadDataLayout.setVerticalGroup(panelLoadDataLayout.createParallelGroup(
+                    org.jdesktop.layout.GroupLayout.LEADING).add(
+                    panelLoadDataLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE).add(saveButton)
+                            .add(loadButton)));
+        }
         panelButton.setBorder(BorderFactory.createEtchedBorder());
 
         saveButton.addActionListener(new ActionListener() {
@@ -223,32 +211,28 @@ public class PanelVocationG extends JPanel {
                 supprimerOrdre();
             }
         });
-        tableOrdres.getSelectionModel().setSelectionMode(
-                ListSelectionModel.SINGLE_SELECTION);
+        tableOrdres.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-        tableOrdres.getSelectionModel().addListSelectionListener(
-                new ListSelectionListener() {
+        tableOrdres.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 
-                    public void valueChanged(ListSelectionEvent e) {
-                        selection();
-                    }
-                });
+            public void valueChanged(ListSelectionEvent e) {
+                selection();
+            }
+        });
 
-        vocationList.getSelectionModel().addListSelectionListener(
-                new ListSelectionListener() {
+        vocationList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 
-                    public void valueChanged(ListSelectionEvent e) {
-                        clicVocation();
-                    }
-                });
+            public void valueChanged(ListSelectionEvent e) {
+                clicVocation();
+            }
+        });
 
-        capaciteList.getSelectionModel().addListSelectionListener(
-                new ListSelectionListener() {
+        capaciteList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 
-                    public void valueChanged(ListSelectionEvent e) {
-                        clicCapacite();
-                    }
-                });
+            public void valueChanged(ListSelectionEvent e) {
+                clicCapacite();
+            }
+        });
 
         editCapaButton.addActionListener(new ActionListener() {
 
@@ -307,130 +291,80 @@ public class PanelVocationG extends JPanel {
 
         });
 
-        org.jdesktop.layout.GroupLayout panelButtonLayout = new org.jdesktop.layout.GroupLayout(
-                panelButton);
+        org.jdesktop.layout.GroupLayout panelButtonLayout = new org.jdesktop.layout.GroupLayout(panelButton);
         panelButton.setLayout(panelButtonLayout);
         panelButtonLayout
-                .setHorizontalGroup(panelButtonLayout
-                        .createParallelGroup(
-                                org.jdesktop.layout.GroupLayout.LEADING)
-                        .add(panelButtonLayout
+                .setHorizontalGroup(panelButtonLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING).add(
+                        panelButtonLayout
                                 .createSequentialGroup()
                                 .addContainerGap()
                                 .add(panelButtonLayout
-                                        .createParallelGroup(
-                                                org.jdesktop.layout.GroupLayout.LEADING)
-                                        .add(panelButtonLayout
-                                                .createSequentialGroup()
-                                                .add(nouvelleVocaButton)
+                                        .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                        .add(panelButtonLayout.createSequentialGroup().add(nouvelleVocaButton)
                                                 .add(0, 0, Short.MAX_VALUE))
                                         .add(org.jdesktop.layout.GroupLayout.LEADING,
                                                 panelButtonLayout
                                                         .createSequentialGroup()
-                                                        .add(0, 0,
-                                                                Short.MAX_VALUE)
+                                                        .add(0, 0, Short.MAX_VALUE)
                                                         .add(panelButtonLayout
                                                                 .createParallelGroup(
                                                                         org.jdesktop.layout.GroupLayout.LEADING)
                                                                 .add(org.jdesktop.layout.GroupLayout.LEADING,
                                                                         editVocaButton)
                                                                 .add(org.jdesktop.layout.GroupLayout.LEADING,
-                                                                        deleteVocaButton))))
-                                .addContainerGap()));
-        panelButtonLayout.setVerticalGroup(panelButtonLayout
-                .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(panelButtonLayout
-                        .createSequentialGroup()
-                        .add(nouvelleVocaButton)
-                        .addPreferredGap(
-                                org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(editVocaButton)
-                        .addPreferredGap(
-                                org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(deleteVocaButton)));
+                                                                        deleteVocaButton)))).addContainerGap()));
+        panelButtonLayout.setVerticalGroup(panelButtonLayout.createParallelGroup(
+                org.jdesktop.layout.GroupLayout.LEADING).add(
+                panelButtonLayout.createSequentialGroup().add(nouvelleVocaButton)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED).add(editVocaButton)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED).add(deleteVocaButton)));
 
         paneButtonOrdre.setBorder(BorderFactory.createEtchedBorder());
 
-        org.jdesktop.layout.GroupLayout paneButtonOrdreLayout = new org.jdesktop.layout.GroupLayout(
-                paneButtonOrdre);
+        org.jdesktop.layout.GroupLayout paneButtonOrdreLayout = new org.jdesktop.layout.GroupLayout(paneButtonOrdre);
         paneButtonOrdre.setLayout(paneButtonOrdreLayout);
-        paneButtonOrdreLayout.setHorizontalGroup(paneButtonOrdreLayout
-                .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(paneButtonOrdreLayout
-                        .createSequentialGroup()
-                        .addContainerGap()
-                        .add(newOrdreButton)
-                        .addPreferredGap(
-                                org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(editOrdreButton1)
-                        .addPreferredGap(
-                                org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(deleteOrdreButton)
-                        .addContainerGap(
-                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                Short.MAX_VALUE)));
-        paneButtonOrdreLayout.setVerticalGroup(paneButtonOrdreLayout
-                .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(paneButtonOrdreLayout
-                        .createParallelGroup(
-                                org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(newOrdreButton).add(editOrdreButton1)
-                        .add(deleteOrdreButton)));
+        paneButtonOrdreLayout.setHorizontalGroup(paneButtonOrdreLayout.createParallelGroup(
+                org.jdesktop.layout.GroupLayout.LEADING).add(
+                paneButtonOrdreLayout.createSequentialGroup().addContainerGap().add(newOrdreButton)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED).add(editOrdreButton1)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED).add(deleteOrdreButton)
+                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+        paneButtonOrdreLayout.setVerticalGroup(paneButtonOrdreLayout.createParallelGroup(
+                org.jdesktop.layout.GroupLayout.LEADING).add(
+                paneButtonOrdreLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE).add(newOrdreButton)
+                        .add(editOrdreButton1).add(deleteOrdreButton)));
 
         paneOrdre.setBorder(BorderFactory.createEtchedBorder());
 
         jScrollPane2.setViewportView(descriptionLabel);
 
-        org.jdesktop.layout.GroupLayout paneOrdreLayout = new org.jdesktop.layout.GroupLayout(
-                paneOrdre);
+        org.jdesktop.layout.GroupLayout paneOrdreLayout = new org.jdesktop.layout.GroupLayout(paneOrdre);
         paneOrdre.setLayout(paneOrdreLayout);
-        paneOrdreLayout
-                .setHorizontalGroup(paneOrdreLayout
-                        .createParallelGroup(
-                                org.jdesktop.layout.GroupLayout.LEADING)
+        paneOrdreLayout.setHorizontalGroup(paneOrdreLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(paneOrdreLayout
+                        .createSequentialGroup()
+                        .addContainerGap()
                         .add(paneOrdreLayout
-                                .createSequentialGroup()
-                                .addContainerGap()
-                                .add(paneOrdreLayout
-                                        .createParallelGroup(
-                                                org.jdesktop.layout.GroupLayout.LEADING)
-                                        .add(jScrollPane2,
-                                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                                357, Short.MAX_VALUE)
-                                        .add(nomOrdreLabel,
-                                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)
-                                        .add(coutLabel,
-                                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)
-                                        .add(potLabel,
-                                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE))
-                                .addContainerGap()));
-        paneOrdreLayout.setVerticalGroup(paneOrdreLayout.createParallelGroup(
-                org.jdesktop.layout.GroupLayout.LEADING).add(
-                paneOrdreLayout
+                                .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+                                .add(nomOrdreLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
+                                        org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(coutLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
+                                        org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(potLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
+                                        org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()));
+        paneOrdreLayout.setVerticalGroup(paneOrdreLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(paneOrdreLayout
                         .createSequentialGroup()
                         .add(10, 10, 10)
                         .add(nomOrdreLabel)
-                        .addPreferredGap(
-                                org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(jScrollPane2,
-                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                93,
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 93,
                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(
-                                org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(coutLabel)
-                        .addPreferredGap(
-                                org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(potLabel)
-                        .addContainerGap(
-                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                Short.MAX_VALUE)));
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED).add(coutLabel)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED).add(potLabel)
+                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         capacitePane.setBorder(BorderFactory.createTitledBorder("Capacite"));
 
@@ -439,65 +373,44 @@ public class PanelVocationG extends JPanel {
 
         paneButtonCapa.setBorder(BorderFactory.createEtchedBorder());
 
-        org.jdesktop.layout.GroupLayout paneButtonCapaLayout = new org.jdesktop.layout.GroupLayout(
-                paneButtonCapa);
+        org.jdesktop.layout.GroupLayout paneButtonCapaLayout = new org.jdesktop.layout.GroupLayout(paneButtonCapa);
         paneButtonCapa.setLayout(paneButtonCapaLayout);
-        paneButtonCapaLayout
-                .setHorizontalGroup(paneButtonCapaLayout
-                        .createParallelGroup(
-                                org.jdesktop.layout.GroupLayout.LEADING)
-                        .add(paneButtonCapaLayout
-                                .createSequentialGroup()
-                                .addContainerGap()
-                                .add(paneButtonCapaLayout
-                                        .createParallelGroup(
-                                                org.jdesktop.layout.GroupLayout.LEADING)
-                                        .add(newCapaButton).add(editCapaButton)
-                                        .add(deleteCapaButton))
-                                .addContainerGap(
-                                        org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                        Short.MAX_VALUE)));
-        paneButtonCapaLayout.setVerticalGroup(paneButtonCapaLayout
-                .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(paneButtonCapaLayout
+        paneButtonCapaLayout.setHorizontalGroup(paneButtonCapaLayout.createParallelGroup(
+                org.jdesktop.layout.GroupLayout.LEADING).add(
+                paneButtonCapaLayout
                         .createSequentialGroup()
-                        .add(newCapaButton)
-                        .addPreferredGap(
-                                org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(editCapaButton)
-                        .addPreferredGap(
-                                org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(deleteCapaButton)));
+                        .addContainerGap()
+                        .add(paneButtonCapaLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(newCapaButton).add(editCapaButton).add(deleteCapaButton))
+                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+        paneButtonCapaLayout.setVerticalGroup(paneButtonCapaLayout.createParallelGroup(
+                org.jdesktop.layout.GroupLayout.LEADING).add(
+                paneButtonCapaLayout.createSequentialGroup().add(newCapaButton)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED).add(editCapaButton)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED).add(deleteCapaButton)));
 
         listOrdre.setBorder(BorderFactory.createTitledBorder("Ordres"));
 
         listOrdre.setViewportView(tableOrdres);
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(
-                this);
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(layout
                 .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(layout
                         .createSequentialGroup()
-                        .addContainerGap(
-                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                Short.MAX_VALUE)
+                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(layout
-                                .createParallelGroup(
-                                        org.jdesktop.layout.GroupLayout.LEADING)
+                                .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                 .add(layout
                                         .createSequentialGroup()
                                         .add(layout
-                                                .createParallelGroup(
-                                                        org.jdesktop.layout.GroupLayout.LEADING)
+                                                .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                                 .add(layout
-                                                        .createParallelGroup(
-                                                                org.jdesktop.layout.GroupLayout.TRAILING,
+                                                        .createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING,
                                                                 false)
                                                         .add(jScrollPane1,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                                                200,
+                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200,
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                                         .add(layout
                                                                 .createSequentialGroup()
@@ -508,125 +421,91 @@ public class PanelVocationG extends JPanel {
                                                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                                         120,
                                                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                                                .add(panelButton,
-                                                        org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
+                                                .add(panelButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                         org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                         .add(18, 18, 18)
                                         .add(layout
-                                                .createParallelGroup(
-                                                        org.jdesktop.layout.GroupLayout.LEADING)
-                                                .add(capacitePane,
-                                                        org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                                        127,
+                                                .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                                .add(capacitePane, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 127,
                                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                .add(paneButtonCapa,
-                                                        org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
+                                                .add(paneButtonCapa, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                         org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(
-                                                org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                         .add(layout
-                                                .createParallelGroup(
-                                                        org.jdesktop.layout.GroupLayout.LEADING)
-                                                .add(listOrdre,
-                                                        org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                                        390,
+                                                .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                                .add(listOrdre, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 390,
                                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                                 .add(layout
-                                                        .createParallelGroup(
-                                                                org.jdesktop.layout.GroupLayout.TRAILING)
+                                                        .createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                                                         .add(paneButtonOrdre,
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                                 org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                        .add(paneOrdre,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
+                                                        .add(paneOrdre, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                                 org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                                         .add(0, 0, Short.MAX_VALUE))
                                 .add(org.jdesktop.layout.GroupLayout.TRAILING,
                                         layout.createSequentialGroup()
                                                 .add(0, 0, Short.MAX_VALUE)
-                                                .add(panelLoadData,
-                                                        org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
+                                                .add(panelLoadData, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                         org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap()));
-        layout.setVerticalGroup(layout
-                .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(layout
-                        .createSequentialGroup()
+        layout.setVerticalGroup(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING).add(
+                layout.createSequentialGroup()
                         .addContainerGap()
                         .add(layout
-                                .createParallelGroup(
-                                        org.jdesktop.layout.GroupLayout.LEADING)
+                                .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                 .add(layout
                                         .createSequentialGroup()
                                         .add(layout
-                                                .createParallelGroup(
-                                                        org.jdesktop.layout.GroupLayout.LEADING)
+                                                .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                                 .add(layout
                                                         .createSequentialGroup()
                                                         .add(capacitePane,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                                                188,
+                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 188,
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(
-                                                                org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                                                         .add(paneButtonCapa,
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                                 org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                                 .add(layout
                                                         .createSequentialGroup()
-                                                        .add(listOrdre,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                                                164,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(
-                                                                org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                                        .add(paneOrdre,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
+                                                        .add(listOrdre, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
+                                                                164, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                                        .add(paneOrdre, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                                 org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(
-                                                org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(paneButtonOrdre,
-                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(paneButtonOrdre, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                 org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                org.jdesktop.layout.LayoutStyle.RELATED,
-                                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)
-                                        .add(panelLoadData,
-                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED,
+                                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .add(panelLoadData, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                 org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .add(layout
                                         .createSequentialGroup()
                                         .add(layout
-                                                .createParallelGroup(
-                                                        org.jdesktop.layout.GroupLayout.BASELINE)
+                                                .createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                                                 .add(typeLabel)
-                                                .add(typeCombo,
-                                                        org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
+                                                .add(typeCombo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                         org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                         .add(18, 18, 18)
-                                        .add(jScrollPane1,
-                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                                450,
+                                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 450,
                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(
-                                                org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                        .add(panelButton,
-                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                        .add(panelButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                 org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(0, 110, Short.MAX_VALUE)))
-                        .addContainerGap()));
+                                        ))));
     }// </editor-fold>//GEN-END:initComponents
 
     private void clearOrdre() {
@@ -643,10 +522,8 @@ public class PanelVocationG extends JPanel {
         titre += ordre.getNom();
         if (!ordre.isLegal()) {
             String gravite = ordre.getGravite();
-            gravite = gravite.substring(0, 1)
-                    + gravite.toLowerCase().substring(1);
-            titre += " (" + gravite + (ordre.isPolitique() ? " politique" : "")
-                    + ")";
+            gravite = gravite.substring(0, 1) + gravite.toLowerCase().substring(1);
+            titre += " (" + gravite + (ordre.isPolitique() ? " politique" : "") + ")";
         }
 
         String pot = "";
@@ -690,26 +567,27 @@ public class PanelVocationG extends JPanel {
             }
             Ordre ordre = popOrdre.ouverture(modeleOrdre.getItem(index));
             if (ordre != null) {
-                modeleOrdre.modif();
+                modeleOrdre.modificationOrdre(ordre);
                 setOrdre(ordre);
             }
         } else {
             Ordre ordre = popOrdre.ouverture(null);
             if (ordre != null) {
-                int index = capaciteList.getSelectedIndex();
-                modeleCap.getItem(index).getOrdres().add(ordre);
-                modeleOrdre.addOrdre(ordre);
+                modeleOrdre.ajoutOrdre(ordre);
             }
         }
     }
 
     private void clicVocation() {
-        modeleCap.clear();
+
         int index = vocationList.getSelectedIndex();
         Vocation voca = modeleVocation.getItem(index);
         if (voca != null) {
-            modeleCap.addItems(voca.getCapacites().getCapacite());
-            modeleCap.modif();
+            modeleCap.setVocation(voca);
+            modeleOrdre.setCapacite(null);
+            modeleOrdre.setVocation(null);
+            capaciteList.clearSelection();
+            
             enableButtonCapa(true);
         }
     }
@@ -728,11 +606,10 @@ public class PanelVocationG extends JPanel {
 
     private void clicCapacite() {
         clearOrdre();
-        modeleOrdre.clear();
         int index = capaciteList.getSelectedIndex();
         Capacite capa = modeleCap.getItem(index);
-        modeleOrdre.addItems(capa.getOrdres());
-        modeleOrdre.modif();
+        modeleOrdre.setVocationAndCapa(modeleCap.getVocation(), capa);
+
         enableButtonOrdre(true);
     }
 
@@ -746,19 +623,28 @@ public class PanelVocationG extends JPanel {
 
             Vocation voca = modeleVocation.getItem(index);
             TypeVocation oldType = TypeVocation.valueOf(voca.getType());
-            voca = popVocation.ouverture(voca);
+            voca = popVocation.ouverture(voca, null);
             if (voca != null) {
 
                 if (!TypeVocation.valueOf(voca.getType()).equals(oldType)) {
                     Builder.getInstance().getBiblio().ajoutVoca(voca, true, oldType);
+                    Builder.getInstance().getBiblio().modifVocation(TypeVocation.valueOf(voca.getType()));
                 }
-                modeleVocation.modif();
+                Builder.getInstance().getBiblio().modifVocation(oldType);
             }
         } else {
-            Vocation voca = popVocation.ouverture(null);
+            Vocation voca = popVocation.ouverture(null, modeleVocation.getSelected());
             if (voca != null) {
-                modeleVocation.addItem(voca);
                 Builder.getInstance().getBiblio().ajoutVoca(voca, false, null);
+
+                Capacites capas = new Capacites();
+                voca.setCapacites(capas);
+                for (int i = 1; i <= 6; i++) {
+                    Capacite capa = new Capacite();
+                    capa.setNiveau(i);
+                    capas.getCapacite().add(capa);
+                }
+
             }
 
         }
@@ -775,23 +661,20 @@ public class PanelVocationG extends JPanel {
             Capacite capa = modeleCap.getItem(index);
             capa = popCapacite.ouverture(capa);
             if (capa != null) {
-                modeleCap.modif();
+                modeleCap.modificationCapacite(capa);
             }
 
         } else {
             Capacite capa = popCapacite.ouverture(null);
             if (capa != null) {
-                int indexVoca = vocationList.getSelectedIndex();
-                modeleVocation.getItem(indexVoca).getCapacites().getCapacite()
-                        .add(capa);
-                modeleCap.addItem(capa);
+                modeleCap.ajoutCapacite(capa);
             }
         }
     }
 
     private void supprimerCapa() {
         int index = capaciteList.getSelectedIndex();
-        modeleCap.deleteItem(index);
+        modeleCap.suppressionCapacite(modeleCap.getItem(index));
     }
 
     private void supprimerVoca() {
@@ -801,12 +684,12 @@ public class PanelVocationG extends JPanel {
 
     private void supprimerOrdre() {
         int index = tableOrdres.getSelectedRow();
-        modeleOrdre.removeItem(index);
+        modeleOrdre.suppressionOrdre(modeleOrdre.getItem(index));
+        clearOrdre();
     }
 
     public void importer() {
         InterfaceJaxb inter = new InterfaceJaxb();
-        modeleVocation.clear();
         Vocations res = inter.chargementVocation();
         if (res != null) {
             Builder.getInstance().getBiblio().importerListVocation(res);
@@ -820,7 +703,7 @@ public class PanelVocationG extends JPanel {
             return;
         }
         Ordre ordre = modeleOrdre.getItem(index);
-        if ( ordre != null){
+        if (ordre != null) {
             setOrdre(ordre);
         }
     }
@@ -829,26 +712,12 @@ public class PanelVocationG extends JPanel {
         clearSelection();
 
         TypeVocation type = TypeVocation.values()[typeCombo.getSelectedIndex()];
-
-        List<Vocation> list = Builder.getInstance().getBiblio().getVocations().get(type);
-        modeleVocation.addItems(list);
-        modeleVocation.modif();
-
+        modeleVocation.setSelected(type);
     }
 
     private void clearSelection() {
-        /*
-        vocationList.clearSelection();
-        tableOrdres.clearSelection();
-        capaciteList.clearSelection();
-        */
-        modeleVocation.clear();
-        modeleCap.clear();
-        modeleOrdre.clear();
-
         enableButtonCapa(false);
         enableButtonOrdre(false);
-
     }
 
 }

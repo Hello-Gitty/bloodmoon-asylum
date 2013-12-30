@@ -8,6 +8,8 @@ import calafie.builder.ihm.controleur.fiche.FicheObserver;
 import calafie.builder.ihm.modele.ModeleFiche;
 import calafie.builder.ihm.modele.Kitheque;
 import calafie.builder.jaxb.InterfaceJaxb;
+import calafie.builder.jaxb.Ordres;
+import calafie.builder.jaxb.Vocations;
 
 public class Builder {
 
@@ -16,6 +18,8 @@ public class Builder {
     private Fenetre fenetre;
     private Kitheque biblio;
     private ModeleFiche fiche;
+    private OrdreVocationSelected ordresVocation;
+
     private InterfaceJaxb interfaceJaxb;
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException,
@@ -28,17 +32,19 @@ public class Builder {
 
     private void init() {
         fenetre = new Fenetre();
-
-        FicheObserver observer = new FicheObserver(fiche, fenetre);
+        chargerDonnee();
+        FicheObserver observer = new FicheObserver(fiche, fenetre, ordresVocation);
         fiche.addObserver(observer);
-        // TODO chargement initiale des données
+
         fenetre.affichage();
     }
 
     public Builder() {
-        biblio = new Kitheque(); 
+        ordresVocation = new OrdreVocationSelected();
+        biblio = new Kitheque();
         fiche = new ModeleFiche();
         interfaceJaxb = new InterfaceJaxb();
+
     }
 
     public Fenetre getFenetre() {
@@ -77,4 +83,30 @@ public class Builder {
         this.interfaceJaxb = interfaceJaxb;
     }
 
+    public OrdreVocationSelected getOrdresVocation() {
+        return ordresVocation;
+    }
+
+    public void setOrdresVocation(OrdreVocationSelected ordresVocation) {
+        this.ordresVocation = ordresVocation;
+    }
+
+    public void sauvegarderDonnees() {
+
+        Ordres ordres = new Ordres();
+        ordres.getOrdre().addAll(biblio.getOrdres());
+
+        interfaceJaxb.sauvegarde(ordres, Util.getFichierOrdres());
+
+        Vocations vocations = new Vocations();
+        vocations.getVocation().addAll(biblio.getAllVocations());
+
+        interfaceJaxb.sauvegarde(vocations, Util.getFichierVocations());
+
+    }
+
+    public void chargerDonnee() {
+        biblio.addOrdres(interfaceJaxb.chargementOrdres(Util.getFichierOrdres()));
+        biblio.importerListVocation(interfaceJaxb.chargementVocation(Util.getFichierVocations()));
+    }
 }

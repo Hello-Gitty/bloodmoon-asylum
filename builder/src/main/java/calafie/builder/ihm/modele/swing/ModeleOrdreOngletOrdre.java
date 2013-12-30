@@ -1,10 +1,11 @@
 package calafie.builder.ihm.modele.swing;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
+import calafie.builder.Builder;
+import calafie.builder.ihm.modele.Kitheque;
 import calafie.builder.jaxb.Ordre;
 
 public class ModeleOrdreOngletOrdre extends AbstractTableModel {
@@ -14,11 +15,13 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel {
      */
     private static final long serialVersionUID = -7114068558872331484L;
     private List<Ordre> ordres;
-    private String[] colmnName = { "Nom", "Type", "Legal", "Caracteristique",
-            "Caracteristique Adv.", "Competence", "Cout", "PV" };
+    private String[] colmnName = { "Nom", "Type", "Legal", "Caract.",
+            "Caract. Opp.", "Competence", "Cout", "PV" };
+    private Kitheque kithque;
 
     public ModeleOrdreOngletOrdre() {
-        ordres = new ArrayList<Ordre>();
+        kithque = Builder.getInstance().getBiblio();
+        ordres = kithque.getOrdres();
     }
 
     public String getColumnName(int column) {
@@ -88,16 +91,16 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel {
     }
 
     public void removeItem(int index) {
-        ordres.remove(index);
-        modif();
+        if (index < getRowCount()) {
+            ordres.remove(index);
+            modif();
+        }
     }
 
     public void modif() {
         fireTableDataChanged();
         fireTableStructureChanged();
-        fireTableRowsInserted(0, ordres.size()-1);
-        
-        
+        kithque.modifOrdre();    
     }
 
     public Ordre getItem(int index) {
@@ -119,13 +122,4 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel {
         modif();
     }
     
-    /**
-     *  Returns <code>Object.class</code> regardless of <code>columnIndex</code>.
-     *
-     *  @param columnIndex  the column being queried
-     *  @return the Object.class
-     */
-    public Class<?> getColumnClass(int columnIndex) {
-    return String.class;
-    }
 }

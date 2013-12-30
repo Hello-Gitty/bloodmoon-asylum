@@ -16,6 +16,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import calafie.builder.Builder;
 import calafie.builder.Util;
 import calafie.builder.ihm.controleur.ListenerButtonsFiche;
 import calafie.builder.ihm.controleur.fiche.CaractNiveauListener;
@@ -27,6 +28,7 @@ import calafie.builder.ihm.controleur.fiche.VocaListener;
 import calafie.builder.ihm.controleur.fiche.VocaNiveauListener;
 import calafie.builder.ihm.modele.ChoixVocation;
 import calafie.builder.ihm.modele.ModeleFiche;
+import calafie.builder.ihm.modele.swing.ModeleOrdreOngletFiche;
 import calafie.builder.ihm.modele.type.CaractEnum;
 import calafie.builder.ihm.modele.type.ComptEnum;
 import calafie.builder.ihm.modele.type.TypeVocation;
@@ -190,20 +192,9 @@ public class FichePanBack extends JPanel implements AffichageFiche{
                         .addComponent(buttonSave).addComponent(loadButton)
                         .addComponent(exportButton)));
 
+        ModeleOrdreOngletFiche.ajoutModele(tableOrdre);
+        ModeleOrdreOngletFiche.ajoutModeleVocation(tableOrdreV);
 
-        // TODO mettre ici les bons modèles de tables
-        tableOrdre.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] { { null, null, null, null },
-                        { null, null, null, null }, { null, null, null, null },
-                        { null, null, null, null } }, new String[] { "Title 1",
-                        "Title 2", "Title 3", "Title 4" }));
-        
-        tableOrdreV.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] { { null, null, null, null },
-                        { null, null, null, null }, { null, null, null, null },
-                        { null, null, null, null } }, new String[] { "Title 1",
-                        "Title 2", "Title 3", "Title 4" }));
-        
         scrollPanOrdreV.setBorder(javax.swing.BorderFactory
                 .createTitledBorder(Util.getMessage("builder.fiche.border.title.ordreVocation")));
         scrollPanOrdre.setBorder(javax.swing.BorderFactory
@@ -211,10 +202,8 @@ public class FichePanBack extends JPanel implements AffichageFiche{
         scrollNote.setBorder(javax.swing.BorderFactory
                 .createTitledBorder(Util.getMessage("builder.fiche.border.title.notes")));
 
-        
         scrollPanOrdre.setViewportView(tableOrdre);
         scrollPanOrdreV.setViewportView(tableOrdreV);
-
 
         areaNote.setColumns(20);
         areaNote.setRows(5);
@@ -1460,7 +1449,7 @@ public class FichePanBack extends JPanel implements AffichageFiche{
                                                         javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 15, Short.MAX_VALUE)));
+                                ));
         layout.setVerticalGroup(layout
                 .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(
@@ -1490,7 +1479,7 @@ public class FichePanBack extends JPanel implements AffichageFiche{
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 15, Short.MAX_VALUE)));
+                                ));
        
         
         FocusNoteListener.addListener(areaNote);
@@ -1603,7 +1592,11 @@ public class FichePanBack extends JPanel implements AffichageFiche{
 
         for (TypeVocation type : TypeVocation.values()) {
             ChoixVocation choix = fiche.getVocations().get(type);
-            mapVocations.get(type).setSelectedItem(choix.getNom());
+            // Pourquoi on va chercher la vocation directement ?
+            // parce que pour savoir quel valeur on met on fait un equal sur un getElementAt (du model)
+            // et comme dans le model on stoke les objets vocation, si on veut sélectionner la bonne valeur
+            // nous faut la vocation.
+            mapVocations.get(type).setSelectedItem(Builder.getInstance().getBiblio().getVocation(type, choix.getNom()));
             mapNiveauVocations.get(type).setSelectedIndex(choix.getValeur());
             
         }

@@ -3,7 +3,7 @@ package calafie.builder.ihm.modele.type;
 public enum TypeOrdre {
 
     PERSONNAGE("Personnage"), BATIMENTS("Batiments"), RENCONTRES("Rencontres"), ORGANISATIONS(
-            "Organisations"), PREROGATIVES("Prérogatives");
+            "Organisations"), PREROGATIVES("Prérogatives"), COMBAT("Combat");
 
     private String nom;
 

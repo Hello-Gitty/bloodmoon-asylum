@@ -36,6 +36,7 @@ public class PopCapacite extends JDialog {
         initComponents();
         setSize(290, 150);
         setResizable(false);
+        setLocationRelativeTo(Builder.getInstance().getFenetre());
 
         String[] niveaux = { "1", "2", "3", "4", "5", "6" };
         niveauCombo.setModel(new javax.swing.DefaultComboBoxModel(niveaux));

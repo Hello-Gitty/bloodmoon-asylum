@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import calafie.builder.Builder;
@@ -39,6 +40,7 @@ public class PopVocation extends JDialog {
         initComponents();
         setSize(290, 150);
         setResizable(false);
+        setLocationRelativeTo(Builder.getInstance().getFenetre());
         
         typeCombo.setModel(new javax.swing.DefaultComboBoxModel(TypeVocation
                 .getModele()));
@@ -179,13 +181,13 @@ public class PopVocation extends JDialog {
     // End of variables declaration//GEN-END:variables
 
 
-    public Vocation ouverture(Vocation voca) {
+    public Vocation ouverture(Vocation voca, TypeVocation type) {
 
         if (voca == null) {
             voca = new Vocation();
             voca.setCapacites(new Capacites());
             nomField.setText("");
-            typeCombo.setSelectedIndex(0);
+            typeCombo.setSelectedItem(type.getNom());
         } else {
             nomField.setText(voca.getNom());
             typeCombo.setSelectedItem(TypeVocation.valueOf(voca.getType()).getNom());
@@ -206,6 +208,15 @@ public class PopVocation extends JDialog {
     }
 
     private void clicSave() {
+        Vocation voc = Builder.getInstance().getBiblio().getVocation(TypeVocation.getTypeForName(typeCombo.getSelectedItem().toString()), nomField.getText());
+        if (voc != null) {
+            JOptionPane.showMessageDialog(Builder.getInstance().getFenetre(),
+                    Util.getMessage("error.vocation.duplicate"),
+                    Util.getMessage("error.title"),
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+               
         save = true;
         setVisible(false);
     }

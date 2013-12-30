@@ -121,4 +121,9 @@ public class Vocation {
         this.capacites = value;
     }
 
+    
+    @Override
+    public String toString() {
+        return nom;
+    }
 }

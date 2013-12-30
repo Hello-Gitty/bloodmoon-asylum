@@ -23,6 +23,7 @@ public class ModeleFiche extends Observable {
     private String pseudo = "";
     private String note = "";
     private int PA = 0;
+    private boolean vocationChanged;
 
     public ModeleFiche() {
         PV = PACalculator.basePV;
@@ -52,7 +53,7 @@ public class ModeleFiche extends Observable {
 
             ChoixVocation choix = new ChoixVocation();
             choix.setValeur(TypeVocation.base);
-            choix.setNom(ChoixVocation.VOCACTION_VIDE);
+            choix.setNom(Kitheque.VOCATION_VIDE.getNom());
             vocations.put(type, choix);
         }
     }
@@ -118,7 +119,6 @@ public class ModeleFiche extends Observable {
         int diff = PACalculator.getDiffCoutCaract(oldVal, value);
         caracteristiques.get(caract).setValeur(value);
         majPA(diff);
-
     }
 
     public void miseAJour(ComptEnum compte, int value) {
@@ -126,22 +126,24 @@ public class ModeleFiche extends Observable {
         int diff = PACalculator.getDiffCoutCompt(oldVal, value);
         competences.get(compte).setValeur(value);
         majPA(diff);
-
     }
 
     public void miseAJour(TypeVocation type, int value) {
         int oldVal = vocations.get(type).getValeur();
         int diff = PACalculator.getDiffCoutVocation(oldVal, value);
         vocations.get(type).setValeur(value);
-        majPA(diff);
 
+        vocationChanged = true;
+
+        majPA(diff);
     }
-    
+
     public void miseAJourVoca(TypeVocation type, String vocation) {
         ChoixVocation choix = vocations.get(type);
         choix.setNom(vocation);
+        vocationChanged = true;
+        change();
     }
-    
 
     public void miseAJourPV(int value) {
         int oldVal = this.PV;
@@ -152,8 +154,18 @@ public class ModeleFiche extends Observable {
 
     public void majPA(int diff) {
         PA = PA + diff;
+        change();
+    }
+
+    private void change() {
         this.setChanged();
-        this.notifyObservers();
+        if (vocationChanged) {
+            this.notifyObservers(new Vocation());
+            vocationChanged = false;
+        } else {
+            this.notifyObservers();
+        }
+
     }
 
     public void reset() {
@@ -168,14 +180,13 @@ public class ModeleFiche extends Observable {
         for (TypeVocation type : TypeVocation.values()) {
 
             ChoixVocation choix = vocations.get(type);
-            choix.setNom(ChoixVocation.VOCACTION_VIDE);
+            choix.setNom(Kitheque.VOCATION_VIDE.getNom());
             choix.setValeur(TypeVocation.base);
         }
         PA = 0;
         PV = PACalculator.basePV;
         pseudo = "";
         note = "";
-        
 
     }
 
@@ -372,16 +383,22 @@ public class ModeleFiche extends Observable {
         int result = 0;
 
         for (CaractEnum caract : CaractEnum.values()) {
-            result += PACalculator.getCoutPaCaract(caracteristiques.get(caract).getValeur());
+            if (caracteristiques.get(caract).getValeur() != CaractEnum.base){
+                result += PACalculator.getCoutPaCaract(caracteristiques.get(caract).getValeur());
+            }
         }
 
         for (ComptEnum compt : ComptEnum.values()) {
-            result += PACalculator.getCoutPaCompetence(competences.get(compt).getValeur());
+            if(competences.get(compt).getValeur() != ComptEnum.base) {
+                result += PACalculator.getCoutPaCompetence(competences.get(compt).getValeur());
+            }
         }
 
         for (TypeVocation type : TypeVocation.values()) {
             ChoixVocation choix = vocations.get(type);
-            result += PACalculator.getCoutPaVocation(choix.getValeur());
+            if ( choix.getValeur() != TypeVocation.base ) {
+                result += PACalculator.getCoutPaVocation(choix.getValeur());
+            }
         }
 
         result += PACalculator.getDiffCoutPV(PACalculator.basePV, PV);

@@ -35,6 +35,7 @@ public class ComptNiveauListener extends FicheListener implements ActionListener
     public void actionPerformed(ActionEvent e) {
         int value = combo.getSelectedIndex();
         fiche.miseAJour(compt, value);
+        kitheque.modifFiche();
     }
 
 }

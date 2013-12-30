@@ -21,6 +21,7 @@ public class VocaListener extends FicheListener implements ActionListener {
         combo.setModel(new ModeleComboVocation(ref));
         combo.addActionListener(new VocaListener (ref, combo));
         oo.register(ref, combo);
+        combo.setSelectedIndex(0);
     }
     
     

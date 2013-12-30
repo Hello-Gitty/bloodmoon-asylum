@@ -1,11 +1,11 @@
 package calafie.builder.ihm.modele.swing;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.table.AbstractTableModel;
 
+import calafie.builder.Builder;
+import calafie.builder.jaxb.Capacite;
 import calafie.builder.jaxb.Ordre;
+import calafie.builder.jaxb.Vocation;
 
 public class ModeleOrdreOngletVocation extends AbstractTableModel {
 
@@ -13,12 +13,12 @@ public class ModeleOrdreOngletVocation extends AbstractTableModel {
      * 
      */
     private static final long serialVersionUID = -7114068558872331484L;
-    private List<Ordre> ordres;
-    private String[] colmnName = { "Nom",  "Caracteristique",
-            "Caracteristique Adv.", "Competence" };
+    private Capacite capacite;
+    private Vocation vocation;
+
+    private String[] colmnName = { "Nom", "Caracteristique", "Caracteristique Adv.", "Competence" };
 
     public ModeleOrdreOngletVocation() {
-        ordres = new ArrayList<Ordre>();
     }
 
     public String getColumnName(int column) {
@@ -26,7 +26,10 @@ public class ModeleOrdreOngletVocation extends AbstractTableModel {
     }
 
     public int getRowCount() {
-        return ordres.size();
+        if (capacite != null) {
+            return capacite.getOrdres().size();
+        }
+        return 0;
     }
 
     public int getColumnCount() {
@@ -34,7 +37,7 @@ public class ModeleOrdreOngletVocation extends AbstractTableModel {
     }
 
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Ordre ordre = ordres.get(rowIndex);
+        Ordre ordre = capacite.getOrdres().get(rowIndex);
 
         String result = "";
         switch (columnIndex) {
@@ -61,43 +64,54 @@ public class ModeleOrdreOngletVocation extends AbstractTableModel {
 
     // NOM | CAR | CAR OPP | COMPT |
 
-    public void addOrdre(Ordre ordre) {
-        ordres.add(ordre);
-        modif();
-    }
-
-    public void removeItem(int index) {
-        ordres.remove(index);
-        modif();
-    }
-
     public void modif() {
         fireTableDataChanged();
+
     }
 
-   
     public Ordre getItem(int index) {
-        if (ordres.size()<=index){
+        if (capacite.getOrdres().size() <= index || index ==-1) {
             return null;
         }
-        return ordres.get(index);
+        return capacite.getOrdres().get(index);
     }
 
-    public void clear() {
-        ordres.clear();
+    public void setVocationAndCapa(Vocation vocation, Capacite capacite) {
+        this.vocation = vocation;
+        this.capacite = capacite;
         modif();
-        
     }
 
-    public void addItems(List<Ordre> list) {
-        if (list == null){
-            return;
-        }
-        ordres.clear();
-        ordres.addAll(list);
+    public Capacite getCapacite() {
+        return capacite;
+    }
+
+    public void setCapacite(Capacite capacite) {
+        this.capacite = capacite;
         modif();
     }
-    
-    
+
+    public Vocation getVocation() {
+        return vocation;
+    }
+
+    public void setVocation(Vocation vocation) {
+        this.vocation = vocation;
+    }
+
+    public void ajoutOrdre(Ordre ordre) {
+        Builder.getInstance().getBiblio().ajoutOrdre(vocation, capacite, ordre);
+        modif();
+    }
+
+    public void suppressionOrdre(Ordre ordre) {
+        Builder.getInstance().getBiblio().suppressionOrdre(vocation, capacite, ordre);
+        modif();
+    }
+
+    public void modificationOrdre(Ordre ordre) {
+        Builder.getInstance().getBiblio().modificationOrdre(vocation, capacite, ordre);
+        modif();
+    }
 
 }

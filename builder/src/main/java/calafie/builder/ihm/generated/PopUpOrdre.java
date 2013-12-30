@@ -42,6 +42,7 @@ public class PopUpOrdre extends JDialog {
         initComponents();
         setSize(530, 400);
         setResizable(false);
+        setLocationRelativeTo(Builder.getInstance().getFenetre());
 
         typeLegalCombo.setModel(new javax.swing.DefaultComboBoxModel(
                 TypeLegalite.getModele()));

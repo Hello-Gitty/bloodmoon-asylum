@@ -25,6 +25,9 @@ public abstract class NumericKeyListener implements KeyListener {
              * min max on s'arrête
              */
             String valtext = ((Character) e.getKeyChar()).toString();
+            if (valtext.equals("-")) {
+                return;
+            }
             valtext = valtext.equals("") ? "0" : valtext;
             Integer val = Integer.parseInt(valtext);
             if (val > maxValue || val < minValue) {

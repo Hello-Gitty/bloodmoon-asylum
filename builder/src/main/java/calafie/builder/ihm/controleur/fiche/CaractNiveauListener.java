@@ -32,6 +32,7 @@ public class CaractNiveauListener extends FicheListener implements ActionListene
     public void actionPerformed(ActionEvent e) {
         int value = Integer.parseInt(combo.getSelectedItem().toString());
         fiche.miseAJour(caract, value);
+        kitheque.modifFiche();
     }
 
 }

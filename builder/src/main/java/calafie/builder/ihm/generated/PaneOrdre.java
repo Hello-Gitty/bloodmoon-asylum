@@ -16,7 +16,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -83,9 +82,6 @@ public class PaneOrdre extends JPanel {
         nomOrdreLabel = new JLabel();
         coutLabel = new JLabel();
         potLabel = new JLabel();
-        JLabel filtreNomLabel = new JLabel();
-        filtreField = new JTextField();
-        JLabel typeFiltreLabel = new JLabel();
         typeFiltreCombo = new JComboBox();
 
         paneButtonOrdre.setBorder(BorderFactory
@@ -93,12 +89,6 @@ public class PaneOrdre extends JPanel {
 
         descriptionLabel.setEditable(false);
         
-        /*
-        filtreNomLabel.setText(Util.getMessage("builder.paneOrdre.filtre"));//
-        typeFiltreLabel.setText(Util
-                .getMessage("builder.popOrdre.element.type"));
-
-         */
         newButton.setText(Util.getMessage("builder.button.new"));
         editButton.setText(Util.getMessage("builder.button.edit"));
         deleteButton.setText(Util.getMessage("builder.button.delete"));
@@ -149,8 +139,6 @@ public class PaneOrdre extends JPanel {
             }
         });
         
-       // sorter = new TableRowSorter<ModeleOrdreOngletOrdre>(modeleOrdre);
-        //tableOrdres.setRowSorter(sorter);
         tableOrdres.setAutoCreateRowSorter(true);
         
         org.jdesktop.layout.GroupLayout paneButtonOrdreLayout = new org.jdesktop.layout.GroupLayout(
@@ -178,35 +166,37 @@ public class PaneOrdre extends JPanel {
                                 org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(newButton).add(editButton).add(deleteButton)));
 
-        paneButtonLoadSaveData.setBorder(BorderFactory
-                .createEtchedBorder());
-
-        org.jdesktop.layout.GroupLayout paneButtonLoadSaveDataLayout = new org.jdesktop.layout.GroupLayout(
-                paneButtonLoadSaveData);
-        paneButtonLoadSaveData.setLayout(paneButtonLoadSaveDataLayout);
-        paneButtonLoadSaveDataLayout
-                .setHorizontalGroup(paneButtonLoadSaveDataLayout
-                        .createParallelGroup(
-                                org.jdesktop.layout.GroupLayout.LEADING)
-                        .add(paneButtonLoadSaveDataLayout
-                                .createSequentialGroup()
-                                .addContainerGap()
-                                .add(saveButton)
-                                .addPreferredGap(
-                                        org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(loadButton)
-                                .addContainerGap(
-                                        org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                        Short.MAX_VALUE)));
-        paneButtonLoadSaveDataLayout
-                .setVerticalGroup(paneButtonLoadSaveDataLayout
-                        .createParallelGroup(
-                                org.jdesktop.layout.GroupLayout.LEADING)
-                        .add(paneButtonLoadSaveDataLayout
-                                .createParallelGroup(
-                                        org.jdesktop.layout.GroupLayout.BASELINE)
-                                .add(saveButton).add(loadButton)));
-
+        
+        if ( Util.isAfficherBouton()) {
+            paneButtonLoadSaveData.setBorder(BorderFactory
+                    .createEtchedBorder());
+    
+            org.jdesktop.layout.GroupLayout paneButtonLoadSaveDataLayout = new org.jdesktop.layout.GroupLayout(
+                    paneButtonLoadSaveData);
+            paneButtonLoadSaveData.setLayout(paneButtonLoadSaveDataLayout);
+            paneButtonLoadSaveDataLayout
+                    .setHorizontalGroup(paneButtonLoadSaveDataLayout
+                            .createParallelGroup(
+                                    org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(paneButtonLoadSaveDataLayout
+                                    .createSequentialGroup()
+                                    .addContainerGap()
+                                    .add(saveButton)
+                                    .addPreferredGap(
+                                            org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                    .add(loadButton)
+                                    .addContainerGap(
+                                            org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
+                                            Short.MAX_VALUE)));
+            paneButtonLoadSaveDataLayout
+                    .setVerticalGroup(paneButtonLoadSaveDataLayout
+                            .createParallelGroup(
+                                    org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(paneButtonLoadSaveDataLayout
+                                    .createParallelGroup(
+                                            org.jdesktop.layout.GroupLayout.BASELINE)
+                                    .add(saveButton).add(loadButton)));
+        }
         tableListe.setBorder(BorderFactory.createEtchedBorder());
 
         tableListe.setViewportView(tableOrdres);
@@ -252,7 +242,7 @@ public class PaneOrdre extends JPanel {
                 paneOrdreLayout
                         .createSequentialGroup()
                         .add(10, 10, 10)
-                        .add(nomOrdreLabel)
+                        .add(nomOrdreLabel,15,15,15)
                         .addPreferredGap(
                                 org.jdesktop.layout.LayoutStyle.UNRELATED)
                         .add(jScrollPane2,
@@ -261,11 +251,8 @@ public class PaneOrdre extends JPanel {
                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(
                                 org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(coutLabel)
-                        .addPreferredGap(
-                                org.jdesktop.layout.LayoutStyle.RELATED,
-                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                Short.MAX_VALUE).add(potLabel)
+                        .add(coutLabel,15,15,15 )
+                        .add(potLabel,15,15,15)
                         .addContainerGap()));
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(
@@ -280,7 +267,7 @@ public class PaneOrdre extends JPanel {
                                         org.jdesktop.layout.GroupLayout.LEADING)
                                 .add(layout
                                         .createSequentialGroup()
-                                        .addContainerGap()
+                                        
                                         .add(layout
                                                 .createParallelGroup(
                                                         org.jdesktop.layout.GroupLayout.LEADING)
@@ -317,34 +304,14 @@ public class PaneOrdre extends JPanel {
                                                 .add(layout
                                                         .createSequentialGroup()
                                                         .addContainerGap()
-                                                        .add(filtreNomLabel,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                                                71,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(
-                                                                org.jdesktop.layout.LayoutStyle.RELATED)
-                                                        .add(filtreNomLabel,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                                                116,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                        .add(18, 18, 18)
-                                                        .add(typeFiltreLabel,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                                                71,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(
-                                                                org.jdesktop.layout.LayoutStyle.RELATED)
-                                                        .add(typeFiltreLabel,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                                                110,
-                                                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                                        .add(0, 140, Short.MAX_VALUE)))
+                                                       ))
+                                       ))
                         .addContainerGap()));
         layout.setVerticalGroup(layout
                 .createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(layout
                         .createSequentialGroup()
-                        .addContainerGap(84, Short.MAX_VALUE)
+                        
                         .add(paneOrdre,
                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                 org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
@@ -355,27 +322,12 @@ public class PaneOrdre extends JPanel {
                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                 org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(47, 47, 47)
-                        .add(layout
-                                .createParallelGroup(
-                                        org.jdesktop.layout.GroupLayout.BASELINE)
-                                .add(filtreNomLabel)
-                                .add(filtreNomLabel,
-                                        org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                        org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                        org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(typeFiltreLabel)
-                                .add(typeFiltreLabel,
-                                        org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                        org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                        org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(
-                                org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(40, 40, 40)
+
                         .add(tableListe,
                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                 378,
                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(18, 18, 18)
                         .add(paneButtonLoadSaveData,
                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                 org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
@@ -385,7 +337,6 @@ public class PaneOrdre extends JPanel {
 
     private JButton deleteButton;
     private JButton editButton;
-    private JTextField filtreField;
     private JButton loadButton;
     private JButton newButton;
     private JPanel paneButtonLoadSaveData;
@@ -458,8 +409,11 @@ public class PaneOrdre extends JPanel {
              }
             Ordre ordre = popOrdre.ouverture(modeleOrdre.getItem(index));
             if (ordre != null) {
+                
                 modeleOrdre.modif();
                 setOrdre(ordre);
+            } else {
+                tableOrdres.getSelectionModel().clearSelection();
             }
         } else {
             Ordre ordre = popOrdre.ouverture(null);
@@ -471,6 +425,7 @@ public class PaneOrdre extends JPanel {
     }
 
     private void supprimer(){
+        clearOrdre();
         int index = tableOrdres.getSelectedRow();
         modeleOrdre.removeItem(index);
     }
