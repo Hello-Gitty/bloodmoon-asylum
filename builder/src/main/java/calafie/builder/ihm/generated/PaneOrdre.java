@@ -95,6 +95,10 @@ public class PaneOrdre extends JPanel {
         saveButton.setText(Util.getMessage("builder.button.save"));
         loadButton.setText(Util.getMessage("builder.button.load"));
 
+        
+        descriptionLabel.setLineWrap(true);        
+        descriptionLabel.setWrapStyleWord(true);
+        
         saveButton.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {

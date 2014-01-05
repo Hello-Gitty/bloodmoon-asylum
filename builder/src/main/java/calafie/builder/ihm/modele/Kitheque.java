@@ -9,6 +9,7 @@ import java.util.Observable;
 
 import calafie.builder.ComparatorOrdre;
 import calafie.builder.ComparatorVocation;
+import calafie.builder.ihm.modele.type.Niveau;
 import calafie.builder.ihm.modele.type.TypeVocation;
 import calafie.builder.jaxb.Capacite;
 import calafie.builder.jaxb.Capacites;
@@ -184,10 +185,6 @@ public class Kitheque extends Observable {
         misAJour(new Ordre());
     }
     
-    public void ajoutOrdre(Vocation voc, Capacite capa, Ordre ordre) {
-        capa.getOrdres().add(ordre);
-        misAJour(new Ordre());
-    }
 
     
     public void modificationCapacite(Vocation voc, Capacite capa) {
@@ -200,12 +197,42 @@ public class Kitheque extends Observable {
         misAJour(new Ordre());
     }
     
-    public void suppressionOrdre(Vocation voc, Capacite capa, Ordre ordre) {
-        capa.getOrdres().remove(ordre);
+    public void ajoutOrdre(Vocation voc, Ordre ordre, Niveau niveau) {
+        
+        for (Capacite capa : voc.getCapacites().getCapacite()) {
+            if ( capa.getNiveau() == niveau.getNiveau()) {
+                capa.getOrdres().add(ordre);
+            }
+        }
+        
         misAJour(new Ordre());
     }
 
-    public void modificationOrdre(Vocation vocation, Capacite capacite, Ordre ordre) {
+    
+    public void suppressionOrdre(Vocation voc, Ordre ordre, Niveau niveau) {
+        
+        for (Capacite capa : voc.getCapacites().getCapacite()) {
+            if ( capa.getNiveau() == niveau.getNiveau()) {
+                capa.getOrdres().remove(ordre);
+            }
+        }
+        misAJour(new Ordre());
+    }
+
+    public void modificationOrdre(Vocation vocation, Ordre ordre, Niveau niveau , Niveau oldNiveau) {
+        
+        if (!oldNiveau.name().equals(niveau.name())) {
+            for (Capacite capa : vocation.getCapacites().getCapacite()) {
+                if ( capa.getNiveau() == oldNiveau.getNiveau()) {
+                    capa.getOrdres().remove(ordre);
+                }
+                if ( capa.getNiveau() == niveau.getNiveau()) {
+                    capa.getOrdres().add(ordre);
+                }
+            }
+
+        }
+        
         misAJour(new Ordre());
     }
 }

@@ -91,20 +91,31 @@ public class ModeleOrdreOngletFiche extends AbstractTableModel implements Observ
             result = ordre.getCompetence();
             break;
         case 5:
-            result = ordre.getDifficulte();
+            if (!ordre.isAutomatique()){
+                result = ordre.getDifficulte();
+            }else {
+                result = "-";
+            }
             break;
         case 6:
-            val = fiche.getCaracteristiques().get(CaractEnum.valueOf(ordre.getCaracteristique())).getValeur();
-            val += fiche.getCompetences().get(ComptEnum.getComptence(ordre.getCompetence())).getValeur();
-            val -= ordre.getDifficulte();
-            result = "" + val;
+            if (!ordre.isAutomatique()){
+                val = fiche.getCaracteristiques().get(CaractEnum.valueOf(ordre.getCaracteristique())).getValeur();
+                val += fiche.getCompetences().get(ComptEnum.getComptence(ordre.getCompetence())).getValeur();
+                val -= ordre.getDifficulte();
+                result = "" + val;
+            } else {
+                result = "-";
+            }
             break;
         case 7:
-            val = fiche.getCaracteristiques().get(CaractEnum.valueOf(ordre.getCaracteristique())).getValeur();
-            val += fiche.getCompetences().get(ComptEnum.getComptence(ordre.getCompetence())).getValeur();
-            val -= ordre.getDifficulte();
-            result = "" + Potentiel.pourcentPotentiel(val);
-            
+            if (!ordre.isAutomatique()){
+                val = fiche.getCaracteristiques().get(CaractEnum.valueOf(ordre.getCaracteristique())).getValeur();
+                val += fiche.getCompetences().get(ComptEnum.getComptence(ordre.getCompetence())).getValeur();
+                val -= ordre.getDifficulte();
+                result = "" + Potentiel.pourcentPotentiel(val);
+            } else {
+                result = "100";
+            }
             break;
         default:
             break;

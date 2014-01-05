@@ -146,7 +146,8 @@ public class FichePanBack extends JPanel implements AffichageFiche{
         JLabel labelCompSur = new JLabel();
         JLabel labelCompVol = new JLabel();
         buttonReset = new JButton();
-        
+        areaNote.setLineWrap(true);        
+        areaNote.setWrapStyleWord(true);
 
         panButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 

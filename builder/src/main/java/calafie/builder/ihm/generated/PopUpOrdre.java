@@ -6,7 +6,10 @@ package calafie.builder.ihm.generated;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,8 +18,10 @@ import calafie.builder.Builder;
 import calafie.builder.Util;
 import calafie.builder.ihm.controleur.DefaultNumericListener;
 import calafie.builder.ihm.modele.swing.FloatDocument;
+import calafie.builder.ihm.modele.swing.OrdreNiveau;
 import calafie.builder.ihm.modele.type.CaractEnum;
 import calafie.builder.ihm.modele.type.ComptEnum;
+import calafie.builder.ihm.modele.type.Niveau;
 import calafie.builder.ihm.modele.type.TypeLegalite;
 import calafie.builder.ihm.modele.type.TypeOrdre;
 import calafie.builder.jaxb.Ordre;
@@ -63,7 +68,11 @@ public class PopUpOrdre extends JDialog {
                 .getModele()));
         typeCombo.setModel(new javax.swing.DefaultComboBoxModel(TypeOrdre
                 .getModele()));
-
+        comboNiveau.setModel(new javax.swing.DefaultComboBoxModel(
+                Niveau.getModele()));
+        
+        descriptionArea.setLineWrap(true);        
+        descriptionArea.setWrapStyleWord(true);
     }
 
     /**
@@ -98,7 +107,7 @@ public class PopUpOrdre extends JDialog {
         diffField = new javax.swing.JTextField();
         JLabel caractOppoLabel = new javax.swing.JLabel();
         caractOppoCombo = new javax.swing.JComboBox();
-        coutPvField = new javax.swing.JTextField();
+        coutPvField = new javax.swing.JTextField(); 
         JLabel coutPvLabel = new javax.swing.JLabel();
         JLabel coutArgentLabel = new javax.swing.JLabel();
         coutArgentField = new javax.swing.JTextField();
@@ -163,6 +172,46 @@ public class PopUpOrdre extends JDialog {
             }
         });
 
+        
+        diffField.addFocusListener(new FocusListener() {
+            
+            public void focusLost(FocusEvent e) {
+                
+            }
+            
+            public void focusGained(FocusEvent e) {
+                diffField.selectAll();
+                
+            }
+        });
+        
+        
+        coutArgentField.addFocusListener(new FocusListener() {
+            
+            public void focusLost(FocusEvent e) {
+                
+            }
+            
+            public void focusGained(FocusEvent e) {
+                coutArgentField.selectAll();
+                
+            }
+        });
+        
+        
+        coutPvField.addFocusListener(new FocusListener() {
+            
+            public void focusLost(FocusEvent e) {
+                
+            }
+            
+            public void focusGained(FocusEvent e) {
+                coutPvField.selectAll();
+                
+            }
+        });
+        
+        
 
         jScrollPane1.setViewportView(descriptionArea);
 
@@ -193,7 +242,8 @@ public class PopUpOrdre extends JDialog {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(typeLabel)
                                             .addGap(18, 18, 18)
-                                            .addComponent(typeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(typeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(comboNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(descriptionLabel))
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,6 +300,7 @@ public class PopUpOrdre extends JDialog {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(typeLabel)
                         .addComponent(typeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboNiveau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(politiqueChech))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -308,60 +359,16 @@ public class PopUpOrdre extends JDialog {
     private javax.swing.JComboBox typeLegalCombo;
 
     // End of variables declaration//GEN-END:variables
+    private Ordre ordre;
+    private OrdreNiveau ordreNiveau;
+    
+    private JComboBox comboNiveau = new JComboBox();
+    
 
     public Ordre ouverture(Ordre ordre) {
-
-        if (ordre == null) {
-            ordre = new Ordre();
-            coutPvField.setText("0");
-            coutArgentField.setText("0");
-            diffField.setText("0");
-            nomFiled.setText("");
-            descriptionArea.setText("");
-            typeCombo.setSelectedIndex(0);
-            
-            legalCheck.setSelected(false);
-            automatiqueCheck.setSelected(false);
-            
-            
-            competeCombo.setSelectedIndex(0);
-            caractCombo.setSelectedIndex(0);
-            caractOppoCombo.setSelectedIndex(0);
-            
-        } else {
-
-            nomFiled.setText(ordre.getNom());
-            descriptionArea.setText(ordre.getDescription());
-            typeCombo.setSelectedItem(ordre.getType());
-            
-            legalCheck.setSelected(!ordre.isLegal());
-            automatiqueCheck.setSelected(ordre.isAutomatique());
-            
-            if (legalCheck.isSelected()) {
-                politiqueChech.setSelected(ordre.isPolitique());
-                typeLegalCombo.setSelectedItem(ordre.getGravite());
-            }
-            
-            if (!automatiqueCheck.isSelected()) {
-                competeCombo.setSelectedItem(ordre.getCompetence());
-                caractCombo.setSelectedItem(ordre.getCaracteristique());
-                caractOppoCombo.setSelectedItem(ordre.getOposition());
-                diffField.setText(ordre.getDifficulte().toString());
-            }
-            
-            
-            
-            coutArgentField.setText(""+ordre.getArgent());
-            coutPvField.setText(""+ordre.getPv());
-            
-            
-        }
-
-        // Initialisation de la partie légal et jet
-        clicLegal();
-        clicAutomatique();
-
         
+        chargerOrdre(ordre);
+        comboNiveau.setVisible(false);
         // Bloquant, la suite du traitement n'est effectué uniquement lorsque la popup n'est plus affichée.
         setVisible(true);
         // Si on a cliqué sur annuler on renvoi null
@@ -370,10 +377,17 @@ public class PopUpOrdre extends JDialog {
             return null;
         }
 
-        ordre.setNom(nomFiled.getText());
+        remplirOrdre();
+
+        return this.ordre;
+    }
+
+    
+    private void remplirOrdre() {
+        ordre.setNom(nomFiled.getText().trim());
         ordre.setAutomatique(automatiqueCheck.isSelected());
         ordre.setLegal(!legalCheck.isSelected());
-        ordre.setDescription(descriptionArea.getText());
+        ordre.setDescription(descriptionArea.getText().trim());
 
         ordre.setType(typeCombo.getSelectedItem().toString());
 
@@ -387,27 +401,111 @@ public class PopUpOrdre extends JDialog {
             ordre.setCaracteristique(caractCombo.getSelectedItem().toString());
             ordre.setOposition(caractOppoCombo.getSelectedItem().toString());
 
-            String coutPv = coutPvField.getText();
-            String cout = coutArgentField.getText();
-            String diff = diffField.getText();
-            
-            if (coutPv.length() > 0) {
-                ordre.setPv(Float.parseFloat(coutPv));
-            }
 
-            if (cout.length() > 0) {
-                ordre.setArgent(Double.parseDouble(cout));
-            }
+            String diff = diffField.getText();
+
 
             if (diff.length() > 0) {
                 ordre.setDifficulte(Integer.parseInt(diff));
             }
 
         }
+        
+        
+        String coutPv = coutPvField.getText();
+        String cout = coutArgentField.getText();
+        if (coutPv.length() > 0) {
+            ordre.setPv(Float.parseFloat(coutPv));
+        }
 
-        return ordre;
+        if (cout.length() > 0) {
+            ordre.setArgent(Double.parseDouble(cout));
+        }
+
+
     }
 
+    private void chargerOrdre (Ordre ordreParam) {
+        
+        if (ordreParam == null) {
+            ordre = new Ordre();
+            coutPvField.setText("0");
+            coutArgentField.setText("0");
+            diffField.setText("0");
+            nomFiled.setText("");
+            descriptionArea.setText("");
+            typeCombo.setSelectedIndex(0);
+            
+            legalCheck.setSelected(false);
+            automatiqueCheck.setSelected(false);
+           
+            competeCombo.setSelectedIndex(0);
+            caractCombo.setSelectedIndex(0);
+            caractOppoCombo.setSelectedIndex(0);
+            
+        } else {
+            ordre = ordreParam;
+            nomFiled.setText(ordreParam.getNom());
+            descriptionArea.setText(ordreParam.getDescription());
+            typeCombo.setSelectedItem(ordreParam.getType());
+            
+            legalCheck.setSelected(!ordreParam.isLegal());
+            automatiqueCheck.setSelected(ordreParam.isAutomatique());
+            
+            if (legalCheck.isSelected()) {
+                politiqueChech.setSelected(ordreParam.isPolitique());
+                typeLegalCombo.setSelectedItem(ordreParam.getGravite());
+            }
+            
+            if (!automatiqueCheck.isSelected()) {
+                competeCombo.setSelectedItem(ordreParam.getCompetence());
+                caractCombo.setSelectedItem(ordreParam.getCaracteristique());
+                caractOppoCombo.setSelectedItem(ordreParam.getOposition());
+                diffField.setText(ordreParam.getDifficulte().toString());
+            }
+            coutArgentField.setText(""+ordreParam.getArgent());
+            coutPvField.setText(""+ordreParam.getPv());
+        }
+        // Initialisation de la partie légal et jet
+        clicLegal();
+        clicAutomatique();
+
+    }
+    
+    
+    public OrdreNiveau ouvertureNiveau(OrdreNiveau ordre) {
+        
+        comboNiveau.setVisible(true);
+        if (ordre == null) {
+            chargerOrdre(null);
+            ordreNiveau = new OrdreNiveau(Niveau.NIVEAU_UN, this.ordre);
+            comboNiveau.setSelectedIndex(0);
+        } else {
+            ordreNiveau = ordre;
+            chargerOrdre(ordre.getOrdre());
+            comboNiveau.setSelectedItem(ordre.getNiveau().toString());
+        }
+        
+        
+        // Bloquant, la suite du traitement n'est effectué uniquement lorsque la popup n'est plus affichée.
+        setVisible(true);
+        // Si on a cliqué sur annuler on renvoi null
+        // sinon on remplit l'ordre et on renvoi l'ordre
+        if (!save) {
+            return null;
+        }
+
+        remplirOrdre();
+        
+        Niveau niv = Niveau.getNiveau(comboNiveau.getSelectedItem().toString());
+        ordreNiveau.setNiveau(niv);
+        
+        
+        return ordreNiveau;
+    }
+    
+    
+    
     private void clicSave() {
         save = true;
         setVisible(false);
