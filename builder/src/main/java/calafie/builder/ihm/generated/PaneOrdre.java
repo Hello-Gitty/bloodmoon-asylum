@@ -45,6 +45,7 @@ public class PaneOrdre extends JPanel {
     private JLabel coutLabel;
     private ModeleOrdreOngletOrdre modeleOrdre;
     private PopUpOrdre popOrdre;
+    private javax.swing.JButton copyOrdre;
     
     /**
      * Creates new form PanelOrdreG
@@ -83,7 +84,7 @@ public class PaneOrdre extends JPanel {
         coutLabel = new JLabel();
         potLabel = new JLabel();
         typeFiltreCombo = new JComboBox();
-
+        copyOrdre = new JButton();
         paneButtonOrdre.setBorder(BorderFactory
                 .createEtchedBorder());
 
@@ -94,7 +95,7 @@ public class PaneOrdre extends JPanel {
         deleteButton.setText(Util.getMessage("builder.button.delete"));
         saveButton.setText(Util.getMessage("builder.button.save"));
         loadButton.setText(Util.getMessage("builder.button.load"));
-
+        copyOrdre.setText(Util.getMessage("builder.button.copy"));
         
         descriptionLabel.setLineWrap(true);        
         descriptionLabel.setWrapStyleWord(true);
@@ -143,6 +144,17 @@ public class PaneOrdre extends JPanel {
             }
         });
         
+        
+        copyOrdre.addActionListener(new ActionListener() {
+            
+            public void actionPerformed(ActionEvent e) {
+                copier();
+                
+            }
+
+
+        });
+        
         tableOrdres.setAutoCreateRowSorter(true);
         
         org.jdesktop.layout.GroupLayout paneButtonOrdreLayout = new org.jdesktop.layout.GroupLayout(
@@ -154,6 +166,9 @@ public class PaneOrdre extends JPanel {
                         .createSequentialGroup()
                         .addContainerGap()
                         .add(newButton)
+                        .addPreferredGap(
+                                org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(copyOrdre)
                         .addPreferredGap(
                                 org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(editButton)
@@ -168,7 +183,7 @@ public class PaneOrdre extends JPanel {
                 .add(paneButtonOrdreLayout
                         .createParallelGroup(
                                 org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(newButton).add(editButton).add(deleteButton)));
+                        .add(newButton).add(copyOrdre).add(editButton).add(deleteButton)));
 
         
         if ( Util.isAfficherBouton()) {
@@ -457,6 +472,17 @@ public class PaneOrdre extends JPanel {
         Ordre ordre = modeleOrdre.getItem(index);
         setOrdre(ordre);
 
+    }
+    
+    private void copier() {
+        
+        int index = tableOrdres.getSelectedRow();
+        if (index == -1){
+           return;
+        }
+        Ordre ordre = modeleOrdre.getItem(index);
+        modeleOrdre.addOrdre(Util.cloneOrdre(ordre));
+       
     }
     
 }

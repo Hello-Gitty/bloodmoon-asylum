@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
+import calafie.builder.jaxb.Ordre;
+
 public class Util {
 
     private static Properties messages;
@@ -98,5 +100,29 @@ public class Util {
         return false;
     }
     
+    
+    public static Ordre cloneOrdre (Ordre ordre) {
+        
+        Ordre result = new Ordre();
+        result.setNom(ordre.getNom());
+        result.setArgent(ordre.getArgent());
+        result.setCaracteristique(ordre.getCaracteristique());
+        result.setCompetence(ordre.getCompetence());
+        result.setDescription(ordre.getDescription());
+        result.setDifficulte(ordre.getDifficulte());
+        result.setGravite(ordre.getGravite());
+        result.setOposition(ordre.getOposition());
+        result.setPv(ordre.getPv());
+        result.setType(ordre.getType());
+        result.setAutomatique(ordre.isAutomatique());
+        result.setPolitique(ordre.isPolitique());
+        result.setLegal(ordre.isLegal());
+        
+        
+        
+        
+        
+        return result;
+    }
 
 }

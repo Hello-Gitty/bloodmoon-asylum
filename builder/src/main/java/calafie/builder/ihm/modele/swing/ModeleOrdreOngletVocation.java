@@ -132,11 +132,13 @@ public class ModeleOrdreOngletVocation extends AbstractTableModel {
 
     public void suppressionOrdre(OrdreNiveau ordre) {
         Builder.getInstance().getBiblio().suppressionOrdre(vocation, ordre.getOrdre(), ordre.getNiveau());
+        recalcul();
         modif();
     }
 
     public void modificationOrdre(OrdreNiveau ordre, Niveau oldNiveau) {
         Builder.getInstance().getBiblio().modificationOrdre(vocation, ordre.getOrdre(), ordre.getNiveau(), oldNiveau);
+        recalcul();
         modif();
     }
 

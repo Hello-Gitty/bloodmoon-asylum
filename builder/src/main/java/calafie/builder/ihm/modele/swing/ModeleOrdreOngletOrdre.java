@@ -91,7 +91,7 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel {
     }
 
     public void removeItem(int index) {
-        if (index < getRowCount()) {
+        if (index != -1 && index < getRowCount()) {
             ordres.remove(index);
             modif();
         }
