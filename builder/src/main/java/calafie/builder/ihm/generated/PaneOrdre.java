@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,9 +21,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-
 import calafie.builder.Builder;
 import calafie.builder.Util;
+import calafie.builder.ihm.controleur.fiche.CheckActionListener;
 import calafie.builder.ihm.modele.swing.ModeleOrdreOngletOrdre;
 import calafie.builder.ihm.modele.type.TypeOrdre;
 import calafie.builder.jaxb.InterfaceJaxb;
@@ -52,9 +53,9 @@ public class PaneOrdre extends JPanel {
      */
     public PaneOrdre() {
         initComponents();
-        modeleOrdre = new ModeleOrdreOngletOrdre();
+
         popOrdre = new PopUpOrdre();
-        tableOrdres.setModel(modeleOrdre);
+        
 
         typeFiltreCombo.setModel(new DefaultComboBoxModel(TypeOrdre
                 .getModele()));
@@ -87,7 +88,8 @@ public class PaneOrdre extends JPanel {
         copyOrdre = new JButton();
         paneButtonOrdre.setBorder(BorderFactory
                 .createEtchedBorder());
-
+        modeleOrdre = new ModeleOrdreOngletOrdre();
+        tableOrdres.setModel(modeleOrdre);
         descriptionLabel.setEditable(false);
         
         newButton.setText(Util.getMessage("builder.button.new"));
@@ -185,6 +187,8 @@ public class PaneOrdre extends JPanel {
                                 org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(newButton).add(copyOrdre).add(editButton).add(deleteButton)));
 
+
+        
         
         if ( Util.isAfficherBouton()) {
             paneButtonLoadSaveData.setBorder(BorderFactory
@@ -223,7 +227,13 @@ public class PaneOrdre extends JPanel {
         paneOrdre.setBorder(BorderFactory.createEtchedBorder());
         jScrollPane2.setViewportView(descriptionLabel);
 
+        JPanel panCheck = new JPanel();
         
+        panCheck.add(CheckActionListener.addActionListener(new JCheckBox(), TypeOrdre.BATIMENTS, modeleOrdre));
+        panCheck.add(CheckActionListener.addActionListener(new JCheckBox(), TypeOrdre.PERSONNAGE, modeleOrdre));
+        panCheck.add(CheckActionListener.addActionListener(new JCheckBox(), TypeOrdre.RENCONTRES, modeleOrdre));
+        panCheck.add(CheckActionListener.addActionListener(new JCheckBox(), TypeOrdre.ORGANISATIONS, modeleOrdre));
+        panCheck.add(CheckActionListener.addActionListener(new JCheckBox(), TypeOrdre.PREROGATIVES, modeleOrdre));
         
         
         
@@ -316,10 +326,12 @@ public class PaneOrdre extends JPanel {
                                                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                                         org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                                                        
                                                                 .add(paneButtonOrdre,
                                                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                                                         org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                                                         org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                                                        .add(panCheck)
                                                 .add(layout
                                                         .createSequentialGroup()
                                                         .addContainerGap()
@@ -341,8 +353,7 @@ public class PaneOrdre extends JPanel {
                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                 org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(40, 40, 40)
-
+                        .add(panCheck)
                         .add(tableListe,
                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                 378,
@@ -429,7 +440,7 @@ public class PaneOrdre extends JPanel {
             Ordre ordre = popOrdre.ouverture(modeleOrdre.getItem(index));
             if (ordre != null) {
                 
-                modeleOrdre.modif();
+                modeleOrdre.modificationOrdre(ordre);
                 setOrdre(ordre);
             } else {
                 tableOrdres.getSelectionModel().clearSelection();

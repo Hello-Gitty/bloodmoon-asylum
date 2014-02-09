@@ -1,27 +1,39 @@
 package calafie.builder.ihm.modele.swing;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.Set;
 
 import javax.swing.table.AbstractTableModel;
 
 import calafie.builder.Builder;
 import calafie.builder.ihm.modele.Kitheque;
+import calafie.builder.ihm.modele.type.TypeOrdre;
 import calafie.builder.jaxb.Ordre;
 
-public class ModeleOrdreOngletOrdre extends AbstractTableModel {
+public class ModeleOrdreOngletOrdre extends AbstractTableModel implements Filtrable, Observer {
 
     /**
      * 
      */
     private static final long serialVersionUID = -7114068558872331484L;
-    private List<Ordre> ordres;
     private String[] colmnName = { "Nom", "Type", "Legal", "Caract.",
             "Caract. Opp.", "Competence", "Cout", "PV" };
-    private Kitheque kithque;
+    
+    
+    private Set<String> filtre;
+    private List<Ordre> ordres = new ArrayList<Ordre>();
+    protected Kitheque kitheque;
+    
 
     public ModeleOrdreOngletOrdre() {
-        kithque = Builder.getInstance().getBiblio();
-        ordres = kithque.getOrdres();
+        kitheque = Builder.getInstance().getBiblio();
+        kitheque.addObserver(this);
+        ordres.addAll(kitheque.getOrdres());
+        filtre = new HashSet<String>();
     }
 
     public String getColumnName(int column) {
@@ -86,13 +98,13 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel {
     // NOM | TYPE | LEGAL | CAR | CAR OPP | COMPT |
 
     public void addOrdre(Ordre ordre) {
-        ordres.add(ordre);
+        kitheque.ajoutOrdre(ordre);
         modif();
     }
 
     public void removeItem(int index) {
         if (index != -1 && index < getRowCount()) {
-            ordres.remove(index);
+            kitheque.suppressionOrdre(getItem(index));
             modif();
         }
     }
@@ -100,7 +112,7 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel {
     public void modif() {
         fireTableDataChanged();
         fireTableStructureChanged();
-        kithque.modifOrdre();    
+         
     }
 
     public Ordre getItem(int index) {
@@ -120,6 +132,41 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel {
     public void clear(){
         ordres.clear();
         modif();
+    }   
+    
+
+    public void filtre(TypeOrdre type, boolean check) {
+        if (check) {
+            filtre.add(type.getNom());
+        } else {
+            filtre.remove(type.getNom());
+        }
+        recalcul();
     }
+
+    private void recalcul() {
+        
+        ordres.clear();
+        for (Ordre ordre : kitheque.getOrdres()){
+            if ( filtre.contains(ordre.getType())) {
+                ordres.add(ordre);
+            }
+        }
+        fireTableStructureChanged();
+        this.fireTableDataChanged();
+    }
+
+    public void modificationOrdre(Ordre ordre) {
+        kitheque.modificationOrdre(ordre);
+        modif();
+    }
+
+    public void update(Observable o, Object arg) {
+        if (arg instanceof Ordre) {
+            recalcul();
+        }
+        
+    }
+    
     
 }

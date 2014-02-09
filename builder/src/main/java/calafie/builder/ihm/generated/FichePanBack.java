@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,6 +21,7 @@ import calafie.builder.Builder;
 import calafie.builder.Util;
 import calafie.builder.ihm.controleur.ListenerButtonsFiche;
 import calafie.builder.ihm.controleur.fiche.CaractNiveauListener;
+import calafie.builder.ihm.controleur.fiche.CheckActionListener;
 import calafie.builder.ihm.controleur.fiche.ComptNiveauListener;
 import calafie.builder.ihm.controleur.fiche.FocusNoteListener;
 import calafie.builder.ihm.controleur.fiche.FocusTextListener;
@@ -31,6 +33,7 @@ import calafie.builder.ihm.modele.ModeleFiche;
 import calafie.builder.ihm.modele.swing.ModeleOrdreOngletFiche;
 import calafie.builder.ihm.modele.type.CaractEnum;
 import calafie.builder.ihm.modele.type.ComptEnum;
+import calafie.builder.ihm.modele.type.TypeOrdre;
 import calafie.builder.ihm.modele.type.TypeVocation;
 
 /**
@@ -193,7 +196,7 @@ public class FichePanBack extends JPanel implements AffichageFiche{
                         .addComponent(buttonSave).addComponent(loadButton)
                         .addComponent(exportButton)));
 
-        ModeleOrdreOngletFiche.ajoutModele(tableOrdre);
+        ModeleOrdreOngletFiche model = ModeleOrdreOngletFiche.ajoutModele(tableOrdre);
         ModeleOrdreOngletFiche.ajoutModeleVocation(tableOrdreV);
 
         scrollPanOrdreV.setBorder(javax.swing.BorderFactory
@@ -210,12 +213,22 @@ public class FichePanBack extends JPanel implements AffichageFiche{
         areaNote.setRows(5);
         scrollNote.setViewportView(areaNote);
 
+        JPanel panCheck = new JPanel();
+        
+        panCheck.add(CheckActionListener.addActionListener(new JCheckBox(), TypeOrdre.BATIMENTS, model));
+        panCheck.add(CheckActionListener.addActionListener(new JCheckBox(), TypeOrdre.PERSONNAGE, model));
+        panCheck.add(CheckActionListener.addActionListener(new JCheckBox(), TypeOrdre.RENCONTRES, model));
+        panCheck.add(CheckActionListener.addActionListener(new JCheckBox(), TypeOrdre.ORGANISATIONS, model));
+        panCheck.add(CheckActionListener.addActionListener(new JCheckBox(), TypeOrdre.PREROGATIVES, model));
+        
+        
         javax.swing.GroupLayout panScrollLayout = new javax.swing.GroupLayout(
                 panScroll);
         panScroll.setLayout(panScrollLayout);
         panScrollLayout.setHorizontalGroup(panScrollLayout
                 .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(scrollPanOrdre)
+                .addComponent(panCheck)
                 .addGroup(
                         javax.swing.GroupLayout.Alignment.TRAILING,
                         panScrollLayout
@@ -237,20 +250,21 @@ public class FichePanBack extends JPanel implements AffichageFiche{
                                         .addComponent(
                                                 scrollPanOrdreV,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                190,
+                                                185,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(2, 2, 2)
+                                        .addComponent(panCheck)
                                         .addComponent(
                                                 scrollPanOrdre,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                190,
+                                                185,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(
                                                 javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(
                                                 scrollNote,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                220,
+                                                185,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addContainerGap(
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -615,7 +629,7 @@ public class FichePanBack extends JPanel implements AffichageFiche{
         labelGES.setText(CaractEnum.GES.name());
 
         labelINT.setText(CaractEnum.INT.name());
-
+        
         labelPER.setText(CaractEnum.PER.name());
 
         CaractNiveauListener.addListenerNModel(CaractEnum.FOR, comboFOR, this);

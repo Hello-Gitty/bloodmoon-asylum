@@ -158,12 +158,12 @@ public class Kitheque extends Observable {
     }
 
     private void misAJour(Object oo) {
-        this.setModif(true);
         this.setChanged();
         this.notifyObservers(oo);
     }
 
     public void modifOrdre() {
+        this.setModif(true);
         ComparatorOrdre comp = new ComparatorOrdre();
 
         Collections.sort(ordres, comp);
@@ -176,11 +176,13 @@ public class Kitheque extends Observable {
     }
 
     public void modifVocation(TypeVocation type) {
+        this.setModif(true);
         misAJour(type);
         
     }
     
     public void ajoutCapacite(Vocation voc, Capacite capa) {
+        this.setModif(true);
         voc.getCapacites().getCapacite().add(capa);
         misAJour(new Ordre());
     }
@@ -188,17 +190,19 @@ public class Kitheque extends Observable {
 
     
     public void modificationCapacite(Vocation voc, Capacite capa) {
+        this.setModif(true);
         misAJour(new Ordre());
     }
     
     
     public void suppressionCapacite(Vocation voc, Capacite capa) {
+        this.setModif(true);
         voc.getCapacites().getCapacite().remove(capa);
         misAJour(new Ordre());
     }
     
     public void ajoutOrdre(Vocation voc, Ordre ordre, Niveau niveau) {
-        
+        this.setModif(true);
         for (Capacite capa : voc.getCapacites().getCapacite()) {
             if ( capa.getNiveau() == niveau.getNiveau()) {
                 capa.getOrdres().add(ordre);
@@ -210,7 +214,7 @@ public class Kitheque extends Observable {
 
     
     public void suppressionOrdre(Vocation voc, Ordre ordre, Niveau niveau) {
-        
+        this.setModif(true);
         for (Capacite capa : voc.getCapacites().getCapacite()) {
             if ( capa.getNiveau() == niveau.getNiveau()) {
                 capa.getOrdres().remove(ordre);
@@ -220,7 +224,7 @@ public class Kitheque extends Observable {
     }
 
     public void modificationOrdre(Vocation vocation, Ordre ordre, Niveau niveau , Niveau oldNiveau) {
-        
+        this.setModif(true);
         if (!oldNiveau.name().equals(niveau.name())) {
             for (Capacite capa : vocation.getCapacites().getCapacite()) {
                 if ( capa.getNiveau() == oldNiveau.getNiveau()) {
@@ -234,5 +238,19 @@ public class Kitheque extends Observable {
         }
         
         misAJour(new Ordre());
+    }
+
+    public void ajoutOrdre(Ordre ordre) {
+        ordres.add(ordre);
+        modifOrdre();
+    }
+
+    public void suppressionOrdre(Ordre item) {
+        ordres.remove(item);
+        modifOrdre();
+    }
+
+    public void modificationOrdre(Ordre ordre) {
+        modifOrdre();
     }
 }

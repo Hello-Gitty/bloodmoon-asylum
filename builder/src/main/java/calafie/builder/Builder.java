@@ -31,8 +31,8 @@ public class Builder {
     }
 
     private void init() {
-        fenetre = new Fenetre();
         chargerDonnee();
+        fenetre = new Fenetre();
         FicheObserver observer = new FicheObserver(fiche, fenetre, ordresVocation);
         fiche.addObserver(observer);
 

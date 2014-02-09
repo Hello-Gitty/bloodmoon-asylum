@@ -63,7 +63,6 @@ public class Util {
                 try {
                     result.createNewFile();
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -73,14 +72,12 @@ public class Util {
     
     
     public static String getProps (String cle ) {
-        
+        System.out.println(new File(".").getAbsolutePath());
         String result = cle;
 
         if (props == null) {
             props = new Properties();
             try {
-                System.out.println(Util.class.getClassLoader()
-                        .getResource(Constantes.FICHIER_CONFIG));
                 props.load(Util.class.getClassLoader()
                         .getResourceAsStream(Constantes.FICHIER_CONFIG));
             } catch (IOException e) {
