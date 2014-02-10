@@ -14,7 +14,7 @@ public class ListernerGeneraux {
 
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(Builder.getInstance().getFenetre(),
-                        "Un outil de construction de personnage pour le jeu de parodie politique kraland, par Famine.",
+                        "KiBuilder par Famine.",
                         "A propos", JOptionPane.PLAIN_MESSAGE);
 
             }

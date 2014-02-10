@@ -50,8 +50,10 @@ public class Fenetre extends JFrame {
         
         
         JMenuItem menuAPropos = new JMenuItem(Util.getMessage("builder.menu.help.apropos"));
+        JMenuItem version = new JMenuItem("v3.0");
         JMenu menu = new JMenu(Util.getMessage("builder.menu.help"));
         menu.add(menuAPropos);
+        menu.add(version);
         menuAPropos.addActionListener(ListernerGeneraux.getListenerAPropos());
         menubar.add(menu);
 
