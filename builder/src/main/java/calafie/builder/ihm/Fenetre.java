@@ -36,6 +36,19 @@ public class Fenetre extends JFrame {
         JMenuBar menubar = new JMenuBar();
         this.setJMenuBar(menubar);
 
+        
+        
+        JMenu menuBuilder = new JMenu(Util.getMessage("builder.menu"));
+        JMenuItem menuSave = new JMenuItem(Util.getMessage("builder.menu.save"));
+        JMenuItem menuQuitter = new JMenuItem(Util.getMessage("builder.menu.quitter"));
+        menuBuilder.add(menuSave);
+        menuBuilder.add(menuQuitter);
+        menubar.add(menuBuilder);
+        
+        menuSave.addActionListener(ListernerGeneraux.getListenerSave());
+        menuQuitter.addActionListener(ListernerGeneraux.getListenerQuitter());
+        
+        
         JMenuItem menuAPropos = new JMenuItem(Util.getMessage("builder.menu.help.apropos"));
         JMenu menu = new JMenu(Util.getMessage("builder.menu.help"));
         menu.add(menuAPropos);

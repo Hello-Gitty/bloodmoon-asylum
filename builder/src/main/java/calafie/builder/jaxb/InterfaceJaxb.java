@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -21,10 +20,14 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+import org.apache.log4j.Logger;
+
 import calafie.builder.Builder;
 import calafie.builder.Constantes;
 
 public class InterfaceJaxb {
+
+    private static Logger log = Logger.getLogger(InterfaceJaxb.class);
 
     public static String EXT_FILE_TXT = ".txt";
     public static String EXT_FILE_XML = ".xml";
@@ -58,7 +61,7 @@ public class InterfaceJaxb {
     public void sauvegarde(String oo) {
         try {
             JFileChooser chooser = new JFileChooser();
-            chooser.setFileFilter(FILE_FILTER_TXT);
+            // chooser.setFileFilter(FILE_FILTER_TXT);
             int returnVal = chooser.showSaveDialog(getWindow());
             if (returnVal == JFileChooser.CANCEL_OPTION) {
                 return;
@@ -73,13 +76,14 @@ public class InterfaceJaxb {
             ecrire(fichier, oo);
 
         } catch (IOException e) {
+            log.error("Erreur lors de la sauvegarde", e);
             return;
         }
     }
 
     public void sauvegarde(Object oo) {
         JFileChooser chooser = new JFileChooser();
-        chooser.setFileFilter(FILE_FILTER);
+        // chooser.setFileFilter(FILE_FILTER);
         int returnVal = chooser.showSaveDialog(getWindow());
         if (returnVal == JFileChooser.CANCEL_OPTION) {
             return;
@@ -96,7 +100,7 @@ public class InterfaceJaxb {
 
     public Object charger() {
         JFileChooser chooser = new JFileChooser();
-        chooser.setFileFilter(FILE_FILTER);
+        // chooser.setFileFilter(FILE_FILTER);
         int returnVal = chooser.showOpenDialog(getWindow());
         if (returnVal == JFileChooser.CANCEL_OPTION) {
             return null;
@@ -113,7 +117,7 @@ public class InterfaceJaxb {
             return decode(contenu);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Erreur lors du chargement", e);
             return null;
         }
     }
@@ -187,8 +191,7 @@ public class InterfaceJaxb {
 
             readerbuffe.close();
         } catch (IOException e) {
-            //
-            e.printStackTrace();
+            log.error("Erreur lors du chargement", e);
         }
 
         return result.toString();
@@ -207,7 +210,7 @@ public class InterfaceJaxb {
 
             unAjout = (E) decodeur.unmarshal(reader);
         } catch (Exception e) {
-
+            log.error("Erreur lors du decodage", e);
         }
         return unAjout;
     }
@@ -226,7 +229,7 @@ public class InterfaceJaxb {
             return writer.toString();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Erreur lors de l'encodage", e);
         }
         return "";
     }
@@ -239,6 +242,7 @@ public class InterfaceJaxb {
             ecrire(fichier, contenu);
 
         } catch (IOException e) {
+            log.error("Erreur lors de la sauvegarde", e);
             return;
         }
     }

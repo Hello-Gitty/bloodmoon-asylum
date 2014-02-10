@@ -1,8 +1,11 @@
 package calafie.builder;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+
+import org.apache.log4j.Logger;
 
 import calafie.builder.jaxb.Ordre;
 
@@ -10,6 +13,7 @@ public class Util {
 
     private static Properties messages;
     private static Properties props;
+    private static Logger log = Logger.getLogger(Util.class);
 
     public static String getMessage(String cle) {
         String result = cle;
@@ -17,11 +21,9 @@ public class Util {
         if (messages == null) {
             messages = new Properties();
             try {
-                System.out.println(Util.class.getClassLoader()
-                        .getResource(Constantes.FICHIER_MESSAGE));
-                messages.load(Util.class.getClassLoader()
-                        .getResourceAsStream(Constantes.FICHIER_MESSAGE));
+                messages.load(new FileReader(new File(Constantes.FICHIER_MESSAGE)));
             } catch (IOException e) {
+                log.error("Erreur lors de la sauvegarde", e);
                 e.printStackTrace();
             }
         }
@@ -33,55 +35,50 @@ public class Util {
 
         return result;
     }
-    
-    
+
     public static File getFichierOrdres() {
         File result = null;
-        
+
         String chemin = getProps(Constantes.PROPS_CHEMIN_ORDRE);
-        if (!Constantes.PROPS_CHEMIN_ORDRE.equalsIgnoreCase(chemin)){
+        if (!Constantes.PROPS_CHEMIN_ORDRE.equalsIgnoreCase(chemin)) {
             result = new File(chemin);
             if (!result.exists()) {
                 try {
                     result.createNewFile();
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    log.error("Erreur lors de la récupération du fichiers ordres", e);
                 }
             }
         }
         return result;
     }
-    
+
     public static File getFichierVocations() {
         File result = null;
-        
+
         String chemin = getProps(Constantes.PROPS_CHEMIN_VOCATION);
-        if (!Constantes.PROPS_CHEMIN_VOCATION.equalsIgnoreCase(chemin)){
+        if (!Constantes.PROPS_CHEMIN_VOCATION.equalsIgnoreCase(chemin)) {
             result = new File(chemin);
             if (!result.exists()) {
                 try {
                     result.createNewFile();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.error("Erreur lors de la récupération du fichiers vocation", e);
                 }
             }
         }
         return result;
     }
-    
-    
-    public static String getProps (String cle ) {
-        System.out.println(new File(".").getAbsolutePath());
+
+    public static String getProps(String cle) {
         String result = cle;
 
         if (props == null) {
             props = new Properties();
             try {
-                props.load(Util.class.getClassLoader()
-                        .getResourceAsStream(Constantes.FICHIER_CONFIG));
+                props.load(new FileReader(new File(Constantes.FICHIER_CONFIG)));
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error("Erreur lors du chargement d'une propriété", e);
             }
         }
 
@@ -92,14 +89,13 @@ public class Util {
 
         return result;
     }
-    
-    public static boolean isAfficherBouton (){
+
+    public static boolean isAfficherBouton() {
         return false;
     }
-    
-    
-    public static Ordre cloneOrdre (Ordre ordre) {
-        
+
+    public static Ordre cloneOrdre(Ordre ordre) {
+
         Ordre result = new Ordre();
         result.setNom(ordre.getNom());
         result.setArgent(ordre.getArgent());
@@ -114,11 +110,7 @@ public class Util {
         result.setAutomatique(ordre.isAutomatique());
         result.setPolitique(ordre.isPolitique());
         result.setLegal(ordre.isLegal());
-        
-        
-        
-        
-        
+
         return result;
     }
 

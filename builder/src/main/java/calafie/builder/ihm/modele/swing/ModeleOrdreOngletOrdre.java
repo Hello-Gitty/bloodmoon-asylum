@@ -20,14 +20,11 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel implements Filtra
      * 
      */
     private static final long serialVersionUID = -7114068558872331484L;
-    private String[] colmnName = { "Nom", "Type", "Legal", "Caract.",
-            "Caract. Opp.", "Competence", "Cout", "PV" };
-    
-    
+    private String[] colmnName = { "Nom", "Type", "Legal", "Caract.", "Caract. Opp.", "Competence", "Cout", "PV" };
+
     private Set<String> filtre;
     private List<Ordre> ordres = new ArrayList<Ordre>();
     protected Kitheque kitheque;
-    
 
     public ModeleOrdreOngletOrdre() {
         kitheque = Builder.getInstance().getBiblio();
@@ -37,7 +34,7 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel implements Filtra
     }
 
     public String getColumnName(int column) {
-        return colmnName[column];
+            return colmnName[column];
     }
 
     public int getRowCount() {
@@ -112,28 +109,26 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel implements Filtra
     public void modif() {
         fireTableDataChanged();
         fireTableStructureChanged();
-         
+
     }
 
     public Ordre getItem(int index) {
         return ordres.get(index);
     }
-    
-    
-    public void addItems (List<Ordre> list) {
-        if (list == null){
+
+    public void addItems(List<Ordre> list) {
+        if (list == null) {
             return;
         }
         ordres.clear();
         ordres.addAll(list);
         modif();
     }
-    
-    public void clear(){
+
+    public void clear() {
         ordres.clear();
         modif();
-    }   
-    
+    }
 
     public void filtre(TypeOrdre type, boolean check) {
         if (check) {
@@ -145,10 +140,10 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel implements Filtra
     }
 
     private void recalcul() {
-        
+
         ordres.clear();
-        for (Ordre ordre : kitheque.getOrdres()){
-            if ( filtre.contains(ordre.getType())) {
+        for (Ordre ordre : kitheque.getOrdres()) {
+            if (filtre.contains(ordre.getType())) {
                 ordres.add(ordre);
             }
         }
@@ -165,8 +160,7 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel implements Filtra
         if (arg instanceof Ordre) {
             recalcul();
         }
-        
+
     }
-    
-    
+
 }

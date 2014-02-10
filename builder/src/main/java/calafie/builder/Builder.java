@@ -3,6 +3,8 @@ package calafie.builder;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import org.apache.log4j.Logger;
+
 import calafie.builder.ihm.Fenetre;
 import calafie.builder.ihm.controleur.fiche.FicheObserver;
 import calafie.builder.ihm.modele.ModeleFiche;
@@ -20,14 +22,19 @@ public class Builder {
     private ModeleFiche fiche;
     private OrdreVocationSelected ordresVocation;
 
+    private static Logger log = Logger.getLogger(Builder.class);
+
     private InterfaceJaxb interfaceJaxb;
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException,
             IllegalAccessException, UnsupportedLookAndFeelException {
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-        builder = new Builder();
-        builder.init();
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            builder = new Builder();
+            builder.init();
+        } catch (Exception e) {
+            log.error("Erreur lors du chargement du builder", e);
+        }
     }
 
     private void init() {
@@ -92,6 +99,8 @@ public class Builder {
     }
 
     public void sauvegarderDonnees() {
+
+        biblio.setModif(false);
 
         Ordres ordres = new Ordres();
         ordres.getOrdre().addAll(biblio.getOrdres());

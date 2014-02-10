@@ -101,6 +101,7 @@ public class PaneOrdre extends JPanel {
         
         descriptionLabel.setLineWrap(true);        
         descriptionLabel.setWrapStyleWord(true);
+       
         
         saveButton.addActionListener(new ActionListener() {
 

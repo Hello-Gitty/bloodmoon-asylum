@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JCheckBox;
 
 import calafie.builder.ihm.modele.swing.Filtrable;
-import calafie.builder.ihm.modele.swing.ModeleOrdreOngletFiche;
 import calafie.builder.ihm.modele.type.TypeOrdre;
 
 public class CheckActionListener implements ActionListener{
@@ -23,8 +22,6 @@ public class CheckActionListener implements ActionListener{
         check.addActionListener(new CheckActionListener(type, model, check));
         check.setSelected(true);
 
-        
-        
         return check;
     }
     
@@ -40,10 +37,5 @@ public class CheckActionListener implements ActionListener{
     
     public void actionPerformed(ActionEvent e) {
         model.filtre(type, check.isSelected());
-        
     }
-    
-    
-    
-
 }

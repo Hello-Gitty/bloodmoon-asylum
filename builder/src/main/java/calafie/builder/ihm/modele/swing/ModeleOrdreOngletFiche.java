@@ -22,10 +22,12 @@ import calafie.builder.jaxb.Ordre;
 public class ModeleOrdreOngletFiche extends AbstractTableModel implements Observer, Filtrable {
 
     public static ModeleOrdreOngletFiche ajoutModele(JTable table) {
-        
+
         ModeleOrdreOngletFiche model = new ModeleOrdreOngletFiche();
         table.setModel(model);
         table.setAutoCreateRowSorter(true);
+
+
         return model;
     }
 
@@ -39,8 +41,7 @@ public class ModeleOrdreOngletFiche extends AbstractTableModel implements Observ
     private String[] colonnes = { "Nom", "Type", "Caract", "Caract opp.", "Competence", "Diff", "Pot", "%" };
     private Set<String> filtre;
     private List<Ordre> ordres = new ArrayList<Ordre>();
-    
-    
+
 
     /**
      * 
@@ -57,8 +58,7 @@ public class ModeleOrdreOngletFiche extends AbstractTableModel implements Observ
     protected void ajoutObserver() {
         kitheque.addObserver(this);
     }
-    
-    
+
     public int getRowCount() {
         return ordres.size();
     }
@@ -69,22 +69,18 @@ public class ModeleOrdreOngletFiche extends AbstractTableModel implements Observ
 
     @Override
     public String getColumnName(int column) {
-        return colonnes [column];
+        return colonnes[column];
     }
 
-    
     protected Ordre getOrdre(int row) {
-        return  ordres.get(row);
+        return ordres.get(row);
     }
-    
-    
-    
-    
+
     // NOM | TYPE | CAR | CAR OPP | COMPT | DIFF | POT | %
     public Object getValueAt(int rowIndex, int columnIndex) {
 
         Ordre ordre = getOrdre(rowIndex);
-        
+
         Object result = "";
 
         int val = 0;
@@ -106,14 +102,14 @@ public class ModeleOrdreOngletFiche extends AbstractTableModel implements Observ
             result = ordre.getCompetence();
             break;
         case 5:
-            if (!ordre.isAutomatique()){
+            if (!ordre.isAutomatique()) {
                 result = ordre.getDifficulte();
-            }else {
+            } else {
                 result = "-";
             }
             break;
         case 6:
-            if (!ordre.isAutomatique()){
+            if (!ordre.isAutomatique()) {
                 val = fiche.getCaracteristiques().get(CaractEnum.valueOf(ordre.getCaracteristique())).getValeur();
                 val += fiche.getCompetences().get(ComptEnum.getComptence(ordre.getCompetence())).getValeur();
                 val -= ordre.getDifficulte();
@@ -123,7 +119,7 @@ public class ModeleOrdreOngletFiche extends AbstractTableModel implements Observ
             }
             break;
         case 7:
-            if (!ordre.isAutomatique()){
+            if (!ordre.isAutomatique()) {
                 val = fiche.getCaracteristiques().get(CaractEnum.valueOf(ordre.getCaracteristique())).getValeur();
                 val += fiche.getCompetences().get(ComptEnum.getComptence(ordre.getCompetence())).getValeur();
                 val -= ordre.getDifficulte();
@@ -142,7 +138,7 @@ public class ModeleOrdreOngletFiche extends AbstractTableModel implements Observ
     public void update(Observable o, Object arg) {
         if (arg instanceof Ordre) {
             recalcul();
-            
+
         }
     }
 
@@ -156,10 +152,10 @@ public class ModeleOrdreOngletFiche extends AbstractTableModel implements Observ
     }
 
     private void recalcul() {
-        
+
         ordres.clear();
-        for (Ordre ordre : kitheque.getOrdres()){
-            if ( filtre.contains(ordre.getType())) {
+        for (Ordre ordre : kitheque.getOrdres()) {
+            if (filtre.contains(ordre.getType())) {
                 ordres.add(ordre);
             }
         }
@@ -167,6 +163,4 @@ public class ModeleOrdreOngletFiche extends AbstractTableModel implements Observ
         this.fireTableDataChanged();
     }
 
-    
-    
 }

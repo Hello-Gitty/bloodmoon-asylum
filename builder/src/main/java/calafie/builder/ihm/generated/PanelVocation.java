@@ -184,6 +184,7 @@ public class PanelVocation extends javax.swing.JPanel {
 
         tableOrdres.setModel(modeleOrdre);
         
+        
         labelChoix.setText(Util.getMessage("builder.popOrdre.element.type"));
 
         typeCombo.setModel(new DefaultComboBoxModel(TypeVocation.getModele()));

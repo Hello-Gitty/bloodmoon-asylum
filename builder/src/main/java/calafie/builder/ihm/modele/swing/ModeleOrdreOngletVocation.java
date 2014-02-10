@@ -20,13 +20,16 @@ public class ModeleOrdreOngletVocation extends AbstractTableModel {
     private Vocation vocation;
     private List<OrdreNiveau> ordres = new ArrayList<OrdreNiveau>();
 
-    private String[] colmnName = { "Nom", "Niveau", "Caracteristique", "Caracteristique Adv.", "Competence", "Difficulte" };
+    private String[] colmnName = { "Nom", "Niveau", "Caracteristique", "Caracteristique Adv.", "Competence",
+            "Difficulte" };
+
+
 
     public ModeleOrdreOngletVocation() {
     }
 
     public String getColumnName(int column) {
-        return colmnName[column];
+            return colmnName[column];
     }
 
     public int getRowCount() {
@@ -59,12 +62,12 @@ public class ModeleOrdreOngletVocation extends AbstractTableModel {
             result = ordre.getOrdre().getCompetence();
             break;
         case 5:
-            if (!ordre.getOrdre().isAutomatique()){
+            if (!ordre.getOrdre().isAutomatique()) {
                 result = "" + ordre.getOrdre().getDifficulte();
             } else {
                 result = "-";
             }
-            
+
             break;
         default:
             result = "Undefined";
@@ -113,7 +116,6 @@ public class ModeleOrdreOngletVocation extends AbstractTableModel {
         modif();
     }
 
-
     public Vocation getVocation() {
         return vocation;
     }
@@ -121,7 +123,7 @@ public class ModeleOrdreOngletVocation extends AbstractTableModel {
     public void setVocation(Vocation vocation) {
         this.vocation = vocation;
         recalcul();
-        
+
     }
 
     public void ajoutOrdre(OrdreNiveau ordre) {

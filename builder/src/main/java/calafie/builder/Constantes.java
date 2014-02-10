@@ -1,10 +1,12 @@
 package calafie.builder;
 
+import java.io.File;
+
 public class Constantes {
 
-    public static String FICHIER_MESSAGE = "messages.properties";
+    public static String FICHIER_MESSAGE = "."+File.separator+"resources"+File.separator+"messages.properties";
 
-    public static String FICHIER_CONFIG = "config.properties";
+    public static String FICHIER_CONFIG = "."+File.separator+"resources"+File.separator+"config.properties";
 
     public static String PROPS_CHEMIN_ORDRE = "builder.file.ordres";
 
