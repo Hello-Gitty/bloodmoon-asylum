@@ -55,6 +55,7 @@ public class ModeleOrdreOngletFiche extends AbstractTableModel implements Observ
         filtre = new HashSet<String>();
     }
 
+    
     protected void ajoutObserver() {
         kitheque.addObserver(this);
     }
@@ -151,7 +152,7 @@ public class ModeleOrdreOngletFiche extends AbstractTableModel implements Observ
         recalcul();
     }
 
-    private void recalcul() {
+    protected void recalcul() {
 
         ordres.clear();
         for (Ordre ordre : kitheque.getOrdres()) {

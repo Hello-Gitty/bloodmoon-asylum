@@ -1,6 +1,7 @@
 package calafie.builder;
 
 import java.io.File;
+import java.nio.charset.Charset;
 
 public class Constantes {
 
@@ -14,4 +15,5 @@ public class Constantes {
 
     public static String JAXB_PACKAGE = "calafie.builder.jaxb";
 
+    public static Charset ENCODING_CHARSET = Charset.forName("UTF-8");
 }

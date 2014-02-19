@@ -31,6 +31,8 @@ public class InterfaceJaxb {
 
     public static String EXT_FILE_TXT = ".txt";
     public static String EXT_FILE_XML = ".xml";
+    
+    
 
     public static FileFilter FILE_FILTER = new javax.swing.filechooser.FileFilter() {
 
@@ -162,7 +164,7 @@ public class InterfaceJaxb {
         }
 
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file),
-                Charset.forName("UTF-8")));
+                Constantes.ENCODING_CHARSET));
         writer.write(data);
         writer.close();
 
@@ -174,7 +176,7 @@ public class InterfaceJaxb {
 
         try {
             BufferedReader readerbuffe = new BufferedReader(new InputStreamReader(new FileInputStream(file),
-                    Charset.forName("UTF-8")));
+                   Constantes.ENCODING_CHARSET));
             boolean fini = false;
             while (fini != true) {
                 String temp = null;

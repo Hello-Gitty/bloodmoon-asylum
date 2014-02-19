@@ -1,8 +1,12 @@
 package calafie.builder;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -21,7 +25,7 @@ public class Util {
         if (messages == null) {
             messages = new Properties();
             try {
-                messages.load(new FileReader(new File(Constantes.FICHIER_MESSAGE)));
+                messages.load(getInput(Constantes.FICHIER_MESSAGE));
             } catch (IOException e) {
                 log.error("Erreur lors de la sauvegarde", e);
                 e.printStackTrace();
@@ -76,7 +80,7 @@ public class Util {
         if (props == null) {
             props = new Properties();
             try {
-                props.load(new FileReader(new File(Constantes.FICHIER_CONFIG)));
+                props.load(getInput(Constantes.FICHIER_CONFIG));
             } catch (IOException e) {
                 log.error("Erreur lors du chargement d'une propriété", e);
             }
@@ -114,4 +118,9 @@ public class Util {
         return result;
     }
 
+    
+    private static InputStreamReader getInput(String fileName) throws UnsupportedEncodingException, FileNotFoundException {
+        return new InputStreamReader (new FileInputStream(new File(fileName)), Constantes.ENCODING_CHARSET);
+        
+    }
 }
