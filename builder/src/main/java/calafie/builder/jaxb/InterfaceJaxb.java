@@ -11,7 +11,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.nio.charset.Charset;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;

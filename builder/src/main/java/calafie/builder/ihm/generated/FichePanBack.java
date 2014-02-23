@@ -1613,7 +1613,7 @@ public class FichePanBack extends JPanel implements AffichageFiche{
             // nous faut la vocation.
             mapVocations.get(type).setSelectedItem(Builder.getInstance().getBiblio().getVocation(type, choix.getNom()));
             mapNiveauVocations.get(type).setSelectedIndex(choix.getValeur());
-            
+            mapVocations.get(type).repaint();
         }
         
         

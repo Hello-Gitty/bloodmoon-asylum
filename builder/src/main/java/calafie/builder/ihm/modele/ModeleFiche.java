@@ -349,7 +349,7 @@ public class ModeleFiche extends Observable {
         caracteristiques.get(CaractEnum.VOL).setValeur(cars.getVolonte());
         caracteristiques.get(CaractEnum.CHA).setValeur(cars.getCharisme());
         caracteristiques.get(CaractEnum.GES).setValeur(cars.getGestion());
-        caracteristiques.get(CaractEnum.INT).setValeur(cars.getGestion());
+        caracteristiques.get(CaractEnum.INT).setValeur(cars.getIntelligence());
         caracteristiques.get(CaractEnum.PER).setValeur(cars.getPerception());
 
         Competences compts = fiche.getCompetences();
