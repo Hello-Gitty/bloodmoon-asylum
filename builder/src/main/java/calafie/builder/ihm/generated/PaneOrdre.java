@@ -21,14 +21,12 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import calafie.builder.Builder;
 import calafie.builder.Util;
 import calafie.builder.ihm.controleur.fiche.CheckActionListener;
 import calafie.builder.ihm.modele.swing.ModeleOrdreOngletOrdre;
+import calafie.builder.ihm.modele.type.TypeLegalite;
 import calafie.builder.ihm.modele.type.TypeOrdre;
-import calafie.builder.jaxb.InterfaceJaxb;
 import calafie.builder.jaxb.Ordre;
-import calafie.builder.jaxb.Ordres;
 
 /**
  * 
@@ -73,9 +71,6 @@ public class PaneOrdre extends JPanel {
         newButton = new JButton();
         editButton = new JButton();
         deleteButton = new JButton();
-        paneButtonLoadSaveData = new JPanel();
-        saveButton = new JButton();
-        loadButton = new JButton();
         JScrollPane tableListe = new JScrollPane();
         tableOrdres = new JTable();
         paneOrdre = new JPanel();
@@ -95,27 +90,12 @@ public class PaneOrdre extends JPanel {
         newButton.setText(Util.getMessage("builder.button.new"));
         editButton.setText(Util.getMessage("builder.button.edit"));
         deleteButton.setText(Util.getMessage("builder.button.delete"));
-        saveButton.setText(Util.getMessage("builder.button.save"));
-        loadButton.setText(Util.getMessage("builder.button.load"));
         copyOrdre.setText(Util.getMessage("builder.button.copy"));
         
         descriptionLabel.setLineWrap(true);        
         descriptionLabel.setWrapStyleWord(true);
        
         
-        saveButton.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                exporter();
-            }
-        });
-        loadButton.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                importer();
-            }
-        });
-
         editButton.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
@@ -191,36 +171,7 @@ public class PaneOrdre extends JPanel {
 
         
         
-        if ( Util.isAfficherBouton()) {
-            paneButtonLoadSaveData.setBorder(BorderFactory
-                    .createEtchedBorder());
-    
-            org.jdesktop.layout.GroupLayout paneButtonLoadSaveDataLayout = new org.jdesktop.layout.GroupLayout(
-                    paneButtonLoadSaveData);
-            paneButtonLoadSaveData.setLayout(paneButtonLoadSaveDataLayout);
-            paneButtonLoadSaveDataLayout
-                    .setHorizontalGroup(paneButtonLoadSaveDataLayout
-                            .createParallelGroup(
-                                    org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(paneButtonLoadSaveDataLayout
-                                    .createSequentialGroup()
-                                    .addContainerGap()
-                                    .add(saveButton)
-                                    .addPreferredGap(
-                                            org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                    .add(loadButton)
-                                    .addContainerGap(
-                                            org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                            Short.MAX_VALUE)));
-            paneButtonLoadSaveDataLayout
-                    .setVerticalGroup(paneButtonLoadSaveDataLayout
-                            .createParallelGroup(
-                                    org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(paneButtonLoadSaveDataLayout
-                                    .createParallelGroup(
-                                            org.jdesktop.layout.GroupLayout.BASELINE)
-                                    .add(saveButton).add(loadButton)));
-        }
+       
         tableListe.setBorder(BorderFactory.createEtchedBorder());
 
         tableListe.setViewportView(tableOrdres);
@@ -308,10 +259,7 @@ public class PaneOrdre extends JPanel {
                                                                 .add(0,
                                                                         0,
                                                                         Short.MAX_VALUE)
-                                                                .add(paneButtonLoadSaveData,
-                                                                        org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                                                        org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                                                        org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                                                                )))
                                 .add(layout
                                         .createSequentialGroup()
                                         .add(layout
@@ -359,21 +307,14 @@ public class PaneOrdre extends JPanel {
                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
                                 378,
                                 org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(paneButtonLoadSaveData,
-                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE,
-                                org.jdesktop.layout.GroupLayout.DEFAULT_SIZE,
-                                org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap()));
+                                             .addContainerGap()));
     }// </editor-fold>//GEN-END:initComponents
 
     private JButton deleteButton;
     private JButton editButton;
-    private JButton loadButton;
     private JButton newButton;
-    private JPanel paneButtonLoadSaveData;
     private JPanel paneButtonOrdre;
     private JPanel paneOrdre;
-    private JButton saveButton;
     private JTable tableOrdres;
     private JComboBox typeFiltreCombo;
 
@@ -391,9 +332,7 @@ public class PaneOrdre extends JPanel {
 
         titre += ordre.getNom();
         if (!ordre.isLegal()) {
-            String gravite = ordre.getGravite();
-            gravite = gravite.substring(0, 1)
-                    + gravite.toLowerCase().substring(1);
+            String gravite = TypeLegalite.valueOf(ordre.getGravite()).getNom();
             titre += " (" + gravite + (ordre.isPolitique() ? " politique" : "")
                     + ")";
         }
@@ -418,14 +357,6 @@ public class PaneOrdre extends JPanel {
         nomOrdreLabel.setText(titre);
         coutLabel.setText(cout);
         potLabel.setText(pot);
-    }
-
-    public void exporter() {
-
-        Ordres ordres = new Ordres();
-        ordres.getOrdre().addAll(Builder.getInstance().getBiblio().getOrdres());
-        InterfaceJaxb inter = new InterfaceJaxb();
-        inter.sauvegarderOrdres(ordres);
     }
 
     private void ouvrirPopUp(boolean modif) {
@@ -461,20 +392,6 @@ public class PaneOrdre extends JPanel {
         modeleOrdre.removeItem(index);
     }
     
-    
-    public void importer() {
-        InterfaceJaxb inter = new InterfaceJaxb();
-        Builder.getInstance().getBiblio().clearOrdres();
-        
-        modeleOrdre.clear();
-        
-        Ordres res = inter.chargementOrdres();
-        if (res != null) {
-            modeleOrdre.addItems(res.getOrdre());
-            Builder.getInstance().getBiblio().addOrdres(res);
-        }
-        modeleOrdre.modif();
-    }
 
     private void selection() {
         int index = tableOrdres.getSelectedRow();

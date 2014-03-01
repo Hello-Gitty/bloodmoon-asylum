@@ -648,7 +648,7 @@ public class FichePanBack extends JPanel implements AffichageFiche{
                                 javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(
                                 panCaractLayout
-                                        .createSequentialGroup()
+                                        .createSequentialGroup().addGap(10)
                                         .addGroup(
                                                 panCaractLayout
                                                         .createParallelGroup(
@@ -1387,7 +1387,7 @@ public class FichePanBack extends JPanel implements AffichageFiche{
                                                         .addComponent(
                                                                 panCaract,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                220,
+                                                                260,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(
                                                                 panCompetence,

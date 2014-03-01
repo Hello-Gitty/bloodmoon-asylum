@@ -11,6 +11,7 @@ import javax.swing.table.AbstractTableModel;
 
 import calafie.builder.Builder;
 import calafie.builder.ihm.modele.Kitheque;
+import calafie.builder.ihm.modele.type.TypeLegalite;
 import calafie.builder.ihm.modele.type.TypeOrdre;
 import calafie.builder.jaxb.Ordre;
 
@@ -59,9 +60,9 @@ public class ModeleOrdreOngletOrdre extends AbstractTableModel implements Filtra
             break;
         case 2:
             if (!ordre.isLegal()) {
-                result = ordre.getGravite();
+                result = TypeLegalite.valueOf(ordre.getGravite()).getNom();
                 if (ordre.isPolitique()) {
-                    result += " Politique";
+                    result += " politique";
                 }
             } else {
                 result = "-";

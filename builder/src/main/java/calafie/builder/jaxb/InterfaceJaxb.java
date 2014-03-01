@@ -14,6 +14,7 @@ import java.io.StringWriter;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -23,6 +24,7 @@ import org.apache.log4j.Logger;
 
 import calafie.builder.Builder;
 import calafie.builder.Constantes;
+import calafie.builder.Util;
 
 public class InterfaceJaxb {
 
@@ -30,7 +32,7 @@ public class InterfaceJaxb {
 
     public static String EXT_FILE_TXT = ".txt";
     public static String EXT_FILE_XML = ".xml";
-    
+    private static File LAST;
     
 
     public static FileFilter FILE_FILTER = new javax.swing.filechooser.FileFilter() {
@@ -62,14 +64,21 @@ public class InterfaceJaxb {
     public void sauvegarde(String oo) {
         try {
             JFileChooser chooser = new JFileChooser();
-            // chooser.setFileFilter(FILE_FILTER_TXT);
+                        
+            if (LAST != null) {
+                chooser.setCurrentDirectory(LAST);
+            }
+            
             int returnVal = chooser.showSaveDialog(getWindow());
             if (returnVal == JFileChooser.CANCEL_OPTION) {
                 return;
             }
 
             File fichier = chooser.getSelectedFile();
-
+            LAST = fichier.getParentFile();
+            //On sauvegarde le dernier endroit où on enregistre ou charge un fichier pour que la prochaine fois
+            // qu'on veut charger ou sauvegarder on soit dans le même dossier.
+            
             if (!fichier.getName().endsWith(EXT_FILE_TXT)) {
                 fichier = new File(fichier.getAbsolutePath() + EXT_FILE_TXT);
             }
@@ -84,30 +93,62 @@ public class InterfaceJaxb {
 
     public void sauvegarde(Object oo) {
         JFileChooser chooser = new JFileChooser();
-        // chooser.setFileFilter(FILE_FILTER);
+     
+        
+        if (LAST != null) {
+            chooser.setCurrentDirectory(LAST);
+        }
+        
         int returnVal = chooser.showSaveDialog(getWindow());
         if (returnVal == JFileChooser.CANCEL_OPTION) {
             return;
         }
 
         File fichier = chooser.getSelectedFile();
-
+        //On sauvegarde le dernier endroit où on enregistre ou charge un fichier pour que la prochaine fois
+        // qu'on veut charger ou sauvegarder on soit dans le même dossier.
+        LAST = fichier.getParentFile();
+        
+        
         if (!fichier.getName().endsWith(EXT_FILE_XML)) {
             fichier = new File(fichier.getAbsolutePath() + EXT_FILE_XML);
         }
+        
+        if (fichier.exists()) {
+            int res = JOptionPane.showConfirmDialog(Builder.getInstance().getFenetre(),
+                    Util.getMessage("builder.popSave.message"), Util.getMessage("builder.popSave.titre"),
+                    JOptionPane.YES_NO_OPTION);
+            if (res == JOptionPane.NO_OPTION) {
+                return;
+            }
+        }
+        
 
         sauvegarde(oo, fichier);
     }
 
     public Object charger() {
         JFileChooser chooser = new JFileChooser();
-        // chooser.setFileFilter(FILE_FILTER);
+                
+        if (LAST != null) {
+            chooser.setCurrentDirectory(LAST);
+        }
+        
         int returnVal = chooser.showOpenDialog(getWindow());
         if (returnVal == JFileChooser.CANCEL_OPTION) {
             return null;
         }
 
         File fichier = chooser.getSelectedFile();
+        
+        LAST = fichier.getParentFile();
+        
+        if (!fichier.getName().endsWith(EXT_FILE_XML)) {
+            log.error("Le fichier n'est pas un fichier xml " + fichier.getAbsolutePath());
+            return null;
+        }
+        
+        
         return charger(fichier);
     }
 
@@ -136,23 +177,58 @@ public class InterfaceJaxb {
     }
 
     public Fiche chargementFiche() {
-        return (Fiche) charger();
-    }
+        Object result = charger();
 
-    public Vocations chargementVocation() {
-        return (Vocations) charger();
-    }
+        if (result == null || !(result instanceof Fiche)) {
+            String complement = "";
+            if (result != null) {
+                complement += " " + result.getClass();
+            }
+            
+            log.error("Le fichier chargé n'est pas un fichier de fiche valide" + complement);
+            result = null;
+            JOptionPane.showMessageDialog(Builder.getInstance().getFenetre(),
+                    Util.getMessage("builder.popErreur.nofiche"), Util.getMessage("builder.popErreur.titre"),
+                    JOptionPane.ERROR_MESSAGE);
+        }
 
-    public Ordres chargementOrdres() {
-        return (Ordres) charger();
+        return (Fiche) result;
     }
 
     public Vocations chargementVocation(File fichier) {
-        return (Vocations) charger(fichier);
+        Object result = charger(fichier);
+
+        if (result != null  && !(result instanceof Vocations)) {
+            String complement = "";
+            if (fichier != null) {
+                complement += " " + fichier.getName();
+            }
+            if (result != null) {
+                complement += " " + result.getClass();
+            }
+            
+            log.error("Le fichier chargé n'est pas un fichier de vocation valide" + complement);
+            result = null;
+        }
+        return (Vocations) result;
     }
 
     public Ordres chargementOrdres(File fichier) {
-        return (Ordres) charger(fichier);
+        Object result = charger(fichier);
+
+        if (result != null && !(result instanceof Ordres)) {
+            String complement = "";
+            if (fichier != null) {
+                complement += " " + fichier.getName();
+            }
+            if (result != null) {
+                complement += " " + result.getClass();
+            }
+            
+            log.error("Le fichier chargé n'est pas un fichier d'ordres valide" + complement);
+            result = null;
+        }
+        return (Ordres) result;
     }
 
     public void ecrire(File file, String data) throws IOException {

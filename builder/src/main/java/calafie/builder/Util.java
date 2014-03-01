@@ -93,9 +93,7 @@ public class Util {
         return result;
     }
 
-    public static boolean isAfficherBouton() {
-        return false;
-    }
+    
 
     public static Ordre cloneOrdre(Ordre ordre) {
 

@@ -19,13 +19,13 @@ import calafie.builder.ihm.modele.swing.ModeleOrdreOngletVocation;
 import calafie.builder.ihm.modele.swing.ModeleVocationOngletVocation;
 import calafie.builder.ihm.modele.swing.OrdreNiveau;
 import calafie.builder.ihm.modele.type.Niveau;
+import calafie.builder.ihm.modele.type.TypeLegalite;
 import calafie.builder.ihm.modele.type.TypeVocation;
 import calafie.builder.jaxb.Capacite;
 import calafie.builder.jaxb.Capacites;
-import calafie.builder.jaxb.InterfaceJaxb;
 import calafie.builder.jaxb.Ordre;
 import calafie.builder.jaxb.Vocation;
-import calafie.builder.jaxb.Vocations;
+
 
 /**
  *
@@ -393,8 +393,7 @@ public class PanelVocation extends javax.swing.JPanel {
 
         titre += ordre.getNom();
         if (!ordre.isLegal()) {
-            String gravite = ordre.getGravite();
-            gravite = gravite.substring(0, 1) + gravite.toLowerCase().substring(1);
+            String gravite = TypeLegalite.valueOf(ordre.getGravite()).getNom();
             titre += " (" + gravite + (ordre.isPolitique() ? " politique" : "") + ")";
         }
 
@@ -515,14 +514,6 @@ public class PanelVocation extends javax.swing.JPanel {
         clearOrdre();
     }
 
-    public void importer() {
-        InterfaceJaxb inter = new InterfaceJaxb();
-        Vocations res = inter.chargementVocation();
-        if (res != null) {
-            Builder.getInstance().getBiblio().importerListVocation(res);
-            selectTypeVoca();
-        }
-    }
 
     private void selection() {
         int index = tableOrdres.getSelectedRow();

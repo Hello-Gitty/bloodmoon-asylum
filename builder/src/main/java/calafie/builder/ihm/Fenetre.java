@@ -78,7 +78,7 @@ public class Fenetre extends JFrame {
             public void windowClosing(WindowEvent e) {
                     if (Builder.getInstance().getBiblio().isModif()) {
                     int result = JOptionPane.showConfirmDialog(Builder.getInstance().getFenetre(),
-                            Util.getMessage("modif.message.confirm"), Util.getMessage("modif.title.confirm"),
+                            Util.getMessage("builder.popmodif.message"), Util.getMessage("builder.popmodif.titre"),
                             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (result == JOptionPane.OK_OPTION) {
                         Builder.getInstance().sauvegarderDonnees();

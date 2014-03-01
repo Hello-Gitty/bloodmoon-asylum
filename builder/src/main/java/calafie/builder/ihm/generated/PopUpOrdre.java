@@ -393,7 +393,7 @@ public class PopUpOrdre extends JDialog {
 
         if (!ordre.isLegal()) {
             ordre.setPolitique(politiqueChech.isSelected());
-            ordre.setGravite(typeLegalCombo.getSelectedItem().toString());
+            ordre.setGravite(TypeLegalite.getVal(typeLegalCombo.getSelectedIndex()).name());
         }
 
         if (!ordre.isAutomatique()) {
@@ -437,6 +437,7 @@ public class PopUpOrdre extends JDialog {
             typeCombo.setSelectedIndex(0);
             
             legalCheck.setSelected(false);
+            typeLegalCombo.setSelectedIndex(0);
             automatiqueCheck.setSelected(false);
            
             competeCombo.setSelectedIndex(0);
@@ -454,7 +455,7 @@ public class PopUpOrdre extends JDialog {
             
             if (legalCheck.isSelected()) {
                 politiqueChech.setSelected(ordreParam.isPolitique());
-                typeLegalCombo.setSelectedItem(ordreParam.getGravite());
+                typeLegalCombo.setSelectedItem(TypeLegalite.valueOf(ordreParam.getGravite()).getNom());
             }
             
             if (!automatiqueCheck.isSelected()) {
