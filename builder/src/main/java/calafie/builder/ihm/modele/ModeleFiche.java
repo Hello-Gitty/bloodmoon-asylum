@@ -311,7 +311,7 @@ public class ModeleFiche extends Observable {
         compts.setVol(competences.get(ComptEnum.VOL).getValeur());
 
         result.setNom(pseudo);
-        result.setNote(note);
+        result.setNote(note.replace("\n", "\\n"));
 
         return result;
 
@@ -373,7 +373,7 @@ public class ModeleFiche extends Observable {
         competences.get(ComptEnum.SURVIE).setValeur(compts.getSurvie());
         competences.get(ComptEnum.VOL).setValeur(compts.getVol());
 
-        note = fiche.getNote();
+        note = fiche.getNote().replace("\\n", "\n");
         pseudo = fiche.getNom();
 
         recalculPA();

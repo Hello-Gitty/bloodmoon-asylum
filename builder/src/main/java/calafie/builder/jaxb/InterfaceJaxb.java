@@ -127,16 +127,19 @@ public class InterfaceJaxb {
         sauvegarde(oo, fichier);
     }
 
-    public Object charger() {
+    public XmlObject charger() {
         JFileChooser chooser = new JFileChooser();
-                
+        XmlObject result = new XmlObject();       
         if (LAST != null) {
             chooser.setCurrentDirectory(LAST);
         }
         
+        result.setStatut(StatutChargement.OK);
+        
         int returnVal = chooser.showOpenDialog(getWindow());
         if (returnVal == JFileChooser.CANCEL_OPTION) {
-            return null;
+            result.setStatut(StatutChargement.CANCEL);
+            return result;
         }
 
         File fichier = chooser.getSelectedFile();
@@ -145,11 +148,20 @@ public class InterfaceJaxb {
         
         if (!fichier.getName().endsWith(EXT_FILE_XML)) {
             log.error("Le fichier n'est pas un fichier xml " + fichier.getAbsolutePath());
-            return null;
+            result.setStatut(StatutChargement.NOXML);
+            return result;
         }
         
         
-        return charger(fichier);
+        Object xml = charger(fichier);
+        result.setXmlResult(xml);
+        
+        if (xml == null) {
+            result.setStatut(StatutChargement.ERROR);
+        }
+        
+        
+        return result;
     }
 
     public Object charger(File fichier) {
@@ -177,22 +189,24 @@ public class InterfaceJaxb {
     }
 
     public Fiche chargementFiche() {
-        Object result = charger();
-
-        if (result == null || !(result instanceof Fiche)) {
+        XmlObject result = charger();
+        if (!StatutChargement.CANCEL.equals(result.getStatut()) && ( !StatutChargement.OK.equals(result.getStatut())
+                ||!(result.getXmlResult() instanceof Fiche)) ) {
             String complement = "";
-            if (result != null) {
-                complement += " " + result.getClass();
+            if (result.getXmlResult() != null) {
+                complement += " " + result.getXmlResult().getClass();
             }
-            
+
             log.error("Le fichier chargé n'est pas un fichier de fiche valide" + complement);
-            result = null;
+
             JOptionPane.showMessageDialog(Builder.getInstance().getFenetre(),
                     Util.getMessage("builder.popErreur.nofiche"), Util.getMessage("builder.popErreur.titre"),
                     JOptionPane.ERROR_MESSAGE);
+            return null;
+
         }
 
-        return (Fiche) result;
+        return (Fiche) result.getXmlResult();
     }
 
     public Vocations chargementVocation(File fichier) {

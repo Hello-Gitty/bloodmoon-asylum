@@ -13,6 +13,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.text.DefaultCaret;
 
 import calafie.builder.Builder;
 import calafie.builder.Util;
@@ -215,6 +216,9 @@ public class PopUpOrdre extends JDialog {
 
         jScrollPane1.setViewportView(descriptionArea);
 
+        DefaultCaret caret = (DefaultCaret) descriptionArea.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
+        
         JPanel panel = new JPanel();
         this.add(panel);
 

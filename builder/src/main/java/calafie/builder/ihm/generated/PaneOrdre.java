@@ -4,6 +4,7 @@
  */
 package calafie.builder.ihm.generated;
 
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,6 +21,7 @@ import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.text.DefaultCaret;
 
 import calafie.builder.Util;
 import calafie.builder.ihm.controleur.fiche.CheckActionListener;
@@ -45,7 +47,7 @@ public class PaneOrdre extends JPanel {
     private ModeleOrdreOngletOrdre modeleOrdre;
     private PopUpOrdre popOrdre;
     private javax.swing.JButton copyOrdre;
-    
+    private JScrollPane jScrollPane2;
     /**
      * Creates new form PanelOrdreG
      */
@@ -74,7 +76,7 @@ public class PaneOrdre extends JPanel {
         JScrollPane tableListe = new JScrollPane();
         tableOrdres = new JTable();
         paneOrdre = new JPanel();
-        JScrollPane jScrollPane2 = new JScrollPane();
+        jScrollPane2 = new JScrollPane();
         descriptionLabel = new JTextArea();
         nomOrdreLabel = new JLabel();
         coutLabel = new JLabel();
@@ -95,6 +97,8 @@ public class PaneOrdre extends JPanel {
         descriptionLabel.setLineWrap(true);        
         descriptionLabel.setWrapStyleWord(true);
        
+        DefaultCaret caret = (DefaultCaret) descriptionLabel.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
         
         editButton.addActionListener(new ActionListener() {
 
@@ -354,6 +358,7 @@ public class PaneOrdre extends JPanel {
         }
 
         descriptionLabel.setText(ordre.getDescription());
+        jScrollPane2.getViewport().setViewPosition(new Point(0, 0));
         nomOrdreLabel.setText(titre);
         coutLabel.setText(cout);
         potLabel.setText(pot);
