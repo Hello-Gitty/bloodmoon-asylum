@@ -26,7 +26,6 @@ public class PACalculator {
     public static int seuilPV2 = 40;
 
     public static int getCoutPaCaract(int val) {
-
         return getCout(val - 1, multiCarac);
     }
 

@@ -384,7 +384,7 @@ public class ModeleFiche extends Observable {
 
         for (CaractEnum caract : CaractEnum.values()) {
             if (caracteristiques.get(caract).getValeur() != CaractEnum.base){
-                result += PACalculator.getCoutPaCaract(caracteristiques.get(caract).getValeur());
+                result += PACalculator.getDiffCoutCaract(CaractEnum.base, caracteristiques.get(caract).getValeur());
             }
         }
 

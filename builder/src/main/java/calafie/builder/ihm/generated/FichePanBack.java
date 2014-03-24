@@ -16,6 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.text.DefaultCaret;
 
 import calafie.builder.Builder;
 import calafie.builder.Util;
@@ -152,6 +153,11 @@ public class FichePanBack extends JPanel implements AffichageFiche{
         areaNote.setLineWrap(true);        
         areaNote.setWrapStyleWord(true);
 
+        
+        fieldPa.setEditable(false);
+        DefaultCaret caret = (DefaultCaret) areaNote.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
+        
         panButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         buttonSave.setText(Util.getMessage("builder.button.save"));
