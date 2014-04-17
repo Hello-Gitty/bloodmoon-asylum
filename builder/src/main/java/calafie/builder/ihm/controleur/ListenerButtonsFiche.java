@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import calafie.builder.Builder;
+import calafie.builder.ihm.generated.DialogueExport;
 import calafie.builder.jaxb.Fiche;
 
 public class ListenerButtonsFiche {
@@ -15,7 +16,17 @@ public class ListenerButtonsFiche {
             }
         };
     }
+    
+    
+    public static ActionListener getListenerOverView() {
+        return new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new DialogueExport(Builder.getInstance().getFenetre(), Builder.getInstance().getFiche().toString());
+            }
+        };
+    }
 
+    
     public static ActionListener getListenerSave() {
         return new ActionListener() {
             public void actionPerformed(ActionEvent e) {

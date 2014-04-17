@@ -53,6 +53,9 @@ public class FichePanBack extends JPanel implements AffichageFiche{
     public FichePanBack() {
         initComponents();
     }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,6 +70,7 @@ public class FichePanBack extends JPanel implements AffichageFiche{
         panButton = new JPanel();
         buttonSave = new JButton();
         loadButton = new JButton();
+        overViewButton = new JButton();
         exportButton = new JButton();
         panScroll = new JPanel();
         scrollPanOrdre = new JScrollPane();
@@ -155,8 +159,6 @@ public class FichePanBack extends JPanel implements AffichageFiche{
 
         
         fieldPa.setEditable(false);
-        DefaultCaret caret = (DefaultCaret) areaNote.getCaret();
-        caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
         
         panButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -164,12 +166,15 @@ public class FichePanBack extends JPanel implements AffichageFiche{
         loadButton.setText(Util.getMessage("builder.button.load"));
         exportButton.setText(Util.getMessage("builder.button.export"));
         buttonReset.setText(Util.getMessage("builder.button.reset"));
+        overViewButton.setText(Util.getMessage("builder.button.overView"));
+        
         
         buttonSave.addActionListener(ListenerButtonsFiche.getListenerSave());
         loadButton.addActionListener(ListenerButtonsFiche.getListenerLoad());
         exportButton.addActionListener(ListenerButtonsFiche.getListenerExport());
         buttonReset.addActionListener(ListenerButtonsFiche.getListenerReset());
-
+        overViewButton.addActionListener(ListenerButtonsFiche.getListenerOverView());
+        
         javax.swing.GroupLayout panButtonLayout = new javax.swing.GroupLayout(
                 panButton);
         panButton.setLayout(panButtonLayout);
@@ -189,6 +194,9 @@ public class FichePanBack extends JPanel implements AffichageFiche{
                                         .addComponent(loadButton)
                                         .addPreferredGap(
                                                 javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(overViewButton)
+                                        .addPreferredGap(
+                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(exportButton)
                                         .addContainerGap(
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -199,7 +207,7 @@ public class FichePanBack extends JPanel implements AffichageFiche{
                         .createParallelGroup(
                                 javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(buttonReset)
-                        .addComponent(buttonSave).addComponent(loadButton)
+                        .addComponent(buttonSave).addComponent(loadButton).addComponent(overViewButton)
                         .addComponent(exportButton)));
 
         ModeleOrdreOngletFiche model = ModeleOrdreOngletFiche.ajoutModele(tableOrdre);
@@ -1552,6 +1560,7 @@ public class FichePanBack extends JPanel implements AffichageFiche{
     private javax.swing.JTextField fieldPseudo;
 
     private javax.swing.JButton loadButton;
+    private javax.swing.JButton overViewButton;
     private JPanel panButton;
     private JPanel panCaract;
     private JPanel panCompetence;
@@ -1598,8 +1607,12 @@ public class FichePanBack extends JPanel implements AffichageFiche{
         
     public void charger(ModeleFiche fiche) {
         fieldPseudo.setText(fiche.getPseudo());
+        
+        DefaultCaret caret = (DefaultCaret) areaNote.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
         areaNote.setText(fiche.getNote());
-
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+        
         comboPv.setSelectedItem(Integer.toString(fiche.getPV()));
         
         

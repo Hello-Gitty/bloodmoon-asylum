@@ -216,9 +216,6 @@ public class PopUpOrdre extends JDialog {
 
         jScrollPane1.setViewportView(descriptionArea);
 
-        DefaultCaret caret = (DefaultCaret) descriptionArea.getCaret();
-        caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
-        
         JPanel panel = new JPanel();
         this.add(panel);
 
@@ -451,7 +448,12 @@ public class PopUpOrdre extends JDialog {
         } else {
             ordre = ordreParam;
             nomFiled.setText(ordreParam.getNom());
+            
+            DefaultCaret caret = (DefaultCaret) descriptionArea.getCaret();
+            caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
             descriptionArea.setText(ordreParam.getDescription());
+            caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+            
             typeCombo.setSelectedItem(ordreParam.getType());
             
             legalCheck.setSelected(!ordreParam.isLegal());

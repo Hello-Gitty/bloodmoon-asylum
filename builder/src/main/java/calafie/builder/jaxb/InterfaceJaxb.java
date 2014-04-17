@@ -86,7 +86,8 @@ public class InterfaceJaxb {
             ecrire(fichier, oo);
 
         } catch (IOException e) {
-            log.error("Erreur lors de la sauvegarde", e);
+            log.error("Erreur lors de la sauvegarde");
+            log.debug("Exception", e);
             return;
         }
     }
@@ -171,7 +172,8 @@ public class InterfaceJaxb {
             return decode(contenu);
 
         } catch (IOException e) {
-            log.error("Erreur lors du chargement", e);
+            log.error("Erreur lors du chargement");
+            log.debug("Exception", e);
             return null;
         }
     }
@@ -282,7 +284,8 @@ public class InterfaceJaxb {
 
             readerbuffe.close();
         } catch (IOException e) {
-            log.error("Erreur lors du chargement", e);
+            log.error("Erreur lors du chargement");
+            log.debug("Exception", e);
         }
 
         return result.toString();
@@ -301,7 +304,8 @@ public class InterfaceJaxb {
 
             unAjout = (E) decodeur.unmarshal(reader);
         } catch (Exception e) {
-            log.error("Erreur lors du decodage", e);
+            log.error("Erreur lors du decodage");
+            log.debug("Exception", e);
         }
         return unAjout;
     }
@@ -320,7 +324,8 @@ public class InterfaceJaxb {
             return writer.toString();
 
         } catch (Exception e) {
-            log.error("Erreur lors de l'encodage", e);
+            log.error("Erreur lors de l'encodage");
+            log.debug("Exception", e);
         }
         return "";
     }
@@ -333,7 +338,8 @@ public class InterfaceJaxb {
             ecrire(fichier, contenu);
 
         } catch (IOException e) {
-            log.error("Erreur lors de la sauvegarde", e);
+            log.error("Erreur lors de la sauvegarde");
+            log.debug("Exception", e);
             return;
         }
     }
