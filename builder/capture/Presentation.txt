@@ -1,0 +1,61 @@
+KiBuilder, un outil pour faire ses perso
+
+
+[gray]Et les optimiseer ! Bouhouhou !! 
+Ouai c'est trop mal l'optimisation ! 
+Au bucher ![/gray]
+
+
+[b]Donc qu'es ce que c'est ?[/b]
+
+C'est un outil simple en java, qui permet de choisir ses vocations, ses caracts, ses compétences, ça calcul le nombre de PA nécessaire à un build de perso.
+Mais aussi ça permet de connaitre ses potentiels et pourcentages pour les ordres des vocations et les autres aussi.
+
+Ca ne permet pas par contre de calculer une optimisation de dépense, ça viendra peut être un jour, peut être.
+
+Il y a trois onglets:
+-l'onglet fiche qui permet de constuire un perso
+-l'onglet ordres qui permet de gérer les ordres génériques du jeu modification/création/suppression
+-l'onglet vocations qui permet de gérer les vocations et les ordres des vocations
+
+Il y a déjà tous les ordres de vocations dans l'outils (sans les descriptions) et pour les vocations de pourvoir ça a été rempli rapidement, sans les noms des sorts ou les types.
+
+Depuis l'onglet fiche on peut:
+-exporter une ficher au format texte.
+-sauvegarder une ficher au format xml
+-charger une fiche qui a été enregisté au format xml
+
+Quand on change ses niveaux de caract/vocation/compétence les potentiels pour les ordres sont automatiquement mis à jour
+
+
+
+[b]Des captures de comment c'est pas très beau:[/b]
+
+
+
+
+
+
+
+[b]Techniquement:[/b]
+-Java 1.6
+-Swing, jaxb
+-Interface dessiné avec netbean puis affiné un peu à la main (le code des ihm est pas terrible)
+-Prend le look and feel du système.
+-Pas testé ailleurs que sous windows (flemme)
+-[url=https://code.google.com/p/bloodmoon-asylum/source/browse/#svn%2Ftrunk%2Fbuilder]Le code source est dispo ici[/url]
+-Il y a des xml Schémas pour le modèle de donnée
+-vocations et ordres stockés en xml
+-Ouai le code pourrait être mieux.
+
+
+
+[b]Autre:[/b]
+Oui c'est la version 3, la version 1 est perdu quelque part depuis la beta, et la version 2 est morte née.
+
+
+
+
+
+
+
