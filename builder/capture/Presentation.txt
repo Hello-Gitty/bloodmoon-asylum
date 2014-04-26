@@ -1,7 +1,7 @@
 KiBuilder, un outil pour faire ses perso
 
 
-[gray]Et les optimiseer ! Bouhouhou !! 
+[gray]Et les optimiser ! Bouhouhou !! 
 Ouai c'est trop mal l'optimisation ! 
 Au bucher ![/gray]
 
@@ -23,39 +23,97 @@ Il y a déjà tous les ordres de vocations dans l'outils (sans les descriptions) e
 Depuis l'onglet fiche on peut:
 -exporter une ficher au format texte.
 -sauvegarder une ficher au format xml
--charger une fiche qui a été enregisté au format xml
+-charger une fiche qui a été enregistée au format xml
+-avoir un aperçu de l'export texte (pratique la coller dans ses notes ou ailleurs)
+-Remettre à zéro la fiche
 
 Quand on change ses niveaux de caract/vocation/compétence les potentiels pour les ordres sont automatiquement mis à jour
 
 
+[b]Comment c'est pas très beau:[/b]
 
-[b]Des captures de comment c'est pas très beau:[/b]
+L'onglet fiche
+[center][img]https://bloodmoon-asylum.googlecode.com/svn/trunk/builder/capture/builderFIche.png[/img][/center]
 
 
+[b]Un exemple d'export de fiche:[/b]
+
+[spoiler]Detreath
+207 PAs
+25 PdV
+Carrière: Diplomate 3
+Type: -Aucune- 0
+Politique: Révolutionnaire 5
+Combat: -Aucune- 0
+Pouvoir: Charme 2
+FOR 1
+VOL 3
+CHA 3
+GES 3
+INT 1
+PER 2
+Baratin 0
+Combat Mains Nues 0
+Combat Contact 0
+Combat Distance 0
+Commerce 1
+Démolition 1
+Discrétion 1
+Éloquence 6
+Falsification 0
+Foi 0
+Informatique 0
+Médecine 0
+Observation 0
+Organisation 3
+Pouvoir 3
+Séduction 0
+Survie 0
+Vol 0
+Note :
+[Émotif]
+
+Toujours une voix monocorde et monotone, il prend des pauses dans ses discours pour bien marquer chaque mot d'un soupir.Il suit son chemin, en attendant la fin du monde, qu'il attend impatiemment, il ne voudrait surtout pas la louper, et en profiter pleinement.
 
 
+Jalons:
+-Revo 6
+-Demolition 4
+-Cha 4
+-Ges 4
+-Diplo 4
 
+[/spoiler]
+
+
+[b]Où c'est qu'on peut l'avoir:[/b]
+
+[url=https://bloodmoon-asylum.googlecode.com/svn/tags/release/builderv3.0.zip]Ici[/url]
+
+Sous window on peut double cliquer sur builder-3.0.jar, ou double cliquer sur launch.bat.
+
+Pour ailleurs je reprend ce que Sancho à mit dans son sujet KitKit:
+
+[quote]cd chemin/du/dossier/ou/se/trouve/le/builder
+java –jar builder-3.0.jar
+[/quote]
 
 
 [b]Techniquement:[/b]
 -Java 1.6
 -Swing, jaxb
--Interface dessiné avec netbean puis affiné un peu à la main (le code des ihm est pas terrible)
+-Interface dessinée avec netbean puis affiné un peu à la main (le code des ihm est pas terrible)
+-[url=https://code.google.com/p/bloodmoon-asylum/source/browse/#svn%2Ftrunk%2Fbuilder]Le code source est dispo ici[/url]
+-Ouai le code pourrait être mieux.
 -Prend le look and feel du système.
 -Pas testé ailleurs que sous windows (flemme)
--[url=https://code.google.com/p/bloodmoon-asylum/source/browse/#svn%2Ftrunk%2Fbuilder]Le code source est dispo ici[/url]
 -Il y a des xml Schémas pour le modèle de donnée
 -vocations et ordres stockés en xml
--Ouai le code pourrait être mieux.
-
 
 
 [b]Autre:[/b]
 Oui c'est la version 3, la version 1 est perdu quelque part depuis la beta, et la version 2 est morte née.
 
+Si des gens sont motivés pour remplir le reste de l'appli avec tous les ordres, correctement, je pourrais mettre à jour l'archive de l'outil.
 
-
-
-
-
-
+Je prend les rapports de bugs, les demandes d'évolution, et advienne que pourra [:D]
