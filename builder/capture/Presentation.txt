@@ -1,5 +1,6 @@
 KiBuilder, un outil pour faire ses perso
 
+
 [gray]Et les optimiser ! Bouhouhou !! 
 Ouai c'est trop mal l'optimisation ! 
 Au bucher ![/gray]
@@ -17,7 +18,7 @@ Il y a trois onglets:
 -l'onglet ordres qui permet de gérer les ordres génériques du jeu modification/création/suppression
 -l'onglet vocations qui permet de gérer les vocations et les ordres des vocations
 
-Il y a déjà tous les ordres de vocations dans l'outils (sans les descriptions) et pour les vocations de pourvoir ça a été rempli rapidement, sans les noms des sorts ou les types.
+Il y a déjà tous les ordres de vocations dans l'outil (sans les descriptions) et pour les vocations de pourvoir ça a été rempli rapidement, sans les noms des sorts ou les types.
 
 Depuis l'onglet fiche on peut:
 -exporter une ficher au format texte.
@@ -113,7 +114,7 @@ java –jar builder-3.0.jar
 
 
 [b]Autre:[/b]
-Oui c'est la version 3, la version 1 est perdu quelque part depuis la bêta, et la version 2 est morte née.
+Oui c'est la version 3, la version 1 est perdu quelque part depuis la bêta, et la version 2 est morte née. [gray]Pour ceux qui ont déjà eut la version 3, j'ai refais des modifs depuis, oui, sans modifier le numéro de version, c'était pas encore la vraie "release".[/gray]
 
 Si des gens sont motivés pour remplir le reste de l'appli avec tous les ordres, correctement, je pourrais mettre à jour l'archive de l'outil.
 
