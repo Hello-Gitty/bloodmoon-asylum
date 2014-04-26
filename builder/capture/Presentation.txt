@@ -1,6 +1,5 @@
 KiBuilder, un outil pour faire ses perso
 
-
 [gray]Et les optimiser ! Bouhouhou !! 
 Ouai c'est trop mal l'optimisation ! 
 Au bucher ![/gray]
@@ -14,7 +13,7 @@ Mais aussi ça permet de connaitre ses potentiels et pourcentages pour les ordres
 Ca ne permet pas par contre de calculer une optimisation de dépense, ça viendra peut être un jour, peut être.
 
 Il y a trois onglets:
--l'onglet fiche qui permet de constuire un perso
+-l'onglet fiche qui permet de construire un perso
 -l'onglet ordres qui permet de gérer les ordres génériques du jeu modification/création/suppression
 -l'onglet vocations qui permet de gérer les vocations et les ordres des vocations
 
@@ -23,7 +22,7 @@ Il y a déjà tous les ordres de vocations dans l'outils (sans les descriptions) e
 Depuis l'onglet fiche on peut:
 -exporter une ficher au format texte.
 -sauvegarder une ficher au format xml
--charger une fiche qui a été enregistée au format xml
+-charger une fiche qui a été enregistrée au format xml
 -avoir un aperçu de l'export texte (pratique la coller dans ses notes ou ailleurs)
 -Remettre à zéro la fiche
 
@@ -73,7 +72,9 @@ Vol 0
 Note :
 [Émotif]
 
-Toujours une voix monocorde et monotone, il prend des pauses dans ses discours pour bien marquer chaque mot d'un soupir.Il suit son chemin, en attendant la fin du monde, qu'il attend impatiemment, il ne voudrait surtout pas la louper, et en profiter pleinement.
+Toujours une voix monocorde et monotone, il prend des pauses dans ses discours pour bien marquer chaque mot d'un soupir.Il suit son chemin, en attendant la fin du monde, qu'il attend impatiemment, il ne voudrait surtout pas la louper, et 
+
+en profiter pleinement.
 
 
 Jalons:
@@ -112,7 +113,7 @@ java –jar builder-3.0.jar
 
 
 [b]Autre:[/b]
-Oui c'est la version 3, la version 1 est perdu quelque part depuis la beta, et la version 2 est morte née.
+Oui c'est la version 3, la version 1 est perdu quelque part depuis la bêta, et la version 2 est morte née.
 
 Si des gens sont motivés pour remplir le reste de l'appli avec tous les ordres, correctement, je pourrais mettre à jour l'archive de l'outil.
 
