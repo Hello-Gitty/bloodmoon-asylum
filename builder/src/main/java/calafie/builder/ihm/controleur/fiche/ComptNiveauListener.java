@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 
 import calafie.builder.ihm.generated.AffichageFiche;
-import calafie.builder.ihm.modele.swing.ComboBoxRenderer;
 import calafie.builder.ihm.modele.type.ComptEnum;
 
 public class ComptNiveauListener extends FicheListener implements ActionListener {
