@@ -778,87 +778,59 @@ public class FichePanBack extends JPanel implements AffichageFiche{
                                         .addContainerGap(
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 Short.MAX_VALUE)));
-        panCaractLayout
-                .setVerticalGroup(panCaractLayout
-                        .createParallelGroup(
-                                javax.swing.GroupLayout.Alignment.LEADING)
+        panCaractLayout.setVerticalGroup(panCaractLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
+        .addGroup(
+                javax.swing.GroupLayout.Alignment.TRAILING,
+                panCaractLayout
+                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
                         .addGroup(
-                                javax.swing.GroupLayout.Alignment.TRAILING,
                                 panCaractLayout
                                         .createSequentialGroup()
                                         .addComponent(labelPER)
-                                        .addPreferredGap(
-                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(
-                                                comboPER,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                15,
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboPER, javax.swing.GroupLayout.PREFERRED_SIZE, 15,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(
-                                javax.swing.GroupLayout.Alignment.TRAILING,
                                 panCaractLayout
-                                        .createParallelGroup(
-                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(
-                                                panCaractLayout
-                                                        .createSequentialGroup()
-                                                        .addGap(20, 20, 20)
-                                                        .addComponent(
-                                                                comboFOR,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                15,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(
-                                                panCaractLayout
-                                                        .createSequentialGroup()
-                                                        .addGroup(
-                                                                panCaractLayout
-                                                                        .createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                        .addComponent(
-                                                                                labelVOL)
-                                                                        .addComponent(
-                                                                                labelFOR))
-                                                        .addPreferredGap(
-                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(
-                                                                comboVOL,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                15,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(
-                                                panCaractLayout
-                                                        .createSequentialGroup()
-                                                        .addComponent(labelCHA)
-                                                        .addPreferredGap(
-                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(
-                                                                comboCHA,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                15,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(
-                                                panCaractLayout
-                                                        .createSequentialGroup()
-                                                        .addComponent(labelGES)
-                                                        .addPreferredGap(
-                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(
-                                                                comboGES,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                15,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(
-                                                panCaractLayout
-                                                        .createSequentialGroup()
-                                                        .addComponent(labelINT)
-                                                        .addPreferredGap(
-                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(
-                                                                comboINT,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                15,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))));
+                                        .createSequentialGroup()
+                                        .addComponent(labelFOR)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboFOR, javax.swing.GroupLayout.PREFERRED_SIZE, 15,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                        .addGroup(
+                                panCaractLayout
+                                        .createSequentialGroup()
+                                        .addComponent(labelVOL)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboVOL, javax.swing.GroupLayout.PREFERRED_SIZE, 15,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                        .addGroup(
+                                panCaractLayout
+                                        .createSequentialGroup()
+                                        .addComponent(labelCHA)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboCHA, javax.swing.GroupLayout.PREFERRED_SIZE, 15,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(
+                                panCaractLayout
+                                        .createSequentialGroup()
+                                        .addComponent(labelGES)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboGES, javax.swing.GroupLayout.PREFERRED_SIZE, 15,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(
+                                panCaractLayout
+                                        .createSequentialGroup()
+                                        .addComponent(labelINT)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboINT, javax.swing.GroupLayout.PREFERRED_SIZE, 15,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+
+        ));
 
         panCompetence.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -1401,7 +1373,7 @@ public class FichePanBack extends JPanel implements AffichageFiche{
                                                         .addComponent(
                                                                 panCaract,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                260,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(
                                                                 panCompetence,
