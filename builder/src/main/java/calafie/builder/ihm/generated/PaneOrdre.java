@@ -331,7 +331,7 @@ public class PaneOrdre extends JPanel {
     }
     
     public void setOrdre(Ordre ordre) {
-
+        
         String titre = "";
 
         titre += ordre.getNom();
@@ -357,7 +357,11 @@ public class PaneOrdre extends JPanel {
             pot += "+" + ordre.getCompetence();
         }
 
+        DefaultCaret caret = (DefaultCaret) descriptionLabel.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
         descriptionLabel.setText(ordre.getDescription());
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+        
         jScrollPane2.getViewport().setViewPosition(new Point(0, 0));
         nomOrdreLabel.setText(titre);
         coutLabel.setText(cout);

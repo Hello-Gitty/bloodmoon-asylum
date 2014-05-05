@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.text.DefaultCaret;
 
 import calafie.builder.Builder;
 import calafie.builder.Util;
@@ -413,7 +414,11 @@ public class PanelVocation extends javax.swing.JPanel {
             pot += "+" + ordre.getCompetence();
         }
 
+        
+        DefaultCaret caret = (DefaultCaret) descriptionLabel.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
         descriptionLabel.setText(ordre.getDescription());
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         nomOrdreLabel.setText(titre);
         coutLabel.setText(cout);
         potLabel.setText(pot);

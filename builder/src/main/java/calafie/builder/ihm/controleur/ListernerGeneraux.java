@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import calafie.builder.Builder;
+import calafie.builder.ihm.generated.PotUp;
 
 public class ListernerGeneraux {
 
@@ -21,6 +22,15 @@ public class ListernerGeneraux {
         };
     }
 
+    public static ActionListener getListenerPot() {
+        return new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new PotUp(Builder.getInstance().getFenetre());
+            }
+        };
+    }
+    
+    
     public static ActionListener getListenerSave() {
         return new ActionListener() {
             public void actionPerformed(ActionEvent e) {

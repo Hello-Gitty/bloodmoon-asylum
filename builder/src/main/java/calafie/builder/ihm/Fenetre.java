@@ -41,12 +41,15 @@ public class Fenetre extends JFrame {
         
         JMenu menuBuilder = new JMenu(Util.getMessage("builder.menu"));
         JMenuItem menuSave = new JMenuItem(Util.getMessage("builder.menu.save"));
+        JMenuItem menuPot = new JMenuItem(Util.getMessage("builder.menu.pot"));
         JMenuItem menuQuitter = new JMenuItem(Util.getMessage("builder.menu.quitter"));
         menuBuilder.add(menuSave);
+        menuBuilder.add(menuPot);
         menuBuilder.add(menuQuitter);
         menubar.add(menuBuilder);
         
         menuSave.addActionListener(ListernerGeneraux.getListenerSave());
+        menuPot.addActionListener(ListernerGeneraux.getListenerPot());
         menuQuitter.addActionListener(ListernerGeneraux.getListenerQuitter());
         
         
