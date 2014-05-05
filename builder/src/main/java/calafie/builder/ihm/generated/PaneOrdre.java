@@ -127,7 +127,7 @@ public class PaneOrdre extends JPanel {
         tableOrdres.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             
             public void valueChanged(ListSelectionEvent e) {
-                selection();                
+               selection();                
             }
         });
         
@@ -143,7 +143,7 @@ public class PaneOrdre extends JPanel {
         });
         
         tableOrdres.setAutoCreateRowSorter(true);
-        
+
         org.jdesktop.layout.GroupLayout paneButtonOrdreLayout = new org.jdesktop.layout.GroupLayout(
                 paneButtonOrdre);
         paneButtonOrdre.setLayout(paneButtonOrdreLayout);
@@ -403,6 +403,8 @@ public class PaneOrdre extends JPanel {
         if (index == -1){
            return;
         }
+        index = tableOrdres.getRowSorter().convertRowIndexToModel(index);
+        
         Ordre ordre = modeleOrdre.getItem(index);
         setOrdre(ordre);
 

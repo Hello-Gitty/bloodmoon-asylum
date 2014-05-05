@@ -14,6 +14,7 @@ public class PVListener extends FicheListener implements ActionListener {
     public static void addListenerNModel(JComboBox combo) {
         combo.setModel(new javax.swing.DefaultComboBoxModel(PACalculator.getListPv()));
         combo.addActionListener(new PVListener(combo));
+        //combo.addItemListener(new ComboItemListener(combo));
     }
 
     public PVListener(JComboBox combo) {

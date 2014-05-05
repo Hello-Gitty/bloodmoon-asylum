@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JComboBox;
 
-
-
 import calafie.builder.ihm.generated.AffichageFiche;
 import calafie.builder.ihm.modele.type.TypeVocation;
 
@@ -20,7 +18,8 @@ public class VocaNiveauListener extends FicheListener implements ActionListener 
     public static void addListenerNModel(TypeVocation ref, JComboBox combo, AffichageFiche oo) {
         combo.setModel(new javax.swing.DefaultComboBoxModel(TypeVocation.getValues()));
         combo.addActionListener(new VocaNiveauListener (ref,  combo));
-        oo.registerNiveau(ref, combo);;
+        // combo.addItemListener(new ComboItemListener(combo));
+        oo.registerNiveau(ref, combo);
     }
     
     

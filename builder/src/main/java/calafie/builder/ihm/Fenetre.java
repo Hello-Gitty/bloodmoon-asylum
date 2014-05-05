@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 
 import calafie.builder.Builder;
+import calafie.builder.Constantes;
 import calafie.builder.Util;
 import calafie.builder.ihm.controleur.ListernerGeneraux;
 import calafie.builder.ihm.generated.AffichageFiche;
@@ -50,7 +51,7 @@ public class Fenetre extends JFrame {
         
         
         JMenuItem menuAPropos = new JMenuItem(Util.getMessage("builder.menu.help.apropos"));
-        JMenuItem version = new JMenuItem("v3.0");
+        JMenuItem version = new JMenuItem(Constantes.VERSION);
         JMenu menu = new JMenu(Util.getMessage("builder.menu.help"));
         menu.add(menuAPropos);
         menu.add(version);

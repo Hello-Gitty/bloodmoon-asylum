@@ -16,4 +16,7 @@ public class Constantes {
     public static String JAXB_PACKAGE = "calafie.builder.jaxb";
 
     public static Charset ENCODING_CHARSET = Charset.forName("UTF-8");
+    
+    public static String VERSION = "v3.1";
+    
 }

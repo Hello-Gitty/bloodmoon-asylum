@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JComboBox;
 
-
-
 import calafie.builder.ihm.generated.AffichageFiche;
 import calafie.builder.ihm.modele.type.CaractEnum;
 
@@ -22,6 +20,7 @@ public class CaractNiveauListener extends FicheListener implements ActionListene
         combo.setModel(new javax.swing.DefaultComboBoxModel(CaractEnum.getValues()));
         combo.addActionListener(new CaractNiveauListener(ref, combo));
         oo.register(ref, combo);
+        //combo.addItemListener(new ComboItemListener(combo));
     }
 
     public CaractNiveauListener(CaractEnum caract, JComboBox combo) {
