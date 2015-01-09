@@ -1,0 +1,230 @@
+<map>
+  <entry>
+    <string>COMPOSANTS</string>
+    <org.calafie.modele.Categorie>
+      <nom>COMPOSANTS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>BIJOUX</string>
+    <org.calafie.modele.Categorie>
+      <nom>BIJOUX</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>EQUIPEMENT MAISONS</string>
+    <org.calafie.modele.Categorie>
+      <nom>EQUIPEMENT MAISONS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>IMPLANTS</string>
+    <org.calafie.modele.Categorie>
+      <nom>IMPLANTS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>MATIERES PREMIERES</string>
+    <org.calafie.modele.Categorie>
+      <nom>MATIERES PREMIERES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>LIVRES</string>
+    <org.calafie.modele.Categorie>
+      <nom>LIVRES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>CADEAUX DE NOEL</string>
+    <org.calafie.modele.Categorie>
+      <nom>CADEAUX DE NOEL</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>MEDICAMENTS</string>
+    <org.calafie.modele.Categorie>
+      <nom>MEDICAMENTS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>NOURRITURE</string>
+    <org.calafie.modele.Categorie>
+      <nom>NOURRITURE</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>STAGES</string>
+    <org.calafie.modele.Categorie>
+      <nom>STAGES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>ARMEMENTS DIVERS</string>
+    <org.calafie.modele.Categorie>
+      <nom>ARMEMENTS DIVERS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>ANIMAUX D&apos;ELEVAGE</string>
+    <org.calafie.modele.Categorie>
+      <nom>ANIMAUX D&apos;ELEVAGE</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>MUSIQUE</string>
+    <org.calafie.modele.Categorie>
+      <nom>MUSIQUE</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>BOISSONS</string>
+    <org.calafie.modele.Categorie>
+      <nom>BOISSONS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>OBJETS MAGIQUES</string>
+    <org.calafie.modele.Categorie>
+      <nom>OBJETS MAGIQUES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>OUTILS</string>
+    <org.calafie.modele.Categorie>
+      <nom>OUTILS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>RELIQUES</string>
+    <org.calafie.modele.Categorie>
+      <nom>RELIQUES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>PRODUITS INTERMEDIAIRES</string>
+    <org.calafie.modele.Categorie>
+      <nom>PRODUITS INTERMEDIAIRES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>ELECTRONIQUE</string>
+    <org.calafie.modele.Categorie>
+      <nom>ELECTRONIQUE</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>POTIONS MAGIQUES</string>
+    <org.calafie.modele.Categorie>
+      <nom>POTIONS MAGIQUES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>ARTEFACTS</string>
+    <org.calafie.modele.Categorie>
+      <nom>ARTEFACTS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>ARMES DE TIR</string>
+    <org.calafie.modele.Categorie>
+      <nom>ARMES DE TIR</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>VETEMENTS ET ACCESSOIRES</string>
+    <org.calafie.modele.Categorie>
+      <nom>VETEMENTS ET ACCESSOIRES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>DIVERS</string>
+    <org.calafie.modele.Categorie>
+      <nom>DIVERS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>PLANTES</string>
+    <org.calafie.modele.Categorie>
+      <nom>PLANTES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>COURRIER</string>
+    <org.calafie.modele.Categorie>
+      <nom>COURRIER</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>ARMURES</string>
+    <org.calafie.modele.Categorie>
+      <nom>ARMURES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>ENERGIE</string>
+    <org.calafie.modele.Categorie>
+      <nom>ENERGIE</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>VEHICULES</string>
+    <org.calafie.modele.Categorie>
+      <nom>VEHICULES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>EQUIPEMENTS DE VEHICULES</string>
+    <org.calafie.modele.Categorie>
+      <nom>EQUIPEMENTS DE VEHICULES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>CLEFS</string>
+    <org.calafie.modele.Categorie>
+      <nom>CLEFS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>REPAS</string>
+    <org.calafie.modele.Categorie>
+      <nom>REPAS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>SERVICES</string>
+    <org.calafie.modele.Categorie>
+      <nom>SERVICES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>MUNITIONS &amp; EXPLOSIFS</string>
+    <org.calafie.modele.Categorie>
+      <nom>MUNITIONS &amp; EXPLOSIFS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>AVIONS</string>
+    <org.calafie.modele.Categorie>
+      <nom>AVIONS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>BATEAUX</string>
+    <org.calafie.modele.Categorie>
+      <nom>BATEAUX</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>BONS D&apos;ETAT / LOTERIE</string>
+    <org.calafie.modele.Categorie>
+      <nom>BONS D&apos;ETAT / LOTERIE</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>ARMES DE CONTACT</string>
+    <org.calafie.modele.Categorie>
+      <nom>ARMES DE CONTACT</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+</map>
