@@ -66,14 +66,14 @@ public class Fenetre extends JFrame {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double height = screenSize.getHeight();
 
-        int heigt = 732;
+        int heigt = 745;
         boolean resizable = false;
-        if (height < 732) {
+        if (height < 745) {
             heigt = 560;
             resizable = true;
         }
 
-        this.setSize(910, heigt);
+        this.setSize(940, heigt);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(resizable);
         this.setLocationRelativeTo(null);

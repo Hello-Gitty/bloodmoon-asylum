@@ -17,6 +17,6 @@ public class Constantes {
 
     public static Charset ENCODING_CHARSET = Charset.forName("UTF-8");
     
-    public static String VERSION = "v3.1";
+    public static String VERSION = "v3.2";
     
 }

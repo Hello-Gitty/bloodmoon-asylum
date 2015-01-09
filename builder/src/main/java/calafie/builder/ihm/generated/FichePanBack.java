@@ -314,6 +314,7 @@ public class FichePanBack extends JPanel implements AffichageFiche{
                                                 jPanel2Layout
                                                         .createParallelGroup(
                                                                 javax.swing.GroupLayout.Alignment.LEADING)
+                                                                
                                                         .addComponent(labelPa)
                                                         .addComponent(labelPV))
                                         .addPreferredGap(
