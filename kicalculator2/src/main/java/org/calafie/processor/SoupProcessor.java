@@ -1,6 +1,5 @@
 package org.calafie.processor;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,11 +19,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
-import com.thoughtworks.xstream.XStream;
 
 public class SoupProcessor {
 
-    public static String[] BATIMENTS = { "Petite Scierie / Scierie / Grande Scierie / Complexe Scierie",
+    public static String[] BATIMENTS_PRIVE = { "Petite Scierie / Scierie / Grande Scierie / Complexe Scierie",
             "Petite Briqueterie / Briqueterie / Grande Briqueterie / Complexe Briqueterie",
             "Petite Forge / Forge / Grande Forge / Complexe Forge",
             "Petite Raffinerie / Raffinerie / Grande Raffinerie / Complexe Raffinerie",
@@ -38,6 +36,15 @@ public class SoupProcessor {
             "Infirmerie / Clinique / Hôpital / Complexe Hospitalier",
             "Herboriste / Alchimie / Centre Alchimique / Complexe Alchimique",
             "École / École Supérieure / Université / Campus Universitaire" };
+    
+	public String[] BATIMENTS_PUBLIC = {
+			"Base Militaire / Base Militaire / Base Militaire / Base Militaire",
+			"Aérodrome / Aéroport / Aéroport Central / Complexe Aéroport",
+			"Embarcadère / Port / Centre Portuaire / Complexe Portuaire",
+			"Centrale Thermique / Centrale Thermique / Centrale Thermique / Centrale Thermique",
+	};
+    
+    
 
     public static final String UT = "Unité de Travail";
     public static final String UT_S = "Unités de Travail";
@@ -60,49 +67,55 @@ public class SoupProcessor {
         Map<String, Batiment> batiments = new HashMap<String, Batiment>();
         Map<String, String> mapCatBat = buildReferenceBatiment();
         
+        // récupère les objets au fur et à mesure
         for (String paramPage : PAGES) {
             buildObjMap(PAGE + paramPage, mapObj, mapCatBat, batiments);
         }
-        
+        // Complète les composants vendu par les batiments
         completerBatiment(mapObj, batiments);
+        // Construit les catégories à partir des objets
         Map<String, Categorie> categories = construireCategorie(mapObj);
         
+        // Affichage de la chaine utilisée pour le javascript
+        System.out.println(Util.toJson(batiments.values()));
         
-        System.out.println(Wirter.toJson(batiments.values()));
+        // TODO ajouter la capture de la charge de l'objet ?
+        // TODO ajouter la capture des batiments publics ?
+        // TODO ajouter la capture de la descriptions pour de vrai ?
+        // TODO gestion niveau batiment.
         
-        
-        save(mapObj, "i:\\mapObjetKi.xml");
-        save(batiments, "i:\\mapBatiment.xml");
-        save(categories, "i:\\mapCategoerie.xml");
-        
+        // Sauvegade du tout.
+        Util.saveXML(mapObj, "i:\\mapObjetKi.xml");
+        Util.saveXML(batiments, "i:\\mapBatiment.xml");
+        Util.saveXML(categories, "i:\\mapCategoerie.xml");
     }
     
     public static Map<String, Categorie> construireCategorie(Map<String, ObjetKI> mapObj) {
         // Récupération des catégories pour les impots
         Map<String, Categorie> cats = new HashMap<String, Categorie>();
         for (Entry<String, ObjetKI> ent : mapObj.entrySet()) {
-            String nameBat = ent.getValue().getCategorie();
+            String nameCat = ent.getValue().getCategorie();
 
-            if (nameBat == null) {
+            if (nameCat == null) {
                 continue;
             }
 
-            Categorie bat = cats.get(nameBat);
-            if (bat == null) {
-                bat = new Categorie();
-                bat.setNom(nameBat);
-                cats.put(nameBat, bat);
+            Categorie categorie = cats.get(nameCat);
+            if (categorie == null) {
+                categorie = new Categorie();
+                categorie.setNom(nameCat);
+                cats.put(nameCat, categorie);
             }
         }
         return cats;
     }
     
     
-    /**
-     * Construction de la map contenant les batiments et les objets vendu.
-     * @param mapObj
-     * @return
-     */
+	/**
+	 * On doit trouver dans un batiment les composants des objets qu'il propose à la vente.
+	 * @param mapObj
+	 * @param batiments
+	 */
     public static void completerBatiment(Map<String, ObjetKI> mapObj, Map<String, Batiment> batiments) {
       
         // Ajout aux batiments des éléments de base de leur produits
@@ -133,7 +146,7 @@ public class SoupProcessor {
     public static HashMap<String, String> buildReferenceBatiment() {
         HashMap<String, String> mapBatiment = new HashMap<String, String>();
         
-        for (String bats : BATIMENTS) {
+        for (String bats : BATIMENTS_PRIVE) {
 
             String[] battt = bats.split(" / ");
             mapBatiment.put(battt[0].trim(), battt[1].trim());
@@ -145,6 +158,14 @@ public class SoupProcessor {
 
     }
 
+    /**
+     * Alimente la map des objets avec les objets lu sur la page
+     * @param url page
+     * @param mapObj map des objets
+     * @param mapTypeBat type de batiment
+     * @param mapBatiment map contenant les batiments et les objets qu'on y trouve.
+     * @throws IOException
+     */
     public static void buildObjMap(String url, Map<String, ObjetKI> mapObj, Map<String, String> mapTypeBat, Map<String, Batiment> mapBatiment ) throws IOException {
 
         Document doc = Jsoup.connect(url).get();
@@ -159,20 +180,23 @@ public class SoupProcessor {
             Elements lignes = table.getElementsByTag(TR_TAG);
             for (Element ligne : lignes) {
                 List<Node> childs = ligne.childNodes();
+                // Ligne de catégorie.
                 if (childs.size() == 1) {
-                    categorie = getText(childs.get(0)); // Nom des obj
+                    categorie = Util.getText(childs.get(0)); // Nom des obj
                     System.out.println(categorie);
                 } else {
-                    Node img = childs.get(0);
-                    Node desc = childs.get(1);
-                    Node prod = childs.get(2);
-                    String nom = getText(desc);
+                	// Ligne d'objet
+                    Node img = childs.get(0); // TD image de l'objet
+                    Node desc = childs.get(1); // TD description (nom etc)
+                    Node prod = childs.get(2); // TD modalité de production
+                    String nom = Util.getText(desc);
                     String urlImg = img.childNode(0).attr("src");
                     
                     String batiment = null;
+                    // Ce qui est en italique sur la ligne c'est le nom du batiment.
                     Elements elBat = ligne.getElementsByTag(I_TAG);
                     if (elBat != null && elBat.size() > 0) {
-                        batiment = getText(elBat.get(0).childNode(0));
+                        batiment = Util.getText(elBat.get(0).childNode(0));
                         int las = batiment.lastIndexOf('(');
                         las = las != -1 ? las : 0;
                         batiment = batiment.substring(0, las).trim();
@@ -186,20 +210,21 @@ public class SoupProcessor {
                     int uniteTravail = 1;
 
                     List<Composant> compos = new ArrayList<Composant>();
-                    
+                    // On parcours la troisième case du tableau celle qui contient info sur la production de l'objet
                     int size = prod.childNodes().size();
                     for (int j = 0; j < size; j++) {
-                        String temp = getText(prod.childNode(j));
+                        String temp = Util.getText(prod.childNode(j));
+                        // On va déterminer l'info contenu sur la ligne en fonction de clé
                         if (temp.endsWith(UT) || temp.endsWith(UT_S)) {
                             int posEsp = temp.indexOf(' ');
-                            uniteTravail = parse(temp.substring(0, posEsp).trim());
+                            uniteTravail = Util.parse(temp.substring(0, posEsp).trim());
                         } else if (temp.startsWith(NB_PROD)) {
                             int posEsp = temp.lastIndexOf(' ');
-                            produitPar = parse(temp.substring(posEsp, temp.length() - 1).trim());
+                            produitPar = Util.parse(temp.substring(posEsp, temp.length() - 1).trim());
                         } else {
                             // cas autre, c'est que c'est un composant.
                             int posEsp = temp.indexOf(' ');
-                            int nombre = parse(temp.substring(0, posEsp).trim());
+                            int nombre = Util.parse(temp.substring(0, posEsp).trim());
                             String nomObjet = temp.substring(posEsp, temp.length()).trim();
 
                             nomObjet = findComposant(nomObjet, mapObj);
@@ -220,6 +245,7 @@ public class SoupProcessor {
                     } else {
                         obj = new ObjetBase();
                     }
+                    // On a l'objet on le compléte et on l'enregistre
                     obj.setImage(urlImg);
                     obj.setNom(nom);
                     obj.setCategorie(categorie);
@@ -231,7 +257,8 @@ public class SoupProcessor {
                     if (batiment == null) {
                         continue;
                     }
-                    
+                    // Si le batiment n'est pas connu on le créé
+                    // Sinon on met simplement l'objet dans le batiment.
                     Batiment bat = mapBatiment.get(batiment);
                     if (bat == null) {
                         bat = new Batiment();
@@ -241,9 +268,7 @@ public class SoupProcessor {
                         mapBatiment.put(batiment, bat);
                     }
                     bat.getProduits().add(obj);
-                
-                
-                
+
                 }
             }
         }
@@ -284,31 +309,7 @@ public class SoupProcessor {
         return result;
     }
 
-    public static String getText(Node node) {
 
-        if (node.childNodes().size() == 0) {
-            return Jsoup.parse(node.toString()).text();
-        }
-        return getText(node.childNode(0));
-    }
-
-    public static int parse(String ss) {
-        int result = 1;
-
-        try {
-            result = Integer.parseInt(ss);
-        } catch (Exception e) {
-            // Rien
-        }
-
-        return result;
-    }
-
-    public static void save(Object oo, String nom) throws IOException {
-        // http://java.dzone.com/articles/migrate-serialized-java
-        String xml = new XStream().toXML(oo);
-        Wirter.ecrire(xml, new File(nom));
-    }
 
 
 }

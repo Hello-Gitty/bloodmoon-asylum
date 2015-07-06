@@ -1,13 +1,7 @@
 package org.calafie.processor;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,16 +13,31 @@ import org.calafie.modele.ObjetKI;
 
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
+
+/**
+ * Classe de post traitement des batiments récupéré
+ * @author h-g
+ *
+ */
 public class BatimentProcess {
 
+	
+	/***
+	 * 
+	 * On va lire les objets et à partir des objets on va construire un JSON
+	 * qui va contenir les batiments ainsi que les objets que l'on peut y vendre (composants et produits)
+	 * 
+	 * @param args
+	 * @throws IOException
+	 */
     public static void main(String[] args) throws IOException {
 
         Map<String, Batiment> bats = new HashMap<String, Batiment>();
         Map<String, ObjetKI> obj = read();
-
+        
+        // Parcours les objets pour mettre les objets dans chaque batiment.
         for (Entry<String, ObjetKI> ent : obj.entrySet()) {
             String nameBat = ent.getValue().getBatiment();
             if (nameBat == null) {

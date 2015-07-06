@@ -4,33 +4,60 @@ import java.util.List;
 
 public class Batiment {
 
-    private List<ObjetKI> produits;
-    private List<ObjetKI> composants;
+	/**
+	 * Objets produits dans le batiment.
+	 */
+	private List<ObjetKI> produits;
 
-    public List<ObjetKI> getComposants() {
-        return composants;
-    }
+	/**
+	 * Composant disponible dans le batiment.
+	 */
+	private List<ObjetKI> composants;
 
-    public void setComposants(List<ObjetKI> composants) {
-        this.composants = composants;
-    }
+	public List<ObjetKI> getComposants() {
+		return composants;
+	}
 
-    private String nom;
+	public void setComposants(List<ObjetKI> composants) {
+		this.composants = composants;
+	}
 
-    public List<ObjetKI> getProduits() {
-        return produits;
-    }
+	/**
+	 * Nom du batiment.
+	 */
+	private String nom;
 
-    public void setProduits(List<ObjetKI> produits) {
-        this.produits = produits;
-    }
+	/**
+	 * Si le batiment est un commerce prive ou non.
+	 */
+	private boolean commercePrive;
 
-    public String getNom() {
-        return nom;
-    }
+	public boolean isCommercePrive() {
+		return commercePrive;
+	}
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+	public void setCommercePrive(boolean commercePrive) {
+		this.commercePrive = commercePrive;
+	}
+
+	public List<ObjetKI> getProduits() {
+		return produits;
+	}
+
+	public void setProduits(List<ObjetKI> produits) {
+		this.produits = produits;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public boolean isCommercePublic() {
+		return !isCommercePrive();
+	}
 
 }
