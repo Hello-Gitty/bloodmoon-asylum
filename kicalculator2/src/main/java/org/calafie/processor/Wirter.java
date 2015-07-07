@@ -12,8 +12,6 @@ import java.nio.charset.Charset;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.google.gson.Gson;
-import com.thoughtworks.xstream.XStream;
 
 /**
  * Classe d'écriture et lecture de fichier.

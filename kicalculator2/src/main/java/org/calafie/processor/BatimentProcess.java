@@ -7,9 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.calafie.modele.Batiment;
 import org.calafie.modele.Categorie;
-import org.calafie.modele.ObjetKI;
+import org.calafie.modele.objets.Batiment;
+import org.calafie.modele.objets.ObjetKI;
 
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
@@ -21,6 +21,7 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
  * @author h-g
  *
  */
+@Deprecated
 public class BatimentProcess {
 
 	

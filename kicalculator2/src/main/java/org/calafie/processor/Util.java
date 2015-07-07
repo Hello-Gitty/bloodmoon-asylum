@@ -18,6 +18,9 @@ import com.thoughtworks.xstream.XStream;
  */
 public class Util {
 
+	public static final String XML_EXTENSION = ".xml";
+	
+	
 	// Constructeur privé
 	private Util() {
 	}
@@ -67,6 +70,9 @@ public class Util {
 	 */
 	public static void saveXML(Object oo, String nom) throws IOException {
 		String xml = toXML(oo);
+		if( !nom.endsWith(XML_EXTENSION)) {
+			nom += XML_EXTENSION;	
+		}
 		Wirter.ecrire(xml, new File(nom));
 	}
 	

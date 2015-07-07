@@ -1,4 +1,4 @@
-package org.calafie.modele;
+package org.calafie.modele.objets;
 
 /**
  * Objet de base.

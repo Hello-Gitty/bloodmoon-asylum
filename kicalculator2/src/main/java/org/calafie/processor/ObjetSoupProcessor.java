@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.calafie.modele.Batiment;
 import org.calafie.modele.Categorie;
-import org.calafie.modele.Composant;
-import org.calafie.modele.ObjetBase;
-import org.calafie.modele.ObjetCompose;
-import org.calafie.modele.ObjetKI;
+import org.calafie.modele.objets.Batiment;
+import org.calafie.modele.objets.Composant;
+import org.calafie.modele.objets.ObjetBase;
+import org.calafie.modele.objets.ObjetCompose;
+import org.calafie.modele.objets.ObjetKI;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -20,7 +20,7 @@ import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
 
-public class SoupProcessor {
+public class ObjetSoupProcessor {
 
     public static String[] BATIMENTS_PRIVE = { "Petite Scierie / Scierie / Grande Scierie / Complexe Scierie",
             "Petite Briqueterie / Briqueterie / Grande Briqueterie / Complexe Briqueterie",
