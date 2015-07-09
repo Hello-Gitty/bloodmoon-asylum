@@ -86,7 +86,7 @@ public class ObjetSoupProcessor {
 		// Sauvegade du tout.
 		Util.saveXML(mapObj, LECTEUR + CHEMIN + "mapObjetKi.xml");
 		Util.saveXML(batiments, LECTEUR + CHEMIN + "mapBatiment.xml");
-		Util.saveXML(categories, LECTEUR + CHEMIN + "mapCategoerie.xml");
+		Util.saveXML(categories, LECTEUR + CHEMIN + "mapCategorie.xml");
 	
 		ecrireJsonBat(batiments);
     }
@@ -123,7 +123,7 @@ public class ObjetSoupProcessor {
     
     
     
-    public static Map<String, Categorie> construireCategorie(Map<String, ObjetKI> mapObj) {
+    private static Map<String, Categorie> construireCategorie(Map<String, ObjetKI> mapObj) {
         // Récupération des catégories pour les impots
         Map<String, Categorie> cats = new HashMap<String, Categorie>();
         for (Entry<String, ObjetKI> ent : mapObj.entrySet()) {
@@ -149,7 +149,7 @@ public class ObjetSoupProcessor {
 	 * @param mapObj
 	 * @param batiments
 	 */
-    public static void completerBatiment(Map<String, ObjetKI> mapObj, Map<String, Batiment> batiments) {
+    private static void completerBatiment(Map<String, ObjetKI> mapObj, Map<String, Batiment> batiments) {
       
         // Ajout aux batiments des éléments de base de leur produits
         for (Batiment bat : batiments.values()) {
@@ -176,7 +176,7 @@ public class ObjetSoupProcessor {
     /**
      * Construction de la map de correspondance des batiments, pour que tous les niveaux d'un batiment soit connu.
      */
-    public static HashMap<String, Batiment> buildReferenceBatiment() {
+    private static Map<String, Batiment> buildReferenceBatiment() {
         HashMap<String, Batiment> mapBatiment = new HashMap<String, Batiment>();
         
         for (String bats : BATIMENTS_PRIVE) {
@@ -228,7 +228,7 @@ public class ObjetSoupProcessor {
      * @param mapBatiment map contenant les batiments et les objets qu'on y trouve.
      * @throws IOException
      */
-    public static void buildObjMap(String url, Map<String, ObjetKI> mapObj, Map<String, Batiment> mapBatiment ) throws IOException {
+    private static void buildObjMap(String url, Map<String, ObjetKI> mapObj, Map<String, Batiment> mapBatiment ) throws IOException {
 
         Document doc = Jsoup.connect(url).get();
         Elements newsHeadlines = doc.select(CENTRAL_DIV);
@@ -365,7 +365,7 @@ public class ObjetSoupProcessor {
      * @param mapObj
      * @return
      */
-    public static String findComposant(String cle, Map<String, ObjetKI> mapObj) {
+    private static String findComposant(String cle, Map<String, ObjetKI> mapObj) {
         String result = null;
         cle = cle.trim();
         if (mapObj.containsKey(cle)) {
