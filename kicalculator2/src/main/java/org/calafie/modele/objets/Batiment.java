@@ -3,7 +3,24 @@ package org.calafie.modele.objets;
 import java.util.List;
 
 public class Batiment {
-
+	
+	
+	/**
+	 * Nom du batiment.
+	 */
+	private String nom;
+	
+	/**
+	 * Nom du batiments en fonction du niveau.
+	 */
+	private String[] noms = new String[4];
+	
+	/**
+	 * Si le batiment est un commerce prive ou non.
+	 */
+	private boolean commercePrive;
+	
+	
 	/**
 	 * Objets produits dans le batiment.
 	 */
@@ -13,6 +30,7 @@ public class Batiment {
 	 * Composant disponible dans le batiment.
 	 */
 	private List<ObjetKI> composants;
+	
 
 	public List<ObjetKI> getComposants() {
 		return composants;
@@ -22,15 +40,7 @@ public class Batiment {
 		this.composants = composants;
 	}
 
-	/**
-	 * Nom du batiment.
-	 */
-	private String nom;
 
-	/**
-	 * Si le batiment est un commerce prive ou non.
-	 */
-	private boolean commercePrive;
 
 	public boolean isCommercePrive() {
 		return commercePrive;
@@ -60,4 +70,12 @@ public class Batiment {
 		return !isCommercePrive();
 	}
 
+	
+	public String[] getNoms() {
+		return noms;
+	}
+
+	public void setNoms(String[] noms) {
+		this.noms = noms;
+	}
 }

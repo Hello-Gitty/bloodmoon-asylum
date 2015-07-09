@@ -37,7 +37,28 @@ public abstract class ObjetKI {
 	 * Url de l'image de l'objet.
 	 */
 	private String image;
-
+	
+	/**
+	 * Poid d'un objet.
+	 */
+	private int charge;
+	
+	/**
+	 * Capacite d'un objet.
+	 */
+	private int capacite = 0;
+	
+	/**
+	 * Description.
+	 */
+	private String description;
+	
+	/**
+	 * Niveau de production du batiment.
+	 */
+	private int niveau;
+	
+	
 	public String getBatiment() {
 		return batiment;
 	}
@@ -84,6 +105,38 @@ public abstract class ObjetKI {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public int getCharge() {
+		return charge;
+	}
+
+	public void setCharge(int charge) {
+		this.charge = charge;
+	}
+
+	public int getCapacite() {
+		return capacite;
+	}
+
+	public void setCapacite(int capacite) {
+		this.capacite = capacite;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getNiveau() {
+		return niveau;
+	}
+
+	public void setNiveau(int niveau) {
+		this.niveau = niveau;
 	}
 
 }

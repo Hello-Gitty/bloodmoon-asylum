@@ -8,6 +8,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Node;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 
 /**
@@ -89,6 +90,16 @@ public class Util {
 		return StringUtils.stripAccents(gson.toJson(oo));
 	}
 
+	/**
+	 * Convertit un objet en chaine de caractère Gson indenté
+	 * @param oo  objet a écrire
+	 * @return chaine convertit indentée
+	 */
+	public static String toPrettyJson(Object oo) {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		return StringUtils.stripAccents(gson.toJson(oo));
+	}
+	
 	
 	/**
 	 * Convertit un objet en chaine de caractère xml

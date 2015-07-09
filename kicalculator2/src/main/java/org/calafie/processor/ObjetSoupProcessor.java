@@ -1,5 +1,6 @@
 package org.calafie.processor;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +23,7 @@ import org.jsoup.select.Elements;
 
 public class ObjetSoupProcessor {
 
-    public static String[] BATIMENTS_PRIVE = { "Petite Scierie / Scierie / Grande Scierie / Complexe Scierie",
+    public static final String[] BATIMENTS_PRIVE = { "Petite Scierie / Scierie / Grande Scierie / Complexe Scierie",
             "Petite Briqueterie / Briqueterie / Grande Briqueterie / Complexe Briqueterie",
             "Petite Forge / Forge / Grande Forge / Complexe Forge",
             "Petite Raffinerie / Raffinerie / Grande Raffinerie / Complexe Raffinerie",
@@ -35,9 +36,10 @@ public class ObjetSoupProcessor {
             "Orfèvrerie / Bijouterie / Centre Bijoutier / Complexe Bijoutier",
             "Infirmerie / Clinique / Hôpital / Complexe Hospitalier",
             "Herboriste / Alchimie / Centre Alchimique / Complexe Alchimique",
-            "École / École Supérieure / Université / Campus Universitaire" };
+            "École / École Supérieure / Université / Campus Universitaire"
+    };
     
-	public String[] BATIMENTS_PUBLIC = {
+	public static final String[] BATIMENTS_PUBLIC = {
 			"Base Militaire / Base Militaire / Base Militaire / Base Militaire",
 			"Aérodrome / Aéroport / Aéroport Central / Complexe Aéroport",
 			"Embarcadère / Port / Centre Portuaire / Complexe Portuaire",
@@ -50,8 +52,9 @@ public class ObjetSoupProcessor {
     public static final String UT_S = "Unités de Travail";
     public static final String NB_PROD = "[production par";
 
-    public static final String[] PAGES = { "3_12", "3_12_1", "3_12_2", "3_12_3", "3_12_4", "3_12_5", "3_12_6",
-            "3_12_7", "3_12_8", "3_12_9", "3_12_10", "3_12_11" };
+	public static final String[] PAGES = { "3_12" // };
+			, "3_12_1", "3_12_2", "3_12_3", "3_12_4", "3_12_5", "3_12_6", "3_12_7", "3_12_8", "3_12_9", "3_12_10", "3_12_11" };
+	
     public static final String PAGE = "http://www.kraland.org/main.php?p=";
 
     public static final String CENTRAL_DIV = "#central-text";
@@ -59,36 +62,66 @@ public class ObjetSoupProcessor {
     public static final String TR_TAG = "tr";
     public static final String I_TAG = "i";
 
+    public static final String LECTEUR = "g:\\";
+    public static final String CHEMIN = "currentspace\\Kicalculator\\src\\main\\webapps\\data\\";
+    
     
 
     public static void main(String[] args) throws IOException {
         
         Map<String, ObjetKI> mapObj = new HashMap<String, ObjetKI>();
-        Map<String, Batiment> batiments = new HashMap<String, Batiment>();
-        Map<String, String> mapCatBat = buildReferenceBatiment();
+        Map<String, Batiment> batiments = buildReferenceBatiment();
+
         
         // récupère les objets au fur et à mesure
         for (String paramPage : PAGES) {
-            buildObjMap(PAGE + paramPage, mapObj, mapCatBat, batiments);
+            buildObjMap(PAGE + paramPage, mapObj, batiments);
         }
         // Complète les composants vendu par les batiments
         completerBatiment(mapObj, batiments);
         // Construit les catégories à partir des objets
         Map<String, Categorie> categories = construireCategorie(mapObj);
         
-        // Affichage de la chaine utilisée pour le javascript
-        System.out.println(Util.toJson(batiments.values()));
-        
-        // TODO ajouter la capture de la charge de l'objet ?
-        // TODO ajouter la capture des batiments publics ?
-        // TODO ajouter la capture de la descriptions pour de vrai ?
-        // TODO gestion niveau batiment.
-        
-        // Sauvegade du tout.
-        Util.saveXML(mapObj, "i:\\mapObjetKi.xml");
-        Util.saveXML(batiments, "i:\\mapBatiment.xml");
-        Util.saveXML(categories, "i:\\mapCategoerie.xml");
+
+		// Sauvegade du tout.
+		Util.saveXML(mapObj, LECTEUR + CHEMIN + "mapObjetKi.xml");
+		Util.saveXML(batiments, LECTEUR + CHEMIN + "mapBatiment.xml");
+		Util.saveXML(categories, LECTEUR + CHEMIN + "mapCategoerie.xml");
+	
+		ecrireJsonBat(batiments);
     }
+    
+    
+    /**
+     * Méthode qui va écrire des fichiers json contenant tout les batiments
+     * @param batiments
+     * @throws IOException
+     */
+    private static void ecrireJsonBat (Map<String, Batiment> batiments) throws IOException {
+    	
+        List<Batiment> listBatPrive = new ArrayList<Batiment>();
+        for (Batiment bat : batiments.values()) {
+        	if (bat.isCommercePrive()){
+        		listBatPrive.add(bat);
+        	}
+        }
+        
+        String batAll = Util.toJson(batiments.values());
+        String batPrive = Util.toJson(listBatPrive);
+    	
+    	
+        Wirter.ecrire(batAll, new File(LECTEUR + CHEMIN + "allbat.json"));
+        Wirter.ecrire(batPrive, new File(LECTEUR + CHEMIN + "privateBat.json"));
+    	
+        batAll = Util.toPrettyJson(batiments.values());
+        batPrive = Util.toPrettyJson(listBatPrive);
+        
+        Wirter.ecrire(batAll, new File(LECTEUR + CHEMIN + "allbatPretty.json"));
+        Wirter.ecrire(batPrive, new File(LECTEUR + CHEMIN + "privateBatPretty.json"));
+    }
+    
+    
+    
     
     public static Map<String, Categorie> construireCategorie(Map<String, ObjetKI> mapObj) {
         // Récupération des catégories pour les impots
@@ -143,17 +176,46 @@ public class ObjetSoupProcessor {
     /**
      * Construction de la map de correspondance des batiments, pour que tous les niveaux d'un batiment soit connu.
      */
-    public static HashMap<String, String> buildReferenceBatiment() {
-        HashMap<String, String> mapBatiment = new HashMap<String, String>();
+    public static HashMap<String, Batiment> buildReferenceBatiment() {
+        HashMap<String, Batiment> mapBatiment = new HashMap<String, Batiment>();
         
         for (String bats : BATIMENTS_PRIVE) {
 
             String[] battt = bats.split(" / ");
-            mapBatiment.put(battt[0].trim(), battt[1].trim());
-            mapBatiment.put(battt[1].trim(), battt[1].trim());
-            mapBatiment.put(battt[2].trim(), battt[1].trim());
-            mapBatiment.put(battt[3].trim(), battt[1].trim());
+            
+            Batiment batiment = new Batiment();
+            batiment.setNom(battt[1].trim());
+            batiment.setCommercePrive(true);
+            batiment.setProduits(new ArrayList<ObjetKI>());
+            batiment.setComposants(new ArrayList<ObjetKI>());
+            
+            String[] noms = new String[battt.length];
+            for (int i =0; i< battt.length ; i++) {
+            	noms[i]=battt[i].trim();
+            	mapBatiment.put(battt[i].trim(), batiment);
+            }
+            batiment.setNoms(noms);
         }
+        
+        
+        for (String bats : BATIMENTS_PUBLIC) {
+
+            String[] battt = bats.split(" / ");
+            
+            Batiment batiment = new Batiment();
+            batiment.setNom(battt[1].trim());
+            batiment.setCommercePrive(false);
+            batiment.setProduits(new ArrayList<ObjetKI>());
+            batiment.setComposants(new ArrayList<ObjetKI>());
+            
+            String[] noms = new String[battt.length];
+            for (int i =0; i< battt.length ; i++) {
+            	noms[i]=battt[i].trim();
+            	mapBatiment.put(battt[i].trim(), batiment);
+            }
+            batiment.setNoms(noms);
+        }
+        
         return mapBatiment;
 
     }
@@ -166,7 +228,7 @@ public class ObjetSoupProcessor {
      * @param mapBatiment map contenant les batiments et les objets qu'on y trouve.
      * @throws IOException
      */
-    public static void buildObjMap(String url, Map<String, ObjetKI> mapObj, Map<String, String> mapTypeBat, Map<String, Batiment> mapBatiment ) throws IOException {
+    public static void buildObjMap(String url, Map<String, ObjetKI> mapObj, Map<String, Batiment> mapBatiment ) throws IOException {
 
         Document doc = Jsoup.connect(url).get();
         Elements newsHeadlines = doc.select(CENTRAL_DIV);
@@ -183,26 +245,53 @@ public class ObjetSoupProcessor {
                 // Ligne de catégorie.
                 if (childs.size() == 1) {
                     categorie = Util.getText(childs.get(0)); // Nom des obj
-                    System.out.println(categorie);
                 } else {
                 	// Ligne d'objet
                     Node img = childs.get(0); // TD image de l'objet
                     Node desc = childs.get(1); // TD description (nom etc)
+                    
+                    String description = "";
+                    int capacite = 0;
+                    int charge = 1;
+                    
+                    if (desc.childNodeSize() > 3) {
+                    	description = Util.getText(desc.childNode(2));
+                    	// On récupère charge et capacité d'un objet
+                    	// On sait que s'il y a les deux alors c'est séparé par " - "
+                    	String chargeCapa = Util.getText(desc.childNode(1));
+                    	String[] explo = chargeCapa.split(" - ");
+                		int esp = explo[0].trim().lastIndexOf(" ");
+                		// On récupère que la valeur de l'élément.
+                		charge = Util.parse(explo[0].trim().substring(esp+1));
+                    	if (explo.length > 1) {
+                    		esp = explo[1].trim().lastIndexOf(" ");
+                    		charge = Util.parse(explo[1].trim().substring(esp+1));
+                    	}
+                    }
+                    
                     Node prod = childs.get(2); // TD modalité de production
                     String nom = Util.getText(desc);
                     String urlImg = img.childNode(0).attr("src");
                     
-                    String batiment = null;
+                    String chainebat = null;
+                    Batiment batiment = null;
+                    int niveau = 1;
                     // Ce qui est en italique sur la ligne c'est le nom du batiment.
                     Elements elBat = ligne.getElementsByTag(I_TAG);
                     if (elBat != null && elBat.size() > 0) {
-                        batiment = Util.getText(elBat.get(0).childNode(0));
-                        int las = batiment.lastIndexOf('(');
+                        chainebat = Util.getText(elBat.get(0).childNode(0));
+                        int las = chainebat.lastIndexOf('(');
                         las = las != -1 ? las : 0;
-                        batiment = batiment.substring(0, las).trim();
-                        batiment = mapTypeBat.get(batiment);
+                        chainebat = chainebat.substring(0, las).trim();
+                        batiment = mapBatiment.get(chainebat);
+                        
+                        if (chainebat.contains("niv.")) {
+                        // récupère le niveau du batiment nécessaire pour l'ajouter à l'objet.
+                        int deb = chainebat.indexOf("niv.");
+                        String niveauTmp = chainebat.substring(deb, chainebat.length()-2).trim();
+                        niveau = Util.parse(niveauTmp);
+                        }
                     }
-
                     
                     ObjetKI obj = null;
 
@@ -251,23 +340,17 @@ public class ObjetSoupProcessor {
                     obj.setCategorie(categorie);
                     obj.setProduitPar(produitPar);
                     obj.setUniteTravail(uniteTravail);
-                    obj.setBatiment(batiment);
+                    obj.setBatiment(chainebat);
+                    obj.setNiveau(niveau);
+                    obj.setCapacite(capacite);
+                    obj.setCharge(charge);
+                    obj.setDescription(description);
                     mapObj.put(nom, obj);
-                
-                    if (batiment == null) {
-                        continue;
-                    }
-                    // Si le batiment n'est pas connu on le créé
-                    // Sinon on met simplement l'objet dans le batiment.
-                    Batiment bat = mapBatiment.get(batiment);
-                    if (bat == null) {
-                        bat = new Batiment();
-                        bat.setNom(batiment);
-                        bat.setProduits(new ArrayList<ObjetKI>());
-                        bat.setComposants(new ArrayList<ObjetKI>());
-                        mapBatiment.put(batiment, bat);
-                    }
-                    bat.getProduits().add(obj);
+                    
+                    // Si le batiment est connu on ajoute l'objet à la map
+                    if (batiment != null) {
+                    	batiment.getProduits().add(obj);
+                    } 
 
                 }
             }
@@ -309,7 +392,7 @@ public class ObjetSoupProcessor {
         return result;
     }
 
-
+    
 
 
 }

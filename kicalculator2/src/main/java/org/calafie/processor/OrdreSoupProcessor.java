@@ -35,7 +35,7 @@ public class OrdreSoupProcessor {
 	public static final String RULE_BOX = "rulebox";
 
 	public static final String LECTEUR = "G:\\";
-	public static final String NOM_FICHIER_ORDRE = "currentspace\\Kicalculator\\bin\\main\\webapps\\data\\listOrdre";
+	public static final String NOM_FICHIER_ORDRE = "currentspace\\Kicalculator\\src\\main\\webapps\\data\\listOrdre";
 
 	public static void main(String[] args) throws IOException {
 
