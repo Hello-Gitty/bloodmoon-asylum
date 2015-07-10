@@ -1,0 +1,7 @@
+Ajouter nouvelles caractéristiques:
+
+builder.popCarSecondaire.charge=Charge maxi :
+builder.popCarSecondaire.marchandage=% de Marchandage :
+builder.popCarSecondaire.nbemploye=Nombre d'employe max :
+builder.popCarSecondaire.tailleGroupe=Taille de groupe max :
+
