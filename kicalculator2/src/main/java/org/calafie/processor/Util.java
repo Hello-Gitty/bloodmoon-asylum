@@ -20,7 +20,7 @@ import com.thoughtworks.xstream.XStream;
 public class Util {
 
 	public static final String XML_EXTENSION = ".xml";
-	
+
 	
 	// Constructeur privé
 	private Util() {

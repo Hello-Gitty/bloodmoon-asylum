@@ -2,8 +2,8 @@
 
 -Decomposition d'un objet (ses composants, etc)
 -Quoi faire avec un objet (ou vendre, objet fabriqué)
--
 
-###TODO Soup
 
--Extraire ordre.
+###
+Transformer ordre en ordre
+Transformer vocation pouvoir

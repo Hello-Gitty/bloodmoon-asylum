@@ -25,7 +25,8 @@ public class Wirter {
 	private Wirter() {
 	}
 
-	private static Charset utf8 = Charset.forName("UTF-8");
+	public static String UTF_8 = "UTF-8";
+	private static Charset utf8 = Charset.forName(UTF_8);
 
 	/**
 	 * Ecrit le contenu de data dans le fichier.
@@ -37,7 +38,7 @@ public class Wirter {
 	 * @throws IOException
 	 */
 	public static void ecrire(String data, File fichier) throws IOException {
-
+		// TODO a voir pour gérer l'encodage et tout.
 		data = StringUtils.stripAccents(data);
 
 		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(

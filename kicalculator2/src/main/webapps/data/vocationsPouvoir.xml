@@ -1,0 +1,1411 @@
+<list>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Sommeil Apais�</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600111.gif</img>
+        <description>Ce sort dissipe tous les effets n�gatifs provisoires qui p�sent sur le sommeil de la cible, qu&apos;ils soient issus d&apos;ordres (comme Entarter) ou de pouvoirs (comme �puisement). Il n&apos;�limine cependant pas les modificateurs permanents (comme le fait de dormir � l&apos;ext�rieur, ou des effets sur une r�gion), ainsi que ceux li�s � un objet (comme une relique) ou � un r�gime. En cas d&apos;�chec, le lanceur de sort subit un �puisement imposant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Abjuration du Divin</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600112.gif</img>
+        <description>Vous devez vous trouver dans un temple pour utiliser ce pouvoir. Gr�ce � ce sort, vous invoquez des forces hostiles contre le dieu auquel le temple est consacr�. Le marqueur Intervention de ce dieu baissera de votre VOL+Niveau (il ne peut baisser en dessous de -100). En cas d&apos;�chec, le marqueur Intervention grimpe de 2 (sans pouvoir atteindre 100). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Affaiblir Morts-Vivants</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600121.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez affaiblir un ou plusieurs morts-vivants (jusqu&apos;� N/2 rassembl�s en un sous-groupe epsilon). Si le mort-vivant est une momie, il se transformera en zombie. S&apos;il s&apos;agit d&apos;un zombie, il se changera en squelette. S&apos;il s&apos;agit d&apos;un squelette, il sera d�truit. La cr�ature ne change pas d&apos;employeur. En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Vigilance</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600122.gif</img>
+        <description>En lan�ant ce sort, toutes les actions ill�gales de rencontre effectu�es contre vous se verront infliger un malus de 4 (sauf le combat). Ce sort n&apos;est pas cumulable avec lui-m�me et se dissipe � votre prochain sommeil. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Protection contre la Magie</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/600131.gif</img>
+        <description>Gr�ce � ce sort, vous imposez un malus de 8 � tout sort et pouvoir psychique lanc� contre vous (sauf en combat), y compris sur vos propres sorts lanc�s sur vous. Ce sort n&apos;est pas cumulable avec lui-m�me et se dissipe � votre prochain sommeil. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Dissipation d&apos;�l�mentaux</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/600141.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez dissiper un ou plusieurs �l�mentaux (jusqu&apos;� N/2 rassembl�s en un sous-groupe epsilon). En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 3 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Dissipation de la Magie</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/600151.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez dissiper tous les effets magiques actifs sur la cible (dus � un sort ou � une potion), qu&apos;ils soient b�n�fiques ou n�gatifs. En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 3 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Dissipation de Portail</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/600161.gif</img>
+        <description>Vous devez vous trouver dans un portail (voyage, d�moniaque, vide-ordures) pour lancer ce sort. En cas de r�ussite, le portail s&apos;�vanouira. En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 3 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+Abjuration</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>�puisement</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600211.gif</img>
+        <description>La cible de ce sort est victime d&apos;un �puisement g�n�ral et subit un malus au modificateur de Pouvoir sur l&apos;ordre Dormir �gal � 2+N/2 (arrondi vers le bas). On ne peut �tre victime de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort subit un �puisement imposant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>Infraction</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Aggravation des Blessures</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600212.gif</img>
+        <description>En lan�ant ce sort sur un personnage bless�, ses blessures s&apos;aggravent et la victime perd 2 PdV suppl�mentaire. Le sort ne fonctionne pas sur une personne ayant tous ses PdV, ni une personne qui a moins de 5 PdV (les blessures sont d�j� graves), ni sur une personne qui n&apos;a pas �t� bless�e en combat depuis son dernier sommeil. En cas d&apos;�chec, le lanceur de sort subit un �puisement imposant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Animer un Squelette</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600221.gif</img>
+        <description>Vous devez vous trouver dans un cimeti�re pour utiliser ce pouvoir. En lan�ant ce sort, vous animez un squelette qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Choc Retour</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600222.gif</img>
+        <description>Une fois le sort activ�, toute personne lan�ant un sort contre vous subit un choc en retour lui faisant perdre 5 + votre Niveau en PdV (peu importe que le sort soit b�n�fique ou non). L&apos;effet de ce sort se dissipe lors de votre prochain sommeil. Attention : cela concerne aussi les sorts de rencontre que vous lancez sur vous-m�me. Le choc retour ne fonctionne pas sur les sorts lanc�s en combat. En cas d&apos;�chec, le lanceur de sort subit un �puisement imposant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>�treinte Vampirique</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/600231.gif</img>
+        <description>Gr�ce � ce sort, vous aspirez les points de vie de votre victime lors d&apos;un combat : elle perd en points de vie l&apos;�quivalent de votre VOL (limit� aux points de vie qui lui restent) et ces points seront ajout�s en bonus � votre modificateur de Soins pour votre prochain sommeil. Aucune protection ne fonctionne (les armures ne comptent pas), mais certaines parades sont possibles (Esquive, Camouflage). Vous devez �tre � Mains Nues pour lancer un sort en combat. </description>
+        <type>combat</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Animer un Zombie</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/600241.gif</img>
+        <description>Vous devez vous trouver dans un cimeti�re pour utiliser ce pouvoir. En lan�ant ce sort, vous animez un zombie qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Blessures Incurables</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/600251.gif</img>
+        <description>La cible de ce sort est inflig�e de blessures incurables : la prochaine fois qu&apos;elle dormira, le gain de points de vie sera r�duit � 0 (afin d&apos;�viter l&apos;anti-jeu, elle ne pourra pas subir les effets d&apos;un m�me sort le jour suivant). Le sort ne peut �tre lanc� sur une personne dans le coma. En cas d&apos;�chec, le lanceur de sort subit un �puisement imposant un malus de 3 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Mort</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/600261.gif</img>
+        <description>La personne vis�e tombe dans le coma (s&apos;il s&apos;agit d&apos;un PNJ, il sera supprim�). En outre, elle contracte la Putr�faction (s&apos;il s&apos;agit d&apos;un PJ). Les Asc�tes r�sistent � ce sort (qui reste sans effet). En cas d&apos;�chec, le lanceur de sort tombera dans le coma. La victime b�n�ficiera d&apos;une r�cup�ration des points de vie perdus � son prochain sommeil (comme s&apos;ils avaient �t� perdus en combat). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+N�cromancie</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Sommeil Illusoire</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600311.gif</img>
+        <description>La cible de ce sort a l&apos;impression de dormir, ce qui �limine tous les malus provisoire et diminue de 2 tous les bonus provisoires sur son sommeil, sans toutefois lui prendre du temps, ni lui apporter des PdV (le sort peut donc aussi bien �tre b�n�fique que n�faste, selon les totaux de bonus/malus). En cas d&apos;�chec, le lanceur de sort subit un �puisement imposant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invisibilit�</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600312.gif</img>
+        <description>Le sort permet de vous rendre invisible si vous �tes dans un b�timent (vous �tes consid�r� comme cach�). Les cr�atures pr�sentes dans un b�timent ne vous attaquent pas (en entrant, sortant ou changeant de pi�ce). Par contre, le sort est inefficace dans la rue et les cr�atures pr�sentes � l&apos;ext�rieur peuvent vous attaquer (en bougeant, avant d&apos;entrer, apr�s �tre sorti). Le sort n&apos;aura d&apos;effet que si vous �tes seul dans votre groupe (m�me si chaque personne du groupe a lanc� le sort Invisibilit�). L&apos;invisibilit� se dissipe si vous attaquez quelqu&apos;un. Elle a �galement 50% de chances de se dissiper si une personne fouille la pi�ce o� vous �tes. Le sort se dissipe lorsque vous dormez. En cas d&apos;�chec, le lanceur de sort subit un �puisement imposant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Monstre Illusoire Mineur</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600321.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous cr�ez l&apos;illusion permanente d&apos;un monstre mineur parmi les cr�atures pouvant �tre invoqu�es. Celui-ci rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>�vasion Magique</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600322.gif</img>
+        <description>Vous devez vous trouver enferm� dans une prison pour utiliser ce pouvoir. En lan�ant ce sort, vous pouvez passer � travers les barreaux de la prison, ce qui vous donne un bonus de 8 au jet d&apos;�vasion. Vous ne pouvez b�n�ficier de l&apos;effet de ce sort qu&apos;une seule fois avant votre prochain sommeil. Si vous �chouez en lan�ant ce sort, vos sens sont perturb�s et il vous est plus difficile de vous �vader (malus de 4). Ces modificateurs disparaissent d�s que vous dormez. �tant donn� que vous ne pouvez vous �vader le jour de votre emprisonnement (avant de dormir), il est inutile de passer ce sort durant ce jour-l�. </description>
+        <illegal>D�lit</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Image Floue</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/600331.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez rendre votre image floue lors d&apos;un combat, ce qui annulera toute attaque contre vous ce round-l�, y compris les attaques magiques. Vous devez �tre � Mains Nues pour lancer un sort en combat. </description>
+        <type>combat</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Monstre Illusoire Majeur</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/600341.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous cr�ez l&apos;illusion permanente d&apos;un monstre majeur parmi les cr�atures pouvant �tre invoqu�es. Celui-ci rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Inflexion du Temps</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/600351.gif</img>
+        <description>En lan�ant ce sort, vous infl�chissez votre perception temporelle et vos actions ne prennent plus que 80% des PdV requis (sauf les d�placements). Ce sort n&apos;est pas cumulable avec lui-m�me et se dissipe � votre prochain sommeil. En cas d&apos;�chec, l&apos;inflexion est invers�e et vos ordres prendront 110% du temps requis. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Apparence Illusoire</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/600361.gif</img>
+        <description>Vous modifiez votre apparence de fa�on magique, ce qui a pour cons�quence que les PNJ hostiles ne vous attaquent pas : les monstres vous croient un des leurs, les policiers ne vous consid�rent pas comme recherch�, les soldats ne vous consid�rent pas comme ennemi. Le sort fonctionne aussi bien dans un b�timent que dans la rue. Les PJ (et PNJ alpha) sont insensibles � ce sort. Le sort n&apos;aura des effets que sur vous-m�me : donc, si vous vous trouvez dans un groupe, la pr�sence des autres membres peut d�clencher une attaque par des monstres, des soldats ou des policiers. Lancer ce sort devient ill�gal (d�lit) si vous �tes recherch� dans l&apos;empire o� vous �tes. Si vous montez dans un donjon, vous serez tout de m�me attaqu� par des monstres. Le sort se dissipe lorsque vous dormez. En cas d&apos;�chec, le lanceur de sort subit un �puisement imposant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+Illusion</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Sommeil Profond</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600411.gif</img>
+        <description>La cible de ce sort dormira plus profond�ment. Au lancement du sort, pour certains modificateurs (Nourriture, Moral, Soins, Pouvoir), on effectue la somme des effets provisoires (pas les objets, pas la profession). Si cette somme est positive, la cible gagne un +1 suppl�mentaire. Si elle est n�gative, elle subit un -1 suppl�mentaire (0 si elle est nulle). On ne peut �tre victime de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Confusion</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600412.gif</img>
+        <description>La victime de ce sort est frapp�e de confusion, elle ne parvient plus � raisonner et ne peut plus utiliser d&apos;ordre d�pendant de son INT. Par contre, pendant ce temps, toute tentative de Lecture de la M�moire sera sans effet en raison des pens�es confuses (d&apos;o� l&apos;avantage �ventuel de le faire sur soi). Le sort se dissipe en passant l&apos;ordre Dormir. En cas d&apos;�chec, le lanceur de sort subit un malus provisoire de 1 � son Intelligence. </description>
+        <illegal>Infraction</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Enchanter en Assassin</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600421.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez enchanter un PNJ employ� humain normal (de Malabar � Esclave) pour qu&apos;il devienne un assassin � votre service (vous deviendrez son employeur). Ce dernier ne rejoint pas automatiquement votre groupe. En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Ensommeiller</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600422.gif</img>
+        <description>La cible de ce sort tombe endormie (elle devra passer l&apos;ordre Dormir avant de pouvoir passer tout autre ordre, � part ceux de gestion). En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>Infraction</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Folie</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/600431.gif</img>
+        <description>Vous devez vous trouver dans une ville pour utiliser ce pouvoir. La victime de ce sort est atteinte de folie et commet un acte ill�gal (vandalisme) avec toutes les cons�quences associ�es (perte de poste �ventuel, avis de recherche). Les Chefs de gouvernement, Ministres, G�n�raux, Ambassadeurs et Gouverneurs sont immunis�s � cet ordre. Le sort ne fonctionne pas sur une personne dans le coma, ni sur une personne subissant d�j� un avis de recherche (y compris si elle est en prison). Vous ne pouvez pas lancer ce sort sur vous. En cas d&apos;�chec, le lanceur de sort subit un malus de 2 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>Crime</illegal>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Enchanter en Soldat D�serteur</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/600441.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez enchanter un soldat (ou un soldat d&apos;�lite) pour qu&apos;il devienne un soldat d�serteur � votre service (vous deviendrez son employeur). Ce dernier ne rejoint pas automatiquement votre groupe. En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Oubli</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/600451.gif</img>
+        <description>La victime de ce sort oublie partiellement ce qui lui est arriv� (son rapport priv� est en fait camoufl�) - ce qui permet d&apos;effacer les traces d&apos;informations compromettantes vis-�-vis des ordres de surveillance (les enqu�tes peuvent cependant toujours avoir lieu contre les actions ill�gales commises). La mention indiquant l&apos;emploi du sort Oubli reste dans le rapport priv�. Le pouvoir Lecture de la M�moire permet cependant de lire ce qui a �t� oubli�. Vous ne pouvez pas lancer ce sort sur vous. Le sort reste sans effet sur les PNJ. En cas d&apos;�chec, le lanceur de sort subit un malus de 2 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Enchantement d&apos;Arme</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/600461.gif</img>
+        <description>Gr�ce � ce sort, vous transformez une �p�e longue en votre possession en �p�e magique. En cas d&apos;�chec, l&apos;�p�e est d�truite. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+Enchantement</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Soins Magiques</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600511.gif</img>
+        <description>Le sort permet de soigner une personne qui obtient un bonus en Soins �gal � 2+N/2 (arrondi vers le bas). On ne peut b�n�ficier de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort comme la cible subissent des blessures internes imposant un malus de 1 en Soins. </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Affamer</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600512.gif</img>
+        <description>La cible de ce sort est affam�e et subit un malus en Nourriture �gal � 2+N/2 (arrondi vers le bas). On ne peut �tre victime de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort subit un �puisement imposant un malus de 1 en Nourriture. </description>
+        <illegal>Infraction</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Gu�rison de Cr�ature Mutante</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600521.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez transformer une hy�ne mutante en t�te de b�tail ou un super-guerrier en �tre humain normal. La cr�ature ne change pas d&apos;employeur. En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Puissance Vitale</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600522.gif</img>
+        <description>Gr�ce � ce sort, votre corps devient plus fort (+1 en FOR jusqu&apos;� votre prochain sommeil). Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>R�sistance aux Maladies</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/600531.gif</img>
+        <description>Gr�ce � ce sort, votre corps r�siste aux maladies : vous ne contracterez plus de nouvelle maladie jusqu&apos;� votre prochain sommeil (comme si vous aviez pris un vaccin). En outre, lors de votre prochain sommeil, les maladies dont vous �tes afflig� s&apos;att�nueront d&apos;office. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Ramener � la Vie un Mort-Vivant</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/600541.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez transformer un mort-vivant (squelette, zombie, momie) en �tre humain normal. La cr�ature ne change pas d&apos;employeur. En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Absorption de Maladies</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/600551.gif</img>
+        <description>En utilisant ce sort, vous absorbez les maladies de la personne vis�e : celle-ci est soign�e de ses maladies, mais c&apos;est vous qui les prenez sur vous � sa place (au degr� 1, ou +1 degr� si la maladie �tait d�j� contract�e). Si vous avez une m�thode pour r�sister � une des maladies (vocation ou sort de r�sistance), cette maladie ne vous affectera pas. Vous ne pouvez pas lancer le sort sur vous-m�me. En cas d&apos;�chec, le lanceur de sort comme la cible subissent des blessures internes imposant un malus de 1 en Soins. Le sort ne fonctionne pas sur les mutations et les maladies mentales. </description>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>R�surrection</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/600561.gif</img>
+        <description>Ce sort ne peut s&apos;utiliser que sur une cible dans le coma. En cas de r�ussite, celle-ci gagnera imm�diatement 6 PdV. Vous ne pouvez pas lancer le sort sur vous-m�me. En cas d&apos;�chec, le lanceur de sort comme la cible subissent des blessures internes imposant un malus de 1 en Soins. Une personne ne peut b�n�ficier d&apos;une r�surrection qu&apos;une seule fois avant son prochain sommeil (le sort restera sans effet s&apos;il est lanc� une seconde fois). </description>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+Magie Vitale</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Hibernation</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600611.gif</img>
+        <description>En lan�ant ce sort, vous modifiez votre corps afin de dormir comme un animal qui hiberne, ce qui vous permet d&apos;obtenir un bonus de Soins �gal � 2+N/2 (arrondi vers le bas). On ne peut b�n�ficier de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort subit un trouble physiologique occasionnant un malus de 1 en Soins. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Liens D�nou�s</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600612.gif</img>
+        <description>Vous pouvez lancer ce sort si vous �tes ligot�. Votre corps se modifie pour vous permettre de d�lier les liens et vous r�cup�rez la corde. En cas d&apos;�chec, les liens se resserrent et vous perdez 1 PdV suppl�mentaire. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Transformer en Hy�ne Mutante</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600621.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez transformer un mouton ou une vache en hy�ne mutante. La cr�ature ne change pas d&apos;employeur. En cas d&apos;�chec, le sort tue la pauvre t�te de b�tail. </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Puissance des Sens</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600622.gif</img>
+        <description>Gr�ce � ce sort, vos sens se m�tamorphosent pour devenir plus performants (+1 en PER jusqu&apos;� votre prochain sommeil). Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Endurance</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/600631.gif</img>
+        <description>Gr�ce � ce sort, votre corps se transforme afin d&apos;�tre plus r�sistant aux maladies : vous ne contracterez plus de nouvelle maladie jusqu&apos;� votre prochain sommeil (comme si vous aviez pris un vaccin). En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Transformer en Super-Guerrier</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/600641.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez transformer un PNJ employ� humain normal (de Malabar � Esclave) en super-guerrier. La cr�ature ne change pas d&apos;employeur. En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>R�g�n�ration</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/600651.gif</img>
+        <description>Vous devez avoir moins de 10 PdV pour lancer ce sort (et ne pas �tre dans le coma). Vous gagnez aussit�t 4 PdV (sans avoir besoin de dormir). En cas d&apos;�chec, vous subissez des blessures internes imposant un malus de 1 en Soins. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Ailes</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/600661.gif</img>
+        <description>Gr�ce � ce sort, vous vous m�tamorphosez en cr�ature volante, ce qui vous permet de vous d�placer dans les airs. Ce sort ne fonctionne que sur vous, pas sur votre groupe (qui devra par exemple disposer d&apos;un avion pour vous accompagner). L&apos;effet de ce sort se dissipe lors de votre prochain sommeil. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 3 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+M�tamorphose</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Assimilation</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600711.gif</img>
+        <description>Vous pouvez manger n&apos;importe quel objet non-personnalis� en votre possession (sauf une relique ou une plante magique). Vous obtiendrez un bonus en Nourriture �gal � 2+N/2 (arrondi vers le bas). On ne peut b�n�ficier de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort dig�re mal l&apos;objet et subit un malus de 1 en Nourriture. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Fermeture</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/600712.gif</img>
+        <description>Si vous vous trouvez dans une pi�ce pouvant �tre ferm�e, lancer ce sort permet de la fermer � clef (m�me si vous ne poss�dez pas la clef). En cas d&apos;�chec, vous vous �corchez les doigts sur la serrure et perdez 0,5 PdV. Le sort reste sans effet dans les b�timents publics et dans les pi�ces ne pouvant �tre ferm�es � clef. </description>
+        <illegal>Infraction</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Cloner un Animal</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600721.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez cloner un animal (mouton, vache). La cr�ature suppl�mentaire reste dans son groupe et ne change pas d&apos;employeur. En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Transmutation</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/600722.gif</img>
+        <description>Vous pouvez d�composer un objet non-personnalis� en votre possession en les diff�rents mat�riaux de base qui le composent. Les objets produits habituellement en plusieurs exemplaires ne peuvent �tre ainsi transmut�s. En cas d&apos;�chec, l&apos;objet dispara�t sans que vous ne r�cup�riez ses composants. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>R�paration de B�timent</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/600731.gif</img>
+        <description>En lan�ant ce sort dans un b�timent, les murs ab�m�s se reconstruisent, ce qui r�pare l&apos;�quivalent de 5 x N PdB. En cas d&apos;�chec, le b�timent perd 5 PdB (il ne peut toutefois tomber sous 10 PdB). Il n&apos;est pas possible d&apos;utiliser Maladresse avec ce sort. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Cloner une Cr�ature</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/600741.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez cloner une cr�ature (PNJ de tout type delta/epsilon, sauf un tank, navire de guerre ou bombardier). La cr�ature suppl�mentaire reste dans son groupe et ne change pas d&apos;employeur. En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Ouverture</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/600751.gif</img>
+        <description>Si vous lancez ce sort dans un b�timent (ou depuis l&apos;onglet Ext�rieur), toutes les pi�ces s&apos;ouvrent. Le jet subit un malus �gal au Niveau de S�curit� du b�timent. En cas d&apos;�chec, vous vous �corchez les doigts sur la serrure et perdez 1 PdV. </description>
+        <illegal>D�lit</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Cr�ation</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/600761.gif</img>
+        <description>Vous pouvez cr�er n&apos;importe quel objet du moment que vous avez les mat�riaux n�cessaires, non-personnalis�s (si une technologie est n�cessaire, elle doit �tre d�velopp�e dans l&apos;empire o� vous vous trouvez). Ce sort permet �galement de cr�er des mati�res premi�res, mais pas des v�hicules, ni des objets magiques, ni des potions magiques, ni des reliques, ni des objets exclusifs � une province, ni des objets exclusivement artisanaux. Vous �tes �galement limit� aux objets ne n�cessitant pas plus de 3 UT pour �tre produits. En cas d&apos;�chec du sort, les mat�riaux sont perdus. Lancer ce sort devient ill�gal si l&apos;objet est ill�gal dans l&apos;empire o� vous vous trouvez. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+Alt�ration</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Foyer</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/601111.gif</img>
+        <description>En lan�ant ce sort, vous cr�ez un feu qui vous r�chauffe de fa�on agr�able durant votre sommeil, ce qui vous permet d&apos;obtenir un bonus en H�bergement �gal � 1+N/2 (arrondi vers le bas). On ne peut b�n�ficier de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort se br�le et perd 1 PdV. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Fondre les Barreaux</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/601112.gif</img>
+        <description>Vous devez vous trouver dans une prison pour utiliser ce pouvoir. En lan�ant ce sort, les barreaux fondent, ce qui aidera les prisonniers � s&apos;�vader (le modificateur des barreaux passe directement � -2). En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Dragonneau</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/601121.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un dragonneau qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Puissance du Feu</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/601122.gif</img>
+        <description>Gr�ce � ce sort, votre volont� br�le comme le feu (+1 en VOL jusqu&apos;� votre prochain sommeil). Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Boule de Feu</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/601131.gif</img>
+        <description>En lan�ant ce sort dans un combat, une �norme boule de feu explose au milieu du groupe ennemi. Chaque membre du groupe ennemi subit une perte de points de vie �gale � votre VOL divis�e par 2 (arrondi au-dessus), augment�e de 1 � 6 points. Aucune protection ne fonctionne (les armures ne comptent pas), mais certaines parades sont possibles (Esquive, Camouflage). Le nombre de personnes affect�es est limit� � votre Niveau (les autres seront �pargn�es). La cible que vous d�signez est la premi�re touch�e. Les groupes epsilon ne sont touch�s qu&apos;une fois. Un jet est effectu� pour chaque cible. Vous devez �tre � Mains Nues pour lancer un sort en combat. </description>
+        <type>combat</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un �l�mental de Feu</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/601141.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un �l�mental de feu qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>�nergie Magique</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/601151.gif</img>
+        <description>Gr�ce � ce sort, le moteur du v�hicule terrestre (voiture etc) que vous conduisez se nourrit d&apos;�nergie magique en plus de son carburant habituel, ce qui vous permet d&apos;aller plus vite (3 fois au lieu de 2, ou 4 fois au lieu de 3). Le carburant de base est consomm� au rythme habituel (1 unit� par 0,1 PdV). L&apos;effet ne s&apos;applique qu&apos;� votre propre v�hicule et non aux v�hicules des autres membres du groupe. Toutefois, si les autres membres du groupe se trouvent dans votre v�hicule, tout le groupe peut bien s�r se d�placer � votre vitesse. L&apos;effet de ce sort se dissipe lors de votre prochain sommeil. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Incendie</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/601161.gif</img>
+        <description>Vous pouvez provoquer un incendie dans la ville o� vous vous trouvez (les b�timents perdent au hasard 0, 10, 20, 30 ou 40 PdB, les habitants � l&apos;int�rieur perdent de 0 � 3 PdV, les arbres ont 1 chance sur 5 d&apos;�tre d�truits par les flammes). Il ne peut y avoir dans une ville qu&apos;un seul ph�nom�ne naturel par 72 heures (incendie, d�luge, cyclone, s�isme, r�veil nature). En cas d&apos;�chec, le feu vous frappe en contrecoup et vous perdez 6 PdV. </description>
+        <illegal>Crime</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+�l�ment - Feu</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Berceuse Maritime</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/601211.gif</img>
+        <description>Vous devez vous trouver sur l&apos;eau (mer ou rivi�re) pour utiliser ce pouvoir. En lan�ant ce sort, la mer et les fleuves vous berceront afin de favoriser votre sommeil, ce qui vous permet d&apos;obtenir un bonus en H�bergement �gal � 1+N/2 (arrondi vers le bas) si vous vous trouvez sur l&apos;eau en passant l&apos;ordre Dormir (le bonus est r�duit � 0 si vous n&apos;�tes plus sur l&apos;eau). On ne peut b�n�ficier de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort d�clenche la fureur de l&apos;oc�an, occasionnant un malus de 1 en H�bergement s&apos;il dort sur l&apos;eau. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Courant Marin</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/601212.gif</img>
+        <description>Vous devez vous trouver sur l&apos;eau (mer ou rivi�re) pour utiliser ce pouvoir. En lan�ant ce sort, les courants am�nent les poissons � vos filets, ce qui vous donne un bonus de 4 au jet de P�che, et ce jusqu&apos;au prochain sommeil. Le bonus ne peut se cumuler plusieurs fois. En cas d&apos;�chec, les courants �cartent les poissons et il lui est plus difficile de p�cher (malus de 3, qui dispara�t au prochain sommeil). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Requin</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/601221.gif</img>
+        <description>Vous devez vous trouver sur l&apos;eau (mer ou rivi�re) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un requin qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Puissance de l&apos;Eau</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/601222.gif</img>
+        <description>Gr�ce � ce sort, votre charme s&apos;accro�t (+1 en CHA jusqu&apos;� votre prochain sommeil). Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Marche sur les Eaux</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/601231.gif</img>
+        <description>Gr�ce � ce sort, vous avez la capacit� de traverser les eaux comme si c&apos;�tait de la terre ferme. Ce sort ne fonctionne que sur vous, pas sur votre groupe (qui devra par exemple disposer d&apos;un bateau pour vous accompagner). L&apos;effet de ce sort se dissipe lors de votre prochain sommeil. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un �l�mental d&apos;Eau</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/601241.gif</img>
+        <description>Vous devez vous trouver sur l&apos;eau (mer ou rivi�re) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un �l�mental d&apos;eau qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Pourriture</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/601251.gif</img>
+        <description>Vous devez vous trouver dans un b�timent pour utiliser ce pouvoir. Gr�ce � ce ce sort, toutes les r�serves de nourriture (y compris les repas) se trouvant dans le b�timent sous forme de stock sont d�truites. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>D�luge</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/601261.gif</img>
+        <description>Vous pouvez d�cha�ner les pluies et provoquer un d�luge dans la ville o� vous vous trouvez (les b�timents perdent 5 PdB, les habitants perdent 2 PdV, les routes ont 1 chance sur 4 d&apos;�tre d�truites). Il ne peut y avoir dans une ville qu&apos;un seul ph�nom�ne naturel par 72 heures (incendie, d�luge, cyclone, s�isme, r�veil nature). En cas d&apos;�chec, l&apos;eau emplit votre gorge en raison du contrecoup et vous perdez 6 PdV. </description>
+        <illegal>Crime</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+�l�ment - Eau</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Nuit Calme</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/601311.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, les vents froids s&apos;apaisent et vous offrent une nuit calme, ce qui vous permet de b�n�ficier d&apos;un bonus en H�bergement �gal � 1+N/2 (arrondi vers le bas) si vous dormez � l&apos;ext�rieur (le bonus est r�duit � 0 si vous retournez � l&apos;int�rieur d&apos;un b�timent). On ne peut b�n�ficier de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le vent se d�cha�ne contre l&apos;�l�mentaliste et ce dernier subit un malus de 1 en H�bergement s&apos;il dort � l&apos;ext�rieur. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Disperser la Pollution</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/601312.gif</img>
+        <description>Gr�ce � se sort, vous pouvez disperser la pollution de votre province. N x 10 points de pollution seront retir�s et iront dans la province de votre choix, � une distance maximale de 2 provinces. En cas d&apos;�chec, la pollution s&apos;�paissit et monte de 1. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Rapace T�m�raire</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/601321.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un rapace t�m�raire qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Puissance de l&apos;Air</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/601322.gif</img>
+        <description>Gr�ce � ce sort, votre intellect atteint des sommets (+1 en INT jusqu&apos;� votre prochain sommeil). Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>�clair</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/601331.gif</img>
+        <description>En lan�ant ce sort sur une victime dans un combat, celle-ci subit une perte de points de vie �gale � votre VOL, augment�e de 1 � 6 points. Aucune protection ne fonctionne (les armures ne comptent pas), mais certaines parades sont possibles (Esquive, Camouflage). Vous devez �tre � Mains Nues pour lancer un sort en combat. </description>
+        <type>combat</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un �l�mental d&apos;Air</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/601341.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un �l�mental d&apos;air qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Voyage par les Airs</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/601351.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. Vous pouvez vous faire transporter dans les airs par un �l�mental et vous rendre dans la province de votre choix (� maximum 2 provinces de distance). Vous devez �tre seul dans votre groupe. Le sort ne fonctionne pas si votre FOR est r�duite � 0. Si vous ratez votre jet, l&apos;�l�mental surgit mais soit vous fait perdre 3 PdV avec des bourrasques pour se divertir, soit vous transporte dans une province au hasard � un maximum de 2 provinces de distance. Vous ne pouvez pas lancer ce sort si vous �tes � l&apos;int�rieur d&apos;un v�hicule (ou si vous avez un v�hicule dans votre mat�riel). En Australine ou sur les r�cifs � l&apos;entour, le sort ne permet pas de quitter la province � moins d&apos;une r�ussite critique. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Cyclone</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/601361.gif</img>
+        <description>Vous pouvez d�cha�ner les vents et provoquer un cyclone dans la ville o� vous vous trouvez (les b�timents perdent 10 PdB, les habitants perdent 1 PdV � l&apos;int�rieur et 2 PdV � l&apos;ext�rieur, les arbres ont 1 chance sur 3 d&apos;�tre arrach�s). Il ne peut y avoir dans une ville qu&apos;un seul ph�nom�ne naturel par 72 heures (incendie, d�luge, cyclone, s�isme, r�veil nature). En cas d&apos;�chec, les vents vous emportent dans une province voisine (sauf si vous �tes en prison). </description>
+        <illegal>Crime</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+�l�ment - Air</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Terrier</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/601411.gif</img>
+        <description>Vous devez vous trouver sur de l&apos;herbe au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, la terre se creuse pour vous offrir un lieu pour dormir, ce qui vous permet d&apos;obtenir un bonus en H�bergement �gal � 1+N/2 (arrondi vers le bas) si vous dormez sur de l&apos;herbe (le bonus est r�duit � 0 si vous n&apos;y �tes plus). On ne peut b�n�ficier de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort d�clenche la col�re du sol, occasionnant un malus de 1 en H�bergement s&apos;il dort sur de l&apos;herbe. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Tunnel</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/601412.gif</img>
+        <description>Vous devez vous trouver dans une prison pour utiliser ce pouvoir. En lan�ant ce sort, un tunnel se creuse pour aider les prisonniers � s&apos;�vader (le modificateur de tunnel passe directement � -2). En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer une Araign�e-�boueuse</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/601421.gif</img>
+        <description>Vous devez vous trouver sur de l&apos;herbe au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez une araign�e �boueuse qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Puissance de la Terre</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/601422.gif</img>
+        <description>Gr�ce � ce sort, vous gardez les deux pieds sur terre (+1 en GES jusqu&apos;� votre prochain sommeil). Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Peau de Pierre</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/601431.gif</img>
+        <description>Gr�ce � ce sort, votre peau durcit et r�siste mieux aux attaques. Vous gagnez 1 point suppl�mentaire en armure. Le sort se dissipe lors de votre prochain sommeil et ne peut se cumuler avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un �l�mental de Terre</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/601441.gif</img>
+        <description>Vous devez vous trouver sur de l&apos;herbe au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un �l�mental de terre qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Murs Fissur�s</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/601451.gif</img>
+        <description>Si vous lancez ce sort dans un b�timent (ou depuis l&apos;onglet Ext�rieur), les murs se l�zardent et le b�timent perd la moiti� de ses PdB (arrondi vers le bas), jusqu&apos;� une perte maximum de 30. Le jet subit un malus �gal au Niveau de S�curit� du b�timent. En cas d&apos;�chec, du pl�tre tombe sur vous et vous perdez 1 PdV. </description>
+        <illegal>D�lit</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Tremblement de Terre</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/601461.gif</img>
+        <description>Vous pouvez provoquer un tremblement de terre dans la ville o� vous vous trouvez (les b�timents perdent 20 PdB, les habitants perdent 2 PdV � l&apos;int�rieur et 1 PdV � l&apos;ext�rieur). Il ne peut y avoir dans une ville qu&apos;un seul ph�nom�ne naturel par 72 heures (incendie, d�luge, cyclone, s�isme, r�veil nature). En cas d&apos;�chec, ce sont vos os qui tremblent en raison du contrecoup et vous perdez 6 PdV. </description>
+        <illegal>Crime</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+�l�ment - Terre</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Divination du Sommeil</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605111.gif</img>
+        <description>Le lanceur de sort devine quels sont tous les effets s&apos;exer�ant sur le sommeil de la cible du sort. En cas d&apos;�chec, le lanceur de sort ne subit aucun effet n�gatif (hors de l&apos;�chec du sort). </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Vision �tendue</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605112.gif</img>
+        <description>Gr�ce � ce sort, la port�e de votre vision est augment�e de 2+N/2 (arrondi vers le bas), puis de 1 suppl�mentaire � chaque relance de sort, jusqu&apos;� ce que vous passiez l&apos;ordre Dormir. En cas d&apos;�chec, votre vision se trouble et la port�e diminue de 1. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Aigle G�ant</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605121.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un aigle g�ant qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Coupable D�tect�</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605122.gif</img>
+        <description>En lan�ant ce sort, vous conna�trez l&apos;identit� de toute personne passant une action ill�gale de rencontre contre vous (jusqu&apos;� votre prochain sommeil). En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Clairvoyance</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/605131.gif</img>
+        <description>En lan�ant ce sort, vous d�tectez les difficult�s qui se pr�sentent dans vos futures actions. Vous b�n�ficiez d&apos;un bonus de 1 sur tous vos ordres jusqu&apos;� votre prochain sommeil. Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Ange Vengeur</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/605141.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un ange vengeur qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Vision Supr�me</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/605151.gif</img>
+        <description>Gr�ce � ce sort, vous saurez qui est pr�sent dans la ville o� vous trouvez (avec leurs identit�s et positions exactes), peu importe que ces personnes soient dans des b�timents, cach�s, invisibles ou non. En cas d&apos;�chec, votre vision se trouble et la port�e diminue de 1 jusqu&apos;� votre prochain sommeil. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Puissance Divine</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/605161.gif</img>
+        <description>Gr�ce � ce sort, vous �tes capable de deviner o� frapper pour infliger le maximum de d�g�ts. Lors d&apos;un combat, vous ajoutez d&apos;office 4 points (au lieu de 1 � 4) � votre caract�ristique pour calculer les d�g�ts. L&apos;effet du sort se dissipe lors de votre prochain sommeil. En cas d&apos;�chec, vos sens sont brouill�s et vous ajouterez seulement 1 (au lieu de 1 � 4) � tous les calculs de d�g�ts. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+Divination</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Terreur</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605211.gif</img>
+        <description>La cible de ce sort est victime d&apos;une terreur d�moniaque et subit un malus en Moral �gal � 2+N/2 (arrondi vers le bas). On ne peut �tre victime de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort subit une terreur imposant un malus de 1 en Moral. </description>
+        <illegal>Infraction</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Aide D�moniaque</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605212.gif</img>
+        <description>En lan�ant ce sort, vous b�n�ficiez d&apos;un bonus de 1 sur tous vos ordres ill�gaux jusqu&apos;� votre prochain sommeil. Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un D�mon Mineur</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605221.gif</img>
+        <description>En lan�ant ce sort, vous invoquez un d�mon mineur qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Mal�diction</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605222.gif</img>
+        <description>La cible de ce sort est victime d&apos;une mal�diction se traduisant par un malus de 1 � toutes ses caract�ristiques jusqu&apos;� ce qu&apos;elle dorme. On ne peut �tre victime de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort subit un �puisement imposant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Attaque D�moniaque</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/605231.gif</img>
+        <description>En lan�ant ce sort, une personne de votre choix dans liste de contacts (kramail) subit une attaque d�moniaque lui faisant perdre 2 PdV si elle se trouve dans la m�me province (peu importe ses protections, sauf si elle b�n�ficie du sort Protection contre le Mal). Mais si vous �chouez, vous subirez un contrecoup identique. Si la personne a quitt� sa province, l&apos;attaque se dissipera sans lui causer de dommages. </description>
+        <illegal>D�lit</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un D�mon Majeur</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/605241.gif</img>
+        <description>En lan�ant ce sort, vous invoquez un d�mon majeur qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Pacte D�moniaque</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/605251.gif</img>
+        <description>Vous concluez un pacte avec les forces d�moniaques pour qu&apos;elles vous permettent d&apos;acc�der au pouvoir. Vous obtenez un bonus de 6 au prochain jet d&apos;Usurper que vous tenterez. Le bonus sera ensuite dissip� (que vous r�ussissiez l&apos;usurpation ou non). Le bonus est �galement dissip� lorsque vous dormez. Vous ne pouvez b�n�ficier de l&apos;effet de ce sort qu&apos;une seule fois avant votre prochain sommeil. Si l&apos;usurpation r�ussit gr�ce au pacte, il est possible que les d�mons viennent r�clamer une r�compense par la suite (ceci est alors jou� par un animateur du jeu). En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 5 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Portail D�moniaque</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/605261.gif</img>
+        <description>Vous devez vous trouver sur une case d&apos;herbe (o� la construction est possible) pour utiliser ce pouvoir. En cas de r�ussite, vous ferez appara�tre un portail d�moniaque : les adeptes de Naar pourront y recruter des d�mons. En cas d&apos;�chec, les forces d�moniaques vous frappent et vous perdez 6 PdV. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+D�monologie</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Surprise Nocturne</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605311.gif</img>
+        <description>La cible de ce sort aura une surprise lors de son prochain sommeil au cours duquel elle subira un bonus ou un malus au modificateur de Pouvoir entre 1 et 2+N/2 (arrondi vers le bas). On ne peut �tre victime de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort subira une surprise lors de son prochain sommeil, avec -1 ou +1 sur son modificateur de Pouvoir. La valeur n&apos;est pas communiqu�e dans les gains de l&apos;ordre Dormir tant qu&apos;on n&apos;a pas pass� l&apos;ordre. </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Sens des Affaires</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605312.gif</img>
+        <description>Gr�ce � ce sort, vous avez un meilleur sens des affaires (+1 en GES jusqu&apos;� votre prochain sommeil). Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Monstre Mineur</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605321.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un monstre mineur parmi les cr�atures pouvant �tre invoqu�es. Celui-ci rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Comptes Falsifi�s</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605322.gif</img>
+        <description>Gr�ce � ce sort, des erreurs al�atoires apparaissent dans les comptes permettant de camoufler des fraudes. En lan�ant ce sort, vous obtenez un bonus de 4 aux jets de Voler dans la Caisse, de Fraude Fiscale et de D�tournement de Fonds, et ce jusqu&apos;au prochain sommeil. Le bonus ne peut se cumuler plusieurs fois. En cas d&apos;�chec, les comptes sont plus difficiles � manipuler et ces jets sont plus difficiles (malus de 3, qui dispara�t au prochain sommeil). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Chance</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/605331.gif</img>
+        <description>Gr�ce � ce sort, le destin farceur d�cide d&apos;intervenir dans vos futures actions. Vous aurez un bonus de 1 ou un malus de 1 (50% de chances chacun) sur tous vos ordres jusqu&apos;� votre prochain sommeil. Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Monstre Majeur</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/605341.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un monstre majeur parmi les cr�atures pouvant �tre invoqu�es. Celui-ci rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Dossiers �gar�s</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/605351.gif</img>
+        <description>Par un f�cheux hasard, la justice �gare des dossiers vous concernant : le statut de tous les actes ill�gaux pour lesquels vous n&apos;�tes pas recherch� baisse d&apos;un cran (les preuves deviennent des soup�ons, les soup�ons passent en non-rep�r�). En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Portail</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/605361.gif</img>
+        <description>Vous devez vous trouver sur une case d&apos;herbe (o� la construction est possible) pour utiliser ce pouvoir. En cas de r�ussite, vous ferez appara�tre un portail : quiconque l&apos;empruntera ressurgira par un portail similaire au hasard. Si vous ratez votre jet, le mauvais sort vous projette dans une province au hasard � un maximum de 2 provinces de distance. Il ne peut y avoir qu&apos;un seul Portail par ville. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+Hasard</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Plaisir</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605411.gif</img>
+        <description>La cible de ce sort ressent un plaisir intense et obtient un bonus en Moral �gal � 2+N/2 (arrondi vers le bas). On ne peut b�n�ficier de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort comme la cible subissent un chagrin imposant un malus de 1 en Moral. </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Beaut�</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605412.gif</img>
+        <description>Gr�ce � ce sort, vos traits deviennent plus s�duisants (+1 en CHA jusqu&apos;� votre prochain sommeil). Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Charmer un Animal</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605421.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez charmer un animal (mouton, vache). Vous deviendrez son employeur (il ne rejoint pas automatiquement votre groupe). En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <illegal>Infraction</illegal>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Amiti�</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605422.gif</img>
+        <description>En lan�ant ce sort, vous irradiez une aura amicale autour de vous, imposant un malus de 10 � toutes les actions ill�gales de rencontre effectu�es contre vous (sauf le combat). Ce sort n&apos;est pas cumulable avec lui-m�me et se dissipe � votre prochain sommeil. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Pacifier</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/605431.gif</img>
+        <description>La cible de ce sort est envahie par une onde de paix : jusqu&apos;� son prochain sommeil, elle ne pourra lancer les ordres Combattre, Bagarre et Assassiner, et elle subira un malus de 8 sur tous les ordres ill�gaux. En cas d&apos;�chec, l&apos;onde de paix se retourne contre le lanceur de sort qui en subit les effets. </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Charmer une Cr�ature</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/605441.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez charmer une cr�ature (PNJ de tout type delta/epsilon, sauf un tank, navire de guerre ou bombardier). Vous deviendrez son employeur (il ne rejoint pas automatiquement votre groupe). En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Aura Hostile</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/605451.gif</img>
+        <description>La victime de ce sort d�gage une aura d&apos;hostilit�. Tout groupe dirig� par un PNJ qu&apos;elle rencontrera l&apos;attaquera automatiquement d�s qu&apos;elle se d�placera (y compris si elle se trouve � l&apos;int�rieur d&apos;un groupe). Le sort est inefficace sur une personne prot�g�e par l&apos;Apparence Illusoire. Le sort se dissipe � son prochain sommeil. En cas d&apos;�chec, le lanceur de sort subit un �puisement imposant un malus de 3 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Paix Magique</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/605461.gif</img>
+        <description>Gr�ce � ce sort, la province est envahie par une onde de paix : durant 24 heures, aucun de ses occupants PJ ne pourra lancer l&apos;ordre Combattre ni Bagarre (sauf les Violents � partir du niveau 5). En cas d&apos;�chec, l&apos;onde de paix se retourne contre le lanceur de sort qui subit un effet similaire au sort Pacifier. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+Charme</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Abri Naturel</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605511.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, la nature vous offre un abri et vous b�n�ficiez d&apos;un bonus en H�bergement �gal � 2+N/2 (arrondi vers le bas) si vous dormez � l&apos;ext�rieur (le bonus est r�duit � 0 si vous retournez � l&apos;int�rieur d&apos;un b�timent). On ne peut b�n�ficier de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, la nature se retourne contre le druide et ce dernier subit un malus de 1 en H�bergement s&apos;il dort � l&apos;ext�rieur. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Sens Renforc�s</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605512.gif</img>
+        <description>Gr�ce � ce sort, vos sens deviennent plus aiguis�s (+1 en PER jusqu&apos;� votre prochain sommeil). Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer une Liane Tueuse</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605521.gif</img>
+        <description>Vous devez vous trouver dans la for�t (case arbre ou sapin) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez une liane tueuse qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Sympathie Animale</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605522.gif</img>
+        <description>Gr�ce � ce sort, vous irradiez une aura qui emp�chera les animaux de vous attaquer (il s&apos;agit des monstres de type D�sert, For�ts, Kanards, Lacs, Marins, Pingouin, Polaires, Souterrains, ainsi que du mille-pattes, de l&apos;aigle g�ant, du rapace t�m�raire, du mouton et de la vache). Celle-ci est sans effet sur les autres PNJ. Le sort fonctionne aussi bien dans un b�timent que dans la rue. Le sort n&apos;aura des effets que sur vous-m�me : donc, si vous vous trouvez dans un groupe, la pr�sence des autres membres peut d�clencher une attaque par des animaux. Si vous montez dans un donjon, vous serez tout de m�me attaqu� par des monstres animaux. Le sort se dissipe lorsque vous dormez. En cas d&apos;�chec, le lanceur de sort subit un �puisement imposant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Marche Sylvestre</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/605531.gif</img>
+        <description>Gr�ce � ce sort, vous traversez les for�ts comme si c&apos;�tait de l&apos;herbe, ce qui r�duit le temps de vos d�placements. Pour b�n�ficier de cet effet, il vous faut �tre seul dans votre groupe ou que les autres membres soient sous l&apos;effet du m�me sort. L&apos;effet de ce sort se dissipe lors de votre prochain sommeil. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Monstre des For�ts</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/605541.gif</img>
+        <description>Vous devez vous trouver dans la for�t (case arbre ou sapin) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un monstre des for�ts qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Stase</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/605551.gif</img>
+        <description>Ce sort vous place dans une stase � l&apos;int�rieur d&apos;une bulle invuln�rable. Vous devez �tre seul dans votre groupe pour passer cet ordre. Aucun ordre de rencontre ne peut vous affecter (ni action, ni sort, ni combat), � l&apos;exception de la Dissipation de la Magie. La stase est automatiquement bris�e d�s que vous passez un ordre quel qu&apos;il soit. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>R�veil de la Nature</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/605561.gif</img>
+        <description>Vous pouvez provoquer un r�veil de la nature dans la ville o� vous vous trouvez (les routes ont 1 chance sur 4 d&apos;�tre remplac�es par des arbres, l&apos;herbe a 1 chance sur 4 d&apos;�tre remplac�e par des fleurs). Il ne peut y avoir dans une ville qu&apos;un seul ph�nom�ne naturel par 72 heures (incendie, d�luge, cyclone, s�isme, r�veil nature). En cas d&apos;�chec, c&apos;est votre corps qui prend le contrecoup et vous perdez 6 PdV. </description>
+        <illegal>Crime</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+Druidisme</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Nourriture Magique</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605611.gif</img>
+        <description>En lan�ant ce sort, vous cr�ez de la nourriture magique (fruits, petit gibier) permettant � la cible d&apos;obtenir un bonus en Nourriture �gal � 2+N/2 (arrondi vers le bas). On ne peut b�n�ficier de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort comme la cible subissent une faim imposant un malus de 1 en Nourriture. </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Transe Chamanique</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605612.gif</img>
+        <description>Gr�ce � ce sort, vous entrez en transe et augmentez votre volont� (+1 en VOL jusqu&apos;� votre prochain sommeil). Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Loup</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605621.gif</img>
+        <description>Vous devez vous trouver dans la for�t (case arbre ou sapin) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un loup qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>B�nir la Chasse</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605622.gif</img>
+        <description>La cible de ce sort voit ses capacit�s de chasseur am�lior�es, ce qui lui donne un bonus de 4 au jet de Chasse ainsi qu&apos;au jet de discr�tion associ�e pour s&apos;approcher de la proie, et ce jusqu&apos;au prochain sommeil. Le bonus ne peut se cumuler plusieurs fois. En cas d&apos;�chec, les sens de la cible sont perturb�s et il lui est plus difficile de chasser (malus de 3). Ces modificateurs disparaissent d�s qu&apos;elle dort. </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>P�che Miraculeuse</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/605631.gif</img>
+        <description>La cible de ce sort verra les poissons se prendre dans ses filets, ce qui lui accorde 2 poissons de plus lors d&apos;une p�che r�ussie, et ce jusqu&apos;au prochain sommeil. Le bonus ne peut se cumuler plusieurs fois. En cas d&apos;�chec, les poissons fuient la cible (nombre r�colt� divis� par 2, ce malus dispara�t au prochain sommeil). </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Gorille G�ant</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/605641.gif</img>
+        <description>Vous devez vous trouver dans la for�t (case arbre ou sapin) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un gorille g�ant qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Lien Chamanique</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/605651.gif</img>
+        <description>Gr�ce � ce sort, vous �tablissez un lien chamanique entre vous et la cible. Il peut �tre en votre faveur (auquel cas il est ill�gal) : lorsque vous prenez des d�g�ts en combat, c&apos;est elle qui les prend � votre place (peu importe o� elle se trouve dans le cybermonde). Vous pouvez �galement l&apos;inverser pour qu&apos;il soit en faveur de la cible (auquel cas il n&apos;est pas ill�gal) : vous subirez les d�g�ts qu&apos;elle prendra en combat. Le sort se dissipe si la personne prenant les d�g�ts tombe dans le coma. L&apos;effet de ce sort se dissipe �galement lors du prochain sommeil d&apos;une des deux personnes (le lanceur de sort ou la cible). On ne peut cr�er de lien si une personne est d�j� dans un lien chamanique. Un PNJ ne peut �tre la cible de ce sort. Le transfert de d�g�ts ne fonctionne que sur les blessures en combat (il ne fonctionne toutefois pas si le lanceur et la cible sont pris dans le m�me combat). Les d�g�ts transmis sont consid�r�s comme des d�g�ts de combat (et compt�s comme bonus sur le prochain sommeil). La cible conna�t l&apos;identit� du lanceur de sort (m�me dans sa version ill�gale). En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 3 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Esprit-Oiseau</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/605661.gif</img>
+        <description>Gr�ce � ce sort, l&apos;esprit-oiseau vient vous habiter, ce qui vous permet de vous d�placer dans les airs. Ce sort ne fonctionne que sur vous, pas sur votre groupe (qui devra par exemple disposer d&apos;un avion pour vous accompagner). L&apos;effet de ce sort se dissipe lors de votre prochain sommeil. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 3 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+Chamanisme</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Mauvaise Conscience</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605711.gif</img>
+        <description>La cible de ce sort est victime de remords qui troublent son sommeil et subit un malus au modificateur de Pouvoir sur l&apos;ordre Dormir �gal � 1+N/2 (arrondi vers le bas). On ne peut �tre victime de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort subit un trouble similaire imposant un malus de 1 au modificateur de Pouvoir. </description>
+        <illegal>Infraction</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Aide des Esprits</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605712.gif</img>
+        <description>Gr�ce � ce sort, des esprits viennent vous souffler ce que vous devez savoir, ce qui augmente votre intelligence (+1 en INT jusqu&apos;� votre prochain sommeil). Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Ectoplasme</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605721.gif</img>
+        <description>Vous devez vous trouver dans un cimeti�re pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un ectoplasme qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>D�sespoir</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605722.gif</img>
+        <description>La cible de ce sort devient d�sesp�r�e et subit un malus en Moral �gal � 2+N/2 (arrondi vers le bas). On ne peut �tre victime de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort subit un d�sespoir imposant un malus de 1 en Moral. </description>
+        <illegal>Infraction</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>�me des Objets</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/605731.gif</img>
+        <description>En lan�ant ce sort sur une personne, vous pouvez percevoir l&apos;�me qu&apos;elle a insuffl�e dans tous les objets qu&apos;elle a personnalis�s. Vous conna�trez ainsi la position (ville, province) de tous ses objets personnalis�s dans le cybermonde (cette information ne sera pas communiqu�e � votre cible - vous devrez le faire si vous souhaitez l&apos;aider). Vous pouvez lancer ce sort sur vous-m�me. Ce pouvoir peut permettre de retrouver des objets personnalis�s disparus. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Guerrier Fant�me</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/605741.gif</img>
+        <description>Vous devez vous trouver dans un cimeti�re pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un guerrier fant�me qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Passe-Murailles</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/605751.gif</img>
+        <description>Si vous lancez ce sort dans un b�timent (ou depuis l&apos;onglet Ext�rieur), vous serez en mesure de p�n�trer dans toutes les pi�ces, m�me celles qui sont ferm�es (celles-ci restent ferm�es). Le jet subit un malus �gal au Niveau de S�curit� du b�timent. Le sort se dissipe d�s que vous quittez le b�timent ou que vous dormez. En cas d&apos;�chec, vous vous cognez contre le mur et perdez 1 PdV. </description>
+        <illegal>D�lit</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Crise de D�sespoir</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/605761.gif</img>
+        <description>Si vous lancez ce sort dans une ville, les habitants sont victimes d&apos;une crise de d�sespoir, leur infligeant un malus en Moral de 3. Les spirites sont immunis�s � ce sort. On ne peut �tre victime de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, vous subissez le d�sespoir en retour, ce qui vous impose un malus de 3 en Moral. </description>
+        <illegal>D�lit</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+Spiritisme</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Sommeil du Juste</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605811.gif</img>
+        <description>En lan�ant ce sort, vous dormirez du sommeil du juste et vous obtiendrez un bonus au modificateur de Pouvoir sur l&apos;ordre Dormir �gal � 2+N/2 (arrondi vers le bas). On ne peut b�n�ficier de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort subit un malus de 1 au modificateur de Pouvoir. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Puissance du Juste</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/605812.gif</img>
+        <description>Gr�ce � ce sort, votre d�termination � accomplir votre juste mission s&apos;accro�t, ce qui augmente votre force (+1 en FOR jusqu&apos;� votre prochain sommeil). Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Vade Retro</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605821.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez d�truire un ou plusieurs morts-vivants (jusqu&apos;� N/2 rassembl�s en un sous-groupe epsilon), � l&apos;exception de la Liche. En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Soins Miraculeux</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/605822.gif</img>
+        <description>Le sort permet de soigner une autre personne qui obtient un bonus en Soins �gal � 2+N/2 (arrondi vers le bas) - vous ne pouvez pas lancer ce sort sur vous-m�me. On ne peut b�n�ficier de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort comme la cible subissent des blessures internes imposant un malus de 1 en Soins. </description>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Protection contre le Mal</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/605831.gif</img>
+        <description>Gr�ce � ce sort, vous imposez un malus de 8 � tout sort de N�cromancie ou de D�monologie lanc� contre vous (sauf en combat). Vous ne pouvez b�n�ficier de l&apos;effet de ce sort qu&apos;une seule fois avant votre prochain sommeil. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Bannissement de D�mons</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/605841.gif</img>
+        <description>Gr�ce � ce sort, vous pouvez bannir un ou plusieurs d�mons qui seront renvoy�s dans leur plan (jusqu&apos;� N/2 rassembl�s en un sous-groupe epsilon), � l&apos;exception de l&apos;Œil de Naar. En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 3 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Aura Anti-Monstres</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/605851.gif</img>
+        <description>Gr�ce � ce sort, vous irradiez une aura qui emp�chera les monstres de vous attaquer lors de vos d�placements. Celle-ci est sans effet sur les policiers, les soldats, les PNJ employ�s ou les PNJ en col�re. Le sort fonctionne aussi bien dans un b�timent que dans la rue. Le sort n&apos;aura des effets que sur vous-m�me : donc, si vous vous trouvez dans un groupe, la pr�sence des autres membres peut d�clencher une attaque par des monstres. Si vous montez dans un donjon, vous serez tout de m�me attaqu� par des monstres. Le sort se dissipe lorsque vous dormez. En cas d&apos;�chec, le lanceur de sort subit un �puisement imposant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Ville Consacr�e</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/605861.gif</img>
+        <description>Gr�ce � ce sort, vous consacrez une ville afin qu&apos;elle soit prot�g�e. Durant 72 heures, aucun ph�nom�ne naturel ne peut la frapper, m�me provoqu� par la magie (incendie, d�luge, cyclone, s�isme, r�veil nature). En cas d&apos;�chec, le lanceur de sort subit un contrecoup physiologique occasionnant un malus de 3 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+Paladinat</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Ballonnements Magiques</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/606011.gif</img>
+        <description>La cible de ce sort souffre de maux de ventre et de ballonnements. Elle est ridiculis�e et subit une perte en PP �gale � 2+N/2 (arrondi vers le bas). On ne peut �tre victime de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de sort subit lui-m�me l&apos;effet du ballonnement et perd 1 PP. </description>
+        <illegal>Infraction</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Hoquet</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/606012.gif</img>
+        <description>La victime de ce sort d�sagr�able mais inoffensif est prise de hoquet. Toutes ses d�clarations officielles seront pr�c�d�es des mots *Hic hic hic !* jusqu&apos;� son prochain sommeil. Les ordres affect�s sont : D�claration Officielle, Soutien/Critique et la D�claration de fonctionnaire. Dans le cas du Soutien/Critique, l&apos;effet de l&apos;ordre est r�duit � 1 point en raison du hoquet. En cas d&apos;�chec, vous �tes vous-m�me victime de hoquet. </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Kanard Hostile</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/606021.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un kanard hostile qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Oeufs Pourris</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/606022.gif</img>
+        <description>En lan�ant ce sort dans un b�timent, tous les occupants de la pi�ce se pr�cipitent � l&apos;ext�rieur (onglet Ext�rieur), vous y compris. Les groupes ne sont pas dispers�s. Les groupes enti�rement dans le coma ne sont toutefois pas d�plac�s. Si le sort est lanc� hors d&apos;un b�timent ou sous l&apos;onglet Ext�rieur, ou encore dans la pi�ce Prison ou dans un Donjon, il reste sans effet. Si le b�timent ne comporte qu&apos;une pi�ce (Tente, Chantier, Portail), les groupes resteront dans la pi�ce. En cas d&apos;�chec, le lanceur de sort est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>Infraction</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Nuage Puant</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/606031.gif</img>
+        <description>En lan�ant ce sort dans un combat, un nuage puant se r�pand sur le champ de bataille faisant suffoquer les combattants pendant 2 rounds. Le combat progresse donc de 3 rounds au lieu de 1, suivi des attaques et d�g�ts s�lectionn�s (passant, par exemple, du round n�1 au n�4 dans l&apos;interface, avec les r�sultats associ�s � l&apos;affrontement mentionn� au round n�3 au lieu du n�1 dans le rapport). Le r�sultat des attaques s�lectionn�es a lieu dans tous les cas, m�me si le sort est lanc� en fin de combat (il peut donc y avoir un round n�11 dans le rapport mentionnant les d�g�ts finaux). </description>
+        <type>combat</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Invoquer un Kanard Pittopatte</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/606041.gif</img>
+        <description>Vous devez vous trouver au dehors (hors b�timent) pour utiliser ce pouvoir. En lan�ant ce sort, vous invoquez un kanard pittopatte qui rejoindra votre groupe. Si vous �chouez en lan�ant ce sort, la cr�ature vous attaquera. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Enchantement de Tartes</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/606051.gif</img>
+        <description>Gr�ce � ce sort, vous transformez les tartes � la cr�me (non personnalis�es) en votre possession en tartes � la cr�me enchant�es (jusqu&apos;� un maximum de 6 tartes). Les tartes enchant�es sont utilis�es en priorit� lors de l&apos;entartage et augmentent les pertes associ�es contre les fonctionnaires victimes de cet entartage (1 suppl�mentaire � la perte de PP, 0.1 suppl�mentaire � la perte de loyaut� provinciale). Ces pertes seront �galement doubl�es si l&apos;entartage est r�alis� par un Agitateur. En cas d&apos;�chec, une tarte est d�truite. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Portail Vide-Ordures</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/606061.gif</img>
+        <description>Vous devez vous trouver sur une case d&apos;herbe (o� la construction est possible) pour utiliser ce pouvoir. En cas de r�ussite, vous ferez appara�tre un portail vide-ordures : il sera possible au travers du portail de jeter des d�chets qui appara�tront au hasard dans le cybermonde. Si vous ratez votre jet, un tas de d�chets appara�t en lieu et place du portail d�sir�. Il ne peut y avoir qu&apos;un seul Portail Vide-Ordures par ville. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+Bouletitude</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Esprit Calme</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/610111.gif</img>
+        <description>En utilisant ce pouvoir, vous aurez l&apos;esprit apais� et obtiendrez un bonus au modificateur de Pouvoir sur l&apos;ordre Dormir �gal � 2+N/2 (arrondi vers le bas). On ne peut b�n�ficier de ce pouvoir qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de pouvoir psychique subit un malus de 1 au modificateur de Pouvoir. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Focalisation</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/610112.gif</img>
+        <description>En utilisant ce pouvoir, vous concentrez et augmentez votre volont� (+1 en VOL jusqu&apos;� votre prochain sommeil). Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de pouvoir psychique est �puis� et subit un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Pousser � la Col�re</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/610121.gif</img>
+        <description>En utilisant ce pouvoir, vous poussez un PNJ employ� humain normal (de Malabar � Esclave) � la col�re (le type de PNJ en col�re d�pend de l&apos;empire o� vous vous trouvez). Ce dernier passera � votre service (vous deviendrez son employeur). Ce dernier ne rejoint pas automatiquement votre groupe. En cas d&apos;�chec, le lanceur de pouvoir psychique subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Troubler</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/610122.gif</img>
+        <description>L&apos;esprit de la cible de ce sort se trouble et elle subit un malus au modificateur de Pouvoir �gal � 1+N/2 (arrondi vers le bas). On ne peut �tre victime de ce sort qu&apos;une seule fois avant de dormir. En cas d&apos;�chec, le lanceur de pouvoir psychique subit un malus de 1 au modificateur de Pouvoir. </description>
+        <illegal>Infraction</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Sixi�me Sens</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/610131.gif</img>
+        <description>En utilisant ce pouvoir, vous avez le pressentiment des difficult�s qui se pr�sentent dans vos futures actions. Vous b�n�ficiez d&apos;un bonus de 1 sur tous vos ordres jusqu&apos;� votre prochain sommeil. Ce sort n&apos;est pas cumulable avec lui-m�me. En cas d&apos;�chec, le lanceur de pouvoir psychique subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Contr�le</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/610141.gif</img>
+        <description>En utilisant ce pouvoir, vous prenez le contr�le d&apos;une cr�ature (PNJ de tout type delta/epsilon, sauf un tank, navire de guerre ou bombardier). Vous deviendrez son employeur (elle ne rejoint pas automatiquement votre groupe). En cas d&apos;�chec, le lanceur de pouvoir psychique subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). Si vous utilisez ce pouvoir sur un PJ, il restera sans effet. Vous ne pouvez tenter d&apos;invoquer, charmer, contr�ler, enchanter ou cloner qu&apos;une seule cr�ature par jour (avant de dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Lecture de la M�moire</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/610151.gif</img>
+        <description>En utilisant ce pouvoir, vous p�n�trez les secrets de la m�moire de la victime (PJ) et apprenez les derni�res actions priv�es qu&apos;elle a effectu�es, y compris celles qui ont �t� effac�es par le sort Oubli ou la potion d&apos;amn�sie. Le pouvoir ne fonctionne pas sur une personne dans le coma. En cas d&apos;�chec, le lanceur de pouvoir psychique subit un contrecoup physiologique occasionnant un malus de 2 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Sondage</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/610161.gif</img>
+        <description>En utilisant ce pouvoir, vous pouvez sonder le tr�fonds de la m�moire d&apos;un individu afin d&apos;y d�couvrir la liste de ses actions ill�gales, avec l&apos;identit� de la victime et l&apos;�tat de l&apos;enqu�te (non-rep�r�, soup�ons, preuves, recherch�). Le pouvoir ne fonctionne pas sur une personne dans le coma. En cas d&apos;�chec, le lanceur de pouvoir psychique subit un contrecoup physiologique occasionnant un malus de 3 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+T�l�pathie</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+  <org.calafie.modele.vocation.VocationPouvoir>
+    <sorts>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Vol T�l�kin�tique</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/610211.gif</img>
+        <description>En utilisant ce pouvoir, vous avez la possibilit� de d�lier � distance les bourses et les sacs, ce qui vous donne un bonus de 2 au jet de Vol et de Vol Pr�cis, et ce jusqu&apos;� votre prochain sommeil. Vous ne pouvez pas cumuler plusieurs fois le bonus. En cas d&apos;�chec, vos sens sont perturb�s et il vous est plus difficile de voler (malus de 3). Ces modificateurs disparaissent d�s que vous dormez. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Fraude Discr�te</nom>
+        <niveau>1</niveau>
+        <img>http://img.kraland.org/2/spell/610212.gif</img>
+        <description>En utilisant ce pouvoir, vous avez la possibilit� de d�placer � distance les bulletins de vote, ce qui vous donne un bonus de 6 au jet de Fraude (� toutes les �lections), et ce jusqu&apos;� votre prochain sommeil. Vous ne pouvez pas cumuler plusieurs fois le bonus. En cas d&apos;�chec, vos sens sont perturb�s et il vous est plus difficile de frauder (malus de 3). Ces modificateurs disparaissent d�s que vous dormez. </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Tuer un Animal</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/610221.gif</img>
+        <description>En utilisant ce pouvoir, vous infligez un coup t�l�kin�thique capable de tuer un animal (vache, mouton). En cas d&apos;�chec, le lanceur de pouvoir psychique subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>Infraction</illegal>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Perception des Ondes</nom>
+        <niveau>2</niveau>
+        <img>http://img.kraland.org/2/spell/610222.gif</img>
+        <description>En utilisant ce pouvoir, vous devinerez quels sont les mouchards pr�sents sur la cible (que ce soit sur elle ou sur un de ses objets personnalis�s). En cas d&apos;�chec, le lanceur de pouvoir psychique subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>rencontre</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Coup T�l�kin�tique</nom>
+        <niveau>3</niveau>
+        <img>http://img.kraland.org/2/spell/610231.gif</img>
+        <description>En utilisant ce pouvoir sur une victime dans un combat, celle-ci subit une perte de points de vie �gale � votre VOL, augment�e de 1 � 6 points. Aucune protection ne fonctionne (les armures ne comptent pas), mais certaines parades sont possibles (Esquive, Camouflage). Vous devez �tre � Mains Nues pour utiliser un pouvoir en combat. </description>
+        <type>combat</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Tuer un Monstre</nom>
+        <niveau>4</niveau>
+        <img>http://img.kraland.org/2/spell/610241.gif</img>
+        <description>En utilisant ce pouvoir, vous infligez un coup t�l�kin�thique capable de tuer une cr�ature (PNJ de tout type delta/epsilon, sauf un tank, navire de guerre ou bombardier). En cas d&apos;�chec, le lanceur de pouvoir psychique subit un contrecoup physiologique occasionnant un malus de 1 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>rencontre exclusive</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>Affaiblissement de Structure</nom>
+        <niveau>5</niveau>
+        <img>http://img.kraland.org/2/spell/610251.gif</img>
+        <description>Vous devez vous trouver dans un b�timent pour utiliser ce pouvoir. En cas de r�ussite, la structure du b�timent est affaiblie et les d�g�ts qu&apos;il subira seront augment�s pendant 24 heures : +50% sur les d�g�ts des Attentats. En outre, les d�g�ts au b�timent provoqu�s par les ph�nom�nes naturels sont doubl�s (tremblement de terre, cyclone, d�luge, incendie). Si un Renforcement de Structure affectait le b�timent, celui-ci est annul�. L&apos;effet est identique � la capacit� du Terroriste Niveau 6 (et ne se cumule pas avec elle). En cas d&apos;�chec, le lanceur de pouvoir psychique subit un contrecoup physiologique occasionnant un malus de 3 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <illegal>D�lit</illegal>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+      <org.calafie.modele.vocation.Sort>
+        <nom>L�vitation</nom>
+        <niveau>6</niveau>
+        <img>http://img.kraland.org/2/spell/610261.gif</img>
+        <description>Gr�ce � ce sort, vous avez la capacit� de vous �lever dans les airs et de vous d�placer comme si vous disposiez d&apos;ailes. Ce sort ne fonctionne que sur vous, pas sur votre groupe (qui devra par exemple disposer d&apos;un avion pour vous accompagner). L&apos;effet de ce sort se dissipe lors de votre prochain sommeil. En cas d&apos;�chec, le lanceur de pouvoir psychique subit un contrecoup physiologique occasionnant un malus de 3 au modificateur de Pouvoir (pour l&apos;ordre Dormir). </description>
+        <type>personnel</type>
+      </org.calafie.modele.vocation.Sort>
+    </sorts>
+    <nom>
+T�l�kin�sie</nom>
+  </org.calafie.modele.vocation.VocationPouvoir>
+</list>
