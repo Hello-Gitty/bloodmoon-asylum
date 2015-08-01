@@ -18,6 +18,10 @@
     		<element name="legal" type="boolean" minOccurs="1"
     			maxOccurs="1">
     		</element>
+    		<element name="eventuel" type="boolean" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<element name="critique" type="boolean" maxOccurs="1" minOccurs="1"></element>
     		<element name="politique" type="boolean" minOccurs="0"
     			maxOccurs="1">
     		</element>

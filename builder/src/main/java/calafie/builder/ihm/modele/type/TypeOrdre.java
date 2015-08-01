@@ -25,4 +25,13 @@ public enum TypeOrdre {
         return types;
     }
     
+    
+    public static TypeOrdre valFor (String nom) {
+        for (TypeOrdre val : values()) {
+            if (val.getNom().equalsIgnoreCase(nom)) {
+                return val;
+            }
+        }
+        return null;
+    }
 }
