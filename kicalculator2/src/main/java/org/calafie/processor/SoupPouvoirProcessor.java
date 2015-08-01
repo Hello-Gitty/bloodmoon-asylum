@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.calafie.Constantes;
 import org.calafie.modele.vocation.Sort;
 import org.calafie.modele.vocation.VocationPouvoir;
 import org.jsoup.Jsoup;
@@ -20,14 +21,7 @@ import org.jsoup.select.Elements;
 public class SoupPouvoirProcessor {
 
 	private static final String PAGE ="http://www.kraland.org/main.php?p=3_7_";
-	
 	private static final Integer[] PAGES_SCOPE = {1, 22};
-	
-
-
-	public static final String LECTEUR = "K:\\";
-	public static final String CHEMIN = "currentspace\\Kicalculator\\src\\main\\webapps\\data\\";
-	
 	
 	
 	public static void main(String[] args) throws IOException {
@@ -38,14 +32,14 @@ public class SoupPouvoirProcessor {
 			parsePage(PAGE + i, pouvoirs);
 		}
 		
-		Util.saveXML(pouvoirs, LECTEUR + CHEMIN + "vocationsPouvoir");
+		Util.saveXML(pouvoirs, Constantes.LECTEUR + Constantes.CHEMIN + "vocationsPouvoir");
 	}
 	
 	
 	public static void parsePage(String page, List<VocationPouvoir> pouvoirs) throws IOException {
-		// TODO voir ici.
-		Document doc = Jsoup.parse(new URL(page).openStream(), "utf-8", page);//Jsoup.connect(page).get();
-		
+
+
+		Document doc = Util.getDocument(page);
 		Elements elNomVocation = doc.getElementsByClass("page-title-center");
 		String nom = Util.getText(elNomVocation.get(0).childNode(0));
 		Elements elNiveau = doc.getElementsByTag("h4");
@@ -64,7 +58,7 @@ public class SoupPouvoirProcessor {
 				continue;
 			}
 			int esp = txt.indexOf(" ");
-			int niveau = Util.parse(txt.substring(esp).trim());
+			int niveau = Util.parseInt(txt.substring(esp).trim());
 
 			Elements sibs = el4.siblingElements();
 			Sort sort = null;

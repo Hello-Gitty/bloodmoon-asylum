@@ -2,14 +2,19 @@ package org.calafie.processor;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import org.apache.commons.lang3.StringUtils;
+import org.calafie.Constantes;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Node;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 /**
  * Méthodes utilitaire.
@@ -41,6 +46,7 @@ public class Util {
 		return getText(node.childNode(0));
 	}
 
+	
 	/**
 	 * Parse un string en entier
 	 * 
@@ -48,8 +54,65 @@ public class Util {
 	 *            string
 	 * @return entier correspondant ou 1 si la chaine n'est pas parsable.
 	 */
-	public static int parse(String ss) {
-		int result = 1;
+	public static float parseFloat(String ss) {
+		float result = 0f;
+
+		try {
+			result = Float.parseFloat(ss);
+		} catch (Exception e) {
+			// Rien
+		}
+
+		return result;
+	}
+
+	
+	
+	/**
+	 * Parse un string en entier
+	 * 
+	 * @param ss
+	 *            string
+	 * @return entier correspondant ou 1 si la chaine n'est pas parsable.
+	 */
+	public static double parseDouble(String ss) {
+		double result = 0d;
+
+		try {
+			result = Double.parseDouble(ss);
+		} catch (Exception e) {
+			// Rien
+		}
+
+		return result;
+	}
+
+	
+	
+	/**
+	 * Parse un string en entier
+	 * 
+	 * @param ss
+	 *            string
+	 * @return entier correspondant ou 1 si la chaine n'est pas parsable.
+	 */
+	public static int parseInt(String ss) {
+		return parseInt(ss, 1);
+	}
+
+	
+	
+	/**
+	 * Parse un string en entier
+	 * 
+	 * @param ss
+	 *            string
+	 * @param defaut
+	 *            valeur par defaut
+	 * @return entier correspondant ou defaut si la chaine n'est pas parsable.
+	 */
+	public static int parseInt(String ss, int defaut) {
+		int result = defaut;
 
 		try {
 			result = Integer.parseInt(ss);
@@ -59,7 +122,7 @@ public class Util {
 
 		return result;
 	}
-
+	
 	/**
 	 * Sauvegarde au format xml d'un objet
 	 * 
@@ -87,7 +150,7 @@ public class Util {
 	 */
 	public static String toJson(Object oo) {
 		Gson gson = new Gson();
-		return StringUtils.stripAccents(gson.toJson(oo));
+		return gson.toJson(oo);
 	}
 
 	/**
@@ -97,7 +160,7 @@ public class Util {
 	 */
 	public static String toPrettyJson(Object oo) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		return StringUtils.stripAccents(gson.toJson(oo));
+		return gson.toJson(oo);
 	}
 	
 	
@@ -112,6 +175,16 @@ public class Util {
 		// http://java.dzone.com/articles/migrate-serialized-java
 		String xml = new XStream().toXML(oo);
 		return xml;
+	}
+	
+	
+	public static <E> E lire(File fichier) throws IOException {
+		return (E) new XStream(new DomDriver()).fromXML(Wirter.lire(fichier));
+	}
+
+	
+	public static Document getDocument(String url) throws MalformedURLException, IOException {
+		return Jsoup.parse(new URL(url).openStream(), Constantes.ISO, url);
 	}
 	
 }

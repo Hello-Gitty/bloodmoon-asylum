@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 
-import org.apache.commons.lang3.StringUtils;
+import org.calafie.Constantes;
 
 
 /**
@@ -25,8 +25,8 @@ public class Wirter {
 	private Wirter() {
 	}
 
-	public static String UTF_8 = "UTF-8";
-	private static Charset utf8 = Charset.forName(UTF_8);
+
+	private static Charset utf8 = Charset.forName(Constantes.UTF_8);
 
 	/**
 	 * Ecrit le contenu de data dans le fichier.
@@ -38,9 +38,6 @@ public class Wirter {
 	 * @throws IOException
 	 */
 	public static void ecrire(String data, File fichier) throws IOException {
-		// TODO a voir pour gérer l'encodage et tout.
-		data = StringUtils.stripAccents(data);
-
 		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
 				new FileOutputStream(fichier), utf8));
 		writer.write(data);

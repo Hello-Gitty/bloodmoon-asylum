@@ -103,7 +103,9 @@ public class Ordre {
 	@Override
 	public String toString() {
 		return "Ordre [nom=" + nom + ", description=" + description + ", cout=" + cout + ", potentiel=" + potentiel
-				+ ", critique=" + critique + ", illegal=" + illegal + "]";
+				+ ", critique=" + critique + ", illegal=" + illegal + ", categorie=" + categorie + "]";
 	}
+
+
 
 }

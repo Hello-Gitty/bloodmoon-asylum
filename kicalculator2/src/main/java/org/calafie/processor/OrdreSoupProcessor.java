@@ -1,9 +1,11 @@
 package org.calafie.processor;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.calafie.Constantes;
 import org.calafie.modele.Categorie;
 import org.calafie.modele.ordres.Ordre;
 import org.jsoup.Jsoup;
@@ -33,9 +35,7 @@ public class OrdreSoupProcessor {
 	public static final String I_TAG = "i";
 
 	public static final String RULE_BOX = "rulebox";
-
-	public static final String LECTEUR = "G:\\";
-	public static final String NOM_FICHIER_ORDRE = "currentspace\\Kicalculator\\src\\main\\webapps\\data\\listOrdre";
+	public static final String NOM_FICHIER_ORDRE = "listOrdre";
 
 	public static void main(String[] args) throws IOException {
 
@@ -48,12 +48,13 @@ public class OrdreSoupProcessor {
 		}
 
 		System.out.println("Nombre d'ordre : " + ordres.size());
-		Util.saveXML(ordres, LECTEUR + NOM_FICHIER_ORDRE);
+		Util.saveXML(ordres, Constantes.LECTEUR + Constantes.CHEMIN + NOM_FICHIER_ORDRE);
 	}
 
 	private static void traiterPage(String page, Categorie categorie, List<Ordre> ordres) throws IOException {
+		
+		Document doc = Util.getDocument(page);
 
-		Document doc = Jsoup.connect(page).get();
 		// Liste les div des tableaux qui contiennent les ordres en eux même.
 		Elements els = doc.getElementsByClass(RULE_BOX);
 		for (Element el : els) {

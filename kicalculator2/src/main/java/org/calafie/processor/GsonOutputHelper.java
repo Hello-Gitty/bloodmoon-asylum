@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.calafie.Constantes;
 import org.calafie.modele.objets.Batiment;
 import org.calafie.modele.objets.Composant;
 import org.calafie.modele.objets.ObjetBase;
@@ -18,13 +19,7 @@ import org.calafie.modele.objets.ObjetKI;
  */
 public class GsonOutputHelper {
 
-	
-	
-    public static final String LECTEUR = "g:\\";
-    public static final String CHEMIN = "currentspace\\Kicalculator\\src\\main\\webapps\\data\\";
-	
 	public static void main(String[] args) throws IOException {
-		// mettre ici du code pour indenté en beau le gson
 		
 		ObjetBase objBase = new ObjetBase();
 		
@@ -107,7 +102,7 @@ public class GsonOutputHelper {
 
 		String data = sb.toString();
 		System.out.println(data);
-		Wirter.ecrire(data, new File(LECTEUR + CHEMIN + "jsonObjetHelper.json"));
+		Wirter.ecrire(data, new File(Constantes.LECTEUR + Constantes.CHEMIN + "jsonObjetHelper.json"));
 	}
 	
 }

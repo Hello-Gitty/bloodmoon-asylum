@@ -2,12 +2,14 @@ package org.calafie.processor;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.calafie.Constantes;
 import org.calafie.modele.Categorie;
 import org.calafie.modele.objets.Batiment;
 import org.calafie.modele.objets.Composant;
@@ -62,9 +64,6 @@ public class ObjetSoupProcessor {
     public static final String TR_TAG = "tr";
     public static final String I_TAG = "i";
 
-    public static final String LECTEUR = "g:\\";
-    public static final String CHEMIN = "currentspace\\Kicalculator\\src\\main\\webapps\\data\\";
-    
     
 
     public static void main(String[] args) throws IOException {
@@ -84,9 +83,9 @@ public class ObjetSoupProcessor {
         
 
 		// Sauvegade du tout.
-		Util.saveXML(mapObj, LECTEUR + CHEMIN + "mapObjetKi.xml");
-		Util.saveXML(batiments, LECTEUR + CHEMIN + "mapBatiment.xml");
-		Util.saveXML(categories, LECTEUR + CHEMIN + "mapCategorie.xml");
+		Util.saveXML(mapObj, Constantes.LECTEUR + Constantes.CHEMIN + "mapObjetKi.xml");
+		Util.saveXML(batiments, Constantes.LECTEUR + Constantes.CHEMIN + "mapBatiment.xml");
+		Util.saveXML(categories, Constantes.LECTEUR + Constantes.CHEMIN + "mapCategorie.xml");
 	
 		ecrireJsonBat(batiments);
     }
@@ -110,14 +109,14 @@ public class ObjetSoupProcessor {
         String batPrive = Util.toJson(listBatPrive);
     	
     	
-        Wirter.ecrire(batAll, new File(LECTEUR + CHEMIN + "allbat.json"));
-        Wirter.ecrire(batPrive, new File(LECTEUR + CHEMIN + "privateBat.json"));
+        Wirter.ecrire(batAll, new File(Constantes.LECTEUR + Constantes.CHEMIN + "allbat.json"));
+        Wirter.ecrire(batPrive, new File(Constantes.LECTEUR + Constantes.CHEMIN + "privateBat.json"));
     	
         batAll = Util.toPrettyJson(batiments.values());
         batPrive = Util.toPrettyJson(listBatPrive);
         
-        Wirter.ecrire(batAll, new File(LECTEUR + CHEMIN + "allbatPretty.json"));
-        Wirter.ecrire(batPrive, new File(LECTEUR + CHEMIN + "privateBatPretty.json"));
+        Wirter.ecrire(batAll, new File(Constantes.LECTEUR + Constantes.CHEMIN + "allbatPretty.json"));
+        Wirter.ecrire(batPrive, new File(Constantes.LECTEUR + Constantes.CHEMIN + "privateBatPretty.json"));
     }
     
     
@@ -230,7 +229,7 @@ public class ObjetSoupProcessor {
      */
     private static void buildObjMap(String url, Map<String, ObjetKI> mapObj, Map<String, Batiment> mapBatiment ) throws IOException {
 
-        Document doc = Jsoup.connect(url).get();
+        Document doc = Util.getDocument(url);
         Elements newsHeadlines = doc.select(CENTRAL_DIV);
         Element el = newsHeadlines.get(0);
 
@@ -262,10 +261,10 @@ public class ObjetSoupProcessor {
                     	String[] explo = chargeCapa.split(" - ");
                 		int esp = explo[0].trim().lastIndexOf(" ");
                 		// On récupère que la valeur de l'élément.
-                		charge = Util.parse(explo[0].trim().substring(esp+1));
+                		charge = Util.parseInt(explo[0].trim().substring(esp+1));
                     	if (explo.length > 1) {
                     		esp = explo[1].trim().lastIndexOf(" ");
-                    		charge = Util.parse(explo[1].trim().substring(esp+1));
+                    		charge = Util.parseInt(explo[1].trim().substring(esp+1));
                     	}
                     }
                     
@@ -289,7 +288,7 @@ public class ObjetSoupProcessor {
                         // récupère le niveau du batiment nécessaire pour l'ajouter à l'objet.
                         int deb = chainebat.indexOf("niv.");
                         String niveauTmp = chainebat.substring(deb, chainebat.length()-2).trim();
-                        niveau = Util.parse(niveauTmp);
+                        niveau = Util.parseInt(niveauTmp);
                         }
                     }
                     
@@ -306,14 +305,14 @@ public class ObjetSoupProcessor {
                         // On va déterminer l'info contenu sur la ligne en fonction de clé
                         if (temp.endsWith(UT) || temp.endsWith(UT_S)) {
                             int posEsp = temp.indexOf(' ');
-                            uniteTravail = Util.parse(temp.substring(0, posEsp).trim());
+                            uniteTravail = Util.parseInt(temp.substring(0, posEsp).trim());
                         } else if (temp.startsWith(NB_PROD)) {
                             int posEsp = temp.lastIndexOf(' ');
-                            produitPar = Util.parse(temp.substring(posEsp, temp.length() - 1).trim());
+                            produitPar = Util.parseInt(temp.substring(posEsp, temp.length() - 1).trim());
                         } else {
                             // cas autre, c'est que c'est un composant.
                             int posEsp = temp.indexOf(' ');
-                            int nombre = Util.parse(temp.substring(0, posEsp).trim());
+                            int nombre = Util.parseInt(temp.substring(0, posEsp).trim());
                             String nomObjet = temp.substring(posEsp, temp.length()).trim();
 
                             nomObjet = findComposant(nomObjet, mapObj);

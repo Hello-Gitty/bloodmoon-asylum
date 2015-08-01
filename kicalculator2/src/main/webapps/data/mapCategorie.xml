@@ -12,9 +12,9 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>EQUIPEMENT MAISONS</string>
+    <string>ÉQUIPEMENT MAISONS</string>
     <org.calafie.modele.Categorie>
-      <nom>EQUIPEMENT MAISONS</nom>
+      <nom>ÉQUIPEMENT MAISONS</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -24,9 +24,9 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>MATIERES PREMIERES</string>
+    <string>MATIÈRES PREMIÈRES</string>
     <org.calafie.modele.Categorie>
-      <nom>MATIERES PREMIERES</nom>
+      <nom>MATIÈRES PREMIÈRES</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -36,15 +36,15 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>CADEAUX DE NOEL</string>
+    <string>CADEAUX DE NOËL</string>
     <org.calafie.modele.Categorie>
-      <nom>CADEAUX DE NOEL</nom>
+      <nom>CADEAUX DE NOËL</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>MEDICAMENTS</string>
+    <string>MÉDICAMENTS</string>
     <org.calafie.modele.Categorie>
-      <nom>MEDICAMENTS</nom>
+      <nom>MÉDICAMENTS</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -66,9 +66,9 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>ANIMAUX D&apos;ELEVAGE</string>
+    <string>ANIMAUX D&apos;ÉLEVAGE</string>
     <org.calafie.modele.Categorie>
-      <nom>ANIMAUX D&apos;ELEVAGE</nom>
+      <nom>ANIMAUX D&apos;ÉLEVAGE</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -102,15 +102,15 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>PRODUITS INTERMEDIAIRES</string>
+    <string>PRODUITS INTERMÉDIAIRES</string>
     <org.calafie.modele.Categorie>
-      <nom>PRODUITS INTERMEDIAIRES</nom>
+      <nom>PRODUITS INTERMÉDIAIRES</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>ELECTRONIQUE</string>
+    <string>ÉLECTRONIQUE</string>
     <org.calafie.modele.Categorie>
-      <nom>ELECTRONIQUE</nom>
+      <nom>ÉLECTRONIQUE</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -132,9 +132,9 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>VETEMENTS ET ACCESSOIRES</string>
+    <string>VÊTEMENTS ET ACCESSOIRES</string>
     <org.calafie.modele.Categorie>
-      <nom>VETEMENTS ET ACCESSOIRES</nom>
+      <nom>VÊTEMENTS ET ACCESSOIRES</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -162,21 +162,21 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>ENERGIE</string>
+    <string>ÉNERGIE</string>
     <org.calafie.modele.Categorie>
-      <nom>ENERGIE</nom>
+      <nom>ÉNERGIE</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>VEHICULES</string>
+    <string>VÉHICULES</string>
     <org.calafie.modele.Categorie>
-      <nom>VEHICULES</nom>
+      <nom>VÉHICULES</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>EQUIPEMENTS DE VEHICULES</string>
+    <string>ÉQUIPEMENTS DE VÉHICULES</string>
     <org.calafie.modele.Categorie>
-      <nom>EQUIPEMENTS DE VEHICULES</nom>
+      <nom>ÉQUIPEMENTS DE VÉHICULES</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -216,9 +216,9 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>BONS D&apos;ETAT / LOTERIE</string>
+    <string>BONS D&apos;ÉTAT / LOTERIE</string>
     <org.calafie.modele.Categorie>
-      <nom>BONS D&apos;ETAT / LOTERIE</nom>
+      <nom>BONS D&apos;ÉTAT / LOTERIE</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
