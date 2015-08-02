@@ -345,7 +345,7 @@ public class InterfaceJaxb {
     }
 
     private JFrame getWindow() {
-        return Builder.getInstance().getFenetre();
+        return Builder.getFrame();
     }
 
 }

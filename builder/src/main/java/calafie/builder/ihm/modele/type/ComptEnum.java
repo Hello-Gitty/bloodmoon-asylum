@@ -41,5 +41,25 @@ public enum ComptEnum {
         }
         return null;
     }
+    
+    
+    static public String getComptenceLike(String val) {
+    	
+    	if (val == null) {
+    		return null;
+    	}
+    	
+
+    	String valTm = val.toLowerCase();
+        for (ComptEnum ce : values()) {
+            if (valTm.startsWith(ce.nom.toLowerCase())) {
+                return ce.nom;
+            }
+        }
+        return null;
+    }
+    
+    
+    
 
 }

@@ -1,5 +1,8 @@
 package calafie.builder;
 
+import java.awt.Frame;
+
+import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -82,6 +85,13 @@ public class Builder {
         return builder;
     }
 
+	public static JFrame getFrame() {
+		if (builder != null) {
+			return builder.getFenetre();
+		}
+		return null;
+	}
+    
     public InterfaceJaxb getInterfaceJaxb() {
         return interfaceJaxb;
     }
