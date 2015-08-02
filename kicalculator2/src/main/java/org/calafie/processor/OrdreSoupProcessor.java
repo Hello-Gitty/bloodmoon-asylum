@@ -26,7 +26,7 @@ public class OrdreSoupProcessor {
 
 	public static final String[] PAGES = { "3_15", "3_15_1", "3_15_2", "3_15_3", "3_15_4" };
 
-	public static final String[] CATEGORIE = { "Personnage", "Bâtiments", "Rencontre", "Organisations", "Prérogatives" };
+	public static final String[] CATEGORIE = { "Personnage", "Bâtiments", "Rencontres", "Organisations", "Prérogatives" };
 	public static final String PAGE = "http://www.kraland.org/main.php?p=";
 
 	public static final String CENTRAL_DIV = "#central-text";

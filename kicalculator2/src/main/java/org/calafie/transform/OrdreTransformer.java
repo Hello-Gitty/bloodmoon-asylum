@@ -8,13 +8,10 @@ import org.calafie.Constantes;
 import org.calafie.modele.ordres.Ordre;
 import org.calafie.processor.OrdreSoupProcessor;
 import org.calafie.processor.Util;
-import org.calafie.processor.Wirter;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
-
+import calafie.builder.ihm.modele.type.ComptEnum;
 import calafie.builder.ihm.modele.type.TypeLegalite;
-import calafie.builder.ihm.modele.type.TypeOrdre;
+import calafie.builder.jaxb.InterfaceJaxb;
 import calafie.builder.jaxb.Ordres;
 
 public class OrdreTransformer {
@@ -30,7 +27,7 @@ public class OrdreTransformer {
 	public static String POLITIQUE = "politique";
 	public static String Eventuel = "eventuel";
 	public static String Eventuelle = "eventuelle";
-	public static String variable = "variable";
+	public static String VARIABLE = "variable";
 	public static String parenth = "(";
 	public static String Dpoint = ":";
 	public static String ADV =  "adv.";
@@ -38,7 +35,7 @@ public class OrdreTransformer {
 	
 	public static void main(String[] args) throws IOException {
 		
-		String fileName = Constantes.LECTEUR + OrdreSoupProcessor.NOM_FICHIER_ORDRE + ".xml";
+		String fileName = Constantes.LECTEUR + Constantes.CHEMIN + OrdreSoupProcessor.NOM_FICHIER_ORDRE + ".xml";
 		File file = new File(fileName);
 		
 		List<Ordre> ordres = Util.<List<Ordre>>lire(file);
@@ -55,20 +52,21 @@ public class OrdreTransformer {
 			
 			
 			String coutChaine = ordre.getCout(); // cout=Cout: 2000 FK | Fatigue: 3 PdV | Difficulte: 2
-			if(!coutChaine.contains(variable)) {
-				
-			}
 			String cout = getChaine(coutChaine, COUT, FK);
 			String pdv =  getChaine(coutChaine, FATIGUE, PdF);
 			boolean automatique = coutChaine.contains(AUTOMATIQUE);
 			String difficulte = "";
 			
-			String caract = null;
-			String opp = null;
-			String compe = null;
+			String caract = "";
+			String opp = "";
+			String compe = "";
 			
 			String potentiel = ordre.getPotentiel();
-			if (!automatique) {
+			boolean variable = potentiel != null ? potentiel.contains(VARIABLE) : false;
+			if (variable) {
+				automatique = true;
+			}
+			if (!automatique && !variable) {
 				difficulte =  getChaine(coutChaine, DIFFICULTE, null);
 				// Potentiel
 				String sep = "+";
@@ -78,13 +76,8 @@ public class OrdreTransformer {
 				}
 				caract = getChaine(potentiel, Dpoint , sep);
 				
-				
-				
-				
-				
-				//compétence
-				
-				// Transformation
+				String temp[] = potentiel.split(" \\+ ");
+				compe = ComptEnum.getComptenceLike(temp[1].trim());
 			}
 			
 			Boolean politique = null;
@@ -113,10 +106,15 @@ public class OrdreTransformer {
 			oo.setCritique(ordre.isCritique());
 			oo.setGravite(gravite);
 			oo.setType(categorie);
+			oo.setCaracteristique(caract);
+			oo.setOposition(opp);
+			oo.setCompetence(compe);
+			
 		}
 		
 		
-		
+		InterfaceJaxb inte = new InterfaceJaxb();
+		inte.sauvegarderOrdres(objetOrdre);
 		
 		
 	}
@@ -140,4 +138,7 @@ public class OrdreTransformer {
 		return chaine.substring(debut, fin).trim();
 	}
 
+	
+	
+	
 }
