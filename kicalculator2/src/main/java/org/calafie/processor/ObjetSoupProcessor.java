@@ -90,6 +90,8 @@ public class ObjetSoupProcessor {
 		Util.saveXML(categories, Constantes.LECTEUR + Constantes.CHEMIN + "mapCategorie.xml");
 	
 		ecrireJsonBat(batiments);
+		ecrireJsonObj(mapObj);
+    
     }
     
     
@@ -122,6 +124,14 @@ public class ObjetSoupProcessor {
     }
     
     
+    private static void ecrireJsonObj ( Map<String, ObjetKI> objets) throws IOException{
+    	 String objet = Util.toJson(objets.values());
+    	 String objetPret = Util.toPrettyJson(objets.values());
+    	 
+         Wirter.ecrire(objet, new File(Constantes.LECTEUR + Constantes.CHEMIN + "objet.json"));
+         Wirter.ecrire(objetPret, new File(Constantes.LECTEUR + Constantes.CHEMIN + "objetPretty.json"));
+    	 
+    }
     
     
     private static Map<String, Categorie> construireCategorie(Map<String, ObjetKI> mapObj) {
@@ -256,18 +266,26 @@ public class ObjetSoupProcessor {
                     int charge = 1;
                     
                     if (desc.childNodeSize() > 3) {
-                    	description = Util.getText(desc.childNode(2));
-                    	// On récupère charge et capacité d'un objet
-                    	// On sait que s'il y a les deux alors c'est séparé par " - "
-                    	String chargeCapa = Util.getText(desc.childNode(1));
-                    	String[] explo = chargeCapa.split(" - ");
-                		int esp = explo[0].trim().lastIndexOf(" ");
-                		// On récupère que la valeur de l'élément.
-                		charge = Util.parseInt(explo[0].trim().substring(esp+1));
-                    	if (explo.length > 1) {
-                    		esp = explo[1].trim().lastIndexOf(" ");
-                    		charge = Util.parseInt(explo[1].trim().substring(esp+1));
+                    	
+                    	String chaine = Util.getText(desc.childNode(1)); 
+                    	// Si la première chaine c'est un - alors c'est la charge, sinon c'est la description
+                    	if (chaine.trim().startsWith("-")) {
+	                    	description = Util.getText(desc.childNode(2));
+	                    	// On récupère charge et capacité d'un objet
+	                    	// On sait que s'il y a les deux alors c'est séparé par " - "
+	                    	String chargeCapa = Util.getText(desc.childNode(1));
+	                    	String[] explo = chargeCapa.split(" - ");
+	                		int esp = explo[0].trim().lastIndexOf(" ");
+	                		// On récupère que la valeur de l'élément.
+	                		charge = Util.parseInt(explo[0].trim().substring(esp+1));
+	                    	if (explo.length > 1) {
+	                    		esp = explo[1].trim().lastIndexOf(" ");
+	                    		charge = Util.parseInt(explo[1].trim().substring(esp+1));
+	                    	}
+                    	} else {
+                    		description = chaine;
                     	}
+  
                     }
                     
                     Node prod = childs.get(2); // TD modalité de production
@@ -275,6 +293,7 @@ public class ObjetSoupProcessor {
                     String urlImg = img.childNode(0).attr("src");
                     
                     String chainebat = null;
+                    String nomBat = null;
                     Batiment batiment = null;
                     int niveau = 1;
                     // Ce qui est en italique sur la ligne c'est le nom du batiment.
@@ -283,13 +302,14 @@ public class ObjetSoupProcessor {
                         chainebat = Util.getText(elBat.get(0).childNode(0));
                         int las = chainebat.lastIndexOf('(');
                         las = las != -1 ? las : 0;
-                        chainebat = chainebat.substring(0, las).trim();
+                        nomBat = chainebat.substring(0, las).trim();
                         batiment = mapBatiment.get(chainebat);
+                        
                         
                         if (chainebat.contains("niv.")) {
                         // récupère le niveau du batiment nécessaire pour l'ajouter à l'objet.
-                        int deb = chainebat.indexOf("niv.");
-                        String niveauTmp = chainebat.substring(deb, chainebat.length()-2).trim();
+                        int deb = chainebat.indexOf("niv.")+4;
+                        String niveauTmp = chainebat.substring(deb, chainebat.length()-1).trim();
                         niveau = Util.parseInt(niveauTmp);
                         }
                     }
@@ -341,7 +361,7 @@ public class ObjetSoupProcessor {
                     obj.setCategorie(categorie);
                     obj.setProduitPar(produitPar);
                     obj.setUniteTravail(uniteTravail);
-                    obj.setBatiment(chainebat);
+                    obj.setBatiment(nomBat);
                     obj.setNiveau(niveau);
                     obj.setCapacite(capacite);
                     obj.setCharge(charge);

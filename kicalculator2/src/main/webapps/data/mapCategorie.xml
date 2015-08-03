@@ -1,26 +1,20 @@
 <map>
   <entry>
-    <string>COMPOSANTS</string>
+    <string>ARMURES</string>
     <org.calafie.modele.Categorie>
-      <nom>COMPOSANTS</nom>
+      <nom>ARMURES</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>BIJOUX</string>
+    <string>ÉNERGIE</string>
     <org.calafie.modele.Categorie>
-      <nom>BIJOUX</nom>
+      <nom>ÉNERGIE</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>ÉQUIPEMENT MAISONS</string>
+    <string>OUTILS</string>
     <org.calafie.modele.Categorie>
-      <nom>ÉQUIPEMENT MAISONS</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>IMPLANTS</string>
-    <org.calafie.modele.Categorie>
-      <nom>IMPLANTS</nom>
+      <nom>OUTILS</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -30,21 +24,69 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>LIVRES</string>
+    <string>DIVERS</string>
     <org.calafie.modele.Categorie>
-      <nom>LIVRES</nom>
+      <nom>DIVERS</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>CADEAUX DE NOËL</string>
+    <string>SERVICES</string>
     <org.calafie.modele.Categorie>
-      <nom>CADEAUX DE NOËL</nom>
+      <nom>SERVICES</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>MÉDICAMENTS</string>
+    <string>ARTEFACTS</string>
     <org.calafie.modele.Categorie>
-      <nom>MÉDICAMENTS</nom>
+      <nom>ARTEFACTS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>POTIONS MAGIQUES</string>
+    <org.calafie.modele.Categorie>
+      <nom>POTIONS MAGIQUES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>ARMES DE TIR</string>
+    <org.calafie.modele.Categorie>
+      <nom>ARMES DE TIR</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>ÉQUIPEMENT MAISONS</string>
+    <org.calafie.modele.Categorie>
+      <nom>ÉQUIPEMENT MAISONS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>PRODUITS INTERMÉDIAIRES</string>
+    <org.calafie.modele.Categorie>
+      <nom>PRODUITS INTERMÉDIAIRES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>RELIQUES</string>
+    <org.calafie.modele.Categorie>
+      <nom>RELIQUES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>REPAS</string>
+    <org.calafie.modele.Categorie>
+      <nom>REPAS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>IMPLANTS</string>
+    <org.calafie.modele.Categorie>
+      <nom>IMPLANTS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>ANIMAUX D&apos;ÉLEVAGE</string>
+    <org.calafie.modele.Categorie>
+      <nom>ANIMAUX D&apos;ÉLEVAGE</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -60,15 +102,9 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>ARMEMENTS DIVERS</string>
+    <string>CLEFS</string>
     <org.calafie.modele.Categorie>
-      <nom>ARMEMENTS DIVERS</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>ANIMAUX D&apos;ÉLEVAGE</string>
-    <org.calafie.modele.Categorie>
-      <nom>ANIMAUX D&apos;ÉLEVAGE</nom>
+      <nom>CLEFS</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -78,75 +114,9 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>BOISSONS</string>
+    <string>COMPOSANTS</string>
     <org.calafie.modele.Categorie>
-      <nom>BOISSONS</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>OBJETS MAGIQUES</string>
-    <org.calafie.modele.Categorie>
-      <nom>OBJETS MAGIQUES</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>OUTILS</string>
-    <org.calafie.modele.Categorie>
-      <nom>OUTILS</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>RELIQUES</string>
-    <org.calafie.modele.Categorie>
-      <nom>RELIQUES</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>PRODUITS INTERMÉDIAIRES</string>
-    <org.calafie.modele.Categorie>
-      <nom>PRODUITS INTERMÉDIAIRES</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>ÉLECTRONIQUE</string>
-    <org.calafie.modele.Categorie>
-      <nom>ÉLECTRONIQUE</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>POTIONS MAGIQUES</string>
-    <org.calafie.modele.Categorie>
-      <nom>POTIONS MAGIQUES</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>ARTEFACTS</string>
-    <org.calafie.modele.Categorie>
-      <nom>ARTEFACTS</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>ARMES DE TIR</string>
-    <org.calafie.modele.Categorie>
-      <nom>ARMES DE TIR</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>VÊTEMENTS ET ACCESSOIRES</string>
-    <org.calafie.modele.Categorie>
-      <nom>VÊTEMENTS ET ACCESSOIRES</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>DIVERS</string>
-    <org.calafie.modele.Categorie>
-      <nom>DIVERS</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>PLANTES</string>
-    <org.calafie.modele.Categorie>
-      <nom>PLANTES</nom>
+      <nom>COMPOSANTS</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -156,15 +126,21 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>ARMURES</string>
+    <string>PLANTES</string>
     <org.calafie.modele.Categorie>
-      <nom>ARMURES</nom>
+      <nom>PLANTES</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>ÉNERGIE</string>
+    <string>ÉLECTRONIQUE</string>
     <org.calafie.modele.Categorie>
-      <nom>ÉNERGIE</nom>
+      <nom>ÉLECTRONIQUE</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>VÊTEMENTS ET ACCESSOIRES</string>
+    <org.calafie.modele.Categorie>
+      <nom>VÊTEMENTS ET ACCESSOIRES</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -174,33 +150,9 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>ÉQUIPEMENTS DE VÉHICULES</string>
+    <string>BIJOUX</string>
     <org.calafie.modele.Categorie>
-      <nom>ÉQUIPEMENTS DE VÉHICULES</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>CLEFS</string>
-    <org.calafie.modele.Categorie>
-      <nom>CLEFS</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>REPAS</string>
-    <org.calafie.modele.Categorie>
-      <nom>REPAS</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>SERVICES</string>
-    <org.calafie.modele.Categorie>
-      <nom>SERVICES</nom>
-    </org.calafie.modele.Categorie>
-  </entry>
-  <entry>
-    <string>MUNITIONS &amp; EXPLOSIFS</string>
-    <org.calafie.modele.Categorie>
-      <nom>MUNITIONS &amp; EXPLOSIFS</nom>
+      <nom>BIJOUX</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -210,9 +162,9 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
-    <string>BATEAUX</string>
+    <string>MUNITIONS &amp; EXPLOSIFS</string>
     <org.calafie.modele.Categorie>
-      <nom>BATEAUX</nom>
+      <nom>MUNITIONS &amp; EXPLOSIFS</nom>
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
@@ -222,9 +174,57 @@
     </org.calafie.modele.Categorie>
   </entry>
   <entry>
+    <string>BATEAUX</string>
+    <org.calafie.modele.Categorie>
+      <nom>BATEAUX</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>OBJETS MAGIQUES</string>
+    <org.calafie.modele.Categorie>
+      <nom>OBJETS MAGIQUES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
     <string>ARMES DE CONTACT</string>
     <org.calafie.modele.Categorie>
       <nom>ARMES DE CONTACT</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>MÉDICAMENTS</string>
+    <org.calafie.modele.Categorie>
+      <nom>MÉDICAMENTS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>ARMEMENTS DIVERS</string>
+    <org.calafie.modele.Categorie>
+      <nom>ARMEMENTS DIVERS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>ÉQUIPEMENTS DE VÉHICULES</string>
+    <org.calafie.modele.Categorie>
+      <nom>ÉQUIPEMENTS DE VÉHICULES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>LIVRES</string>
+    <org.calafie.modele.Categorie>
+      <nom>LIVRES</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>BOISSONS</string>
+    <org.calafie.modele.Categorie>
+      <nom>BOISSONS</nom>
+    </org.calafie.modele.Categorie>
+  </entry>
+  <entry>
+    <string>CADEAUX DE NOËL</string>
+    <org.calafie.modele.Categorie>
+      <nom>CADEAUX DE NOËL</nom>
     </org.calafie.modele.Categorie>
   </entry>
 </map>

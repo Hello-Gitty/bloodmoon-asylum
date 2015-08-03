@@ -177,23 +177,6 @@ function addInputNode(NodeParent, id, valeur, readO) {
 	return node;
 }
 
-function addImgNode(NodeParent, src) {
-	var node = addNode(NodeParent, "img");
-	node.src = src;
-	node.width = 32;
-	node.height = 32;
-	return node;
-}
-
-function addBrNode(NodeParent) {
-	var node = addNode(NodeParent, "br");
-}
-
-function addTableNode(NodeParent) {
-	var node = addNode(NodeParent, "table");
-	return node;
-}
-
 function addTrNode(NodeParent) {
 	var node = addNode(NodeParent, "tr");
 	return node;

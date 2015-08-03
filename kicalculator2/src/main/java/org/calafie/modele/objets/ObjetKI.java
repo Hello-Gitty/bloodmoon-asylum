@@ -8,15 +8,6 @@ package org.calafie.modele.objets;
  */
 public abstract class ObjetKI {
 
-	/**
-	 * Unité de travail nécessaire a la production.
-	 */
-	private int uniteTravail;
-	
-	/**
-	 * Nombre d'objet produit par unité de travail.
-	 */
-	private int produitPar;
 	
 	/**
 	 * Nom de l'objet.
@@ -29,9 +20,9 @@ public abstract class ObjetKI {
 	private String categorie;
 	
 	/**
-	 * Objet ou on trouve le batiment.
+	 * Description.
 	 */
-	private String batiment;
+	private String description;
 	
 	/**
 	 * Url de l'image de l'objet.
@@ -39,25 +30,35 @@ public abstract class ObjetKI {
 	private String image;
 	
 	/**
+	 * Objet ou on trouve le batiment.
+	 */
+	private String batiment;
+	
+	/**
+	 * Unité de travail nécessaire a la production.
+	 */
+	private int uniteTravail;
+	
+	/**
+	 * Nombre d'objet produit par unité de travail.
+	 */
+	private int produitPar;
+
+	/**
 	 * Poid d'un objet.
 	 */
 	private int charge;
-	
-	/**
-	 * Capacite d'un objet.
-	 */
-	private int capacite = 0;
-	
-	/**
-	 * Description.
-	 */
-	private String description;
 	
 	/**
 	 * Niveau de production du batiment.
 	 */
 	private int niveau;
 	
+	/**
+	 * Capacite d'un objet.
+	 */
+	private int capacite = 0;
+
 	
 	public String getBatiment() {
 		return batiment;
@@ -139,4 +140,11 @@ public abstract class ObjetKI {
 		this.niveau = niveau;
 	}
 
+	@Override
+	public String toString() {
+		return "ObjetKI [nom=" + nom + "]";
+	}
+
+	
+	
 }

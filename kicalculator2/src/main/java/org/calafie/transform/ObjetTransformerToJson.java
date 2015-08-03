@@ -11,6 +11,7 @@ import org.calafie.modele.objets.ObjetKI;
 import org.calafie.processor.ObjetSoupProcessor;
 
 import org.calafie.processor.Util;
+import org.calafie.processor.Wirter;
 
 public class ObjetTransformerToJson {
 
@@ -23,9 +24,13 @@ public class ObjetTransformerToJson {
 		Map<String, ObjetKI> objets = Util.<Map<String, ObjetKI>>lire(file);
 		
 		
+		System.out.println();
+		
+	System.out.println(Util.toPrettyJson(objets.values()));
 		
 		
 		
+	
 	}
 	
 	
