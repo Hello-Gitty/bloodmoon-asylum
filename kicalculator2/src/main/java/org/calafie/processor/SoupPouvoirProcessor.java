@@ -22,6 +22,7 @@ public class SoupPouvoirProcessor {
 
 	private static final String PAGE ="http://www.kraland.org/main.php?p=3_7_";
 	private static final Integer[] PAGES_SCOPE = {1, 22};
+	public static final String NOM_FICHIER = "vocationsPouvoir";
 	
 	
 	public static void main(String[] args) throws IOException {
@@ -32,7 +33,7 @@ public class SoupPouvoirProcessor {
 			parsePage(PAGE + i, pouvoirs);
 		}
 		
-		Util.saveXML(pouvoirs, Constantes.LECTEUR + Constantes.CHEMIN + "vocationsPouvoir");
+		Util.saveXML(pouvoirs, Constantes.LECTEUR + Constantes.CHEMIN + NOM_FICHIER);
 	}
 	
 	

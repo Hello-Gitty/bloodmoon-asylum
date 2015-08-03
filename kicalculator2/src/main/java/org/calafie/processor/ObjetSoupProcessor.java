@@ -63,6 +63,8 @@ public class ObjetSoupProcessor {
     public static final String TABLE_TAG = "table";
     public static final String TR_TAG = "tr";
     public static final String I_TAG = "i";
+    
+    public static final String NOM_FICHIER_MAP_OBJET = "mapObjetKi";
 
     
 
@@ -83,7 +85,7 @@ public class ObjetSoupProcessor {
         
 
 		// Sauvegade du tout.
-		Util.saveXML(mapObj, Constantes.LECTEUR + Constantes.CHEMIN + "mapObjetKi.xml");
+		Util.saveXML(mapObj, Constantes.LECTEUR + Constantes.CHEMIN + NOM_FICHIER_MAP_OBJET + ".xml");
 		Util.saveXML(batiments, Constantes.LECTEUR + Constantes.CHEMIN + "mapBatiment.xml");
 		Util.saveXML(categories, Constantes.LECTEUR + Constantes.CHEMIN + "mapCategorie.xml");
 	
