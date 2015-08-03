@@ -24,9 +24,15 @@ public class ObjetTransformerToJson {
 		Map<String, ObjetKI> objets = Util.<Map<String, ObjetKI>>lire(file);
 		
 		
+		for (ObjetKI obj : objets.values()) {
+			obj.setImage(null);
+			obj.setDescription(null);
+		}
+		
+		
 		System.out.println();
 		
-	System.out.println(Util.toPrettyJson(objets.values()));
+		System.out.println(Util.toJson(objets.values()));
 		
 		
 		
