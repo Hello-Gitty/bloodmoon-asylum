@@ -4,6 +4,10 @@ var listObjets = '[{"composants":[{"nomObjet":"Verre","nombre":1},{"nomObjet":"P
 var listObjetsCommerce = [];
 
 
+var nodeCommerce;
+var nodeTableau;
+
+var selectorTh = '.thb[colspan="3"]'
 
 
 /* Algo
@@ -27,6 +31,51 @@ var listObjetsCommerce = [];
  * 		- cout prod
  * 
  */
+
+
+function init() {
+	
+	// On cherche le noeud du tableau à partir duquel on va faire l'extension de tableau
+	var nodesTh = document.querySelectorAll(selectorTh);
+	for (var i = 0; i < nodesTh.length; i++) {
+		  var node = nodesTh[i];
+		  if (node.firstChild != null) {
+			  // On prend le noeud dont la node enfant contient le mot clé "COMMERCE"
+			  if (node.firstChild.nodeValue == "COMMERCE") {
+				  nodeCommerce = node.parent;
+			  }
+		  }
+	}
+	
+	
+	var cursor = nodeCommerce.nextSibling; // On est sur les TR
+	while (cursor != null) {
+		
+		// Si salaire on récupère le salaire et on met l'input.
+		
+		// Si catégorie on regarde l'impot et on note catégorie pour les objets qui suivent
+		// Et l'id de la div impot
+		
+		// si objet on l'enregistre et on créé les id et les cellules 
+	
+		
+		
+		
+		// On passe au suivant
+		cursor = nodeCommerce.nextSibling;
+	}
+	
+	// On créer les impots au dessus de commerce avec Previous sibling
+	
+	
+	// Parcours les objets créé pour faire les liens de onchange.
+	
+	
+}
+
+
+
+
 
 
 
