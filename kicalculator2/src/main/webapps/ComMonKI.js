@@ -17,7 +17,7 @@ var tabIdImpot = [];
 
 //http://sebsauvage.net/wiki/doku.php?id=greasemonkey
 
-
+var inputSalaireId = 'id_inp_salaire';
 
 var thCommerce;
 var parentCommerce;
@@ -28,12 +28,12 @@ var buttonActive;
 /*
  impot {
  	nom,
- 	idDiv
+ 	idInp
   }
  
  objet {
  	nom,
- 	idDiv,
+ 	idInp,
  	observers[]
  	facteur[en fonction du nombre de composant on ajoute x fois le prix d'achat).
  	
@@ -177,8 +177,6 @@ function traitementLigneCaisse(trCaisse) {
 		td.removeChild(fils[ii]);
 		// on redécale d'un cran c'est qu'on est dans les cas ou l'info sur l'impot est présente
 		ii--;
-		
-		nodeImpot);
 	} 
 	chaineSalaire = fils[ii].nodeValue;
 	nodeSalaire = fils[ii];
@@ -194,7 +192,7 @@ function traitementLigneCaisse(trCaisse) {
 
 	// remplace le texte du salaire par l'input
 	nodeSalaire.nodeValue = chaineSalaire.substring(0, demDeb.pos); // debut
-	var nn = addInputNode(td,'div_salaire', baseSalaire);
+	var nn = addInputNode(td, inputSalaireId, baseSalaire);
 	nn.setAttribute('onchange', 'changeSalaireImpot()');
 	
 	addTextNode(td, ' ' + chaineSalaire.substring(demFin.pos))
@@ -246,16 +244,16 @@ function traitementLigneCategorie(trCategorie) {
 	
 	// On enregistre l'impot dans le tableaux des impots.
 	var cc = tabIdImpot.length;
-	var idDiv = "div_impot_" + cc;
+	var idInp = "div_impot_" + cc;
 	tabIdImpot[cc] = {
 		nom : nomImpot,
-		div : idDiv
+		idInp : idInp
 	};
 
 	
 	var p = addNode(td, 'P');
 	addTextNode(p,'Impôt vente ');
-	addInputNode(p, idDiv, valeurImpot);
+	addInputNode(p, idInp, valeurImpot);
 	addTextNode(p,'%');
 }
 
@@ -263,13 +261,14 @@ function traitementLigneCategorie(trCategorie) {
 function traitementLigneObjet(trObjet) {
 	// si objet on l'enregistre et on créé les id et les cellules 
 	var ii = registre.length
-	var idDivCP = "div_cp_" + ii;
-	var idDivVt = "div_vt_" + ii;
-	var idDivGV = "div_gv_" + ii;
-	var idDivAch = null;
-	var idDivRV = null;
-	var idDivImp = null;
-	
+	var idInpCP = "id_in_cp_" + ii;
+	var idInpVt = "id_in_vt_" + ii;
+	var idInpGV = "id_in_gv_" + ii;
+	var idInpAch = null;
+	var idInpRV = null;
+	var idInpImp = null;
+	var facteurs = [];
+	var listeners = [];
 	
 	var nomObj = trObjet.firstChild.firstChild.alt; // on sait qu'il y a une image dont l'alt est le nom de l'objet
 	var objet = null;
@@ -284,6 +283,36 @@ function traitementLigneObjet(trObjet) {
 		return;
 	}
 	
+	
+	
+	if (objet.composants != null && objet.composants.length > 0) {
+		// Si notre objet a normalement des composants alors on va parcourirs 
+		// ces composant pour les trouvers dans les objets déjà enregistré
+		// si on les trouves on enregistre l'objet courant en tant que listener
+		// et on récupére autant de fois que nécessaire l'id du coup de prod
+		// pour les calculs concernant le cout de l'objet courant
+		for (var oo = 0; oo < objet.composants.length; oo++) {
+			var compo =  objet.composants[oo];
+			for (var rr = 0; rr < registre.length; rr++) {
+				var objRe = registre[rr];
+				if (objRe.objet.nom == compo.nomObjet) {
+					// si l'objet composant n'a pas de composant le prix doit etre  
+					// calculé avec le prix d'achat de l'objet composant
+					var idPrixCompo = objRe.idInpAch;
+					if (objRe.hasComposant) {
+						idPrixCompo = objRe.idInpCP;
+					}
+					for (var nb = 0; nb < compo.nombre; nb++) {
+						facteurs[facteurs.length] = idPrixCompo;
+					}
+					objRe.listeners[objRe.listeners.length]=ii;
+				}
+			}
+		}
+	}
+	
+	var hasComposant = facteurs.length > 0;
+
 	// Récupère le prix vente/achat de l'objet
 	var pPrix = trObjet.childNodes[2].firstChild;
 	var chainePrix = pPrix.firstChild.nodeValue;
@@ -309,24 +338,26 @@ function traitementLigneObjet(trObjet) {
 	
 	
 	// ajout des inputs pour les prix des objets
-	addInputNode(pPrix, idDivVt, prixVente);
+	addInputNode(pPrix, idInpVt, prixVente);
 	if (isAchVent) {
-		idDivAch = "div_ach_" + ii;
+		idInpAch = "id_in_ach_" + ii;
 		addTextNode(pPrix, '/');
-		addInputNode(pPrix, idDivAch, prixAchat);
+		addInputNode(pPrix, idInpAch, prixAchat);
 	}
 	
 		
 	// On ajoute les cellules de tableaux avec les donnés calculée
 	var tdCp = addTdNode(trObjet, 'tdb');
-	addInputNode(tdCp, idDivCP, 0, true);
+	if (hasComposant) {
+		addInputNode(tdCp, idInpCP, 0, true);
+	}
 	var tdGv = addTdNode(trObjet, 'tdb');
-	var nn = addInputNode(tdGv, idDivGV, 0, true);
+	var nn = addInputNode(tdGv, idInpGV, 0, true);
 	nn.setAttribute("onchange", "changement(" + i + ")");
 	if (isAchVent) {
-		idDivRV = "div_rv_" + ii;
+		idInpRV = "id_in_rv_" + ii;
 		var tdGr = addTdNode(trObjet, 'tdb');
-		var nn = addInputNode(tdGr, idDivRV, 0, true);
+		var nn = addInputNode(tdGr, idInpRV, 0, true);
 		nn.setAttribute("onchange", "changement(" + i + ")");
 	}
 
@@ -335,25 +366,26 @@ function traitementLigneObjet(trObjet) {
 	// on va vérifier celà dit que ca correspond et que le tableau des impots n'est pas vide
 	if (tabIdImpot.length > 0) {
 		var im = tabIdImpot[tabIdImpot.length-1];
+		
 		if (im.nom == objet.categorie) {
-			idDivImp = im.idDiv;
+			idInpImp = im.idInp;
 		}
 	}
+
 	
-	// TODO ici on va ajouter les listeners et les facteurs;
-	
-	
-	
-	// sauvegarde de l'objet, sont indice, ses div
+	// sauvegarde de l'objet, sont indice, ses inputs
 	registre[ii] = {
 		indice : ii,
 		objet : objet,
-		idDivAch : idDivAch,
-		idDivVt : idDivVt,
-		idDivCP : idDivCP,
-		idDivGV : idDivGV,
-		idDivRV : idDivRV,
-		idDivImp : idDivImp
+		idInpAch : idInpAch,
+		idInpVt : idInpVt,
+		idInpCP : idInpCP,
+		idInpGV : idInpGV,
+		idInpRV : idInpRV,
+		idInpImp : idInpImp,
+		facteurs : facteurs,
+		listeners : listeners, 
+		hasComposant: hasComposant
 	};
 	// On recalcul aussitot.
 	recalcul(ii);
@@ -384,7 +416,7 @@ function changement(indice) {
 	// recalcul de ses données
 	recalcul(el);
 	// si des objets sont listeners, on les mets a jours.
-	if (el.listeners == null) {
+	if (el.listeners == null || el.listeners.length == 0) {
 		return;
 	}
 	for (var i = 0; i < el.listeners.length; i++) {
@@ -401,15 +433,20 @@ function changement(indice) {
  *            objet dont on veut recalculer les données
  */
 function recalcul(registree) {
-	var salaire = getEl(inputSalaireId).value;
-	var iObj = getEl(registree.idDivImp).value;
+	
+	var iObj = getEl(registree.idInpImp).value;
 
-	var pVente = getEl(registree.idDivVt).value;
-	var pAchat = getEl(registree.idDivAch).value;
-
+	var pVente = getEl(registree.idInpVt).value;
+	if (registree.idInpAch != null) {
+		var pAchat = getEl(registree.idInpAch).value;
+		var grv = calculGainReVente(pVente, pAchat, iObj);
+		getEl(registree.idInpRV).value = grv;
+	}
+	
 	if (registree.facteurs != null && registree.facteurs.length > 0 ) {
-		var ut = getEl(registree.idDivUt).value;
-		var nbProd = getEl(registree.idDivNb).value;
+		var salaire = getEl(inputSalaireId).value;
+		var ut = getEl(registree.idInpUt).value;
+		var nbProd = getEl(registree.idInpNb).value;
 		var tabPrixComposant = [];
 
 		if (registree.facteurs != null) {
@@ -420,14 +457,9 @@ function recalcul(registree) {
 
 		var cProd = calculCoutProd(salaire, ut, tabPrixComposant);
 		var gv = calculGainVente(pVente, cProd, nbProd, iObj);
-		getEl(registree.idDivCP).value = cProd;
-		getEl(registree.idDivGV).value = gv;
+		getEl(registree.idInpCP).value = cProd;
+		getEl(registree.idInpGV).value = gv;
 	}
-
-	var grv = calculGainReVente(pVente, pAchat, iObj);
-
-	getEl(registree.idDivRV).value = grv;
-
 }
 
 
