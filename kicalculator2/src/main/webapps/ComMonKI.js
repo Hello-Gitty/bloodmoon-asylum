@@ -6,6 +6,7 @@
 // ==/UserScript==
 
 // @author Famine(794)
+// @version 1.0
 
 // COMmercial MONkey KI javaScript // HUHU
 
