@@ -91,7 +91,7 @@ function init() {
 		buttonPosition = parentCommerce.parentNode.firstChild.firstChild; // c'est un TR donc on Descend dans son fils pour ajouter un bouton dans un td.
 		buttonActive = addNode(buttonPosition, "input");
 		buttonActive.type = 'button';
-		buttonActive.value = 'Rentable ??';
+		buttonActive.value = 'ComMonKI';
 		buttonActive.setAttribute('onclick', 'commonki_construction()');
 	}
 	
