@@ -151,14 +151,7 @@ function construction() {
 		cursor = cursor.nextSibling;
 	}
 
-	// Parcours les objets créé pour faire les liens de onchange.
-	// Refaire des mécanismes de lisener. Reprendre carrément le code que j'ai déjà fait.
 
-	
-
-	// Déclenchement du premier calcul avec les données qui existe.
-	changeSalaireImpot();
-	
 	// On retirer le bouton qui n'est plus utile.
 	buttonPosition.removeChild(buttonActive);
 } 
@@ -347,6 +340,9 @@ function traitementLigneObjet(trObjet) {
 		}
 	}
 	
+	// TODO ici on va ajouter les listeners et les facteurs;
+	
+	
 	
 	// sauvegarde de l'objet, sont indice, ses div
 	registre[ii] = {
@@ -359,7 +355,8 @@ function traitementLigneObjet(trObjet) {
 		idDivRV : idDivRV,
 		idDivImp : idDivImp
 	};
-	
+	// On recalcul aussitot.
+	recalcul(ii);
 }
 
 
