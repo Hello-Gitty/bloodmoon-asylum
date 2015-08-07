@@ -1,0 +1,51 @@
+Singe commerçant ! 
+
+
+
+
+[b]Donc qu'es ce que c'est ?[/b]
+
+Un script greasemonkey, pourquoi faire ? Pour les commerces pour calculer les coût de productions, les gains sur la vente et les gains sur la revente des objets. 
+
+Ce que ça fait c’est que ça ajoute un bouton à coté du nom du batiments quand on est dans la partie jouer et ou à coté de la ligne “COMMERCE” quand on regarde le détails du batiment depuis sa fiche de personnage ou depuis la partie cybermonde. 
+
+La position du bouton n’est pas la seule différence entre les deux “modes”, quand on est dans la partie jouer les cellules contenant la valeurs des impôts sont remplis, vu que l’info est disponible dans le commerce d’un batiment. Au contraire dans la partie cybermonde ou fiche perso l’info n’existe pas, et le script ne va pas la chercher, donc il faut les remplir soit même. 
+
+On peut modifier les prix d’achat, de vente, des impôts ou du salaire et ça calcule automatiquement le reste des données.
+
+
+Attention, les prix ne sont pas automatiquement mis à jour quand on modifie les valeurs dans les cases achat ou vente, une fois qu’on sait ce qu’on veut, il faut les noter à coté pour les reporter.
+
+[b]Modalité de calcul :[/b]
+
+Coût de production d’un objet = salaire * nb ut + somme du coup de production des composants (si le composant est produit dans le batiment) ou le prix d’achat d’un composant
+
+Gain vente =  ( coût de production / nb d’objet produit par ut ) - impot
+
+Gain revente = (coût de vente - coût d’achat) - impôt
+
+[b]Des belles images :[/b]
+
+
+[url=https://raw.githubusercontent.com/Hello-Gitty/bloodmoon-asylum/master/kicalculator2/capture/avant.png][img]https://raw.githubusercontent.com/Hello-Gitty/bloodmoon-asylum/master/kicalculator2/capture/avantPet.png[/img][/url]
+[url=https://raw.githubusercontent.com/Hello-Gitty/bloodmoon-asylum/master/kicalculator2/capture/apres.png][img]https://raw.githubusercontent.com/Hello-Gitty/bloodmoon-asylum/master/kicalculator2/capture/apresPet.png[/img][/url]
+
+
+[b]Un pseudo exemple :[/b]
+
+En gros ça reprend le principe de ce petit outil que j’avais fais [url=http://tharoons.free.fr/commerce/gestion.html]ici[/url]. Ya des différences dans 
+
+
+
+[b]Techniquement :[/b]
+
+C’est tout du javascript, sans ajout de librairie.
+
+[b][red]ATTENTION[/red][/b] j’utilise dans le script la directive “unsafeWindow” qui permet à la page que le modifie d’avoir accès aux méthodes que j’ai défini dans mon script. Première fois que je faisais du greasemonkey, pas trop trouvé d’autres solutions pour le faire. 
+
+[b]Comment on ça s’installe :[/b]
+
+Allez voir par [url=http://nima.olympe.in/aide.html]ici[/url] pour installer greasemonkey, oui je suis un fainéant et en plus ya des gens qui ont écrit des tutos vachement userfriendly. La seule différence c’est que le script à copier il est par : 
+
+
+[b][center][url=]ICI LE SCRIPT[/url][/center][/b]
