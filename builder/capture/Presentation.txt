@@ -8,29 +8,29 @@ Au bucher ![/gray]
 
 [b]Donc qu'es ce que c'est ?[/b]
 
-C'est un outil simple en java, qui permet de choisir ses vocations, ses caracts, ses compétences, ça calcul le nombre de PA nécessaire à un build de perso.
-Mais aussi ça permet de connaitre ses potentiels et pourcentages pour les ordres des vocations et les autres aussi.
+C'est un outil simple en java, qui permet de choisir ses vocations, ses caracts, ses compÃ©tences, Ã§a calcul le nombre de PA nÃ©cessaire Ã  un build de perso.
+Mais aussi Ã§a permet de connaitre ses potentiels et pourcentages pour les ordres des vocations et les autres aussi.
 
-Ca ne permet pas par contre de calculer une optimisation de dépense, ça viendra peut être un jour, peut être.
+Ca ne permet pas par contre de calculer une optimisation de dÃ©pense, Ã§a viendra peut Ãªtre un jour, peut Ãªtre.
 
 Il y a trois onglets:
 -l'onglet fiche qui permet de construire un perso
--l'onglet ordres qui permet de gérer les ordres génériques du jeu modification/création/suppression
--l'onglet vocations qui permet de gérer les vocations et les ordres des vocations
+-l'onglet ordres qui permet de gÃ©rer les ordres gÃ©nÃ©riques du jeu modification/crÃ©ation/suppression
+-l'onglet vocations qui permet de gÃ©rer les vocations et les ordres des vocations
 
-Il y a déjà tous les ordres de vocations dans l'outil (sans les descriptions) et pour les vocations de pourvoir ça a été rempli rapidement, sans les noms des sorts ou les types.
+Il y a dÃ©jÃ  tous les ordres de vocations dans l'outil (sans les descriptions) et pour les vocations de pourvoir Ã§a a Ã©tÃ© rempli rapidement, sans les noms des sorts ou les types.
 
 Depuis l'onglet fiche on peut:
 -exporter une ficher au format texte.
 -sauvegarder une ficher au format xml
--charger une fiche qui a été enregistrée au format xml
--avoir un aperçu de l'export texte (pratique la coller dans ses notes ou ailleurs)
--Remettre à zéro la fiche
+-charger une fiche qui a Ã©tÃ© enregistrÃ©e au format xml
+-avoir un aperÃ§u de l'export texte (pratique la coller dans ses notes ou ailleurs)
+-Remettre Ã  zÃ©ro la fiche
 
-Quand on change ses niveaux de caract/vocation/compétence les potentiels pour les ordres sont automatiquement mis à jour
+Quand on change ses niveaux de caract/vocation/compÃ©tence les potentiels pour les ordres sont automatiquement mis Ã  jour
 
 
-[b]Comment c'est pas très beau:[/b]
+[b]Comment c'est pas trÃ¨s beau:[/b]
 
 L'onglet fiche
 [center][img]https://bloodmoon-asylum.googlecode.com/svn/trunk/builder/capture/builderFIche.png[/img][/center]
@@ -41,9 +41,9 @@ L'onglet fiche
 [spoiler]Detreath
 207 PAs
 25 PdV
-Carrière: Diplomate 3
+CarriÃ¨re: Diplomate 3
 Type: -Aucune- 0
-Politique: Révolutionnaire 5
+Politique: RÃ©volutionnaire 5
 Combat: -Aucune- 0
 Pouvoir: Charme 2
 FOR 1
@@ -57,25 +57,23 @@ Combat Mains Nues 0
 Combat Contact 0
 Combat Distance 0
 Commerce 1
-Démolition 1
-Discrétion 1
-Éloquence 6
+DÃ©molition 1
+DiscrÃ©tion 1
+Ã‰loquence 6
 Falsification 0
 Foi 0
 Informatique 0
-Médecine 0
+MÃ©decine 0
 Observation 0
 Organisation 3
 Pouvoir 3
-Séduction 0
+SÃ©duction 0
 Survie 0
 Vol 0
 Note :
-[Émotif]
+[Ã‰motif]
 
-Toujours une voix monocorde et monotone, il prend des pauses dans ses discours pour bien marquer chaque mot d'un soupir.Il suit son chemin, en attendant la fin du monde, qu'il attend impatiemment, il ne voudrait surtout pas la louper, et 
-
-en profiter pleinement.
+Toujours une voix monocorde et monotone, il prend des pauses dans ses discours pour bien marquer chaque mot d'un soupir.Il suit son chemin, en attendant la fin du monde, qu'il attend impatiemment, il ne voudrait surtout pas la louper, et en profiter pleinement.
 
 
 Jalons:
@@ -88,34 +86,42 @@ Jalons:
 [/spoiler]
 
 
-[b]Où c'est qu'on peut l'avoir:[/b]
+[b]OÃ¹ c'est qu'on peut l'avoir:[/b]
 
-[url=https://bloodmoon-asylum.googlecode.com/svn/tags/release/builderv3.0.zip]Ici[/url]
+[url=https://github.com/Hello-Gitty/bloodmoon-asylum/blob/release/builderv3.1.zip]Ici[/url]
 
-Sous window on peut double cliquer sur builder-3.0.jar, ou double cliquer sur launch.bat.
+Sous window on peut double cliquer sur builder-3.1.jar, ou double cliquer sur launch.bat.
 
-Pour ailleurs je reprend ce que Sancho à mit dans son sujet KitKit:
+Pour ailleurs je reprend ce que Sancho a mit dans son sujet KitKit:
 
 [quote]cd chemin/du/dossier/ou/se/trouve/le/builder
-java –jar builder-3.0.jar
+java â€“jar builder-3.1.jar
 [/quote]
 
 
 [b]Techniquement:[/b]
 -Java 1.6
 -Swing, jaxb
--Interface dessinée avec netbean puis affiné un peu à la main (le code des ihm est pas terrible)
--[url=https://code.google.com/p/bloodmoon-asylum/source/browse/#svn%2Ftrunk%2Fbuilder]Le code source est dispo ici[/url]
--Ouai le code pourrait être mieux.
--Prend le look and feel du système.
--Pas testé ailleurs que sous windows (flemme)
--Il y a des xml Schémas pour le modèle de donnée
--vocations et ordres stockés en xml
+-Interface dessinÃ©e avec netbean puis affinÃ© un peu Ã  la main (le code des ihm est pas terrible)
+-[url=https://github.com/Hello-Gitty/bloodmoon-asylum/tree/master/builder]Le code source est dispo ici[/url]
+-Ouai le code pourrait Ãªtre mieux.
+-Prend le look and feel du systÃ¨me.
+-Pas testÃ© ailleurs que sous windows (flemme)
+-Il y a des xml SchÃ©mas pour le modÃ¨le de donnÃ©e
+-vocations et ordres stockÃ©s en xml
 
 
 [b]Autre:[/b]
-Oui c'est la version 3, la version 1 est perdu quelque part depuis la bêta, et la version 2 est morte née. [gray]Pour ceux qui ont déjà eut la version 3, j'ai refais des modifs depuis, oui, sans modifier le numéro de version, c'était pas encore la vraie "release".[/gray]
+Oui c'est la version 3, la version 1 est perdu quelque part depuis la bÃªta, et la version 2 est morte nÃ©e. [gray]Pour ceux qui ont dÃ©jÃ  eut la version 3, j'ai refais des modifs depuis, oui, sans modifier le numÃ©ro de version, c'Ã©tait pas encore la vraie "release".[/gray]
 
-Si des gens sont motivés pour remplir le reste de l'appli avec tous les ordres, correctement, je pourrais mettre à jour l'archive de l'outil.
+Si des gens sont motivÃ©s pour remplir le reste de l'appli avec tous les ordres, correctement, je pourrais mettre Ã  jour l'archive de l'outil.
 
-Je prend les rapports de bugs, les demandes d'évolution, et advienne que pourra [:D]
+Je prend les rapports de bugs, les demandes d'Ã©volution, et advienne que pourra [:D]
+
+
+[b]Historique version[/b]
+
+[u]Une version 3.1[/u]
+-Ajout d'une fonctionnalitÃ© dans le menu qui ouvre une pop-up avec un tableau contenant les potentiels et % corresondant
+-Correction de l'affichage pour les systÃ¨mes unix (testÃ© sur fedora, c'est moche, mais Ã§a marchait)
+-Correction du tri/affichage des ordres pour l'onglet ordres
