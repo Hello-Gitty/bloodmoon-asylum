@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name        ComMonKI
-// @namespace   id ki 794
-// @include     
+// @include     http://www.kraland.org/*
+// @include     http://test.kraland.org/*
+// @grant 		none
 // ==/UserScript==
 
 // COMmercial MONkey KI javaScript // HUHU
@@ -25,32 +26,12 @@ var buttonPosition;
 var buttonActive;
 
 
-/*
- impot {
- 	nom,
- 	idInp
-  }
- 
- objet {
- 	nom,
- 	idInp,
- 	observers[]
- 	facteur[en fonction du nombre de composant on ajoute x fois le prix d'achat).
- 	
-  }
-
- 
- */
-
+init();
 
 /*
- * TODO
- * -pages from cybermonde
- * -impot lotterie a virer
- * -
+ * Faire description objet impot
+ * description objet 
  */
-
-
 
 
 /* Algo
@@ -75,18 +56,6 @@ var buttonActive;
  * 
  */
 
-/*
-
-Premier passage on écrit tout avec les id et on enregistre dans le tableau.
-Au second passage on enregistre les listeners et tout.
-
-Ainsi au premier passage on a tout la structure des données
-Au second on met l'inteligence.
-
-
-
-
-*/
 
 // Initialisation du script
 function init() {
@@ -104,23 +73,34 @@ function init() {
 	}
 	if (thCommerce != null) {
 		parentCommerce = thCommerce.parentNode;
-		// TODO détecter quel type de page pour virer le style.
-			
+
 		// trouver le tr avec le nom du batiment.  Ajoute un bouton dans ce TR pour le déclenchement du script.
 		buttonPosition = parentCommerce.parentNode.firstChild.firstChild; // c'est un TR donc on Descend dans son fils pour ajouter un bouton dans un td.
 		buttonActive = addNode(buttonPosition, "input");
 		buttonActive.type = 'button';
 		buttonActive.value = 'Rentable ??';
-		buttonActive.setAttribute('onclick', 'construction()');
+		buttonActive.setAttribute('onclick', 'commonki_construction()');
 	}
 	
 }
 
 
 
-
-function construction() {
-
+unsafeWindow.commonki_construction = function () {
+//function commonki_construction() {
+	// On aggrandi le tableau.
+	var search = true;
+	var cur = parentCommerce;
+	while (search) {
+		cur = cur.parentNode;
+		if (cur == null || cur.nodeName == 'TABLE') {
+			search = false;
+		}
+	}
+	if (cur != null) {
+		cur.style='';//width:480px;';
+	}
+	
 	
 	// Parcours des éléments du tableau du commerce
 	var cursor = parentCommerce.nextSibling; // On est sur les TR
@@ -128,7 +108,7 @@ function construction() {
 		
 		var nbChild = cursor.childNodes.length;
 		if (nbChild == 0) {
-			// au cas où on tombe sur une node qui n'a pas d'enfant.
+			// au cas ou on tombe sur une node qui n'a pas d'enfant.
 			cursor = cursor.nextSibling;
 			continue;
 		}
@@ -151,8 +131,7 @@ function construction() {
 		cursor = cursor.nextSibling;
 	}
 
-
-	// On retirer le bouton qui n'est plus utile.
+	// On retire le bouton qui n'est plus utile.
 	buttonPosition.removeChild(buttonActive);
 } 
 
@@ -164,7 +143,7 @@ function traitementLigneCaisse(trCaisse) {
 	var fils = td.childNodes;
 	
 	var ii = fils.length - 1;
-	if (ii <= 0) {
+	if (ii < 0) {
 		return;
 	}
 	
@@ -207,11 +186,17 @@ function traitementLigneCategorie(trCategorie) {
 	
 	// Ajout des entêtes pour les nouvelles colonnes
 	var node = addThNode(trCategorie, 'ths');
-	addTextNode(node, "Cout prod")
+	addTextNode(node, "Cout")
+	addNode(node, 'br');
+	addTextNode(node, "prod")
 	node = addThNode(trCategorie, 'ths');
-	addTextNode(node, "Gain vente")
+	addTextNode(node, "Gain")
+	addNode(node, 'br');
+	addTextNode(node, "vente");
 	node = addThNode(trCategorie, 'ths');
-	addTextNode(node, "Gain revente")
+	addTextNode(node, "Gain")
+	addNode(node, 'br');
+	addTextNode(node, "revente");
 	
 
 	var td = trCategorie.childNodes[0];
@@ -244,7 +229,7 @@ function traitementLigneCategorie(trCategorie) {
 	
 	// On enregistre l'impot dans le tableaux des impots.
 	var cc = tabIdImpot.length;
-	var idInp = "div_impot_" + cc;
+	var idInp = "id_in_imp_" + cc;
 	tabIdImpot[cc] = {
 		nom : nomImpot,
 		idInp : idInp
@@ -253,7 +238,8 @@ function traitementLigneCategorie(trCategorie) {
 	
 	var p = addNode(td, 'P');
 	addTextNode(p,'Impôt vente ');
-	addInputNode(p, idInp, valeurImpot);
+	var nn = addInputNode(p, idInp, valeurImpot);
+	nn.setAttribute('onchange', 'changeSalaireImpot()');
 	addTextNode(p,'%');
 }
 
@@ -282,10 +268,11 @@ function traitementLigneObjet(trObjet) {
 	if (objet == null) {
 		return;
 	}
-	
-	
-	
+
 	if (objet.composants != null && objet.composants.length > 0) {
+		var cpFound = [];
+		var produitIci = true;
+	
 		// Si notre objet a normalement des composants alors on va parcourirs 
 		// ces composant pour les trouvers dans les objets déjà enregistré
 		// si on les trouves on enregistre l'objet courant en tant que listener
@@ -293,25 +280,44 @@ function traitementLigneObjet(trObjet) {
 		// pour les calculs concernant le cout de l'objet courant
 		for (var oo = 0; oo < objet.composants.length; oo++) {
 			var compo =  objet.composants[oo];
+			var objFo = null;
+			
 			for (var rr = 0; rr < registre.length; rr++) {
 				var objRe = registre[rr];
 				if (objRe.objet.nom == compo.nomObjet) {
-					// si l'objet composant n'a pas de composant le prix doit etre  
-					// calculé avec le prix d'achat de l'objet composant
-					var idPrixCompo = objRe.idInpAch;
-					if (objRe.hasComposant) {
-						idPrixCompo = objRe.idInpCP;
-					}
-					for (var nb = 0; nb < compo.nombre; nb++) {
-						facteurs[facteurs.length] = idPrixCompo;
-					}
-					objRe.listeners[objRe.listeners.length]=ii;
+					objFo = objRe;
+					break;
 				}
+			}
+			if (objFo == null) {
+				produitIci = false;
+				break;
+			} else {
+				// Un objet trouve est associé à son composant pour la suite
+				cpFound[cpFound.length] = {
+						compo : compo,
+						objRe : objFo
+				};
+			}
+		}
+		
+		if (produitIci) {
+			for (var cp = 0; cp <cpFound.length; cp++) {
+				// si l'objet composant n'a pas de composant le prix doit etre  
+				// calculé avec le prix d'achat de l'objet composant
+				var idPrixCompo = cpFound[cp].objRe.idInpAch;
+				if (cpFound[cp].objRe.hasComposant) {
+					idPrixCompo = cpFound[cp].objRe.idInpCP;
+				}
+				for (var nb = 0; nb < cpFound[cp].compo.nombre; nb++) {
+					facteurs[facteurs.length] = idPrixCompo;
+				}
+				cpFound[cp].objRe.listeners[objRe.listeners.length]=ii;
 			}
 		}
 	}
-	
 	var hasComposant = facteurs.length > 0;
+	
 
 	// Récupère le prix vente/achat de l'objet
 	var pPrix = trObjet.childNodes[2].firstChild;
@@ -338,35 +344,38 @@ function traitementLigneObjet(trObjet) {
 	
 	
 	// ajout des inputs pour les prix des objets
-	addInputNode(pPrix, idInpVt, prixVente);
+	var nn = addInputNode(pPrix, idInpVt, prixVente);
+	nn.setAttribute("onchange", "changement(" + ii + ")");
 	if (isAchVent) {
 		idInpAch = "id_in_ach_" + ii;
 		addTextNode(pPrix, '/');
-		addInputNode(pPrix, idInpAch, prixAchat);
+		nn = addInputNode(pPrix, idInpAch, prixAchat);
+		nn.setAttribute("onchange", "changement(" + ii + ")");
 	}
 	
 		
 	// On ajoute les cellules de tableaux avec les donnés calculée
 	var tdCp = addTdNode(trObjet, 'tdb');
-	if (hasComposant) {
+	var tdGv = addTdNode(trObjet, 'tdb');
+	var tdGr = addTdNode(trObjet, 'tdb');
+	// Puis les inputs en fonction du type d'objet
+	if (hasComposant || !isAchVent) {
 		addInputNode(tdCp, idInpCP, 0, true);
 	}
-	var tdGv = addTdNode(trObjet, 'tdb');
-	var nn = addInputNode(tdGv, idInpGV, 0, true);
-	nn.setAttribute("onchange", "changement(" + i + ")");
+	if (hasComposant || !isAchVent) {
+		addInputNode(tdGv, idInpGV, 0, true);
+	}
 	if (isAchVent) {
 		idInpRV = "id_in_rv_" + ii;
-		var tdGr = addTdNode(trObjet, 'tdb');
-		var nn = addInputNode(tdGr, idInpRV, 0, true);
-		nn.setAttribute("onchange", "changement(" + i + ")");
+		addInputNode(tdGr, idInpRV, 0, true);
 	}
 
 	
 	// la case de l'impot c'est forcément le dernier impot enregistré.
-	// on va vérifier celà dit que ca correspond et que le tableau des impots n'est pas vide
+	// on va vérifier celà dit que ca correspond et que le tableau des impots
+	// n'est pas vide
 	if (tabIdImpot.length > 0) {
-		var im = tabIdImpot[tabIdImpot.length-1];
-		
+		var im = tabIdImpot[tabIdImpot.length - 1];
 		if (im.nom == objet.categorie) {
 			idInpImp = im.idInp;
 		}
@@ -385,10 +394,11 @@ function traitementLigneObjet(trObjet) {
 		idInpImp : idInpImp,
 		facteurs : facteurs,
 		listeners : listeners, 
-		hasComposant: hasComposant
+		hasComposant: hasComposant,
+		isService : !isAchVent
 	};
 	// On recalcul aussitot.
-	recalcul(ii);
+	recalcul(registre[ii]);
 }
 
 
@@ -398,7 +408,8 @@ function traitementLigneObjet(trObjet) {
  * Fonction déclencher au changement de valeur de salaire ou d'impots
  * Déclenche la mise à jour de tous les éléments du registre.
  */
-function changeSalaireImpot() {
+unsafeWindow.changeSalaireImpot = function () {
+//function changeSalaireImpot() {
 	for (var i = 0; i < registre.length; i++) {
 		changement(i);
 	}
@@ -410,7 +421,8 @@ function changeSalaireImpot() {
  * 
  * @param indice
  */
-function changement(indice) {
+unsafeWindow.changement = function (indice) {
+//function changement(indice) {
 	// Récupération de l'indice de l'objet modifié
 	var el = registre[indice];
 	// recalcul de ses données
@@ -426,29 +438,33 @@ function changement(indice) {
 
 
 /**
- * TODO METHODE A REVOIR
  * Recalcul des données économiques d'un objet passé en paramètre
  * 
  * @param Objet
  *            objet dont on veut recalculer les données
  */
-function recalcul(registree) {
-	
-	var iObj = getEl(registree.idInpImp).value;
+function recalcul (registree) {
+	var iObj = 0;
+	// Si ya une case impot on la récupère
+	if (registree.idInpImp != null) {
+		iObj = getEl(registree.idInpImp).value;
+	}
 
 	var pVente = getEl(registree.idInpVt).value;
 	if (registree.idInpAch != null) {
 		var pAchat = getEl(registree.idInpAch).value;
 		var grv = calculGainReVente(pVente, pAchat, iObj);
-		getEl(registree.idInpRV).value = grv;
+		getEl(registree.idInpRV).value = cmk_round(grv);
 	}
 	
-	if (registree.facteurs != null && registree.facteurs.length > 0 ) {
+	if (registree.facteurs != null && registree.facteurs.length > 0 || registree.isService) {
 		var salaire = getEl(inputSalaireId).value;
-		var ut = getEl(registree.idInpUt).value;
-		var nbProd = getEl(registree.idInpNb).value;
+		var ut = registree.objet.uniteTravail;
+		var nbProd = registree.objet.produitPar;
 		var tabPrixComposant = [];
 
+		// on parcours les facteurs a additionner pour calculer le prix
+		// facteurs = cout prod ou cout achat des composant
 		if (registree.facteurs != null) {
 			for (var i = 0; i < registree.facteurs.length; i++) {
 				tabPrixComposant[i] = getEl(registree.facteurs[i]).value;
@@ -457,8 +473,8 @@ function recalcul(registree) {
 
 		var cProd = calculCoutProd(salaire, ut, tabPrixComposant);
 		var gv = calculGainVente(pVente, cProd, nbProd, iObj);
-		getEl(registree.idInpCP).value = cProd;
-		getEl(registree.idInpGV).value = gv;
+		getEl(registree.idInpCP).value = cmk_round(cProd);
+		getEl(registree.idInpGV).value = cmk_round(gv);
 	}
 }
 
@@ -590,7 +606,7 @@ function addInputNode(NodeParent, id, valeur, readO) {
 	node.type = 'text';
 	node.id = id;
 	node.value = valeur;
-	node.style='width: 29px; text-align: right;';
+	node.style='width: 40px; text-align: right;';
 	
 	if (readO != null) {
 		node.disabled = readO;
@@ -598,10 +614,6 @@ function addInputNode(NodeParent, id, valeur, readO) {
 	return node;
 }
 
-function addTrNode(NodeParent) {
-	var node = addNode(NodeParent, "tr");
-	return node;
-}
 function addThNode(NodeParent, className) {
 	var node = addNode(NodeParent, "th");
 	node.className = className;
@@ -611,10 +623,15 @@ function addThNode(NodeParent, className) {
 function addTdNode(NodeParent, className) {
 	var node = addNode(NodeParent, "td");
 	node.className = className;
+	node.style='text-align: center;';
 	return node;
 }
 
 function addTextNode(NodeParent, text) {
 	var node = document.createTextNode(text);
 	NodeParent.appendChild(node);
+}
+
+function cmk_round(cc) {
+	return Math.round(cc*10)/10;
 }
