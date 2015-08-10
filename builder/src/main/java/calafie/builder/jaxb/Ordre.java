@@ -94,7 +94,16 @@ public class Ordre {
         return pv;
     }
 
-    /**
+    @Override
+	public String toString() {
+		return "Ordre [pv=" + pv + ", argent=" + argent + ", difficulte=" + difficulte + ", automatique=" + automatique
+				+ ", nom=" + nom + ", type=" + type + ", competence=" + competence + ", caracteristique="
+				+ caracteristique + ", oposition=" + oposition + ", legal=" + legal + ", eventuel=" + eventuel
+				+ ", critique=" + critique + ", politique=" + politique + ", gravite=" + gravite + ", description="
+				+ description + "]";
+	}
+
+	/**
      * Sets the value of the pv property.
      * 
      */

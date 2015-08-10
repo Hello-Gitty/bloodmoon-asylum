@@ -395,7 +395,7 @@ public class PanelVocation extends javax.swing.JPanel {
         titre += ordre.getNom();
         if (!ordre.isLegal()) {
             String gravite = TypeLegalite.valueOf(ordre.getGravite()).getNom();
-            titre += " (" + gravite + (ordre.isPolitique() ? " politique" : "") + ")";
+            titre += " (" + gravite + (ordre.isPolitique() != null && ordre.isPolitique() ? " politique" : "") + ")";
         }
 
         String pot = "";
@@ -408,10 +408,10 @@ public class PanelVocation extends javax.swing.JPanel {
         } else {
             cout += " | Difficulté: " + ordre.getDifficulte();
             pot = "Potentiel : " + ordre.getCaracteristique();
-            if (ordre.getOposition().length() > 0) {
-                pot += "-" + ordre.getOposition();
+            if (ordre.getOposition() != null && ordre.getOposition().length() > 0) {
+                pot += " - " + ordre.getOposition();
             }
-            pot += "+" + ordre.getCompetence();
+            pot += " + " + ordre.getCompetence();
         }
 
         

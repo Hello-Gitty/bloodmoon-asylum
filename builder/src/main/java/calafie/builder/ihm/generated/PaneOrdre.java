@@ -352,9 +352,9 @@ public class PaneOrdre extends JPanel {
             cout += " | Difficulté: " + ordre.getDifficulte();
             pot = "Potentiel : " + ordre.getCaracteristique();
             if (ordre.getOposition().length() > 0) {
-                pot += "-" + ordre.getOposition();
+                pot += " - " + ordre.getOposition();
             }
-            pot += "+" + ordre.getCompetence();
+            pot += " + " + ordre.getCompetence();
         }
 
         DefaultCaret caret = (DefaultCaret) descriptionLabel.getCaret();
