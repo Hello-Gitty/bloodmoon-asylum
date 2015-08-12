@@ -6,7 +6,7 @@
 // ==/UserScript==
 
 // @author Famine(794)
-// @version 1.0
+// @version 1.1
 
 // COMmercial MONkey KI javaScript // HUHU
 
@@ -187,7 +187,7 @@ function traitementLigneCaisse(trCaisse) {
 	var nn = addInputNode(td, inputSalaireId, baseSalaire);
 	nn.setAttribute('onchange', 'changeSalaireImpot()');
 	
-	addTextNode(td, ' ' + chaineSalaire.substring(demFin.pos))
+	addTextNode(td, ' ' + chaineSalaire.substring(demFin.pos));
 }
 
 
@@ -198,15 +198,15 @@ function traitementLigneCategorie(trCategorie) {
 	
 	// Ajout des entêtes pour les nouvelles colonnes
 	var node = addThNode(trCategorie, 'ths');
-	addTextNode(node, "Cout")
+	addTextNode(node, "Cout");
 	addNode(node, 'br');
-	addTextNode(node, "prod")
+	addTextNode(node, "prod");
 	node = addThNode(trCategorie, 'ths');
-	addTextNode(node, "Gain")
+	addTextNode(node, "Gain");
 	addNode(node, 'br');
 	addTextNode(node, "vente");
 	node = addThNode(trCategorie, 'ths');
-	addTextNode(node, "Gain")
+	addTextNode(node, "Gain");
 	addNode(node, 'br');
 	addTextNode(node, "revente");
 	
@@ -258,7 +258,7 @@ function traitementLigneCategorie(trCategorie) {
 
 function traitementLigneObjet(trObjet) {
 	// si objet on l'enregistre et on créé les id et les cellules 
-	var ii = registre.length
+	var ii = registre.length;
 	var idInpCP = "id_in_cp_" + ii;
 	var idInpVt = "id_in_vt_" + ii;
 	var idInpGV = "id_in_gv_" + ii;
@@ -326,7 +326,7 @@ function traitementLigneObjet(trObjet) {
 				for (var nb = 0; nb < cpFound[cp].compo.nombre; nb++) {
 					facteurs[facteurs.length] = idPrixCompo;
 				}
-				cpFound[cp].objRe.listeners[objRe.listeners.length]=ii;
+				cpFound[cp].objRe.listeners[cpFound[cp].objRe.listeners.length]=ii;
 			}
 		}
 	}
