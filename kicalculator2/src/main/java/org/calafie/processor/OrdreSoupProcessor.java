@@ -75,7 +75,7 @@ public class OrdreSoupProcessor {
 					ordre.setNom(text);
 				} else if ("ruleexpl".equalsIgnoreCase(clacss)) {
 					// Cas de la description des ordres
-					ordre.setDescription(text);
+					ordre.setDescription(Util.getFullText(node));
 				} else if ("rulefoot".equalsIgnoreCase(clacss)) {
 					// partie potentiel et cout de l'ordre
 					if (node.childNodes().size() > 1) {

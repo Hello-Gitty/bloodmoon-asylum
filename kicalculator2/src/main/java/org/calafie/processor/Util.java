@@ -46,6 +46,27 @@ public class Util {
 		return getText(node.childNode(0));
 	}
 
+
+	/**
+	 * Récupère le texte d'un noeud nettoyé
+	 * 
+	 * @param node
+	 *            noeud
+	 * @return texte du noeud
+	 */
+	public static String getFullText(Node node) {
+
+		if (node.childNodes().size() == 0) {
+			return Jsoup.parse(node.toString()).text();
+		}
+		
+		String result = "";
+		for (Node no : node.childNodes()) {
+			result +=getFullText(no) + " ";
+		}
+		
+		return result.trim();
+	}
 	
 	/**
 	 * Parse un string en entier

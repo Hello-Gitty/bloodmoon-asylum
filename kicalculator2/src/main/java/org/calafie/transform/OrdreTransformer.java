@@ -18,11 +18,11 @@ public class OrdreTransformer {
 
 	
 	
-	public static String COUT = "Cout:";
+	public static String COUT = "Coût:";
 	public static String FK = "FK";
 	public static String PdF = "PdV";
 	public static String FATIGUE = "Fatigue:";
-	public static String DIFFICULTE = "Difficulte:";
+	public static String DIFFICULTE = "Difficulté:";
 	public static String AUTOMATIQUE = "Automatique";
 	public static String POLITIQUE = "politique";
 	public static String Eventuel = "eventuel";
@@ -47,9 +47,7 @@ public class OrdreTransformer {
 		for (Ordre ordre : ordres) {
 			calafie.builder.jaxb.Ordre oo = new calafie.builder.jaxb.Ordre();
 			objetOrdre.getOrdre().add(oo);
-			
-			
-			
+
 			
 			String coutChaine = ordre.getCout(); // cout=Cout: 2000 FK | Fatigue: 3 PdV | Difficulte: 2
 			String cout = getChaine(coutChaine, COUT, FK);
@@ -89,6 +87,7 @@ public class OrdreTransformer {
 				politique = illegal.contains(POLITIQUE);
 				eventuel = illegal.contains(Eventuel) || illegal.contains(Eventuelle);
 				gravite = getChaine(illegal, parenth, " " );
+				gravite = gravite.replace(")", "");
 				gravite = TypeLegalite.valFor(gravite).toString();
 			}
 			
@@ -133,7 +132,7 @@ public class OrdreTransformer {
 		}
 
 		debut = debut == -1 ? 0 : debut + delimDeb.length();
-		fin = fin == -1 ? chaine.length() - 1 : fin;
+		fin = fin == -1 ? chaine.length() : fin;
 
 		return chaine.substring(debut, fin).trim();
 	}
