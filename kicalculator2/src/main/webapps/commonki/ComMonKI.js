@@ -152,10 +152,21 @@ unsafeWindow.commonki_construction = function () {
 		cur.style='';//width:480px;';
 	}
 	
+	// Ajout d'une ligne de tableau pour le marchandage
+	if (marchandageActive) {
+		// créer un nouveau tr
+		var nodeMarchan = document.createElement('tr');
+		// on le met juste après le td caisse
+		parentCommerce.parentNode.insertBefore(nodeMarchan, parentCommerce.nextSibling.nextSibling);
+		// créer le tdqui va contenir le tout.
+		var tdMarch = addNode(nodeMarchan, 'td');
+		tdMarch.className = 'tdb';
+		tdMarch.setAttribute('colspan','3');
+		traitementMarchandage(tdMarch);
+	}
 	
 	// Parcours des éléments du tableau du commerce
 	var cursor = parentCommerce.nextSibling; // On est sur les TR
-	var ligneCaisse = null;
 	while (cursor != null) {
 		
 		var nbChild = cursor.childNodes.length;
@@ -172,7 +183,6 @@ unsafeWindow.commonki_construction = function () {
 		if (nbChild == 2 && isTd) {
 			// caisse deux child premier fils td
 			traitementLigneCaisse(cursor);
-			ligneCaisse = cursor;
 		} else if (nbChild == 2 && isTh) {
 			// catégorie 2 child premier = th
 			traitementLigneCategorie(cursor);
@@ -184,17 +194,6 @@ unsafeWindow.commonki_construction = function () {
 		cursor = cursor.nextSibling;
 	}
 
-	// Ajout d'une ligne de tableau pour le marchandage
-	if (marchandageActive) {
-		// créer un nouveau tr
-		var nodeMarchan = document.createElement('tr');
-		// on le met juste après le td caisse
-		ligneCaisse.parent.insertBefore(nodeMarchan, ligneCaisse.nextSibling);
-		// créer le td qui va contenir le tout.
-		var tdMarch = addNode(nodeMarchan, 'td');
-		traitementMarchandage(tdMarch);
-	}
-	
 	// On retire le bouton qui n'est plus utile.
 	buttonPosition.removeChild(buttonActive);
 } 
@@ -750,7 +749,7 @@ function addRadioNode(NodeParent, id, valeur, label) {
 	node.type = 'radio';
 	if (label != null && label.length > 0) {
 		var nodelabel = addNode(NodeParent, 'label');
-		nodelabel.for=id;
+		nodelabel.setAttribute('for', id);
 		addTextNode(nodelabel, label);
 	}
 	return node;
