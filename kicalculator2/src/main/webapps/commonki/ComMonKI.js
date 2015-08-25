@@ -9,7 +9,7 @@
 
 // COMmercial MONkey KI javaScript // HUHU
 
-// OPTION A MODIFIER SI BESOIN
+// OPTIONS A MODIFIER SI BESOIN
 var valeurDefautImpot = 10; // valeur par defaut si impot non trouvé
 
 var marchandageActive = true; // true/false affiche ou non le marchandage
@@ -155,6 +155,7 @@ unsafeWindow.commonki_construction = function () {
 	
 	// Parcours des éléments du tableau du commerce
 	var cursor = parentCommerce.nextSibling; // On est sur les TR
+	var ligneCaisse = null;
 	while (cursor != null) {
 		
 		var nbChild = cursor.childNodes.length;
@@ -171,6 +172,7 @@ unsafeWindow.commonki_construction = function () {
 		if (nbChild == 2 && isTd) {
 			// caisse deux child premier fils td
 			traitementLigneCaisse(cursor);
+			ligneCaisse = cursor;
 		} else if (nbChild == 2 && isTh) {
 			// catégorie 2 child premier = th
 			traitementLigneCategorie(cursor);
@@ -184,7 +186,13 @@ unsafeWindow.commonki_construction = function () {
 
 	// Ajout d'une ligne de tableau pour le marchandage
 	if (marchandageActive) {
-		// TODO ici on ajoute le tout
+		// créer un nouveau tr
+		var nodeMarchan = document.createElement('tr');
+		// on le met juste après le td caisse
+		ligneCaisse.parent.insertBefore(nodeMarchan, ligneCaisse.nextSibling);
+		// créer le td qui va contenir le tout.
+		var tdMarch = addNode(nodeMarchan, 'td');
+		traitementMarchandage(tdMarch);
 	}
 	
 	// On retire le bouton qui n'est plus utile.
@@ -596,11 +604,18 @@ function recalcul (registree) {
 	}
 }
 
-
+/**
+ * Retourne sur le marchandage est en mode achat
+ * @returns {Boolean}
+ */
 function isMarchandageAchat() {
 	return (typeMarchandage == 'Achat' || typeMarchandage == 'AchatVente') && marchandageActive; 
 }
 
+/**
+ * Retourne sur le marchandage est en mode vente
+ * @returns {Boolean}
+ */
 function isMarchandageVente() {
 	return (typeMarchandage == 'Vente' || typeMarchandage == 'AchatVente') && marchandageActive; 
 }
