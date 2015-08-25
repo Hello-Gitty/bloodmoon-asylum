@@ -58,12 +58,23 @@ var tabIdImpot = [];
 	};
 */
 
-var inputSalaireId = 'id_inp_salaire';
-var inputMarchandageId = 'id_inp_marchandage';
+var idInputSalaire = 'id_inp_salaire';
+var idInputMarchandage = 'id_inp_marchandage';
+// Bases des id utilisées pour les nouveaux input
+var idInputImpo = 'id_in_imp_';
+var idInputAchat = 'id_in_ach_';
+var idInputVente = 'id_in_vt_';
+var idInputCoutProd = 'id_in_cp_';
+var idInputGainVente = 'id_in_gv_';
+var idInputGainRevente = 'id_in_rv_';
+
 var thCommerce;
 var parentCommerce;
 var buttonPosition;
 var buttonActive;
+
+
+
 
 // Lance le début du script.
 init();
@@ -202,7 +213,7 @@ function traitementLigneCaisse(trCaisse) {
 
 	// remplace le texte du salaire par l'input
 	nodeSalaire.nodeValue = chaineSalaire.substring(0, demDeb.pos); // debut
-	var nn = addInputNode(td, inputSalaireId, baseSalaire);
+	var nn = addInputNode(td, idInputSalaire, baseSalaire);
 	nn.setAttribute('onchange', 'changeGlobal()');
 	
 	addTextNode(td, ' ' + chaineSalaire.substring(demFin.pos));
@@ -212,7 +223,7 @@ function traitementMarchandage(parent) {
 
 	var p = addNode(parent, 'P');
 	addTextNode(p,'Marchandage ');
-	var nn = addInputNode(p, inputMarchandageId, 0);
+	var nn = addInputNode(p, idInputMarchandage, 0);
 	nn.setAttribute('onchange', 'changeGlobal()');
 	addTextNode(p,'%');
 	
@@ -283,7 +294,7 @@ function traitementLigneCategorie(trCategorie) {
 	
 	// On enregistre l'impot dans le tableaux des impots.
 	var cc = tabIdImpot.length;
-	var idInp = "id_in_imp_" + cc;
+	var idInp = idInputImpo + cc;
 	tabIdImpot[cc] = {
 		nom : nomImpot,
 		idInp : idInp
@@ -301,9 +312,9 @@ function traitementLigneCategorie(trCategorie) {
 function traitementLigneObjet(trObjet) {
 	// si objet on l'enregistre et on créé les id et les cellules 
 	var ii = registre.length;
-	var idInpCP = "id_in_cp_" + ii;
-	var idInpVt = "id_in_vt_" + ii;
-	var idInpGV = "id_in_gv_" + ii;
+	var idInpCP = idInputCoutProd + ii;
+	var idInpVt = idInputVente + ii;
+	var idInpGV = idInputGainVente + ii;
 	var idInpAch = null;
 	var idInpRV = null;
 	var idInpImp = null;
@@ -407,7 +418,7 @@ function traitementLigneObjet(trObjet) {
 	var nn = addInputNode(pPrix, idInpVt, prixVente);
 	nn.setAttribute("onchange", "changement(" + ii + ")");
 	if (isAchVent) {
-		idInpAch = "id_in_ach_" + ii;
+		idInpAch = idInputAchat + ii;
 		addTextNode(pPrix, '/');
 		nn = addInputNode(pPrix, idInpAch, prixAchat);
 		nn.setAttribute("onchange", "changement(" + ii + ")");
@@ -426,7 +437,7 @@ function traitementLigneObjet(trObjet) {
 		addInputNode(tdGv, idInpGV, 0, true);
 	}
 	if (isAchVent) {
-		idInpRV = "id_in_rv_" + ii;
+		idInpRV = idInputGainRevente + ii;
 		addInputNode(tdGr, idInpRV, 0, true);
 	}
 
@@ -522,19 +533,20 @@ function recalcul (registree) {
 	}
 
 	var marchandage = 0;
-	if (getEl(inputMarchandageId) != null) {
-		marchandage = getEl(inputMarchandageId).value;
+	if (getEl(idInputMarchandage) != null) {
+		marchandage = getEl(idInputMarchandage).value;
 	}
 	
 	var pVente = getEl(registree.idInpVt).value;
 	if (registree.idInpAch != null) {
 		var pAchat = getEl(registree.idInpAch).value;
+		// TODO ajouter marchandage
 		var grv = calculGainReVente(pVente, pAchat, iObj);
 		getEl(registree.idInpRV).value = cmk_round(grv);
 	}
 	
 	if (registree.facteurs != null && registree.facteurs.length > 0 || registree.isService) {
-		var salaire = getEl(inputSalaireId).value;
+		var salaire = getEl(idInputSalaire).value;
 		var ut = registree.objet.uniteTravail;
 		var nbProd = registree.objet.produitPar;
 		var tabPrixComposant = [];
@@ -543,11 +555,14 @@ function recalcul (registree) {
 		// facteurs = cout prod ou cout achat des composant
 		if (registree.facteurs != null) {
 			for (var i = 0; i < registree.facteurs.length; i++) {
+				// TODO ici si le facteurs contient la base de l'id achat
+				// et queon est en mode achat on augmente la valeur du marchandage
 				tabPrixComposant[i] = getEl(registree.facteurs[i]).value;
 			}
 		}
 
 		var cProd = calculCoutProd(salaire, ut, tabPrixComposant);
+		// TODO ajouter marchandage
 		var gv = calculGainVente(pVente, cProd, nbProd, iObj);
 		getEl(registree.idInpCP).value = cmk_round(cProd);
 		getEl(registree.idInpGV).value = cmk_round(gv);
