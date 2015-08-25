@@ -2,33 +2,53 @@
 
 [b]Donc qu'es ce que c'est ?[/b]
 
-Un script greasemonkey, pourquoi faire ? Pour les commerces pour calculer les coût de productions, les gains sur la vente et les gains sur la revente des objets. 
+Un script greasemonkey (et TamperMonkey), pourquoi faire ? Pour les commerces pour calculer les coût de productions, les gains sur la vente et les gains sur la revente des objets. 
 
 Ce que ça fait c’est que ça ajoute un bouton à coté du nom du bâtiments quand on est dans la partie jouer et ou à coté de la ligne “COMMERCE” quand on regarde le détails du bâtiment depuis sa fiche de personnage ou depuis la partie cybermonde. 
 
-La position du bouton n’est pas la seule différence entre les deux “modes”, quand on est dans la partie jouer les cellules contenant la valeurs des impôts sont remplis, vu que l’info est disponible dans le commerce d’un bâtiment. Au contraire dans la partie cybermonde ou fiche perso l’info n’existe pas, et le script ne va pas la chercher, donc il faut les remplir soit même. 
+La position du bouton n’est pas la seule différence entre les deux “modes”, quand on est dans la partie jouer les cellules contenant la valeurs des impôts sont remplis, vu que l’info est disponible dans le commerce d’un bâtiment. Au contraire dans la partie cybermonde ou fiche perso l’info n’existe pas, et le script ne va pas la chercher, donc il faut les remplir soit même (valeur par défaut paramètrable). 
 
 On peut modifier les prix d’achat, de vente, des impôts ou du salaire et ça calcule automatiquement le reste des données.
 
-
 Attention, les prix ne sont pas automatiquement mis à jour quand on modifie les valeurs dans les cases achat ou vente, une fois qu’on sait ce qu’on veut, il faut les noter à coté pour les reporter.
 
+L'outil gère désormais le marchandage, avec plusieurs mode de calcul, gérer le marchandage uniquement sur la vente, donc le PJ qui marchande son achat, le marchandage à l'achat quand quelqu'un vend quelque chose au commerce, et l'achat et vente qui prends en compte les deux cas.
 
-[b]Modalité de calcul :[/b]
 
-Coût de production d’un objet = salaire * nb ut + somme du coup de production des composants (si le composant est produit dans le bâtiment) ou le prix d’achat d’un composant
+[b]Modalités de calcul :[/b]
 
-Gain vente =  ( coût de production / nb d’objet produit par ut ) - impôt
+Coût de production d’un objet = salaire * nb ut + somme du coup de production des composants (si le composant est produit dans le bâtiment) ou le prix d’achat d’un composant + marchandage
 
-Gain revente = (coût de vente - coût d’achat) - impôt
+Gain vente =  ( coût de production / nb d’objet produit par ut ) - impôt - marchandage
+
+Gain revente = (coût de vente - marchandage - coût d’achat + marchandage) - impôt
+
+
+[b]Paramétrage :[/b]
+
+On peut paramétrer un peu le script c'est dans les premières lignes après l'entête:
+
+[quote]
+var valeurDefautImpot = 10;
+var marchandageActive = true;
+var typeMarchandage = 'AchatVente';
+var valeurDefautMarchandage = 10;
+[/quote]
+
+Dans l'ordre :
+-valeurDefautImpot : valeur par défaut des impôts quand la valeur est absente (vu cybermonde ou fiche perso)
+-marchandageActive : true la cellule marchandage est affiché, false elle n'est pas affiché et il n'y a pas de marchandage
+-typeMarchandage : type de marchandage par défaut valeurs possible : 'Achat', 'Vente' et 'AchatVente'
+-valeurDefautMarchandage : valeur par défaut du marchandage
+
 
 [b]Des belles images :[/b]
 
-[url=http://tharoons.free.fr/commerce/commonki/avant.png][img]http://tharoons.free.fr/commerce/commonki/avantPet.png[/img][/url][url=http://tharoons.free.fr/commerce/commonki/apres.png][img]http://tharoons.free.fr/commerce/commonki/apresPet.png[/img][/url]
+[url=http://tharoons.free.fr/commerce/commonki/avant2.png][img]http://tharoons.free.fr/commerce/commonki/avantPet2.png[/img][/url][url=http://tharoons.free.fr/commerce/commonki/apres2.png][img]http://tharoons.free.fr/commerce/commonki/apresPet2.png[/img][/url]
 
 [b]Un pseudo exemple :[/b]
 
-En gros ça reprend le principe de ce petit outil que j’avais fais [url=http://tharoons.free.fr/commerce/gestion.html]ici[/url]. Ya des différences cela dit. Mais en gros ça marche pareil.
+En gros ça reprend le principe de ce petit outil que j’avais fais[b] [url=http://tharoons.free.fr/commerce/gestion.html]ici[/url][/b]. Ya des différences cela dit. Mais en gros ça marche pareil.
 
 
 [b]Techniquement :[/b]
@@ -45,5 +65,4 @@ Allez voir par [url=http://nima.olympe.in/aide.html]ici[/url] pour installer gre
 
 
 [b][center][url=http://tharoons.free.fr/commerce/commonki/ComMonKI.js]ICI[/url][/center][/b]
-
 
