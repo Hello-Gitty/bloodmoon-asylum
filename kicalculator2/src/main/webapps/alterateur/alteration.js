@@ -9,12 +9,20 @@ var idSelectObj = 'listObj';
 var idSelectCat = 'listCat';
 var idDivDecomp = 'div-decomp';
 var fullDisplay = true;
-var displayImg = false;
+var displayImg = true;
 var synthese = []; // {nom: , nombre:}
-var utProduit = 0;
-var baseUt = 1.2;
+var batimentsSynthese = []; // {nom: , niveau:}
 
-var filonAllowed = ['Or', 'Pierre', 'Métal', 'Pétrole', 'Logique Brute' ]
+
+var utProduit = 0;
+
+
+
+var baseUt = 1.2;
+var pourcent = 0.8;
+var critique = 0.6;
+
+var filonAllowed = ['Or', 'Pierre', 'Métal', 'Pétrole'];
 
 /*
 UT
@@ -58,6 +66,17 @@ function compareObjet(a, b) {
 function compare(a, b) {
 	return a.localeCompare(b)
 }
+
+function search(list, nom) {
+	for (var i = 0; i < list.length; i++) {
+		if (list[i].nom == nom) {
+			return list[i];
+		}
+	}
+	
+	return null;
+}
+
 
 
 function init() {
@@ -137,21 +156,88 @@ function changeObj(selected) {
 	var obj = listObjets[selected];
 	traiteObjet(obj, newDiv, 1);
 	
+	// Dans le tableau synthese ajouter des combos box etc
+	ajoutTableauSynthese(newDiv);
+	tableauUt(newDiv);
+	tableauBatiment(newDiv);
+}
+
+
+
+function traiteObjet (objet, parent, nb) {
+	if (objet == null) {
+		return;
+	}
 	
+	
+	if ( objet.batiment != null) {
+		var batiment = search(batimentsSynthese, objet.batiment);
+		if (batiment == null && ) {
+			batiment = 
+				{
+					nom:objet.batiment,
+					niveau:objet.niveau
+				};
+			
+			batimentsSynthese[batimentsSynthese.length] = batiment;
+		}
+		if (batiment.niveau < objet.niveau) {
+			batiment.niveau = objet.niveau;
+		}
+	}
+	
+	
+	var txt =  nb + ' - ' + objet.nom;
+
+	// Si l'objet est un objet elémentaire on le sauvegarde dans la synthèse
+	if (objet.composants == null) {
+		ajoutSynthese(objet, nb);
+		if (isFullDisplay()) {
+			var p = addNode(parent, 'p');
+			addTextNode(p, txt);
+		}
+		return;
+	} else {
+		var val = nb * objet.uniteTravail / objet.produitPar;
+		var tmp = val - Math.round(val);
+		val = Math.round(val);
+		if (tmp > 0) {
+			val = val + 1;
+		}
+		// on accumule les UT nécessaires pour cet objet là.
+		utProduit += val;
+		
+		txt += '- ' + val + ' ut'
+		if (isFullDisplay()) {
+			var p = addNode(parent, 'p');
+			addTextNode(p, txt);
+		}
+	}
+	
+	for (var i = 0; i < objet.composants.length; i++) {
+		var objCompo =  search(listObjets, objet.composants[i].nomObjet);
+		traiteObjet(objCompo, p, objet.composants[i].nombre * nb);
+	}
+}
+
+
+function ajoutTableauSynthese(newDiv) {
 	var table = addTableNode(newDiv);
+	var tr = addTrNode(table);
+	var td = addThNode(tr);
+	
+	if (isImgDisplay()) {
+		td = addThNode(tr);
+	}
+	addTextNode(td, 'Objet');
+	td = addThNode(tr);
+	addTextNode(td, 'Nombre');
 	
 	for (var ii = 0; ii < synthese.length; ii++) {
 		var obj = synthese[ii].objet;
-		var th = addThNode(table);
-		var td = addTdNode(th);
-		if (isImgDisplay()) {
-			td = addTdNode(th);
-		}
-		addTextNode(td, 'Objet');
-		td = addTdNode(th);
-		addTextNode(td, 'Nombre');
+
 		
-		var tr = addTrNode(table);
+		tr = addTrNode(table);
 		
 		td = addTdNode(tr);
 		if (isImgDisplay()) {
@@ -168,44 +254,6 @@ function changeObj(selected) {
 
 
 
-
-function traiteObjet (objet, parent, nb) {
-	console.log(objet);
-	if (objet == null) {
-		return;
-	}
-	
-	if (isFullDisplay()) {
-		var p = addNode(parent, 'p');
-		addTextNode(p, nb + ' - ' + objet.nom);
-	}
-	// Si l'objet est un objet elémentaire on le sauvegarde dans la synthèse
-	if (objet.composants == null) {
-		ajoutSynthese(objet, nb);
-		return;
-	} else {
-		// on accumule les UT nécessaires pour cet objet là.
-		utProduit += nb * objet.uniteTravail / objet.produitPar;
-		// TODO arrondir au dessus toujours.
-	}
-	
-	for (var i = 0; i < objet.composants.length; i++) {
-		var objCompo =  search(objet.composants[i].nomObjet);
-		traiteObjet(objCompo, p, objet.composants[i].nombre * nb);
-	}
-}
-
-
-function search(nom) {
-	for (var i = 0; i < listObjets.length; i++) {
-		if (listObjets[i].nom == nom) {
-			return listObjets[i];
-		}
-	}
-	
-	return null;
-}
-
 function ajoutSynthese(objet, nb) {
 	var current = null;
 	for (var i = 0; i < synthese.length; i++) {
@@ -221,5 +269,75 @@ function ajoutSynthese(objet, nb) {
 		synthese[synthese.length] = current;
 	}
 	current.nombre += nb;
+}
+
+
+function tableauUt(parent) {
+	
+	var td;
+	var th;
+	var tr;
+	
+	var mat = {ut:0, pdv:0};
+	var prod = {ut:0, pdv:0};
+	var tot = {ut:0, pdv:0};
+	
+	// Entete
+	var table = addTableNode(parent);
+	tr = addTrNode(table);
+	addThNode(tr);
+	th = addThNode(tr); 
+	addTextNode(th, 'UT');
+	th = addThNode(tr); 
+	addTextNode(th, 'PdV');
+	
+	tr = addTrNode(table);
+	th = addThNode(tr);
+	addTextNode(th, 'Matières extraites');
+	td = addTdNode(tr);
+	addInputNode(td, 'id', mat.ut, true);
+	td = addTdNode(tr);
+	addInputNode(td, 'id', mat.pdv, true);
+	
+	tr = addTrNode(table);
+	th = addThNode(tr);
+	addTextNode(th, 'Produits');
+	td = addTdNode(tr);
+	addInputNode(td, 'id', prod.ut, true);
+	td = addTdNode(tr);
+	addInputNode(td, 'id', prod.pdv, true);
+			
+	tr = addTrNode(table);
+	th = addThNode(tr);
+	addTextNode(th, 'Total');
+	td = addTdNode(tr);
+	addInputNode(td, 'id', tot.ut, true);
+	td = addTdNode(tr);
+	addInputNode(td, 'id', tot.pdv, true);
+}
+
+
+function tableauBatiment(parent) {
+	var tr;
+	var th;
+	var td;
+	
+	var table = addTableNode(parent);
+	tr = addTrNode(table);
+	th = addThNode(tr); 
+	addTextNode(th, 'Bâtiment');
+	th = addThNode(tr); 
+	addTextNode(th, 'Niveau');
+	
+	for (var ii = 0 ; ii < batimentsSynthese.length; ii++) {
+		var bat = batimentsSynthese[ii];
+		tr = addTrNode(table);
+		td = addTdNode(tr); 
+		addTextNode(td, bat.nom);
+		td = addTdNode(tr);
+		addInputNode(td, 'id', bat.niveau, true);
+	}
+	
+	
 }
 

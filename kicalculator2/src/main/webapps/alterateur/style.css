@@ -1,4 +1,4 @@
-input {
+input[type="text"] {
 	width: 40px;
 	text-align: right;
 }
