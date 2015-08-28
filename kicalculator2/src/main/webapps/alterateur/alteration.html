@@ -8,16 +8,19 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body onload="init()">
-Sélectionnez une catégorie : <select id="listCat"></select> puis un objet : <select id="listObj"></select> quantité : <input type='text' id='nb_obj' value='1' />
+Sélectionnez une catégorie : <select id="listCat"></select> puis un objet : <select id="listObj"></select> quantité : <input type="text" id="inpNbProd" value="1" />
 <br/>
-Base ut : <input type='text' id='base_ut' value='1,2' /> <input type="checkbox" id=''/> Entrain <input type='checkbox' id=''/> Chaine production
+Base ut : <input type="text" id="inpBaseUt" value="1.2" readonly="readonly" /> 
 <br/>
-<input type="checkbox" id=''/> Potion rapidité <input type='checkbox' id=''/> critique
+<input type="checkbox" id="isEntrain"/> Entrain <input type="checkbox" id="isChaine"/> Chaine production
 <br/>
-<input type="checkbox" id=''/> Inflexion de temps <input type='checkbox' id=''/> critique
+<input type="checkbox" id="isFilon"/> Filon <input type="checkbox" id="isProdEnc"/> Production encouragée
 <br/>
-<input type="checkbox" id=''/> Filon <input type='checkbox' id=''/> Production encouragée
+Potion rapidité: <input id="pNon" type="radio" name="isPopo" value="non" checked="checked" onchange="changePourcentUt(this.name, this.value)"/><label for="pNon">Non</label><input id="pOui" type="radio" name="isPopo" value="oui" onchange="changePourcentUt(this.name, this.value)"/><label for="pOui">Oui</label><input id="pCrit" type="radio" name="isPopo" value="crit" onchange="changePourcentUt(this.name, this.value)"/><label for="pCrit">Critique</label>
 <br/>
+Inflexion de temps: <input id="iNon" type="radio" name="isInflex" value="non" checked="checked" onchange="changePourcentUt(this.name, this.value)"/><label for="iNon">Non</label><input id="iOui" type="radio" name="isInflex" value="oui" onchange="changePourcentUt(this.name, this.value)"/><label for="iOui">Oui</label><input id="iCrit" type="radio" name="isInflex" value="crit" onchange="changePourcentUt(this.name, this.value)"/><label for="iCrit">Critique</label>
+<br/>
+
 <div id="div-decomp"></div> 
 
 

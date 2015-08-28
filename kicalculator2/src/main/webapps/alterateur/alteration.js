@@ -5,9 +5,7 @@ var listObjets = JSON.parse(data);
 var dataCat = '["MATIÈRES PREMIÈRES", "PLANTES", "ARMURES","OUTILS","DIVERS","POTIONS MAGIQUES","ARMES DE TIR","ÉQUIPEMENT MAISONS","PRODUITS INTERMÉDIAIRES", "CLEFS","MUSIQUE","COMPOSANTS","COURRIER","ÉLECTRONIQUE","VÊTEMENTS ET ACCESSOIRES","VÉHICULES","BIJOUX","AVIONS","MUNITIONS \u0026 EXPLOSIFS","BATEAUX","OBJETS MAGIQUES","ARMES DE CONTACT","MÉDICAMENTS","ARMEMENTS DIVERS","ÉQUIPEMENTS DE VÉHICULES","LIVRES"]';
 var listCategorie = JSON.parse(dataCat);
 
-var idSelectObj = 'listObj';
-var idSelectCat = 'listCat';
-var idDivDecomp = 'div-decomp';
+
 var fullDisplay = true;
 var displayImg = true;
 var synthese = []; // {nom: , nombre:}
@@ -18,11 +16,30 @@ var utProduit = 0;
 
 
 
-var baseUt = 1.2;
-var pourcent = 0.8;
-var critique = 0.6;
+var idSelectObj = 'listObj';
+var idSelectCat = 'listCat';
+var idDivDecomp = 'div-decomp';
+var idNbProd = 'inpNbProd';
+var idBaseUt = 'inpBaseUt';
 
+var idEntrain = 'isEntrain';
+var idChaine = 'isChaine';
+var idFilon = 'isFilon';
+var idProdEnc = 'isProdEnc';
+
+
+
+
+var currentPourcent = [{nom:'isPopo', valeur:1}, {nom:'isInflex', valeur:1}];
+
+
+// CONSTANTES
+var baseCoeficien = 1;
+var coeficienMonstre = 1.6;
+var baseUt = 1.2;
+var pourcentUt = [{nom:'non', valeur:1}, {nom:'oui', valeur:0.8}, {nom:'crit', valeur:0.6}];
 var filonAllowed = ['Or', 'Pierre', 'Métal', 'Pétrole'];
+var monstresOrig = ['Laine', 'Cuir'];
 
 /*
 UT
@@ -46,9 +63,9 @@ Extraction
  * 
  */
 
-/*
- * Faire un mode producteur d'or
- */
+function getUt() {
+	return baseUt;
+}
 
 
 function isFullDisplay() {
@@ -137,7 +154,36 @@ function nettoyage() {
 		divPrem.removeChild(divPrem.childNodes[0]);
 	}
 	synthese = [];
+	batimentsSynthese = [];
 }
+
+function recalcul() {
+
+	var pourct = 1;
+	for (var ii = 0; ii < currentPourcent.length; ii++) {
+		pourct = pourct * currentPourcent[ii].valeur;
+	}
+	
+	console.log(pourct*1.2);
+	
+	
+}
+
+function changePourcentUt(type, value) {
+	
+	var toChange = search(currentPourcent, type);
+	var newVal = search(pourcentUt, value);
+	if (toChange != null && newVal !=null) {
+		toChange.valeur = newVal.valeur;	
+	}
+	console.log(currentPourcent);
+	
+	recalcul();
+}
+
+
+
+
 
 
 /**
@@ -170,9 +216,9 @@ function traiteObjet (objet, parent, nb) {
 	}
 	
 	
-	if ( objet.batiment != null) {
+	if (objet.batiment != null) {
 		var batiment = search(batimentsSynthese, objet.batiment);
-		if (batiment == null && ) {
+		if (batiment == null) {
 			batiment = 
 				{
 					nom:objet.batiment,
@@ -232,6 +278,15 @@ function ajoutTableauSynthese(newDiv) {
 	addTextNode(td, 'Objet');
 	td = addThNode(tr);
 	addTextNode(td, 'Nombre');
+	td = addThNode(tr);
+	addTextNode(td, 'ut');
+	td = addThNode(tr);
+	addTextNode(td, 'Coefficien extraction');
+	td = addThNode(tr);
+	addTextNode(td, 'Coefficien modifié');
+	td = addThNode(tr);
+	addTextNode(td, 'PdV');
+	
 	
 	for (var ii = 0; ii < synthese.length; ii++) {
 		var obj = synthese[ii].objet;
@@ -241,13 +296,27 @@ function ajoutTableauSynthese(newDiv) {
 		
 		td = addTdNode(tr);
 		if (isImgDisplay()) {
-			addImgNode(td, obj.image)
+			addImgNode(td, obj.image);
 			td = addTdNode(tr);
 		}
 		addTextNode(td, obj.nom);
 		td = addTdNode(tr);
-		addInputNode(td, 'id_'+ii, synthese[ii].nombre, true)
+		addInputNode(td, 'idNombreoo_'+ii, synthese[ii].nombre, true);
+
+		var ut = (synthese[ii].nombre / obj.produitPar) * obj.uniteTravail;
 		
+		td = addTdNode(tr);
+		addInputNode(td, 'idUtoo_'+ii, ut, true);
+		
+		td = addTdNode(tr);
+		addInputNode(td, 'idCoefficienB_'+ii, baseCoeficien);
+		
+		td = addTdNode(tr);
+		addInputNode(td, 'idCoefficienM_'+ii, baseCoeficien, true);
+		
+		var pdv = getUt() * baseCoeficien * ut;
+		td = addTdNode(tr);
+		addInputNode(td, 'idpdv_'+ii, pdv, true);
 	}
 }
 
