@@ -22,14 +22,6 @@ var idDivDecomp = 'div-decomp';
 var idNbProd = 'inpNbProd';
 var idBaseUt = 'inpBaseUt';
 
-var idEntrain = 'isEntrain';
-var idChaine = 'isChaine';
-var idFilon = 'isFilon';
-var idProdEnc = 'isProdEnc';
-
-
-
-
 var currentPourcent = [{nom:'isPopo', valeur:1}, {nom:'isInflex', valeur:1}];
 
 
@@ -38,6 +30,7 @@ var baseCoeficien = 1;
 var coeficienMonstre = 1.6;
 var baseUt = 1.2;
 var pourcentUt = [{nom:'non', valeur:1}, {nom:'oui', valeur:0.8}, {nom:'crit', valeur:0.6}];
+var modificateur = [{nom:'isEntrain', valeur:-0.2},{nom:'isChaine', valeur:-0.1}, {nom:'isFilon', valeur:-0.1}, {nom:'isProdEnc', valeur:-0.2}];
 var filonAllowed = ['Or', 'Pierre', 'Métal', 'Pétrole'];
 var monstresOrig = ['Laine', 'Cuir'];
 
@@ -176,12 +169,13 @@ function changePourcentUt(type, value) {
 	if (toChange != null && newVal !=null) {
 		toChange.valeur = newVal.valeur;	
 	}
-	console.log(currentPourcent);
-	
 	recalcul();
 }
 
-
+function changeModif(type, value) {
+	console.log(type + ' ' + value);
+	recalcul();
+}
 
 
 

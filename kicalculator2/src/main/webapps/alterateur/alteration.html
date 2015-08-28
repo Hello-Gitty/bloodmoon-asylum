@@ -12,9 +12,9 @@ Sélectionnez une catégorie : <select id="listCat"></select> puis un objet : <s
 <br/>
 Base ut : <input type="text" id="inpBaseUt" value="1.2" readonly="readonly" /> 
 <br/>
-<input type="checkbox" id="isEntrain"/> Entrain <input type="checkbox" id="isChaine"/> Chaine production
+<input type="checkbox" id="isEntrain" onchange="changeModif(this.id, this.checked)"/> Entrain <input type="checkbox" id="isChaine" onchange="changeModif(this.id, this.checked)"/> Chaine production
 <br/>
-<input type="checkbox" id="isFilon"/> Filon <input type="checkbox" id="isProdEnc"/> Production encouragée
+<input type="checkbox" id="isFilon" onchange="changeModif(this.id, this.checked)"/> Filon <input type="checkbox" id="isProdEnc" onchange="changeModif(this.id, this.checked)"/> Production encouragée
 <br/>
 Potion rapidité: <input id="pNon" type="radio" name="isPopo" value="non" checked="checked" onchange="changePourcentUt(this.name, this.value)"/><label for="pNon">Non</label><input id="pOui" type="radio" name="isPopo" value="oui" onchange="changePourcentUt(this.name, this.value)"/><label for="pOui">Oui</label><input id="pCrit" type="radio" name="isPopo" value="crit" onchange="changePourcentUt(this.name, this.value)"/><label for="pCrit">Critique</label>
 <br/>
