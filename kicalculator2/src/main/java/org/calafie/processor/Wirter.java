@@ -43,6 +43,8 @@ public class Wirter {
 		writer.write(data);
 		writer.close();
 	}
+	
+	
 
 	/**
 	 * Lit le contenu d'un fichier en utf8

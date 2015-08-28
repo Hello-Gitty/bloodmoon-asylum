@@ -6,7 +6,7 @@
       <categorie>ÉLECTRONIQUE</categorie>
       <description>Meilleur ami de tout vrai informaticien (Informatique +1).</description>
       <image>http://img.kraland.org/2/mat/35/3502.gif</image>
-      <batiment>Centre Électronique</batiment>
+      <batiment>Électronique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -49,7 +49,7 @@
       <categorie>OUTILS</categorie>
       <description>En Bouletie, il est possible de pomper au moyen de cette machine pour faire gagner 1 UE à la ville.</description>
       <image>http://img.kraland.org/2/mat/21/2122.gif</image>
-      <batiment>Centre Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -88,7 +88,7 @@
       <categorie>DIVERS</categorie>
       <description>Lancer le cube capsien permet de tirer des lettres au hasard. Certains Elmériens l&apos;utilisent comme objet de divination pour connaître la volonté d&apos;Elmer Caps. Jouer peut avoir un effet sur le moral (un seul, peu importe le jouet, avant de dormir).</description>
       <image>http://img.kraland.org/2/mat/69/6906.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -190,7 +190,7 @@
       <categorie>BOISSONS</categorie>
       <description>Les grands buveurs de Zubrowkra en Vodkalie prétendent arriver à voir le Bison légendaire. Teneur en alcool : 3.</description>
       <image>http://img.kraland.org/2/mat/13/1350.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -211,7 +211,7 @@
       <categorie>DIVERS</categorie>
       <description>Le célèbre peintre Dukisse se serait servi d&apos;un écran magique pour créer ses célèbres tableaux naïfs. Depuis, des disciples essaient de faire de même. Jouer peut avoir un effet sur le moral (un seul, peu importe le jouet, avant de dormir).</description>
       <image>http://img.kraland.org/2/mat/69/6904.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -260,7 +260,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9403.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -314,7 +314,7 @@
       <categorie>NOURRITURE</categorie>
       <description>Le légume permet de se nourrir (Nourriture +1) ou de préparer un repas.</description>
       <image>http://img.kraland.org/2/mat/11/1101.gif</image>
-      <batiment>Potager</batiment>
+      <batiment>Ferme</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -418,7 +418,7 @@
       <categorie>PRODUITS INTERMÉDIAIRES</categorie>
       <description>Le verre est fabriqué à partir de la silice (pierre).</description>
       <image>http://img.kraland.org/2/mat/20/2033.gif</image>
-      <batiment>Petite Briqueterie</batiment>
+      <batiment>Briqueterie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -602,7 +602,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9411.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -645,7 +645,7 @@
       <categorie>PRODUITS INTERMÉDIAIRES</categorie>
       <description>Le caoutchouc est obtenu en traitant le pétrole.</description>
       <image>http://img.kraland.org/2/mat/20/2052.gif</image>
-      <batiment>Grande Raffinerie</batiment>
+      <batiment>Raffinerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -666,7 +666,7 @@
       <categorie>ÉQUIPEMENT MAISONS</categorie>
       <description>Installer du mobilier dans une chambre augmente le confort de 1. On ne peut installer qu&apos;un mobilier par chambre.</description>
       <image>http://img.kraland.org/2/mat/22/2214.gif</image>
-      <batiment>Grand Tailleur</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>3</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -705,7 +705,7 @@
       <categorie>DIVERS</categorie>
       <description>Ces boules quiès permettent de dormir en Hélénie sans être dérangé par la fête permanente.</description>
       <image>http://img.kraland.org/2/mat/69/6933.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -747,7 +747,7 @@
       <categorie>ANIMAUX D&apos;ÉLEVAGE</categorie>
       <description>Le mouton est élevé pour sa viande et sa laine.</description>
       <image>http://img.kraland.org/2/mat/17/1701.gif</image>
-      <batiment>Pré</batiment>
+      <batiment>Enclos</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -762,7 +762,7 @@
       <categorie>POTIONS MAGIQUES</categorie>
       <description>Cet onguent aurait la propriété de guérir-tous-les-bobos-maudire-tes-ennemis-et-ramener-ta-femme-dans-les-24-heures-mieux-que-la-redoute, du moins à en croire les charlatans qui le vendent.</description>
       <image>http://img.kraland.org/2/mat/71/7101.gif</image>
-      <batiment>Herboriste</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -777,7 +777,7 @@
       <categorie>REPAS</categorie>
       <description>Le petit déjeuner permet de se nourrir (Nourriture +2).</description>
       <image>http://img.kraland.org/2/mat/12/1205.gif</image>
-      <batiment>Bar</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -823,7 +823,7 @@
       <categorie>VÉHICULES</categorie>
       <description>Le vélo permet de se déplacer 1,2 fois plus vite et de transporter 1 personne au total. Ses sacoches peuvent contenir 2 de charge.</description>
       <image>http://img.kraland.org/2/mat/51/5108.gif</image>
-      <batiment>Station-Service</batiment>
+      <batiment>Garage</batiment>
       <uniteTravail>3</uniteTravail>
       <produitPar>1</produitPar>
       <charge>0</charge>
@@ -848,7 +848,7 @@
       <categorie>BATEAUX</categorie>
       <description>Ce bateau permet de se déplacer sur les mers et de transporter 20 personnes au total. Ses soutes peuvent peut contenir 100 de charge. Il nécessite de l&apos;essence.</description>
       <image>http://img.kraland.org/2/mat/52/5205.gif</image>
-      <batiment>Complexe Portuaire</batiment>
+      <batiment>Port</batiment>
       <uniteTravail>5</uniteTravail>
       <produitPar>1</produitPar>
       <charge>60</charge>
@@ -887,7 +887,7 @@
       <categorie>VÉHICULES</categorie>
       <description>La voiture de sport permet de se déplacer 3 fois plus vite et de transporter 4 personnes au total. Son coffre peut contenir 5 de charge.</description>
       <image>http://img.kraland.org/2/mat/51/5102.gif</image>
-      <batiment>Garage Central</batiment>
+      <batiment>Garage</batiment>
       <uniteTravail>6</uniteTravail>
       <produitPar>1</produitPar>
       <charge>0</charge>
@@ -930,7 +930,7 @@
       <categorie>MATIÈRES PREMIÈRES</categorie>
       <description>L&apos;uranium est tiré des profondeurs de la terre pour être exploité.</description>
       <image>http://img.kraland.org/2/mat/10/1052.gif</image>
-      <batiment>Complexe Minier de Fer</batiment>
+      <batiment>Mine de Fer</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -945,7 +945,7 @@
       <categorie>ÉQUIPEMENT MAISONS</categorie>
       <description>Le coffre permet de protéger des biens, jusqu&apos;à une charge de 10. Il faut l&apos;installer dans un bureau.</description>
       <image>http://img.kraland.org/2/mat/22/2206.gif</image>
-      <batiment>Complexe Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>5</charge>
@@ -966,7 +966,7 @@
       <categorie>LIVRES</categorie>
       <description>Le manuel de bricolage réduit de 0.05 PdV la fatigue pour fournir 1 UT lors de la construction ou de la réparation d&apos;un bâtiment.</description>
       <image>http://img.kraland.org/2/mat/25/2513.gif</image>
-      <batiment>Bibliothèque Centrale</batiment>
+      <batiment>Bibliothèque</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1036,7 +1036,7 @@
       <categorie>BONS D&apos;ÉTAT / LOTERIE</categorie>
       <description>Ce billet vous permet de voir les tableaux du musée (jusqu&apos;à votre prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/81/8102.gif</image>
-      <batiment>Petit Musée</batiment>
+      <batiment>Musée</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -1057,7 +1057,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9512.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -1106,7 +1106,7 @@
       <categorie>ARMES DE TIR</categorie>
       <description>Cette petite arme discrète et pratique vous permet de jeter des pierres entre les deux yeux de vos adversaires. Le bonus aux dégâts est de +1.</description>
       <image>http://img.kraland.org/2/mat/41/4101.gif</image>
-      <batiment>Petite Armurerie</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1141,7 +1141,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9406.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1170,7 +1170,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9516.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -1219,7 +1219,7 @@
       <categorie>OUTILS</categorie>
       <description>Le stéthoscope offre un bonus de 1 à l&apos;ordre Soigner, ainsi qu&apos;à celui de forcer un Coffre-Fort.</description>
       <image>http://img.kraland.org/2/mat/21/2108.gif</image>
-      <batiment>Centre Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1244,7 +1244,7 @@
       <categorie>DIVERS</categorie>
       <description>Le punching-ball peut s&apos;installer dans une chambre. Il permet de réduire de 0.1 PdV la fatigue pour s&apos;entraîner lorsque l&apos;on souhaite augmenter sa force.</description>
       <image>http://img.kraland.org/2/mat/69/6936.gif</image>
-      <batiment>Grand Tailleur</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1265,7 +1265,7 @@
       <categorie>ARMES DE CONTACT</categorie>
       <description>Ce bâton taillé pour le combat vous permet de gagner un bonus de +1 sur les dégâts que vous faites quand vous vous battez.</description>
       <image>http://img.kraland.org/2/mat/40/4001.gif</image>
-      <batiment>Petite Armurerie</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1286,7 +1286,7 @@
       <categorie>ÉQUIPEMENT MAISONS</categorie>
       <description>Vous pouvez regarder la télévision, une fois celle-ci installée dans une chambre.</description>
       <image>http://img.kraland.org/2/mat/22/2211.gif</image>
-      <batiment>Centre Électronique</batiment>
+      <batiment>Électronique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1315,7 +1315,7 @@
       <categorie>DIVERS</categorie>
       <description>Le Norgakra est une poupée articulée à l&apos;effigie d&apos;un justicier particulièrement implacable. Jouer peut avoir un effet sur le moral (un seul, peu importe le jouet, avant de dormir).</description>
       <image>http://img.kraland.org/2/mat/69/6909.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -1336,7 +1336,7 @@
       <categorie>BOISSONS</categorie>
       <description>Le fait de boire une bière a des effets divers. Teneur en alcool : 1.</description>
       <image>http://img.kraland.org/2/mat/13/1321.gif</image>
-      <batiment>Bar</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -1357,7 +1357,7 @@
       <categorie>DIVERS</categorie>
       <description>Ce badge comporte le slogan archi-connu du grand Elmer Caps:</description>
       <image>http://img.kraland.org/2/mat/69/6907.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>5</produitPar>
       <charge>1</charge>
@@ -1378,7 +1378,7 @@
       <categorie>MATIÈRES PREMIÈRES</categorie>
       <description>La logique brute n&apos;existe qu&apos;en Slavonie. C&apos;est là que cette précieuse substance peut être tirée des terres gorgées d&apos;une intelligence inconnue. Consommer une dose de logique brute ajoute +1 en INT jusqu&apos;à votre prochain sommeil (non-cumulable).</description>
       <image>http://img.kraland.org/2/mat/10/1072.gif</image>
-      <batiment>Nappe de Logique Brute</batiment>
+      <batiment>Puits de Logique Brute</batiment>
       <uniteTravail>3</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1422,7 +1422,7 @@
       <categorie>SERVICES</categorie>
       <description>Le personnel de l&apos;hôpital peut soigner des blessures (Soins +2, réduit à +1 si l&apos;Hôpital n&apos;est que de niveau 1).</description>
       <image>http://img.kraland.org/2/mat/91/9111.gif</image>
-      <batiment>Infirmerie</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -1437,7 +1437,7 @@
       <categorie>ARMES DE CONTACT</categorie>
       <description>Cette arme est difficile à manier et vous impose un malus de 2 à vos jets lorsque vous attaquez. Cependant, elle accorde un +6 de dégâts supplémentaires.</description>
       <image>http://img.kraland.org/2/mat/40/4006.gif</image>
-      <batiment>Complexe Armurier</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>6</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1462,7 +1462,7 @@
       <categorie>ÉQUIPEMENT MAISONS</categorie>
       <description>La porte blindée ajoute 1 niveau de sécurité à une maison (et un malus supplémentaire de 1 à la réalisation d&apos;une fausse clef).</description>
       <image>http://img.kraland.org/2/mat/22/2203.gif</image>
-      <batiment>Complexe Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1550,7 +1550,7 @@
       <categorie>PRODUITS INTERMÉDIAIRES</categorie>
       <description>Réalisé à partir du fer selon un procédé à haute température, ce métal est nettement plus solide que le simple fer.</description>
       <image>http://img.kraland.org/2/mat/20/2041.gif</image>
-      <batiment>Grande Forge</batiment>
+      <batiment>Forge</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1606,7 +1606,7 @@
       <categorie>REPAS</categorie>
       <description>Le repas avec viande permet de se nourrir (Nourriture +3).</description>
       <image>http://img.kraland.org/2/mat/12/1203.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -1631,7 +1631,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9405.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1646,7 +1646,7 @@
       <categorie>ANIMAUX D&apos;ÉLEVAGE</categorie>
       <description>Le téteux parasite est élevé pour sa viande et ses champignons en Atasie.</description>
       <image>http://img.kraland.org/2/mat/17/1703.gif</image>
-      <batiment>Pré</batiment>
+      <batiment>Enclos</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1661,7 +1661,7 @@
       <categorie>DIVERS</categorie>
       <description>Le parapluie blindé protège contre les chutes d&apos;enclumes au Valégro.</description>
       <image>http://img.kraland.org/2/mat/69/6932.gif</image>
-      <batiment>Petite Armurerie</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -1682,7 +1682,7 @@
       <categorie>SERVICES</categorie>
       <description>Prostituée de luxe, elle peut vendre les plaisirs de son corps - le client peut les acheter (Moral +4).</description>
       <image>http://img.kraland.org/2/mat/91/9103.gif</image>
-      <batiment>Hôtel</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -1725,7 +1725,7 @@
       <categorie>BOISSONS</categorie>
       <description>Le jus de fruit est bon pour la santé, mais gare à ne pas en abuser.</description>
       <image>http://img.kraland.org/2/mat/13/1301.gif</image>
-      <batiment>Bar</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -1760,7 +1760,7 @@
       <categorie>NOURRITURE</categorie>
       <description>En Plaine Irradiée, les petits mutants croquent les pommes transgéniques à pleines dents (Nourriture +1, risque d&apos;attraper une mutation).</description>
       <image>http://img.kraland.org/2/mat/11/1184.gif</image>
-      <batiment>Potager</batiment>
+      <batiment>Ferme</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -1775,7 +1775,7 @@
       <categorie>NOURRITURE</categorie>
       <description>L&apos;ail permet de se nourrir (Nourriture +1) et permettrait de se protéger des vampires dans la province des Krapathes. En tout cas, personne n&apos;est jamais revenu se plaindre pour dire que cela ne fonctionnait pas.</description>
       <image>http://img.kraland.org/2/mat/11/1158.gif</image>
-      <batiment>Potager</batiment>
+      <batiment>Ferme</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -1818,7 +1818,7 @@
       <categorie>AVIONS</categorie>
       <description>Cet engin permet de voler au-dessus des terres comme des mers, de se déplacer 3 fois plus vite et de transporter 2 personnes au total. Ses soutes peuvent contenir 20 de charge. Il nécessite de l&apos;essence.</description>
       <image>http://img.kraland.org/2/mat/53/5303.gif</image>
-      <batiment>Complexe Aéroport</batiment>
+      <batiment>Aéroport</batiment>
       <uniteTravail>10</uniteTravail>
       <produitPar>1</produitPar>
       <charge>5</charge>
@@ -1843,7 +1843,7 @@
       <categorie>VÊTEMENTS ET ACCESSOIRES</categorie>
       <description>Vêtements noirs et semelles de caoutchouc afin d&apos;être discret (Discrétion +1).</description>
       <image>http://img.kraland.org/2/mat/30/3053.gif</image>
-      <batiment>Haute-Couture</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2026,7 +2026,7 @@
       <categorie>VÊTEMENTS ET ACCESSOIRES</categorie>
       <description>Adaptées pour frapper tout en se déplaçant rapidement (Combat Mains Nues +1).</description>
       <image>http://img.kraland.org/2/mat/30/3051.gif</image>
-      <batiment>Grand Tailleur</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>3</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2086,7 +2086,7 @@
       <categorie>BOISSONS</categorie>
       <description>Particulièrement prisé dans le Désert Démoniaque, l&apos;alcool de cactus, à forte dose, permettrait de voir le légendaire Pampa. Teneur en alcool : 3.</description>
       <image>http://img.kraland.org/2/mat/13/1349.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -2107,7 +2107,7 @@
       <categorie>BOISSONS</categorie>
       <description>Le thé vous remet en forme, mais gare à ne pas en abuser. Moins fort que le café.</description>
       <image>http://img.kraland.org/2/mat/13/1312.gif</image>
-      <batiment>Bar</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -2199,7 +2199,7 @@
       <categorie>OUTILS</categorie>
       <description>Permettent de voir plus facilement (Observation +1, vision +1).</description>
       <image>http://img.kraland.org/2/mat/21/2103.gif</image>
-      <batiment>Centre Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2224,7 +2224,7 @@
       <categorie>BOISSONS</categorie>
       <description>Cet alcool rare est fabriqué à partir de céréales ne poussant que dans la province Sibéria. Teneur en alcool : 3.</description>
       <image>http://img.kraland.org/2/mat/13/1331.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -2265,7 +2265,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9517.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -2286,7 +2286,7 @@
       <categorie>REPAS</categorie>
       <description>Les habitants de Napolitania, en Sicilia, sont convaincus que leur pizza est le meilleur plat du monde (Nourriture +3). Celui qui ose leur affirmer le contraire se suicide généralement en se jetant dans la mer avec un poids aux pieds.</description>
       <image>http://img.kraland.org/2/mat/12/1265.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -2311,7 +2311,7 @@
       <categorie>POTIONS MAGIQUES</categorie>
       <description>Mieux vaut toujours en avoir un peu sur soi : un peu de poudre et vous êtes téléporté dans une province du cybermonde au hasard (le groupe ne suit pas la personne téléportée). Impossible d&apos;employer sur autrui.</description>
       <image>http://img.kraland.org/2/mat/71/7111.gif</image>
-      <batiment>Centre Alchimique</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2332,7 +2332,7 @@
       <categorie>NOURRITURE</categorie>
       <description>Le sol de Kraland est particulièrement propice à la culture du fenouil (Nourriture +1). Si un enfant refuse de finir sa ration de fenouil, on le menace d&apos;être dévoré par le grand ogre banano-capitaliste.</description>
       <image>http://img.kraland.org/2/mat/11/1152.gif</image>
-      <batiment>Potager</batiment>
+      <batiment>Ferme</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -2382,7 +2382,7 @@
       <categorie>PLANTES</categorie>
       <description>Les plantes magiques sont utilisées dans la fabrication de potions et pour lancer des sorts.</description>
       <image>http://img.kraland.org/2/mat/16/1621.gif</image>
-      <batiment>Complexe Agricole</batiment>
+      <batiment>Ferme</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2412,7 +2412,7 @@
       <categorie>BOISSONS</categorie>
       <description>Bière à base de fruits que l&apos;on peut trouver dans la Vallée Pourpre. Teneur en alcool : 2.</description>
       <image>http://img.kraland.org/2/mat/13/1359.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -2448,7 +2448,7 @@
       <categorie>PRODUITS INTERMÉDIAIRES</categorie>
       <description>Carte avec de multiples transistors, elle est la pièce principale des appareils électroniques.</description>
       <image>http://img.kraland.org/2/mat/20/2076.gif</image>
-      <batiment>Technicien</batiment>
+      <batiment>Électronique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2502,7 +2502,7 @@
       <categorie>ARMURES</categorie>
       <description>Le casque vous protège contre les mauvais coups. Il accorde une armure de 1 point.</description>
       <image>http://img.kraland.org/2/mat/43/4302.gif</image>
-      <batiment>Armurerie Centrale</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2523,7 +2523,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9409.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2538,7 +2538,7 @@
       <categorie>NOURRITURE</categorie>
       <description>Le champignonz est un champignon hallucinogène que l&apos;on trouve en Underground. Consommer un tel champignon ouvre l&apos;esprit à d&apos;étranges mondes aux couleurs psychédéliques (Nourriture +1).</description>
       <image>http://img.kraland.org/2/mat/11/1138.gif</image>
-      <batiment>Potager</batiment>
+      <batiment>Ferme</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>4</produitPar>
       <charge>1</charge>
@@ -2553,7 +2553,7 @@
       <categorie>DIVERS</categorie>
       <description>Cette poupée de 20 cm est le jouet préféré des petites filles palladionautes. Il existe une version plus grande et moins habillée pour les grands garçons. Jouer peut avoir un effet sur le moral (un seul, peu importe le jouet, avant de dormir).</description>
       <image>http://img.kraland.org/2/mat/69/6902.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -2574,7 +2574,7 @@
       <categorie>BIJOUX</categorie>
       <description>Bijou.</description>
       <image>http://img.kraland.org/2/mat/60/6004.gif</image>
-      <batiment>Complexe Bijoutier</batiment>
+      <batiment>Bijouterie</batiment>
       <uniteTravail>4</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2690,7 +2690,7 @@
       <categorie>OBJETS MAGIQUES</categorie>
       <description>La baguette magique permet aux Sorciers de plastronner. Elle n&apos;a pas d&apos;effet particulier.</description>
       <image>http://img.kraland.org/2/mat/72/7222.gif</image>
-      <batiment>Centre Alchimique</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>3</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2729,7 +2729,7 @@
       <categorie>ANIMAUX D&apos;ÉLEVAGE</categorie>
       <description>La vache est élevée pour sa viande et son cuir.</description>
       <image>http://img.kraland.org/2/mat/17/1702.gif</image>
-      <batiment>Pré</batiment>
+      <batiment>Enclos</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2834,7 +2834,7 @@
       <categorie>ÉQUIPEMENT MAISONS</categorie>
       <description>La caméra permet, à distance, de voir le matériel et les personnes (même cachées) se trouvant dans un bâtiment. Elle impose un malus de 4 pour se cacher.</description>
       <image>http://img.kraland.org/2/mat/22/2212.gif</image>
-      <batiment>Centre Électronique</batiment>
+      <batiment>Électronique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2863,7 +2863,7 @@
       <categorie>OBJETS MAGIQUES</categorie>
       <description>Si un pouvoir de rencontre (sorcellerie, magie divine, pouvoirs psychiques) cible avec succès un porteur de collier de protection, il y a 15% de chances qu&apos;il reste malgré tout sans effet. Cumulable avec la capacité de la vocation Calme.</description>
       <image>http://img.kraland.org/2/mat/72/7207.gif</image>
-      <batiment>Complexe Alchimique</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>6</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2916,7 +2916,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9507.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -2951,7 +2951,7 @@
       <categorie>VÊTEMENTS ET ACCESSOIRES</categorie>
       <description>Le filet de pêche vous permet d&apos;attraper des poissons supplémentaires en pêchant.</description>
       <image>http://img.kraland.org/2/mat/30/3075.gif</image>
-      <batiment>Grand Tailleur</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2976,7 +2976,7 @@
       <categorie>REPAS</categorie>
       <description>La tambouille, constituée de soupe et de déchets de légumes, est le seul repas servi en prison (Nourriture +1). La tambouille peut être vectrice de maladies. La tambouille est gratuite mais les prisonniers doivent la préparer (sans toucher de salaire).</description>
       <image>http://img.kraland.org/2/mat/12/1211.gif</image>
-      <batiment>Cage</batiment>
+      <batiment>Prison</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -2991,7 +2991,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Permet de guérir l&apos;Elmérisme.</description>
       <image>http://img.kraland.org/2/mat/26/2605.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -3026,7 +3026,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9506.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -3061,7 +3061,7 @@
       <categorie>OBJETS MAGIQUES</categorie>
       <description>Le globe de cristal vous permet de mieux observer votre environnement. Vous gagnerez 1 point supplémentaire à votre PER tant que vous le transportez. Non-cumulable avec lui-même.</description>
       <image>http://img.kraland.org/2/mat/72/7206.gif</image>
-      <batiment>Complexe Alchimique</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>5</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -3070,6 +3070,10 @@
       <composants>
         <org.calafie.modele.objets.Composant>
           <nomObjet>Verre</nomObjet>
+          <nombre>2</nombre>
+        </org.calafie.modele.objets.Composant>
+        <org.calafie.modele.objets.Composant>
+          <nomObjet>Anneau en Or</nomObjet>
           <nombre>2</nombre>
         </org.calafie.modele.objets.Composant>
       </composants>
@@ -3096,7 +3100,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9508.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -3145,7 +3149,7 @@
       <categorie>PRODUITS INTERMÉDIAIRES</categorie>
       <description>Les briques sont fabriquées à partir de morceaux de pierre. Elles sont utilisées en construction.</description>
       <image>http://img.kraland.org/2/mat/20/2032.gif</image>
-      <batiment>Petite Briqueterie</batiment>
+      <batiment>Briqueterie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -3166,7 +3170,7 @@
       <categorie>ÉQUIPEMENT MAISONS</categorie>
       <description>L&apos;extincteur permet d&apos;annuler les effets d&apos;un incendie (événement aléatoire ou sort) et de réduire de 10% les dégâts d&apos;un attentat.</description>
       <image>http://img.kraland.org/2/mat/22/2213.gif</image>
-      <batiment>Centre Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -3191,7 +3195,7 @@
       <categorie>SERVICES</categorie>
       <description>La discussion philosophique permet d&apos;échanger des réflexions (Moral +2).</description>
       <image>http://img.kraland.org/2/mat/91/9121.gif</image>
-      <batiment>Librairie</batiment>
+      <batiment>Bibliothèque</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -3227,7 +3231,7 @@
       <categorie>NOURRITURE</categorie>
       <description>Les délicieux loukoums sont réputés dans toute la Musulmanie (25% de chances Nourriture +1). Ils sont souvent trop sucrés.</description>
       <image>http://img.kraland.org/2/mat/11/1166.gif</image>
-      <batiment>Bar</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -3362,7 +3366,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9408.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -3398,7 +3402,7 @@
       <categorie>ÉQUIPEMENT MAISONS</categorie>
       <description>Cette alarme ajoute 1 niveau de sécurité à une maison. En outre, tout cambrioleur échouant une effraction ou un cambriolage (de caisse ou de stock) est frappé par le laser et perd 20 PdV.</description>
       <image>http://img.kraland.org/2/mat/22/2205.gif</image>
-      <batiment>Complexe Cybernétique</batiment>
+      <batiment>Électronique</batiment>
       <uniteTravail>4</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -3455,7 +3459,7 @@
       <categorie>BOISSONS</categorie>
       <description>Cet alcool est fabriqué à partir d&apos;agaves ne poussant que dans la province Panaguam. Teneur en alcool : 3.</description>
       <image>http://img.kraland.org/2/mat/13/1382.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -3476,7 +3480,7 @@
       <categorie>BOISSONS</categorie>
       <description>Le pikron se consomme en Undergroud. Le fait d&apos;en boire a des effets divers. Teneur en alcool : 1 à 3 (les producteurs dosent mal la quantité d&apos;alcool).</description>
       <image>http://img.kraland.org/2/mat/13/1337.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>5</produitPar>
       <charge>1</charge>
@@ -3497,7 +3501,7 @@
       <categorie>BATEAUX</categorie>
       <description>Ce bateau permet de se déplacer sur les mers et de transporter 1 personne au total.</description>
       <image>http://img.kraland.org/2/mat/52/5201.gif</image>
-      <batiment>Embarcadère</batiment>
+      <batiment>Port</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>0</charge>
@@ -3518,7 +3522,7 @@
       <categorie>ÉQUIPEMENTS DE VÉHICULES</categorie>
       <description>Un véhicule peut être équipé d&apos;un réservoir supplémentaire, ce qui lui permet d&apos;embarquer 150 unités d&apos;essence supplémentaire.</description>
       <image>http://img.kraland.org/2/mat/56/5603.gif</image>
-      <batiment>Garage Central</batiment>
+      <batiment>Garage</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -3543,7 +3547,7 @@
       <categorie>DIVERS</categorie>
       <description>Cette boule en verre de 10 cm de diamètre contient une représentation en plastique de la Grande Basilique de Tokyo-3. Si on la retourne, cela fait de la neige. Jouer peut avoir un effet sur le moral (un seul, peu importe le jouet, avant de dormir).</description>
       <image>http://img.kraland.org/2/mat/69/6903.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -3564,7 +3568,7 @@
       <categorie>ARMES DE TIR</categorie>
       <description>La mitraillette est une arme puissante contre vos ennemis mais sa portée est réduite. Elle impose un malus de 2 lorsque vous attaquez. Le bonus aux dégâts est de +5.</description>
       <image>http://img.kraland.org/2/mat/41/4132.gif</image>
-      <batiment>Complexe Armurier</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>8</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -3589,7 +3593,7 @@
       <categorie>ÉLECTRONIQUE</categorie>
       <description>Un localisateur vous permet de repérer les mouchards émettant sur sa fréquence jusqu&apos;à une distance de 3 provinces.</description>
       <image>http://img.kraland.org/2/mat/35/3508.gif</image>
-      <batiment>Centre Électronique</batiment>
+      <batiment>Électronique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -3618,7 +3622,7 @@
       <categorie>COURRIER</categorie>
       <description>Le colis peut être ouvert par son porteur, il contient généralement un objet (le colis disparaît pour laisser place à son contenu).</description>
       <image>http://img.kraland.org/2/mat/27/2722.gif</image>
-      <batiment>Bibliothèque Centrale</batiment>
+      <batiment>Bibliothèque</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -3688,7 +3692,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9413.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -3703,7 +3707,7 @@
       <categorie>DIVERS</categorie>
       <description>Cette boîte lance le slogan « Kra20Kra » quand on la retourne. Elle est assez prisée par les terroristes socialo-graffitistes pour signer leurs actions. Jouer peut avoir un effet sur le moral (un seul, peu importe le jouet, avant de dormir).</description>
       <image>http://img.kraland.org/2/mat/69/6901.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -3724,7 +3728,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9502.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -3745,7 +3749,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9402.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -3760,7 +3764,7 @@
       <categorie>PRODUITS INTERMÉDIAIRES</categorie>
       <description>Les planches sont obtenues par le travail du bois. Elles sont utilisées en construction.</description>
       <image>http://img.kraland.org/2/mat/20/2021.gif</image>
-      <batiment>Petite Scierie</batiment>
+      <batiment>Scierie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -3781,7 +3785,7 @@
       <categorie>ÉNERGIE</categorie>
       <description>Un véhicule consomme une unité d&apos;essence par tranche de 0,1 PdV de fatigue.</description>
       <image>http://img.kraland.org/2/mat/55/5501.gif</image>
-      <batiment>Petite Raffinerie</batiment>
+      <batiment>Raffinerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>250</produitPar>
       <charge>1</charge>
@@ -3802,7 +3806,7 @@
       <categorie>BOISSONS</categorie>
       <description>Ce vin, tiré des vignes de la Vallée Pourpre, aurait parfois le goût du sang des soldats tombés lors de la guerre contre le Valégro. Teneur en alcool : 3.</description>
       <image>http://img.kraland.org/2/mat/13/1360.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -3823,7 +3827,7 @@
       <categorie>PRODUITS INTERMÉDIAIRES</categorie>
       <description>A partir de laine, on tisse des textiles utilisés dans la confection des vêtements.</description>
       <image>http://img.kraland.org/2/mat/20/2061.gif</image>
-      <batiment>Vendeur de Tissu</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -3844,7 +3848,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9505.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -3890,7 +3894,7 @@
       <categorie>LIVRES</categorie>
       <description>Vous pouvez lire la dernière édition de votre journal préféré.</description>
       <image>http://img.kraland.org/2/mat/25/2521.gif</image>
-      <batiment>Librairie</batiment>
+      <batiment>Bibliothèque</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>8</produitPar>
       <charge>1</charge>
@@ -3925,7 +3929,7 @@
       <categorie>VÊTEMENTS ET ACCESSOIRES</categorie>
       <description>La valise permet de transporter des objets (cumulant une charge totale de 5 maximum).</description>
       <image>http://img.kraland.org/2/mat/30/3062.gif</image>
-      <batiment>Haute-Couture</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -3950,7 +3954,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9514.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -3999,7 +4003,7 @@
       <categorie>ARMES DE TIR</categorie>
       <description>Le fusil est une arme puissante vous permettant de tirer à lointaine portée. Le bonus aux dégâts est de +4.</description>
       <image>http://img.kraland.org/2/mat/41/4131.gif</image>
-      <batiment>Complexe Armurier</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>6</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -4144,7 +4148,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Permet de guérir la Paralysie.</description>
       <image>http://img.kraland.org/2/mat/26/2601.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -4200,7 +4204,7 @@
       <categorie>OBJETS MAGIQUES</categorie>
       <description>Mettez ce bracelet de force et développez votre musculature ! Vous aurez 1 point supplémentaire en FOR tant que vous le porterez. Non-cumulable avec lui-même.</description>
       <image>http://img.kraland.org/2/mat/72/7201.gif</image>
-      <batiment>Complexe Alchimique</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>6</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -4209,6 +4213,10 @@
       <composants>
         <org.calafie.modele.objets.Composant>
           <nomObjet>Métal</nomObjet>
+          <nombre>2</nombre>
+        </org.calafie.modele.objets.Composant>
+        <org.calafie.modele.objets.Composant>
+          <nomObjet>Anneau en Or</nomObjet>
           <nombre>2</nombre>
         </org.calafie.modele.objets.Composant>
       </composants>
@@ -4221,7 +4229,7 @@
       <categorie>BOISSONS</categorie>
       <description>Cette liqueur, appréciée par les milliardaires palladionautes en Bananie, peut se révéler dangereuse : 2% à chaque verre de contracter le Bolopolisme. Teneur en alcool : 4.</description>
       <image>http://img.kraland.org/2/mat/13/1344.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -4242,7 +4250,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Employé sur un leader de groupe, il force le groupe à quitter la pièce et rejoindre l&apos;Extérieur. Pas d&apos;effet sur une personne dans le coma, ni dans la rue, dans les pièces Extérieur, Prison ou Donjon. Il impose -1 en PER jusqu&apos;au prochain sommeil.</description>
       <image>http://img.kraland.org/2/mat/26/2625.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>3</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -4305,7 +4313,7 @@
       <categorie>DIVERS</categorie>
       <description>Cette banane est un jouet géant : elle bondit et rebondit, donnant des sensations proches du rodéo. Jouer peut avoir un effet sur le moral (un seul, peu importe le jouet, avant de dormir).</description>
       <image>http://img.kraland.org/2/mat/69/6935.gif</image>
-      <batiment>Centre Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -4340,7 +4348,7 @@
       <categorie>LIVRES</categorie>
       <description>Le manuel des mystères initie aux phénomènes étranges (Pouvoir +1).</description>
       <image>http://img.kraland.org/2/mat/25/2505.gif</image>
-      <batiment>Complexe Bibliothécaire</batiment>
+      <batiment>Bibliothèque</batiment>
       <uniteTravail>3</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -4477,7 +4485,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9407.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -4492,7 +4500,7 @@
       <categorie>AVIONS</categorie>
       <description>La montgolfière permet de voler au-dessus des terres comme des mers et de transporter 2 personnes au total. Son coffre peut contenir 5 de charge. Elle nécessite de l&apos;essence.</description>
       <image>http://img.kraland.org/2/mat/53/5301.gif</image>
-      <batiment>Aérodrome</batiment>
+      <batiment>Aéroport</batiment>
       <uniteTravail>4</uniteTravail>
       <produitPar>1</produitPar>
       <charge>0</charge>
@@ -4538,7 +4546,7 @@
       <categorie>DIVERS</categorie>
       <description>Une jolie peluche à câliner pour tous les gros barbares qui ont gardé un cœur d&apos;enfant. Jouer peut avoir un effet sur le moral (un seul, peu importe le jouet, avant de dormir).</description>
       <image>http://img.kraland.org/2/mat/69/6910.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -4579,7 +4587,7 @@
       <categorie>MUSIQUE</categorie>
       <description>L&apos;harmonica apporte à l&apos;Artiste un bonus de 1 à l&apos;ordre Divertir. Vous pouvez aussi en jouer pour votre profit (même effet qu&apos;un jouet).</description>
       <image>http://img.kraland.org/2/mat/61/6103.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -4677,7 +4685,7 @@
       <categorie>MUNITIONS &amp; EXPLOSIFS</categorie>
       <description>Munitions pour Revolver, Fusil et Mitraillette.</description>
       <image>http://img.kraland.org/2/mat/42/4203.gif</image>
-      <batiment>Armurerie Centrale</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -4722,7 +4730,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9416.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -4737,7 +4745,7 @@
       <categorie>PLANTES</categorie>
       <description>Les plantes médicinales sont utilisées dans la fabrication de médicaments.</description>
       <image>http://img.kraland.org/2/mat/16/1611.gif</image>
-      <batiment>Centre Agricole</batiment>
+      <batiment>Ferme</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -4766,7 +4774,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Permet de guérir la Dépression.</description>
       <image>http://img.kraland.org/2/mat/26/2608.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -4843,7 +4851,7 @@
       <categorie>BOISSONS</categorie>
       <description>Fabriqué par les paysans du Boskovo, l&apos;alcool de patates leur permet de tenir le coup en hiver. Teneur en alcool : 3.</description>
       <image>http://img.kraland.org/2/mat/13/1356.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -4878,7 +4886,7 @@
       <categorie>DIVERS</categorie>
       <description>Le Tchou Râleur est une poupée qui râle quand on appuie dessus. Jouer peut avoir un effet sur le moral (un seul, peu importe le jouet, avant de dormir).</description>
       <image>http://img.kraland.org/2/mat/69/6913.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -4955,7 +4963,7 @@
       <categorie>BOISSONS</categorie>
       <description>Cette liqueur, distillée selon une ancienne recette, aurait donné aux paysans moldaves la force de chasser la noblesse ruthvène. Teneur en alcool : 3.</description>
       <image>http://img.kraland.org/2/mat/13/1369.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -4976,7 +4984,7 @@
       <categorie>MATIÈRES PREMIÈRES</categorie>
       <description>Valeur de référence des économies du cybermonde. La ville convertit tout or produit à son cours officiel.</description>
       <image>http://img.kraland.org/2/mat/10/1011.gif</image>
-      <batiment>Gisement d&apos;Or</batiment>
+      <batiment>Mine d&apos;Or</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -4991,7 +4999,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Permet de guérir l&apos;état de Drogué.</description>
       <image>http://img.kraland.org/2/mat/26/2612.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -5012,7 +5020,7 @@
       <categorie>LIVRES</categorie>
       <description>Livre sacré de votre religion. Contient les préceptes sacrés de votre dieu (Foi +1).</description>
       <image>http://img.kraland.org/2/mat/25/2504.gif</image>
-      <batiment>Bibliothèque Centrale</batiment>
+      <batiment>Bibliothèque</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -5061,7 +5069,7 @@
       <categorie>LIVRES</categorie>
       <description>Ce livre est personnalisable (nom, contenu, etc).</description>
       <image>http://img.kraland.org/2/mat/25/2511.gif</image>
-      <batiment>Bibliothèque Centrale</batiment>
+      <batiment>Bibliothèque</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -5110,7 +5118,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Permet de guérir le Stress.</description>
       <image>http://img.kraland.org/2/mat/26/2611.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -5165,7 +5173,7 @@
       <categorie>BOISSONS</categorie>
       <description>Les voyageurs visitant la province de Grand Jardin ne manquent pas de goûter à son thé légendaire. Il est de qualité un peu supérieure au thé normal.</description>
       <image>http://img.kraland.org/2/mat/13/1355.gif</image>
-      <batiment>Bar</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -5207,7 +5215,7 @@
       <categorie>BOISSONS</categorie>
       <description>Cet alcool, disponible uniquement en Slavonie, n&apos;est plus vendu ailleurs car il rendait les clients aveugles (2% à chaque verre de contracter Cécité). Teneur en alcool : 4.</description>
       <image>http://img.kraland.org/2/mat/13/1358.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -5228,7 +5236,7 @@
       <categorie>ÉQUIPEMENT MAISONS</categorie>
       <description>L&apos;armature antisismique rend un bâtiment invulnérable aux tremblements de terre et aux cyclones (événements aléatoires ou sorts) et protège ses occupants qui ne seront pas blessés. En outre, elle réduit les dégâts d&apos;un attentat de 10%.</description>
       <image>http://img.kraland.org/2/mat/22/2215.gif</image>
-      <batiment>Complexe Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>5</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -5264,7 +5272,7 @@
       <categorie>VÉHICULES</categorie>
       <description>Le camion permet de se déplacer 2 fois plus vite et de transporter 8 personnes au total. Son coffre peut contenir 50 de charge.</description>
       <image>http://img.kraland.org/2/mat/51/5104.gif</image>
-      <batiment>Complexe Garagiste</batiment>
+      <batiment>Garage</batiment>
       <uniteTravail>9</uniteTravail>
       <produitPar>1</produitPar>
       <charge>20</charge>
@@ -5483,7 +5491,7 @@
       <categorie>MUNITIONS &amp; EXPLOSIFS</categorie>
       <description>La bombe permet de commettre des attentats.</description>
       <image>http://img.kraland.org/2/mat/42/4251.gif</image>
-      <batiment>Armurerie Centrale</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -5542,7 +5550,7 @@
       <categorie>BATEAUX</categorie>
       <description>Ce bateau permet de se déplacer sur les mers et de transporter 20 personnes au total. Ses soutes peuvent peut contenir 20 de charge.</description>
       <image>http://img.kraland.org/2/mat/52/5204.gif</image>
-      <batiment>Complexe Portuaire</batiment>
+      <batiment>Port</batiment>
       <uniteTravail>5</uniteTravail>
       <produitPar>1</produitPar>
       <charge>10</charge>
@@ -5592,7 +5600,7 @@
       <categorie>MATIÈRES PREMIÈRES</categorie>
       <description>Le bois est obtenu par la coupe des arbres. Il est utilisé pour la construction de meubles ou de maisons, ou brûlé comme source énergétique.</description>
       <image>http://img.kraland.org/2/mat/10/1021.gif</image>
-      <batiment>Camp de Bûcherons</batiment>
+      <batiment>Production de Bois</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -5635,7 +5643,7 @@
       <categorie>OBJETS MAGIQUES</categorie>
       <description>Grâce à cette plaque couverte de signes cabalistiques, vous gagnez 1 point en INT tant que vous la porterez. Non-cumulable avec lui-même.</description>
       <image>http://img.kraland.org/2/mat/72/7205.gif</image>
-      <batiment>Complexe Alchimique</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>6</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -5644,6 +5652,10 @@
       <composants>
         <org.calafie.modele.objets.Composant>
           <nomObjet>Pierre</nomObjet>
+          <nombre>2</nombre>
+        </org.calafie.modele.objets.Composant>
+        <org.calafie.modele.objets.Composant>
+          <nomObjet>Anneau en Or</nomObjet>
           <nombre>2</nombre>
         </org.calafie.modele.objets.Composant>
       </composants>
@@ -5656,7 +5668,7 @@
       <categorie>REPAS</categorie>
       <description>Les habitants de Romania, en Sicilia, sont convaincus que leurs spaghettis sont le meilleur plat du monde (Nourriture +3). Celui qui ose leur affirmer le contraire se suicide généralement de plusieurs coups de fusil dans la nuque.</description>
       <image>http://img.kraland.org/2/mat/12/1264.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -5681,7 +5693,7 @@
       <categorie>PRODUITS INTERMÉDIAIRES</categorie>
       <description>Les cailloux sont des petites pierres. Ils sont obtenus en cassant des pierres. Les prisonniers peuvent casser des cailloux en prison pour s&apos;occuper. Les inquisiteurs s&apos;en servent pour lapider les blasphémateurs. Certains originaux sucent les cailloux.</description>
       <image>http://img.kraland.org/2/mat/20/2034.gif</image>
-      <batiment>Cage</batiment>
+      <batiment>Prison</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -5730,7 +5742,7 @@
       <categorie>VÊTEMENTS ET ACCESSOIRES</categorie>
       <description>Ces patins permettent de se déplacer sur la glace de Sibéria sans faire de mauvaise chute.</description>
       <image>http://img.kraland.org/2/mat/30/3043.gif</image>
-      <batiment>Grand Tailleur</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>3</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -5755,7 +5767,7 @@
       <categorie>ARMES DE TIR</categorie>
       <description>Cette arme permet d&apos;infliger des blessures à distance sans nécessité de munitions - elle s&apos;emploie avec Combat Distance. Le bonus aux dégâts est de +0.</description>
       <image>http://img.kraland.org/2/mat/41/4191.gif</image>
-      <batiment>Petite Armurerie</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -5790,7 +5802,7 @@
       <categorie>BONS D&apos;ÉTAT / LOTERIE</categorie>
       <description>Ce billet permet de participer au tirage de la loterie cybermondiale (une fois par semaine).</description>
       <image>http://img.kraland.org/2/mat/81/8101.gif</image>
-      <batiment>Bar</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -5819,7 +5831,7 @@
       <categorie>SERVICES</categorie>
       <description>Chaque épuration permet d&apos;éliminer 50 points de pollution dans la province.</description>
       <image>http://img.kraland.org/2/mat/91/9199.gif</image>
-      <batiment>Pompe d&apos;Épuration</batiment>
+      <batiment>Station d&apos;Épuration</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -5834,7 +5846,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9513.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -5855,7 +5867,7 @@
       <categorie>BOISSONS</categorie>
       <description>Le café vous remet en forme, mais gare à ne pas en abuser.</description>
       <image>http://img.kraland.org/2/mat/13/1311.gif</image>
-      <batiment>Bar</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -5876,7 +5888,7 @@
       <categorie>DIVERS</categorie>
       <description>Le cigare est une spécialité du Panaguam, il peut se fumer.</description>
       <image>http://img.kraland.org/2/mat/69/6915.gif</image>
-      <batiment>Centre Alchimique</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>4</produitPar>
       <charge>1</charge>
@@ -5921,7 +5933,7 @@
       <categorie>SERVICES</categorie>
       <description>Un prostitué peut vendre les plaisirs de son corps - le client peut les acheter (Moral +2).</description>
       <image>http://img.kraland.org/2/mat/91/9102.gif</image>
-      <batiment>Hôtel</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -5936,7 +5948,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Permet de guérir la Mystiphrénie.</description>
       <image>http://img.kraland.org/2/mat/26/2602.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -5957,7 +5969,7 @@
       <categorie>VÉHICULES</categorie>
       <description>Le bus permet de se déplacer 2 fois plus vite et de transporter 20 personnes au total. Son coffre peut contenir 10 de charge.</description>
       <image>http://img.kraland.org/2/mat/51/5105.gif</image>
-      <batiment>Complexe Garagiste</batiment>
+      <batiment>Garage</batiment>
       <uniteTravail>9</uniteTravail>
       <produitPar>1</produitPar>
       <charge>5</charge>
@@ -5986,7 +5998,7 @@
       <categorie>BIJOUX</categorie>
       <description>Bijou.</description>
       <image>http://img.kraland.org/2/mat/60/6002.gif</image>
-      <batiment>Centre Bijoutier</batiment>
+      <batiment>Bijouterie</batiment>
       <uniteTravail>3</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -6032,7 +6044,7 @@
       <categorie>LIVRES</categorie>
       <description>Le livre de comptes permet de tenir à jour sa comptabilité (Commerce +1).</description>
       <image>http://img.kraland.org/2/mat/25/2502.gif</image>
-      <batiment>Bibliothèque Centrale</batiment>
+      <batiment>Bibliothèque</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -6081,7 +6093,7 @@
       <categorie>NOURRITURE</categorie>
       <description>Parce que les fleurs c&apos;est périssable, puis les bonbons c&apos;est tellement bon (25% de chances Nourriture +1).</description>
       <image>http://img.kraland.org/2/mat/11/1112.gif</image>
-      <batiment>Bar</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -6172,7 +6184,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9509.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -6193,7 +6205,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9410.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -6249,7 +6261,7 @@
       <categorie>LIVRES</categorie>
       <description>De nombreuses techniques pour embobiner votre interlocuteur (Baratin +1).</description>
       <image>http://img.kraland.org/2/mat/25/2501.gif</image>
-      <batiment>Bibliothèque Centrale</batiment>
+      <batiment>Bibliothèque</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -6270,7 +6282,7 @@
       <categorie>ÉLECTRONIQUE</categorie>
       <description>La montre vous permet de gagner du temps, cela se traduit par +0,2 de bonus sur l&apos;ordre Dormir (cumul impossible).</description>
       <image>http://img.kraland.org/2/mat/35/3506.gif</image>
-      <batiment>Technicien</batiment>
+      <batiment>Électronique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -6330,7 +6342,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9418.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -6433,7 +6445,7 @@
       <categorie>OUTILS</categorie>
       <description>Encres, papiers spéciaux, loupes et instruments spéciaux (Falsification +1).</description>
       <image>http://img.kraland.org/2/mat/21/2102.gif</image>
-      <batiment>Complexe Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -6479,7 +6491,7 @@
       <categorie>DIVERS</categorie>
       <description>Le canard en plastique permet à tous les amoureux de la nature de retrouver ses charmes dans leur bain. Il est parfois utilisé pour des choses contraires à la pudeur. Jouer peut avoir un effet sur le moral (un seul, peu importe le jouet, avant de dormir).</description>
       <image>http://img.kraland.org/2/mat/69/6905.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -6514,7 +6526,7 @@
       <categorie>OUTILS</categorie>
       <description>Les clefs sont utilisées pour pouvoir entrer dans les maisons. Elles peuvent être dupliquées (voir règles) et données à autrui.</description>
       <image>http://img.kraland.org/2/mat/21/2199.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>5</produitPar>
       <charge>1</charge>
@@ -6549,7 +6561,7 @@
       <categorie>ANIMAUX D&apos;ÉLEVAGE</categorie>
       <description>Le cheval est élevé pour sa viande ou pour être dressé afin de s&apos;en servir comme monture.</description>
       <image>http://img.kraland.org/2/mat/17/1704.gif</image>
-      <batiment>Pré</batiment>
+      <batiment>Enclos</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>10</charge>
@@ -6578,7 +6590,7 @@
       <categorie>ARMES DE TIR</categorie>
       <description>Cette arme vous permet de tirer des balles mortelles sur vos ennemis. Le bonus aux dégâts est de +3.</description>
       <image>http://img.kraland.org/2/mat/41/4121.gif</image>
-      <batiment>Armurerie Centrale</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>4</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -6603,7 +6615,7 @@
       <categorie>REPAS</categorie>
       <description>La soupe populaire, gratuite, est distribuée dans les temples (Nourriture +1).</description>
       <image>http://img.kraland.org/2/mat/12/1212.gif</image>
-      <batiment>Chapelle Nabla</batiment>
+      <batiment>Temple Nabla</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>15</produitPar>
       <charge>1</charge>
@@ -6624,7 +6636,7 @@
       <categorie>OBJETS MAGIQUES</categorie>
       <description>Cet artéfact repousse les monstres. Si vous le portez, les chances de rencontrer un monstre sont divisées par 2. Non-cumulable avec lui-même.</description>
       <image>http://img.kraland.org/2/mat/72/7221.gif</image>
-      <batiment>Centre Alchimique</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>3</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -6677,7 +6689,7 @@
       <categorie>SERVICES</categorie>
       <description>Le voyage en train permet de se déplacer d&apos;une province (par unité). Le train ne peut pas traverser les mers.</description>
       <image>http://img.kraland.org/2/mat/91/9132.gif</image>
-      <batiment>Station</batiment>
+      <batiment>Gare</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -6727,7 +6739,7 @@
       <categorie>PRODUITS INTERMÉDIAIRES</categorie>
       <description>Réalisée à partir du charbon de bois et de salpêtre (présent sur certaines pierres), la poudre noire est un explosif fort utilisé.</description>
       <image>http://img.kraland.org/2/mat/20/2031.gif</image>
-      <batiment>Armurerie Centrale</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -6752,7 +6764,7 @@
       <categorie>SERVICES</categorie>
       <description>Une prostituée peut vendre les plaisirs de son corps - le client peut les acheter (Moral +2).</description>
       <image>http://img.kraland.org/2/mat/91/9101.gif</image>
-      <batiment>Hôtel</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -6767,7 +6779,7 @@
       <categorie>ÉLECTRONIQUE</categorie>
       <description>La lunette de visée permet de tirer plus précisément (Combat Distance +1).</description>
       <image>http://img.kraland.org/2/mat/35/3510.gif</image>
-      <batiment>Centre Électronique</batiment>
+      <batiment>Électronique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -6792,7 +6804,7 @@
       <categorie>OUTILS</categorie>
       <description>La canne à pêche accorde un bonus de 2 au potentiel de l&apos;ordre Pêcher.</description>
       <image>http://img.kraland.org/2/mat/21/2111.gif</image>
-      <batiment>Complexe Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -6838,7 +6850,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9515.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -6859,7 +6871,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9511.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -6880,7 +6892,7 @@
       <categorie>NOURRITURE</categorie>
       <description>Speculoos est un homme politique ayant tenté d&apos;entraîner l&apos;Hélénie en sécession contre la République de Kraland. Il ne reste rien de lui, à part des biscuits à son effigie (25% de chances Nourriture +1).</description>
       <image>http://img.kraland.org/2/mat/11/1154.gif</image>
-      <batiment>Bar</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>20</produitPar>
       <charge>1</charge>
@@ -6964,7 +6976,7 @@
       <categorie>SERVICES</categorie>
       <description>Vous pouvez obtenir des éléments de confort (nécessaire de toilette, etc) qui améliorent votre séjour et sommeil (Hébergement +1).</description>
       <image>http://img.kraland.org/2/mat/91/9110.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>4</produitPar>
       <charge>1</charge>
@@ -7059,7 +7071,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Cette poudre rend aphone celui qui la consomme. Il ne peut plus utiliser l&apos;ordre Parler, ni lancer de sorts, et ce jusqu&apos;à son prochain sommeil.</description>
       <image>http://img.kraland.org/2/mat/26/2624.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7080,7 +7092,7 @@
       <categorie>LIVRES</categorie>
       <description>Les élections voient généralement une pluie de prospectus électoraux distribués aux citoyens.</description>
       <image>http://img.kraland.org/2/mat/25/2510.gif</image>
-      <batiment>Librairie</batiment>
+      <batiment>Bibliothèque</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -7150,7 +7162,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Permet de guérir la Putréfaction.</description>
       <image>http://img.kraland.org/2/mat/26/2603.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7185,7 +7197,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9404.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7200,7 +7212,7 @@
       <categorie>MUNITIONS &amp; EXPLOSIFS</categorie>
       <description>Munitions pour Fronde.</description>
       <image>http://img.kraland.org/2/mat/42/4201.gif</image>
-      <batiment>Petite Armurerie</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -7221,7 +7233,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9503.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -7242,7 +7254,7 @@
       <categorie>REPAS</categorie>
       <description>Le repas de luxe permet de se nourrir (Nourriture +5).</description>
       <image>http://img.kraland.org/2/mat/12/1204.gif</image>
-      <batiment>Hôtel</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -7275,7 +7287,7 @@
       <categorie>ARMES DE TIR</categorie>
       <description>Le lance-flammes est une arme puissante à courte portée. Le bonus aux dégâts est de +4. Fonctionne à l&apos;essence (il faut 25 unités d&apos;essence pour 1 unité de réserve dans le lance-flammes).</description>
       <image>http://img.kraland.org/2/mat/41/4151.gif</image>
-      <batiment>Complexe Armurier</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>5</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7300,7 +7312,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Permet de guérir l&apos;Allergie Magique.</description>
       <image>http://img.kraland.org/2/mat/26/2610.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7321,7 +7333,7 @@
       <categorie>VÊTEMENTS ET ACCESSOIRES</categorie>
       <description>La cape offre un bonus de 1 à l&apos;ordre Se cacher.</description>
       <image>http://img.kraland.org/2/mat/30/3055.gif</image>
-      <batiment>Vendeur de Tissu</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7377,7 +7389,7 @@
       <categorie>LIVRES</categorie>
       <description>Le livre de cuisine réduit de 0.05 PdV la fatigue pour fournir 1 UT dans la préparation de nourriture ou de repas (mais pas de boissons).</description>
       <image>http://img.kraland.org/2/mat/25/2531.gif</image>
-      <batiment>Bibliothèque Centrale</batiment>
+      <batiment>Bibliothèque</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7398,7 +7410,7 @@
       <categorie>ÉQUIPEMENT MAISONS</categorie>
       <description>La grille ajoute 1 niveau de sécurité à une maison.</description>
       <image>http://img.kraland.org/2/mat/22/2202.gif</image>
-      <batiment>Centre Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7440,7 +7452,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Permet de guérir la Bolopolisme.</description>
       <image>http://img.kraland.org/2/mat/26/2604.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7475,7 +7487,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9401.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7490,7 +7502,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Permet de guérir la Cécité.</description>
       <image>http://img.kraland.org/2/mat/26/2606.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7564,7 +7576,7 @@
       <categorie>ÉQUIPEMENT MAISONS</categorie>
       <description>Cette alarme ajoute 1 niveau de sécurité à une maison.</description>
       <image>http://img.kraland.org/2/mat/22/2204.gif</image>
-      <batiment>Complexe Cybernétique</batiment>
+      <batiment>Électronique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7593,7 +7605,7 @@
       <categorie>REPAS</categorie>
       <description>La salade de légumes permet de se nourrir (Nourriture +2).</description>
       <image>http://img.kraland.org/2/mat/12/1201.gif</image>
-      <batiment>Bar</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -7614,7 +7626,7 @@
       <categorie>PLANTES</categorie>
       <description>Vous pouvez offrir des fleurs à votre fiancée ou embellir votre maison.</description>
       <image>http://img.kraland.org/2/mat/16/1601.gif</image>
-      <batiment>Potager</batiment>
+      <batiment>Ferme</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -7629,7 +7641,7 @@
       <categorie>OBJETS MAGIQUES</categorie>
       <description>Grâce à ce diadème psychique, vous obtiendrez une puissance psychique plus grande qui se traduira par 1 point de VOL en plus tant que vous le porterez. Non-cumulable avec lui-même.</description>
       <image>http://img.kraland.org/2/mat/72/7202.gif</image>
-      <batiment>Complexe Alchimique</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>6</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7638,6 +7650,10 @@
       <composants>
         <org.calafie.modele.objets.Composant>
           <nomObjet>Métal</nomObjet>
+          <nombre>2</nombre>
+        </org.calafie.modele.objets.Composant>
+        <org.calafie.modele.objets.Composant>
+          <nomObjet>Anneau en Or</nomObjet>
           <nombre>2</nombre>
         </org.calafie.modele.objets.Composant>
       </composants>
@@ -7664,7 +7680,7 @@
       <categorie>ÉQUIPEMENTS DE VÉHICULES</categorie>
       <description>Un véhicule équipé d&apos;un système antivol impose une difficulté supplémentaire de 3 à toute tentative d&apos;Effraction.</description>
       <image>http://img.kraland.org/2/mat/56/5602.gif</image>
-      <batiment>Centre Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7685,7 +7701,7 @@
       <categorie>BOISSONS</categorie>
       <description>Jaloux du rhum des pirates de Crab Key, les boucaniers des Caraïbes ont créé leur propre gnôle qu&apos;ils boivent jusqu&apos;à plus soif quand ils rentrent de pillage. Teneur en alcool : 3.</description>
       <image>http://img.kraland.org/2/mat/13/1354.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -7720,7 +7736,7 @@
       <categorie>REPAS</categorie>
       <description>La Vodkalie est connue pour sa délicieuse soupe de homard et tortue (Nourriture +3).</description>
       <image>http://img.kraland.org/2/mat/12/1250.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -7745,7 +7761,7 @@
       <categorie>ARMES DE CONTACT</categorie>
       <description>Ce magnifique couteau de combat vous permet de gagner un bonus de +2 sur les dégâts que vous faites quand vous vous battez.</description>
       <image>http://img.kraland.org/2/mat/40/4002.gif</image>
-      <batiment>Petite Armurerie</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7780,7 +7796,7 @@
       <categorie>OUTILS</categorie>
       <description>Petites scies, trousseaux de clefs, etc (Vol +1).</description>
       <image>http://img.kraland.org/2/mat/21/2105.gif</image>
-      <batiment>Centre Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7815,7 +7831,7 @@
       <categorie>VÊTEMENTS ET ACCESSOIRES</categorie>
       <description>Conçues spécialement pour les chasseurs de pingouins à roulettes, ces santiags à roulettes permettent de rattraper ces satanées bestioles (+2 à l&apos;ordre Chasser en Andalousie).</description>
       <image>http://img.kraland.org/2/mat/30/3041.gif</image>
-      <batiment>Grand Tailleur</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>3</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7840,7 +7856,7 @@
       <categorie>ARMES DE CONTACT</categorie>
       <description>Le polochon peut être utilisé en combat : les dégâts infligés seront alors réduits à 0 (peu importe la technique de combat employée).</description>
       <image>http://img.kraland.org/2/mat/40/4099.gif</image>
-      <batiment>Vendeur de Tissu</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -7865,7 +7881,7 @@
       <categorie>BATEAUX</categorie>
       <description>Ce bateau permet de se déplacer sur les mers et de transporter 6 personnes au total. Ses soutes peuvent peut contenir 20 de charge.</description>
       <image>http://img.kraland.org/2/mat/52/5203.gif</image>
-      <batiment>Centre Portuaire</batiment>
+      <batiment>Port</batiment>
       <uniteTravail>4</uniteTravail>
       <produitPar>1</produitPar>
       <charge>5</charge>
@@ -7904,7 +7920,7 @@
       <categorie>DIVERS</categorie>
       <description>Vous pouvez acheter un objet souvenir d&apos;une statue.</description>
       <image>http://img.kraland.org/2/mat/69/6921.gif</image>
-      <batiment>Buste - Kraland</batiment>
+      <batiment>Statue - Kraland</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -7959,7 +7975,7 @@
       <categorie>ÉQUIPEMENTS DE VÉHICULES</categorie>
       <description>Un véhicule équipé d&apos;un catalyseur émettra moitié moins de pollution (tout en consommant la même quantité d&apos;essence).</description>
       <image>http://img.kraland.org/2/mat/56/5604.gif</image>
-      <batiment>Complexe Garagiste</batiment>
+      <batiment>Garage</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -7984,7 +8000,7 @@
       <categorie>AVIONS</categorie>
       <description>Cet engin permet de voler au-dessus des terres comme des mers, de se déplacer 2 fois plus vite et de transporter 2 personnes au total. Ses soutes peuvent contenir 10 de charge. Il nécessite de l&apos;essence.</description>
       <image>http://img.kraland.org/2/mat/53/5302.gif</image>
-      <batiment>Aéroport Central</batiment>
+      <batiment>Aéroport</batiment>
       <uniteTravail>8</uniteTravail>
       <produitPar>1</produitPar>
       <charge>5</charge>
@@ -8009,7 +8025,7 @@
       <categorie>ARMES DE CONTACT</categorie>
       <description>Equivalente au couteau en combat (+2 sur les dégâts), la machette offre également +2 sur l&apos;ordre Arracher Arbre/Fleurs.</description>
       <image>http://img.kraland.org/2/mat/40/4021.gif</image>
-      <batiment>Petite Armurerie</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -8030,7 +8046,7 @@
       <categorie>VÊTEMENTS ET ACCESSOIRES</categorie>
       <description>Le sac à dos permet de transporter des objets (cumulant une charge totale de 5 maximum).</description>
       <image>http://img.kraland.org/2/mat/30/3061.gif</image>
-      <batiment>Grand Tailleur</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -8108,7 +8124,7 @@
       <categorie>DIVERS</categorie>
       <description>Objet sans effet (qui peut être personnalisé).</description>
       <image>http://img.kraland.org/2/mat/69/6961.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -8129,7 +8145,7 @@
       <categorie>MATIÈRES PREMIÈRES</categorie>
       <description>Élément essentiel de toute construction solide, la pierre est tirée de vastes carrières et taillée au format désiré.</description>
       <image>http://img.kraland.org/2/mat/10/1031.gif</image>
-      <batiment>Carrière</batiment>
+      <batiment>Mine de Pierre</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -8158,7 +8174,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Permet de guérir l&apos;Iglootisme.</description>
       <image>http://img.kraland.org/2/mat/26/2609.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -8179,7 +8195,7 @@
       <categorie>NOURRITURE</categorie>
       <description>Les champignons pullulent en Underground (Nourriture +1) et sont utilisés pour faire des omelettes. Les bruns à moitié blanc sont comestibles. Les blancs à moitié brun sont vénéneux. C&apos;est pourtant facile de ne pas se tromper.</description>
       <image>http://img.kraland.org/2/mat/11/1137.gif</image>
-      <batiment>Potager</batiment>
+      <batiment>Ferme</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -8194,7 +8210,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9510.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -8215,7 +8231,7 @@
       <categorie>DIVERS</categorie>
       <description>Elle a tout d&apos;une grande. Des heures de plaisir à faire vroum vroum. Jouer peut avoir un effet sur le moral (un seul, peu importe le jouet, avant de dormir).</description>
       <image>http://img.kraland.org/2/mat/69/6917.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -8250,7 +8266,7 @@
       <categorie>BOISSONS</categorie>
       <description>Lorsqu&apos;ils rentrent de pillage, les pirates de Crab Key percent un tonneau de rhum et en boivent jusqu&apos;à plus soif. Teneur en alcool : 3.</description>
       <image>http://img.kraland.org/2/mat/13/1393.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -8285,7 +8301,7 @@
       <categorie>VÉHICULES</categorie>
       <description>La moto de course permet de se déplacer 3 fois plus vite et de transporter 1 personne au total. Ses sacoches peuvent contenir 2 de charge.</description>
       <image>http://img.kraland.org/2/mat/51/5107.gif</image>
-      <batiment>Garage Central</batiment>
+      <batiment>Garage</batiment>
       <uniteTravail>4</uniteTravail>
       <produitPar>1</produitPar>
       <charge>0</charge>
@@ -8314,7 +8330,7 @@
       <categorie>MATIÈRES PREMIÈRES</categorie>
       <description>Le métal est tiré des profondeurs de la terre pour être travaillé. Fer ou autre, il est le fondement de la civilisation moderne.</description>
       <image>http://img.kraland.org/2/mat/10/1051.gif</image>
-      <batiment>Gisement de Fer</batiment>
+      <batiment>Mine de Fer</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -8329,7 +8345,7 @@
       <categorie>NOURRITURE</categorie>
       <description>La tarte à la crème permet de se nourrir (Nourriture +1) ou d&apos;entarter les politiciens médiocres.</description>
       <image>http://img.kraland.org/2/mat/11/1111.gif</image>
-      <batiment>Bar</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -8350,7 +8366,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9414.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -8453,7 +8469,7 @@
       <categorie>OUTILS</categorie>
       <description>Tout pour survivre dans un environnement hostile (Survie +1).</description>
       <image>http://img.kraland.org/2/mat/21/2104.gif</image>
-      <batiment>Complexe Quincailler</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -8492,7 +8508,7 @@
       <categorie>ARMURES</categorie>
       <description>Permet de détourner certains coups (Combat Contact +1).</description>
       <image>http://img.kraland.org/2/mat/43/4351.gif</image>
-      <batiment>Armurerie Centrale</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -8531,7 +8547,7 @@
       <categorie>ÉLECTRONIQUE</categorie>
       <description>Le mouchard émet sur une certaine fréquence (que vous pouvez définir). Le localisateur correspondant à cette fréquence pourra repérer les mouchards. Les mouchards placés dans des contenants n&apos;émettent plus.</description>
       <image>http://img.kraland.org/2/mat/35/3509.gif</image>
-      <batiment>Centre Électronique</batiment>
+      <batiment>Électronique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>0</charge>
@@ -8713,7 +8729,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Ce baume est à passer sur vos blessures (Soins +2).</description>
       <image>http://img.kraland.org/2/mat/26/2621.gif</image>
-      <batiment>Infirmerie</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>4</produitPar>
       <charge>1</charge>
@@ -8748,7 +8764,7 @@
       <categorie>ARMURES</categorie>
       <description>La cuirasse vous protège contre les mauvais coups. Elle accorde une armure de 1 point.</description>
       <image>http://img.kraland.org/2/mat/43/4304.gif</image>
-      <batiment>Armurerie Centrale</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>6</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -8769,7 +8785,7 @@
       <categorie>ÉQUIPEMENTS DE VÉHICULES</categorie>
       <description>Un véhicule peut être équipé d&apos;un siège supplémentaire, ce qui permet de transporter une personne en plus.</description>
       <image>http://img.kraland.org/2/mat/56/5601.gif</image>
-      <batiment>Grand Tailleur</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -8794,7 +8810,7 @@
       <categorie>ARMES DE TIR</categorie>
       <description>Le fusil de chasse est équivalent au fusil (dégâts +4) mais sa portée est moindre. Par contre, il offre +2 au potentiel sur l&apos;ordre Chasser ainsi que sur le second jet de discrétion de cet ordre.</description>
       <image>http://img.kraland.org/2/mat/41/4133.gif</image>
-      <batiment>Complexe Armurier</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>6</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -8833,7 +8849,7 @@
       <categorie>REPAS</categorie>
       <description>L&apos;omelette aux champignons est la spécialité des auberges d&apos;Undergroud (Nourriture +2). Le fait que des touristes aient succombé à un champignon vénéneux égaré dans leur omelette est un malheureux accident qui ne se reproduira plus, paraît-il.</description>
       <image>http://img.kraland.org/2/mat/12/1237.gif</image>
-      <batiment>Bar</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>10</produitPar>
       <charge>1</charge>
@@ -8854,7 +8870,7 @@
       <categorie>BIJOUX</categorie>
       <description>Ce pendentif porte un pentacle avec une représentation de Naar, Celui qui Siège. Les prêtres maléfiques le portent souvent sur eux.</description>
       <image>http://img.kraland.org/2/mat/60/6001.gif</image>
-      <batiment>Orfèvrerie</batiment>
+      <batiment>Bijouterie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -8875,7 +8891,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9415.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -8939,7 +8955,7 @@
       <categorie>VÉHICULES</categorie>
       <description>La camionnette permet de se déplacer 2 fois plus vite et de transporter 6 personnes au total. Son coffre peut contenir 20 de charge.</description>
       <image>http://img.kraland.org/2/mat/51/5103.gif</image>
-      <batiment>Garage Central</batiment>
+      <batiment>Garage</batiment>
       <uniteTravail>6</uniteTravail>
       <produitPar>1</produitPar>
       <charge>10</charge>
@@ -8982,7 +8998,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Ces vitamines permettent de vous remettre en forme (Soins +1).</description>
       <image>http://img.kraland.org/2/mat/26/2626.gif</image>
-      <batiment>Infirmerie</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>5</produitPar>
       <charge>1</charge>
@@ -9017,7 +9033,7 @@
       <categorie>ÉLECTRONIQUE</categorie>
       <description>Le détonateur permet de mieux exploiter les possibilités des explosifs (Démolition +1).</description>
       <image>http://img.kraland.org/2/mat/35/3501.gif</image>
-      <batiment>Centre Électronique</batiment>
+      <batiment>Électronique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -9228,7 +9244,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9412.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -9271,7 +9287,7 @@
       <categorie>BOISSONS</categorie>
       <description>La vodka (ou vodkra) est un alcool fort, particulièrement apprécié à Kraland. Le Troisième Élu la considère comme salutaire. Teneur en alcool : 3.</description>
       <image>http://img.kraland.org/2/mat/13/1351.gif</image>
-      <batiment>Auberge</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -9327,7 +9343,7 @@
       <categorie>SERVICES</categorie>
       <description>Le soutien psychologique permet de retrouver le moral (Moral +2).</description>
       <image>http://img.kraland.org/2/mat/91/9112.gif</image>
-      <batiment>Infirmerie</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -9342,7 +9358,7 @@
       <categorie>DIVERS</categorie>
       <description>Le petit poney a beaucoup de succès auprès des enfants elfes qui zozotent dans les forêts du Paradigme Vert. Jouer peut avoir un effet sur le moral (un seul, peu importe le jouet, avant de dormir).</description>
       <image>http://img.kraland.org/2/mat/69/6918.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -9363,7 +9379,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9518.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -9384,7 +9400,7 @@
       <categorie>BIJOUX</categorie>
       <description>Anneau avec pierre précieuse.</description>
       <image>http://img.kraland.org/2/mat/60/6003.gif</image>
-      <batiment>Complexe Bijoutier</batiment>
+      <batiment>Bijouterie</batiment>
       <uniteTravail>3</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -9413,7 +9429,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9501.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -9434,7 +9450,7 @@
       <categorie>OBJETS MAGIQUES</categorie>
       <description>Grâce à cet anneau, vous pourrez mieux contrôler vos affaires et vos associés. Vous gagnez 1 point de GES en plus tant que vous le porterez. Non-cumulable avec lui-même.</description>
       <image>http://img.kraland.org/2/mat/72/7204.gif</image>
-      <batiment>Complexe Alchimique</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>6</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -9479,7 +9495,7 @@
       <categorie>DIVERS</categorie>
       <description>Cette statuette représente Shneider Phineras, une légende du cybermonde. Ses adorateurs prient devant la statuette afin que Shneider Phineras écarte le mauvais œil.</description>
       <image>http://img.kraland.org/2/mat/69/6908.gif</image>
-      <batiment>Vendeur de Pacotille</batiment>
+      <batiment>Quincaillerie</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>3</produitPar>
       <charge>1</charge>
@@ -9525,7 +9541,7 @@
       <categorie>POTIONS MAGIQUES</categorie>
       <description>Cette potion fait agir plus rapidement jusqu&apos;à votre prochain sommeil (80% des PdV requis, sauf déplacements). L&apos;effet de plusieurs potions ne se cumule pas (la dernière comptera). Elle annule l&apos;effet d&apos;une potion de lenteur mais n&apos;a alors pas d&apos;effet.</description>
       <image>http://img.kraland.org/2/mat/71/7103.gif</image>
-      <batiment>Centre Alchimique</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -9581,7 +9597,7 @@
       <categorie>MÉDICAMENTS</categorie>
       <description>Permet de guérir l&apos;Anorexie.</description>
       <image>http://img.kraland.org/2/mat/26/2607.gif</image>
-      <batiment>Hôpital</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -9651,7 +9667,7 @@
       <categorie>ARMES DE CONTACT</categorie>
       <description>Avec cette épée finement aiguisée, vous sortirez vainqueur de tout combat car elle vous accorde un +5 aux dégâts que vous faites.</description>
       <image>http://img.kraland.org/2/mat/40/4005.gif</image>
-      <batiment>Armurerie Centrale</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>6</uniteTravail>
       <produitPar>1</produitPar>
       <charge>2</charge>
@@ -9721,7 +9737,7 @@
       <categorie>MATIÈRES PREMIÈRES</categorie>
       <description>Tiré des profondeurs de la terre, le pétrole est une source énergétique vitale pour le cybermonde.</description>
       <image>http://img.kraland.org/2/mat/10/1071.gif</image>
-      <batiment>Nappe de Pétrole</batiment>
+      <batiment>Puits de Pétrole</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -9736,7 +9752,7 @@
       <categorie>VÊTEMENTS ET ACCESSOIRES</categorie>
       <description>La tente peut se dresser sur une case libre et offrir un hébergement.</description>
       <image>http://img.kraland.org/2/mat/30/3071.gif</image>
-      <batiment>Grand Tailleur</batiment>
+      <batiment>Tailleur</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -9829,7 +9845,7 @@
       <categorie>LIVRES</categorie>
       <description>Lois cybermondiales et jurisprudence (Éloquence +1).</description>
       <image>http://img.kraland.org/2/mat/25/2503.gif</image>
-      <batiment>Bibliothèque Centrale</batiment>
+      <batiment>Bibliothèque</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -9850,7 +9866,7 @@
       <categorie>POTIONS MAGIQUES</categorie>
       <description>Cette potion efface de la mémoire de celui qui la boit tout souvenir de ses actions : toutes les informations privées le concernant sont effacées de sa mémoire.</description>
       <image>http://img.kraland.org/2/mat/71/7105.gif</image>
-      <batiment>Centre Alchimique</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -9885,7 +9901,7 @@
       <categorie>ÉLECTRONIQUE</categorie>
       <description>Le déflecteur anti-termondique permet de passer sans dommage au travers d&apos;un tunnel termondique en Structurie.</description>
       <image>http://img.kraland.org/2/mat/35/3521.gif</image>
-      <batiment>Centre Électronique</batiment>
+      <batiment>Électronique</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -9910,7 +9926,7 @@
       <categorie>STAGES</categorie>
       <description>Permet de s&apos;entraîner dans cette compétence (+1 jusqu&apos;au prochain sommeil).</description>
       <image>http://img.kraland.org/2/mat/94/9417.gif</image>
-      <batiment>École</batiment>
+      <batiment>École Supérieure</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -9975,7 +9991,7 @@
       <categorie>OBJETS MAGIQUES</categorie>
       <description>Grâce à ce collier de charme, vous obtiendrez un charisme plus grand qui se traduira par 1 point de CHA en plus tant que vous le porterez. Non-cumulable avec lui-même.</description>
       <image>http://img.kraland.org/2/mat/72/7203.gif</image>
-      <batiment>Complexe Alchimique</batiment>
+      <batiment>Alchimie</batiment>
       <uniteTravail>6</uniteTravail>
       <produitPar>1</produitPar>
       <charge>1</charge>
@@ -10035,7 +10051,7 @@
       <categorie>IMPLANTS</categorie>
       <description>Permet d&apos;obtenir un bonus de 1 dans cette compétence jusqu&apos;à sa désagrégation.</description>
       <image>http://img.kraland.org/2/mat/95/9504.gif</image>
-      <batiment>Complexe Hospitalier</batiment>
+      <batiment>Clinique</batiment>
       <uniteTravail>1</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>
@@ -10098,7 +10114,7 @@
       <categorie>ARMURES</categorie>
       <description>Le gilet pare-balles protège votre corps contre les coups et les tirs. Il accorde une armure de 1 point.</description>
       <image>http://img.kraland.org/2/mat/43/4303.gif</image>
-      <batiment>Complexe Armurier</batiment>
+      <batiment>Armurerie</batiment>
       <uniteTravail>4</uniteTravail>
       <produitPar>1</produitPar>
       <charge>2</charge>
@@ -10123,7 +10139,7 @@
       <categorie>SERVICES</categorie>
       <description>Prostitué de luxe, il peut vendre les plaisirs de son corps - le client peut les acheter (Moral +4).</description>
       <image>http://img.kraland.org/2/mat/91/9104.gif</image>
-      <batiment>Hôtel</batiment>
+      <batiment>Restaurant</batiment>
       <uniteTravail>2</uniteTravail>
       <produitPar>2</produitPar>
       <charge>1</charge>

@@ -1,8 +1,11 @@
 package org.calafie.transform;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-
+import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
 import java.util.Map;
 
 import org.calafie.Constantes;
@@ -34,8 +37,11 @@ public class ObjetTransformerToJson {
 		
 		System.out.println(Util.toJson(objets.values()));
 		
-		
-		
+		Charset iso = Charset.forName(Constantes.ISO);
+		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+				new FileOutputStream(Constantes.LECTEUR + Constantes.CHEMIN + "isoObj" + ".xml"),iso ));
+		writer.write(Util.toJson(objets.values()));
+		writer.close();
 	
 	}
 	

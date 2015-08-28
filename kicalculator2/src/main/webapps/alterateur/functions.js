@@ -9,6 +9,20 @@ function getEl(id) {
 }
 
 /**
+ * Fonction d'arrondi
+ * @param cc nombre a arrondir
+ * @returns {Number} nombre arrondi a 1 chiffre après la virgule
+ */
+function round(cc, nb) {
+	if (nb == null) {
+		nb = 1;
+	}
+	nb = Math.pow(10, nb);	
+	
+	return Math.round(cc*nb)/nb;
+}
+
+/**
  * Fonction de base pour ajouter un noeud d'un type
  * 
  * @param NodeParent

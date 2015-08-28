@@ -31,21 +31,36 @@ public class ObjetSoupProcessor {
             "Petite Raffinerie / Raffinerie / Grande Raffinerie / Complexe Raffinerie",
             "Petite Armurerie / Armurerie / Armurerie Centrale / Complexe Armurier",
             "Bar / Restaurant / Auberge / Hôtel", "Vendeur de Tissu / Tailleur / Grand Tailleur / Haute-Couture",
-            "Vendeur de Pacotille / Quincaillerie / Centre Quincailler / Complexe Quincaille",
+            "Vendeur de Pacotille / Quincaillerie / Centre Quincailler / Complexe Quincailler",
             "Librairie / Bibliothèque / Bibliothèque Centrale / Complexe Bibliothécaire",
             "Technicien / Électronique / Centre Électronique / Complexe Cybernétique",
             "Station-Service / Garage / Garage Central / Complexe Garagiste",
             "Orfèvrerie / Bijouterie / Centre Bijoutier / Complexe Bijoutier",
             "Infirmerie / Clinique / Hôpital / Complexe Hospitalier",
             "Herboriste / Alchimie / Centre Alchimique / Complexe Alchimique",
-            "École / École Supérieure / Université / Campus Universitaire"
+            "École / École Supérieure / Université / Campus Universitaire",
+            "Chapelle Nabla / Temple Nabla / Cathédrale Nabla / Basilique Nabla",
+            "Petit Musée / Musée / Grand Musée / Musée Impérial"
     };
     
 	public static final String[] BATIMENTS_PUBLIC = {
+			"Potager / Ferme / Centre Agricole / Complexe Agricole",
+			"Camp de Bûcherons / Production de Bois / Centre de Production de Bois / Complexe de Production de Bois",
+			"Pré / Enclos / Centre d'Élevage / Complexe d'Élevage",
+			"Carrière / Mine de Pierre / Centre Minier de Pierre / Complexe Minier de Pierre",
+			"Gisement de Fer / Mine de Fer / Centre Minier de Fer / Complexe Minier de Fer",
+			"Nappe de Pétrole / Puits de Pétrole / Centre Pétrolier / Complexe Pétrolier",
+			"Gisement d'Or / Mine d'Or / Centre Minier d'Or / Complexe Minier d'Or",
+			"Nappe de Logique Brute / Puits de Logique Brute / Centre de Logique Brute / Complexe de Logique Brute",
+			"Pompe d'Épuration / Station d'Épuration / Centre d'Épuration / Complexe d'Épuration",
 			"Base Militaire / Base Militaire / Base Militaire / Base Militaire",
 			"Aérodrome / Aéroport / Aéroport Central / Complexe Aéroport",
 			"Embarcadère / Port / Centre Portuaire / Complexe Portuaire",
 			"Centrale Thermique / Centrale Thermique / Centrale Thermique / Centrale Thermique",
+			"Buste - Kraland / Statue - Kraland / Mémorial - Kraland / Monument - Kraland",
+			"Cage / Prison / Prison de Haute Sécurité / Complexe Pénitencier",
+			"Station / Gare / Centre Ferroviaire / Complexe Ferroviaire",
+			"Chapiteau / Chapiteau / Chapiteau / Chapiteau"
 	};
     
     
@@ -303,7 +318,10 @@ public class ObjetSoupProcessor {
                         int las = chainebat.lastIndexOf('(');
                         las = las != -1 ? las : 0;
                         nomBat = chainebat.substring(0, las).trim();
-                        batiment = mapBatiment.get(chainebat);
+                        batiment = mapBatiment.get(nomBat);
+                        if (batiment != null) {
+                        	nomBat = batiment.getNom();
+                        }
                         
                         
                         if (chainebat.contains("niv.")) {
@@ -402,6 +420,8 @@ public class ObjetSoupProcessor {
                 tmp += el.substring(0, el.length() - 3) + "al";
             } else if (el.endsWith("x") || el.endsWith("s")) {
                 tmp += el.substring(0, el.length() - 1);
+            } else {
+            	tmp += el;
             }
         }
         tmp = tmp.trim();
@@ -410,6 +430,25 @@ public class ObjetSoupProcessor {
             return tmp;
         }
 
+        tmp = "";
+        // Cas des aux qui ne sont pas en al.
+        if (result == null) {
+        	for (String el : expComn) {
+                tmp += " ";
+                if (el.endsWith("x")) {
+                    tmp += el.substring(0, el.length() - 1);
+                } else {
+                	tmp += el;
+                }
+            }
+        }
+        tmp = tmp.trim();
+
+        if (mapObj.containsKey(tmp)) {
+            return tmp;
+        }
+        
+        
         return result;
     }
 
