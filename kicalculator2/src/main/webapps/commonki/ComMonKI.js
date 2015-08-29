@@ -15,7 +15,8 @@ var valeurDefautImpot = 10; // valeur par defaut si impot non trouvé
 var marchandageActive = true; // true/false affiche ou non le marchandage
 var typeMarchandage = 'AchatVente'; // valeur possible : Achat, Vente ou AchatVente
 var valeurDefautMarchandage = 10; // valeur par défaut du marchandage
-var fraude = false; // fraude fiscale activé ou non.
+
+var fraude = false; // fraude fiscale activée ou non.
 
 // NE PAS MODIFIER SI VOUS NE SAVEZ PAS CE QUE VOUS FAITES
 // Liste des objets
@@ -111,21 +112,32 @@ init();
 
 // Initialisation du script
 function init() {
-	// On cherche le noeud du tableau à partir duquel on va faire l'extension de tableau
+	// On cherche le noeud du tableau à partir duquel on va faire l'extension de
+	// tableau
 	var nodesTh = document.getElementsByTagName('th');
 	for (var i = 0; i < nodesTh.length; i++) {
-		  var node = nodesTh[i];
-		  
-		  if (node.firstChild != null) {
-			  // On prend le noeud dont la node enfant contient le mot clé "COMMERCE"
-			  if (node.firstChild.nodeValue == "COMMERCE") {
-				  thCommerce = node;
-			  }
-		  }
+		var node = nodesTh[i];
+
+		if (node.firstChild != null) {
+			// On prend le noeud dont la node enfant contient le mot clé
+			// "COMMERCE"
+			if (node.firstChild.nodeValue == "COMMERCE") {
+				thCommerce = node;
+				parentCommerce = thCommerce.parentNode;
+
+				// On vérifie qu'il y a une caisse après le TR commerce
+				var caisseNode = parentCommerce.nextSibling;
+				while(caisseNode != null && caisseNode.nodeName != 'IMG') {
+					caisseNode = caisseNode.firstChild;
+				}
+				
+				if (caisseNode == null || caisseNode.nodeName != 'IMG' || caisseNode.alt != 'Caisse'){
+					thCommerce = null;
+				}
+			}
+		}
 	}
 	if (thCommerce != null) {
-		parentCommerce = thCommerce.parentNode;
-
 		// trouver le tr avec le nom du batiment.  Ajoute un bouton dans ce TR pour le déclenchement du script.
 		buttonPosition = parentCommerce.parentNode.firstChild.firstChild; // c'est un TR donc on Descend dans son fils pour ajouter un bouton dans un td.
 		buttonActive = addNode(buttonPosition, "input");
