@@ -4,7 +4,7 @@
 // @include     http://test.kraland.org/*
 // @grant 		none
 // @author Famine(794)
-// @version 1.4
+// @version 1.5
 // ==/UserScript==
 
 // COMmercial MONkey KI javaScript // HUHU
@@ -125,15 +125,17 @@ function init() {
 				thCommerce = node;
 				parentCommerce = thCommerce.parentNode;
 
-				// On vérifie qu'il y a une caisse après le TR commerce
-				var caisseNode = parentCommerce.nextSibling;
-				while(caisseNode != null && caisseNode.nodeName != 'IMG') {
-					caisseNode = caisseNode.firstChild;
-				}
-				
-				if (caisseNode == null || caisseNode.nodeName != 'IMG' || caisseNode.alt != 'Caisse'){
-					thCommerce = null;
-				}
+				/*
+					// On vérifie qu'il y a une caisse après le TR commerce
+					var caisseNode = parentCommerce.nextSibling;
+					while(caisseNode != null && caisseNode.nodeName != 'IMG') {
+						caisseNode = caisseNode.firstChild;
+					}
+					
+					if (caisseNode == null || caisseNode.nodeName != 'IMG' || caisseNode.alt != 'Caisse'){
+						thCommerce = null;
+					}
+				*/
 			}
 		}
 	}
@@ -605,7 +607,11 @@ function recalcul (registree) {
 	}
 	
 	if (registree.facteurs != null && registree.facteurs.length > 0 || registree.isService) {
-		var salaire = getEl(idInputSalaire).value;
+		var salaire = 0;
+		var nn = getEl(idInputSalaire);
+		if (nn != null) {
+			salaire = nn.value;
+		}
 		var ut = registree.objet.uniteTravail;
 		var nbProd = registree.objet.produitPar;
 		var tabPrixComposant = [];
