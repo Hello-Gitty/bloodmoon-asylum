@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>L'altérateur</title>
-<script language="javascript" type="text/javascript" src="functions.js"></script>
-<script language="javascript" type="text/javascript" src="alteration.js"></script>
+<script type="text/javascript" src="functions.js"></script>
+<script type="text/javascript" src="alteration.js"></script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body onload="init()">
-Sélectionnez une catégorie : <select id="listCat"></select> puis un objet : <select id="listObj"></select> quantité : <input type="text" id="inpNbProd" value="1" />
+Sélectionnez une catégorie : <select id="listCat"></select> puis un objet : <select id="listObj"></select> quantité : <input type="text" id="inpNbProd" onchange="changeNombre(this.value)" value="1" />
 <br/>
-Base ut : <input type="text" id="inpBaseUt" value="1.2" disabled="true" /> 
+Base ut : <input type="text" id="inpBaseUt" value="1.2" disabled /> 
 <br/>
 <input type="checkbox" id="isEntrain" onchange="changeModif(this.id, this.checked)"/> Entrain <input type="checkbox" id="isChaine" onchange="changeModif(this.id, this.checked)"/> Chaine production
 <br/>

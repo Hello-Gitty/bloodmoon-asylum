@@ -9,6 +9,16 @@ var listCategorie = JSON.parse(dataCat);
 var fullDisplay = true;
 var displayImg = true;
 var synthese = []; // {nom: , nombre:}
+/*
+ * 				nombre:0,
+				objet:objet,
+				nom:objet.nom,
+				isModifiable:modifiable,
+				applicable:applicable		
+ * 
+ * 
+ * 
+ */
 var batimentsSynthese = []; // {nom: , niveau:}
 
 var synthProd = {ut: 0, pdv:0};
@@ -21,9 +31,40 @@ var idDivDecomp = 'div-decomp';
 var idNbProd = 'inpNbProd';
 var idBaseUt = 'inpBaseUt';
 
+var idInputNombreObj = 'inpNbObjet_';
+var idInputUtObj = 'inpUtObjet_';
+var idInputCoef = 'inpCoef';
+var idInputModifCoef = 'inpModifCoef';
+
+var idInputUtProduit = 'inpUtProduit';
+var idInputPdvProduit = 'inpPdvProduit';
+var idInputUtMat = 'inpUtMat';
+var idInputPdvMat = 'inpPdvMat';
+var idInputUtTot = 'inpUtTot';
+var idInputPdvTot = 'inpPdvTot';
+var idInpSynthMatNb = 'inputMatSynthNb_';
+var idInpSynthMatUt = 'inputMatSynthut_';
+var idInpSynthMatPdv = 'inputMatSynthPdv_';
+var idInpSynthMatCoefB = 'inputMatSynthCoefB_';
+var idInpSynthMatCoefM = 'inputMatSynthCoefM_';
+
+
+var nbEchange = 0;
+
 var currentPourcent = [{nom:'isPopo', valeur:1}, {nom:'isInflex', valeur:1}];
 
 
+var compteurObj = 0;
+var registre = []; 
+/*
+ {
+  	produitPar: , nombre d'objet produit par le nb ut
+  	nbUt: , nb ut pour produire
+  	nbBase , nombre de base pour la production
+  	idCompteur, idCompteur
+  	isProduit:
+  }
+*/
 // CONSTANTES
 var baseCoeficien = 1;
 var coeficienMonstre = 1.6;
@@ -33,8 +74,9 @@ var pdvMarchandage = 0.15;
 
 var pourcentUt = [{nom:'non', valeur:1}, {nom:'oui', valeur:0.8}, {nom:'crit', valeur:0.6}];
 var modifUt = [{nom:'isEntrain', valeur:-0.2, actif:false},{nom:'isChaine', valeur:-0.1, actif:false}];
-var modifCoef = [{nom:'isFilon', valeur:-0.1, actif:false, restrict:['Or', 'Pierre', 'Métal', 'Pétrole']}, {nom:'isProdEnc', valeur:-0.2, actif:false}];
+var modifCoef = [{nom:'isFilon', valeur:-0.1, actif:false, restrict : ['Or', 'Pierre', 'Métal', 'Pétrole']}, {nom:'isProdEnc', valeur:-0.2, actif:false}];
 var monstresOrig = ['Laine', 'Cuir'];
+
 
 /*
 UT
@@ -89,6 +131,16 @@ function search(list, nom) {
 	return null;
 }
 
+function arrondir(val) {
+	var tmp = Math.round(val);
+	var result = Math.round(val)
+	
+	tmp = val - tmp;
+	if (tmp > 0) {
+		result += 1;
+	}
+	return result;
+}
 
 
 function init() {
@@ -155,6 +207,9 @@ function nettoyage() {
 	synthProd.pdv=0;
 	synthMat.ut=0;
 	synthMat.pdv=0;
+	registre = [];
+	// TODO nettoyer le registre etc.
+	
 }
 
 function recalcul() {
@@ -175,7 +230,82 @@ function recalcul() {
 	}
 	// Et on met la valeur dans la cellules des UT
 	getEl(idBaseUt).value = round(pourct * utT, 3);
+}
+
+function changeNombre(value) {
 	
+	if (registre.length == 0) {
+		return;
+	}
+	
+	// On va parcourir le registre pour accumuler les UT
+	// Accumuler les pdv
+	// recalculer le nombre d'un objet et des composants en fonction du point de départ
+	// 
+
+	// On va recalculer les totaux aussi
+	
+	for (var ii = 0; ii < registre.length; ii++) {
+		var oo = registre[ii];
+		/*
+		 {
+		  	produitPar: , nombre d'objet produit par le nb ut
+		  	nbUt: , nb ut pour produire
+		  	nbBase , nombre de base pour la production
+		  	idCompteur, idCompteur
+		  	isProduit:
+		  }
+		*/
+		var nb = oo.nbBase * value;
+		var ut = nb / oo.produitPar * oo.nbUt;
+		ut = arrondir(ut);
+		
+		var ll = getEl(idInputNombreObj + oo.idCompteur);
+		ll.removeChild(ll.firstChild);
+		addTextNode(ll, nb);
+		ll = getEl(idInputUtObj + oo.idCompteur);
+		ll.removeChild(ll.firstChild);
+		addTextNode(ll, ut);
+
+		if (oo.isProduit) {
+			synthProd.ut += ut;
+		} else {
+			synthMat.ut += ut;
+		}
+	}
+	
+	
+	recalculTot();
+}
+
+
+function recalculTot() {
+	
+	
+	
+	
+	
+	// recalcul par matpremière
+	// recalcul
+	
+	
+}
+
+
+function recalculCoef() {
+	/*
+	 * 			nombre:0,
+				objet:objet,
+				nom:objet.nom,
+				isModifiable:modifiable,
+				applicable:applicable		
+	 */
+	for (var cc = 0; cc < synthese.length; cc++) {
+		var obj = synthese[cc];
+		
+		// TODO modifier les modificateurs de coef
+		
+	}
 }
 
 function changePourcentUt(type, value) {
@@ -202,7 +332,6 @@ function changeModif(type, value) {
 
 
 
-
 /**
  * Gestion du changement d'objet.
  * @param select combobox de sélection
@@ -218,6 +347,12 @@ function changeObj(selected) {
 	var newDiv = addNode(divPrem, 'div');
 	var obj = listObjets[selected];
 	traiteObjet(obj, newDiv, 1);
+	
+	
+	
+	
+	batimentsSynthese.sort(compareObjet);
+	synthese.sort(compareObjet);
 	
 	// Dans le tableau synthese ajouter des combos box etc
 	ajoutTableauSynthese(newDiv);
@@ -251,33 +386,42 @@ function traiteObjet (objet, parent, nb) {
 		}
 	}
 	
+	var txt = objet.nom;
+	var cc = compteurObj++;
 	
-	var txt =  nb + ' - ' + objet.nom;
+	var ooRegistre = {
+		  produitPar: objet.produitPar,
+		  nbUt: objet.uniteTravail,
+		  nbBase: nb,
+		  idCompteur : cc, 
+		  isProduit: true
+		};
+	registre[registre.length] = ooRegistre;
+	
+	var p = addNode(parent, 'p');
+	
+	var ll = addNode(p, 'LABEL');
+	ll.id = idInputNombreObj + cc;
+	addTextNode(ll, nb);
+	addTextNode(p, ' ');
+	addImgNode(p, objet.image);
+	addTextNode(p, ' ' + objet.nom + ' ');
+	ll = addNode(p, 'LABEL');
+	ll.id = idInputUtObj + cc;
+	addTextNode(ll, nb * objet.uniteTravail);
+	addTextNode(p, ' ut');
 
+	
 	// Si l'objet est un objet elémentaire on le sauvegarde dans la synthèse
 	if (objet.composants == null) {
-		ajoutSynthese(objet, nb);
-		if (isFullDisplay()) {
-			var p = addNode(parent, 'p');
-			addTextNode(p, txt);
-		}
-		return;
-	} else {
-		var val = nb * objet.uniteTravail / objet.produitPar;
-		var tmp = val - Math.round(val);
-		val = Math.round(val);
-		if (tmp > 0) {
-			val = val + 1;
-		}
-		// on accumule les UT nécessaires pour cet objet là.
-		synthProd.ut += val;
 		
-		txt += '- ' + val + ' ut'
-		if (isFullDisplay()) {
-			var p = addNode(parent, 'p');
-			addTextNode(p, txt);
-		}
+		ooRegistre.isProduit = false;
+		
+		ajoutSynthese(objet, nb);
+		return;
 	}
+
+
 	
 	for (var i = 0; i < objet.composants.length; i++) {
 		var objCompo =  search(listObjets, objet.composants[i].nomObjet);
@@ -320,26 +464,26 @@ function ajoutTableauSynthese(newDiv) {
 		}
 		addTextNode(td, obj.nom);
 		td = addTdNode(tr);
-		addInputNode(td, 'idNombreoo_'+ii, synthese[ii].nombre, true);
+		addInputNode(td, idInpSynthMatNb + obj.compteur, synthese[ii].nombre,
+				true);
 
 		var ut = (synthese[ii].nombre / obj.produitPar) * obj.uniteTravail;
-		
+
 		td = addTdNode(tr);
-		addInputNode(td, 'idUtoo_'+ii, ut, true);
-		
+		addInputNode(td, idInpSynthMatUt + obj.compteur, ut, true);
+
 		td = addTdNode(tr);
-		addInputNode(td, 'idCoefficienB_'+ii, baseCoeficien);
-		
+		addInputNode(td, idInpSynthMatCoefB + obj.compteur, baseCoeficien, !synthese[ii].isModifiable);
+
 		td = addTdNode(tr);
-		addInputNode(td, 'idCoefficienM_'+ii, baseCoeficien, true);
-		
+		addInputNode(td, idInpSynthMatCoefM + obj.compteur, baseCoeficien, true);
+
 		var pdv = getUt() * baseCoeficien * ut;
 		td = addTdNode(tr);
-		addInputNode(td, 'idpdv_'+ii, pdv, true);
-		
+		addInputNode(td, idInpSynthMatPdv + obj.compteur, pdv, true);
+
 		synthMat.ut += ut;
 		synthMat.pdv += pdv;
-		
 		
 	}
 }
@@ -355,9 +499,35 @@ function ajoutSynthese(objet, nb) {
 		}
 	}
 	if (current == null) {
+		
+		var modifiable = true;
+		for(var cc = 0; cc < monstresOrig.length; cc++) {
+			if (monstresOrig[cc] == objet.nom) {
+				modifiable = false;
+			}
+		}
+	
+		var applicable = [];
+		for(var cc = 0; cc < modifCoef.length; cc++) {
+			var obj = modifCoef[cc];
+			
+			if (obj.restrict != null && obj.restrict.length > 0) {
+				for(var ii = 0; ii < obj.restrict.length; ii ++) {
+					if(obj.restrict[ii] == objet.nom) {
+						applicable[applicable.length] = obj.nom;
+					}
+				}
+			} else {
+				applicable[applicable.length] = obj.nom;
+			}	
+		}
+
 		current = {
 				nombre:0,
-				objet:objet
+				objet:objet,
+				nom:objet.nom,
+				isModifiable:modifiable,
+				applicable:applicable		
 			};
 		synthese[synthese.length] = current;
 	}
@@ -370,11 +540,7 @@ function tableauUt(parent) {
 	var td;
 	var th;
 	var tr;
-	
 
-	
-	synthProd.pdv = synthProd.ut * getUt();
-	
 	// Entete
 	var table = addTableNode(parent);
 	tr = addTrNode(table);
@@ -388,25 +554,26 @@ function tableauUt(parent) {
 	th = addThNode(tr);
 	addTextNode(th, 'Matières extraites');
 	td = addTdNode(tr);
-	addInputNode(td, 'id', synthMat.ut, true);
+	addInputNode(td, idInputUtMat, synthMat.ut, true);
 	td = addTdNode(tr);
-	addInputNode(td, 'id', synthMat.pdv, true);
+	addInputNode(td, idInputPdvMat, synthMat.pdv, true);
 	
 	tr = addTrNode(table);
 	th = addThNode(tr);
 	addTextNode(th, 'Produits');
 	td = addTdNode(tr);
-	addInputNode(td, 'id', synthProd.ut, true);
+	addInputNode(td, idInputUtProduit, synthProd.ut, true);
 	td = addTdNode(tr);
-	addInputNode(td, 'id', synthProd.pdv, true);
+	addInputNode(td, idInputPdvProduit, synthProd.pdv, true);
 			
 	tr = addTrNode(table);
 	th = addThNode(tr);
 	addTextNode(th, 'Total');
 	td = addTdNode(tr);
-	addInputNode(td, 'id', synthMat.ut + synthProd.ut, true);
+	addInputNode(td, idInputUtTot, synthMat.ut + synthProd.ut, true);
 	td = addTdNode(tr);
-	addInputNode(td, 'id', synthMat.pdv + synthProd.pdv, true);
+	
+	addInputNode(td, idInputPdvTot, (synthMat.ut + synthProd.ut) * getUt(), true);
 }
 
 
@@ -414,6 +581,8 @@ function tableauBatiment(parent) {
 	var tr;
 	var th;
 	var td;
+	
+	
 	
 	var table = addTableNode(parent);
 	tr = addTrNode(table);
