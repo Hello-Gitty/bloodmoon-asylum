@@ -237,16 +237,14 @@ function changeNombre(value) {
 	if (registre.length == 0) {
 		return;
 	}
-	
 	// On va parcourir le registre pour accumuler les UT
 	// Accumuler les pdv
 	// recalculer le nombre d'un objet et des composants en fonction du point de départ
-	// 
 
 	// On va recalculer les totaux aussi
-	// TODO Réinitialiser synthèse
-	
-	
+	for (var cc = 0; cc < synthese.length; cc++) {
+		synthese[cc].nombre = 0;
+	}
 	
 	for (var ii = 0; ii < registre.length; ii++) {
 		var oo = registre[ii];
@@ -307,10 +305,14 @@ function recalculCoef() {
 	 */
 	for (var cc = 0; cc < synthese.length; cc++) {
 		var synth = synthese[cc];
+		var nodeNbMat = getEl(idInpSynthMatNb + obj.compteur);
 		var nodeUtMat = getEl(idInpSynthMatUt + obj.compteur);
 		var nodeCoefBMat = getEl(idInpSynthMatCoefB + obj.compteur);
 		var nodeCoefMMat = getEl(idInpSynthMatCoefM + obj.compteur);
 		var nodePdvMat = getEl(idInpSynthMatPdv + obj.compteur);
+
+		nodeNbMat.value = synth.nombre;
+		var ut = (synth.nombre / synth.objet.produitPar) * synth.objet.uniteTravail;
 		// mise a jour du nombre d'ut
 		nodeUtMat.value = synth.nombre;
 		var mod = 0;
@@ -321,7 +323,7 @@ function recalculCoef() {
 			}
 		}		
 		nodeCoefMMat.value = nodeCoefBMat.value + mod;
-		nodePdvMat.value = nodeCoefMMat.value * nodeUtMat.value * getUt();
+		nodePdvMat.value = nodeCoefMMat.value * nodeNbMat.value * getUt();
 	}
 }
 
