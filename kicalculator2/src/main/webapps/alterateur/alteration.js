@@ -244,11 +244,14 @@ function changeNombre(value) {
 	// 
 
 	// On va recalculer les totaux aussi
+	// TODO Réinitialiser synthèse
+	
+	
 	
 	for (var ii = 0; ii < registre.length; ii++) {
 		var oo = registre[ii];
 		/*
-		 {
+		 {	nom
 		  	produitPar: , nombre d'objet produit par le nb ut
 		  	nbUt: , nb ut pour produire
 		  	nbBase , nombre de base pour la production
@@ -270,6 +273,8 @@ function changeNombre(value) {
 		if (oo.isProduit) {
 			synthProd.ut += ut;
 		} else {
+			var synth = search(synthese, oo.nom);
+			synth.nombre += nb;
 			synthMat.ut += ut;
 		}
 	}
@@ -301,10 +306,22 @@ function recalculCoef() {
 				applicable:applicable		
 	 */
 	for (var cc = 0; cc < synthese.length; cc++) {
-		var obj = synthese[cc];
-		
-		// TODO modifier les modificateurs de coef
-		
+		var synth = synthese[cc];
+		var nodeUtMat = getEl(idInpSynthMatUt + obj.compteur);
+		var nodeCoefBMat = getEl(idInpSynthMatCoefB + obj.compteur);
+		var nodeCoefMMat = getEl(idInpSynthMatCoefM + obj.compteur);
+		var nodePdvMat = getEl(idInpSynthMatPdv + obj.compteur);
+		// mise a jour du nombre d'ut
+		nodeUtMat.value = synth.nombre;
+		var mod = 0;
+		for (var aa = 0; aa <synth.applicable.length; aa++) {
+			var coef = search(modifCoef, synth.applicatble[aa]);
+			if (coef.actif) {
+				mod += coef.valeur;
+			}
+		}		
+		nodeCoefMMat.value = nodeCoefBMat.value + mod;
+		nodePdvMat.value = nodeCoefMMat.value * nodeUtMat.value * getUt();
 	}
 }
 
@@ -390,6 +407,7 @@ function traiteObjet (objet, parent, nb) {
 	var cc = compteurObj++;
 	
 	var ooRegistre = {
+		  nom:objet.nom,
 		  produitPar: objet.produitPar,
 		  nbUt: objet.uniteTravail,
 		  nbBase: nb,
