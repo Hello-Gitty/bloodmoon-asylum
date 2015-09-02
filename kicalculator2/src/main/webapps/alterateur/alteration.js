@@ -19,6 +19,15 @@ var synthese = []; // {nom: , nombre:}
  * 
  * 
  */
+
+
+/*
+ * TODO
+ * recalcul des coefs en modifiant les coef
+ * recalcul coef en cliquant sur checkbox
+ * debug divers
+ * 
+ */
 var batimentsSynthese = []; // {nom: , niveau:}
 
 var synthProd = {ut: 0, pdv:0};
@@ -142,6 +151,12 @@ function arrondir(val) {
 	return result;
 }
 
+function calculUtProduit(nombre, nbByUt, nbUt) {
+	var result = nombre / nbByUt * nbUt;
+	result = arrondir(result);
+	return result;
+}
+
 
 function init() {
 	// range les catérogie dans l'ordre
@@ -241,6 +256,9 @@ function changeNombre(value) {
 	// Accumuler les pdv
 	// recalculer le nombre d'un objet et des composants en fonction du point de départ
 
+	synthProd.ut = 0;
+	synthMat.ut = 0;
+	
 	// On va recalculer les totaux aussi
 	for (var cc = 0; cc < synthese.length; cc++) {
 		synthese[cc].nombre = 0;
@@ -258,8 +276,7 @@ function changeNombre(value) {
 		  }
 		*/
 		var nb = oo.nbBase * value;
-		var ut = nb / oo.produitPar * oo.nbUt;
-		ut = arrondir(ut);
+		var ut = calculUtProduit(nb, oo.produitPar, oo.nbUt);
 		
 		var ll = getEl(idInputNombreObj + oo.idCompteur);
 		ll.removeChild(ll.firstChild);
@@ -283,15 +300,17 @@ function changeNombre(value) {
 
 
 function recalculTot() {
-	
-	
-	
-	
-	
 	// recalcul par matpremière
 	// recalcul
-	
-	
+	synthProd.pdv = synthProd.ut * getUt();
+
+	getEl(idInputUtMat).value = synthMat.ut;
+	getEl(idInputPdvMat).value = synthMat.pdv;
+	getEl(idInputUtProduit).value = synthProd.ut;
+	getEl(idInputPdvProduit).value = synthProd.pdv;
+	getEl(idInputUtTot).value = synthMat.ut + synthProd.ut;
+	getEl(idInputPdvTot).value = (synthMat.ut + synthProd.ut) * getUt();
+
 }
 
 
@@ -303,6 +322,7 @@ function recalculCoef() {
 				isModifiable:modifiable,
 				applicable:applicable		
 	 */
+	synthProd.pdv = 0;
 	for (var cc = 0; cc < synthese.length; cc++) {
 		var synth = synthese[cc];
 		var nodeNbMat = getEl(idInpSynthMatNb + obj.compteur);
@@ -312,7 +332,7 @@ function recalculCoef() {
 		var nodePdvMat = getEl(idInpSynthMatPdv + obj.compteur);
 
 		nodeNbMat.value = synth.nombre;
-		var ut = (synth.nombre / synth.objet.produitPar) * synth.objet.uniteTravail;
+		var ut = calculUtProduit(synth.nombre, synth.objet.produitPar, synth.objet.uniteTravail);
 		// mise a jour du nombre d'ut
 		nodeUtMat.value = synth.nombre;
 		var mod = 0;
@@ -324,6 +344,8 @@ function recalculCoef() {
 		}		
 		nodeCoefMMat.value = nodeCoefBMat.value + mod;
 		nodePdvMat.value = nodeCoefMMat.value * nodeNbMat.value * getUt();
+		
+		synthProd.pdv += nodePdvMat.value;
 	}
 }
 
@@ -365,7 +387,12 @@ function changeObj(selected) {
 	
 	var newDiv = addNode(divPrem, 'div');
 	var obj = listObjets[selected];
-	traiteObjet(obj, newDiv, 1);
+	var nb = parseInt(getEl(idNbProd).value);
+	if (nb <= 0) {
+		nb = 1;
+	}
+	getEl(idNbProd).value = nb;
+	traiteObjet(obj, newDiv, nb);
 	
 	
 	
@@ -428,17 +455,18 @@ function traiteObjet (objet, parent, nb) {
 	addTextNode(p, ' ' + objet.nom + ' ');
 	ll = addNode(p, 'LABEL');
 	ll.id = idInputUtObj + cc;
-	addTextNode(ll, nb * objet.uniteTravail);
+	var ut = calculUtProduit(nb, objet.produitPar, objet.uniteTravail);
+	addTextNode(ll, ut);
 	addTextNode(p, ' ut');
 
 	
 	// Si l'objet est un objet elémentaire on le sauvegarde dans la synthèse
 	if (objet.composants == null) {
-		
 		ooRegistre.isProduit = false;
-		
 		ajoutSynthese(objet, nb);
 		return;
+	} else {
+		synthProd.ut += ut;
 	}
 
 
