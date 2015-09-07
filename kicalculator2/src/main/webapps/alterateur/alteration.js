@@ -313,6 +313,37 @@ function recalculTot() {
 
 }
 
+function recalculCoef(cc) {
+	
+	
+	var synth = synthese[cc];
+	var nodeNbMat = getEl(idInpSynthMatNb + cc);
+	var nodeUtMat = getEl(idInpSynthMatUt + cc);
+	var nodeCoefBMat = getEl(idInpSynthMatCoefB + cc);
+	var nodeCoefMMat = getEl(idInpSynthMatCoefM + cc);
+	var nodePdvMat = getEl(idInpSynthMatPdv + cc);
+
+	synthProd.pdv = synthProd.pdv - nodePdvMat.value;
+	
+	
+	nodeNbMat.value = synth.nombre;
+	var ut = calculUtProduit(synth.nombre, synth.objet.produitPar, synth.objet.uniteTravail);
+	// mise a jour du nombre d'ut
+	nodeUtMat.value = synth.nombre;
+	var mod = 0;
+	for (var aa = 0; aa <synth.applicable.length; aa++) {
+		var coef = search(modifCoef, synth.applicatble[aa]);
+		if (coef.actif) {
+			mod += coef.valeur;
+		}
+	}		
+	nodeCoefMMat.value = nodeCoefBMat.value + mod;
+	nodePdvMat.value = nodeCoefMMat.value * nodeNbMat.value * getUt();
+	
+	synthProd.pdv += nodePdvMat.value;
+	
+}
+
 
 function recalculCoef() {
 	/*
@@ -325,11 +356,12 @@ function recalculCoef() {
 	synthProd.pdv = 0;
 	for (var cc = 0; cc < synthese.length; cc++) {
 		var synth = synthese[cc];
-		var nodeNbMat = getEl(idInpSynthMatNb + obj.compteur);
-		var nodeUtMat = getEl(idInpSynthMatUt + obj.compteur);
-		var nodeCoefBMat = getEl(idInpSynthMatCoefB + obj.compteur);
-		var nodeCoefMMat = getEl(idInpSynthMatCoefM + obj.compteur);
-		var nodePdvMat = getEl(idInpSynthMatPdv + obj.compteur);
+			
+		var nodeNbMat = getEl(idInpSynthMatNb + cc);
+		var nodeUtMat = getEl(idInpSynthMatUt + cc);
+		var nodeCoefBMat = getEl(idInpSynthMatCoefB + cc);
+		var nodeCoefMMat = getEl(idInpSynthMatCoefM + cc);
+		var nodePdvMat = getEl(idInpSynthMatPdv + cc);
 
 		nodeNbMat.value = synth.nombre;
 		var ut = calculUtProduit(synth.nombre, synth.objet.produitPar, synth.objet.uniteTravail);
@@ -337,7 +369,7 @@ function recalculCoef() {
 		nodeUtMat.value = synth.nombre;
 		var mod = 0;
 		for (var aa = 0; aa <synth.applicable.length; aa++) {
-			var coef = search(modifCoef, synth.applicatble[aa]);
+			var coef = search(modifCoef, synth.applicable[aa]);
 			if (coef.actif) {
 				mod += coef.valeur;
 			}
@@ -512,23 +544,26 @@ function ajoutTableauSynthese(newDiv) {
 		}
 		addTextNode(td, obj.nom);
 		td = addTdNode(tr);
-		addInputNode(td, idInpSynthMatNb + obj.compteur, synthese[ii].nombre,
+		addInputNode(td, idInpSynthMatNb + ii, synthese[ii].nombre,
 				true);
 
 		var ut = (synthese[ii].nombre / obj.produitPar) * obj.uniteTravail;
 
 		td = addTdNode(tr);
-		addInputNode(td, idInpSynthMatUt + obj.compteur, ut, true);
+		addInputNode(td, idInpSynthMatUt + ii, ut, true);
 
 		td = addTdNode(tr);
-		addInputNode(td, idInpSynthMatCoefB + obj.compteur, baseCoeficien, !synthese[ii].isModifiable);
-
+		var input = addInputNode(td, idInpSynthMatCoefB + ii, baseCoeficien, !synthese[ii].isModifiable);
+		
+		input.setAttribute('onchange', 'recalculCoef('+ii+')');
+		
+		
 		td = addTdNode(tr);
-		addInputNode(td, idInpSynthMatCoefM + obj.compteur, baseCoeficien, true);
+		addInputNode(td, idInpSynthMatCoefM + ii, baseCoeficien, true);
 
 		var pdv = getUt() * baseCoeficien * ut;
 		td = addTdNode(tr);
-		addInputNode(td, idInpSynthMatPdv + obj.compteur, pdv, true);
+		addInputNode(td, idInpSynthMatPdv + ii, pdv, true);
 
 		synthMat.ut += ut;
 		synthMat.pdv += pdv;
