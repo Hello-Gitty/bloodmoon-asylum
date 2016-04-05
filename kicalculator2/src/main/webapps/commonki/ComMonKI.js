@@ -2,9 +2,9 @@
 // @name        ComMonKI
 // @include     http://www.kraland.org/*
 // @include     http://test.kraland.org/*
-// @grant 		none
+// @grant unsafeWindow
 // @author Famine(794)
-// @version 1.5
+// @version 1.6
 // ==/UserScript==
 
 // COMmercial MONkey KI javaScript // HUHU
@@ -36,6 +36,15 @@ if(window.navigator.vendor.match(/Google/)) {
 	unsafeWindow = unsafeWindow;
 }
 
+
+/*
+ * Directives pour exporter les fonctions qui doivent être accessible dans la page
+ */
+unsafeWindow.commonki_construction = exportFunction (commonki_construction, unsafeWindow);
+unsafeWindow.changeGlobal = exportFunction (changeGlobal, unsafeWindow);
+unsafeWindow.changeFraude = exportFunction (changeFraude, unsafeWindow);
+unsafeWindow.changeTypeMarchandage = exportFunction (changeTypeMarchandage, unsafeWindow);
+unsafeWindow.changement = exportFunction (changement, unsafeWindow);
 
 
 //Stock les objets affiché
@@ -125,7 +134,7 @@ function init() {
 				thCommerce = node;
 				parentCommerce = thCommerce.parentNode;
 
-				/*
+				
 					// On vérifie qu'il y a une caisse après le TR commerce
 					var caisseNode = parentCommerce.nextSibling;
 					while(caisseNode != null && caisseNode.nodeName != 'IMG') {
@@ -135,7 +144,7 @@ function init() {
 					if (caisseNode == null || caisseNode.nodeName != 'IMG' || caisseNode.alt != 'Caisse'){
 						thCommerce = null;
 					}
-				*/
+				
 			}
 		}
 	}
@@ -152,8 +161,10 @@ function init() {
 
 
 
-unsafeWindow.commonki_construction = function () {
-//function commonki_construction() {
+//unsafeWindow.commonki_construction = function () {
+function commonki_construction() {
+	
+
 	// On aggrandi le tableau.
 	var search = true;
 	var cur = parentCommerce;
@@ -517,8 +528,7 @@ function traitementLigneObjet(trObjet) {
  * Fonction déclenchée au changement de valeur de salaire ou d'impots ou de marchandage
  * Déclenche la mise à jour de tous les éléments du registre.
  */
-unsafeWindow.changeGlobal = function () {
-//function changeGlobal() {
+function changeGlobal() {
 	for (var i = 0; i < registre.length; i++) {
 		changement(i);
 	}
@@ -528,8 +538,7 @@ unsafeWindow.changeGlobal = function () {
  * Fonction déclenchée au changement de valeur de la checkbox sur la fraude
  * Déclenche la mise à jour de tous les éléments du registre.
  */
-unsafeWindow.changeFraude = function (checked) {
-//function changeFraude() {
+function changeFraude(checked) {
 	fraude = checked;
 	changeGlobal();
 }
@@ -539,8 +548,7 @@ unsafeWindow.changeFraude = function (checked) {
  * Fonction déclenchée au clic sur un radio button de marchandage
  * pour changer le type de marchandage et recalculer l'ensemble
  */
-unsafeWindow.changeTypeMarchandage = function (radio) {
-//function changeTypeMarchandage(radio) {
+function changeTypeMarchandage(radio) {
 	typeMarchandage = radio.value;
 	changeGlobal();
 }
@@ -552,8 +560,7 @@ unsafeWindow.changeTypeMarchandage = function (radio) {
  * 
  * @param indice
  */
-unsafeWindow.changement = function (indice) {
-//function changement(indice) {
+function changement(indice) {
 	// Récupération de l'indice de l'objet modifié
 	var el = registre[indice];
 	// recalcul de ses données
