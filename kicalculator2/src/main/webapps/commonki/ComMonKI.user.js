@@ -4,7 +4,7 @@
 // @include     http://test.kraland.org/*
 // @grant unsafeWindow
 // @author Famine(794)
-// @version 1.9
+// @version 1.10
 // ==/UserScript==
 
 // COMmercial MONkey KI javaScript // HUHU
@@ -751,7 +751,7 @@ function calculPourcentage(val, pourcent, plus) {
     var result = val - percentOf;
     
 	if (plus != null && plus) {
-		result = val + percentOf;
+		result = parseInt(val) + parseInt(percentOf);
 	}
 
 	return result;
