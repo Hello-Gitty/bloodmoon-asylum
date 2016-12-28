@@ -4,7 +4,7 @@
 // @include     http://test.kraland.org/*
 // @grant unsafeWindow
 // @author Famine(794)
-// @version 1.8
+// @version 1.9
 // ==/UserScript==
 
 // COMmercial MONkey KI javaScript // HUHU
@@ -672,7 +672,7 @@ function recalcul (registree) {
         
         if (margeActive) {
             // Avec le gain vente et le cout prod, on n'a la marge, avec les impots prit en compte
-            var marge = calculMarge(cProd, gv);
+            var marge = calculMarge(cProd, gv, nbProd);
             getEl(registree.idInpMarge).value = cmk_round(marge)+"%";
         }
 	}
@@ -709,8 +709,7 @@ function isMarchandageVente() {
  * @returns {Number}
  */
 function calculGainVente(pVente, cProd, nbProd, iObj) {
-	var prix = pVente - cProd / nbProd;
-	prix = calculPourcentage(prix, iObj);
+	var prix = calculPourcentage(pVente, iObj) - cProd / nbProd;
 	return prix;
 }
 
@@ -743,10 +742,16 @@ function calculGainReVente(pVente, pAchat, iObj) {
  * @returns {Number}
  */
 function calculPourcentage(val, pourcent, plus) {
-	var result = val * (1 - parseInt(pourcent) / 100);
-
+    if (pourcent == 0) {
+        return val;
+    }
+    var percentOf = val * parseInt(pourcent);
+    percentOf = percentOf / 100;
+    percentOf = Math.round(percentOf);
+    var result = val - percentOf;
+    
 	if (plus != null && plus) {
-		result = val * (1 + parseInt(pourcent) / 100);
+		result = val + percentOf;
 	}
 
 	return result;
@@ -761,10 +766,11 @@ function calculPourcentage(val, pourcent, plus) {
  *            gain de vente
  * @returns {Number}
  */
-function calculMarge(coutProd, gainVente) {
+function calculMarge(coutProd, gainVente, nbProd) {
     var result = 0;
     if (coutProd != 0) {
-        result = gainVente / coutProd;
+        var coutProdByNb = (coutProd / nbProd);
+        result = gainVente / coutProdByNb;
         result = result * 100;
     }
 	return result;
