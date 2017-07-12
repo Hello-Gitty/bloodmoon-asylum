@@ -161,7 +161,7 @@ function calculUtProduit(nombre, nbByUt, nbUt) {
 function init() {
 	// range les catérogie dans l'ordre
 	listCategorie.sort(compare);
-	
+
 	var selectCat = getEl(idSelectCat);
 	var option = addNode(selectCat, "option");
 	option.value = -1;
@@ -302,6 +302,7 @@ function changeNombre(value) {
 function recalculTot() {
 	// recalcul par matpremière
 	// recalcul
+	console.info(synthProd.ut);
 	synthProd.pdv = synthProd.ut * getUt();
 
 	getEl(idInputUtMat).value = synthMat.ut;
@@ -424,7 +425,7 @@ function changeObj(selected) {
 		nb = 1;
 	}
 	getEl(idNbProd).value = nb;
-	traiteObjet(obj, newDiv, nb);
+	traiteObjet(obj, newDiv, nb, 0);
 	
 	
 	
@@ -442,10 +443,19 @@ function changeObj(selected) {
 
 
 
-function traiteObjet (objet, parent, nb) {
+function traiteObjet (objet, parent, nb, niv) {
 	if (objet == null) {
 		return;
 	}
+	/*
+	if (niv > 0) {
+		addBrNode(parent);
+		addTextNode(parent, '|');
+		for (var cc=0; cc < niv; cc++) {
+			console.log("test");
+			addTextNode(parent, '  ');
+		}
+	}*/
 	
 	
 	if (objet.batiment != null) {
@@ -476,11 +486,13 @@ function traiteObjet (objet, parent, nb) {
 		  isProduit: true
 		};
 	registre[registre.length] = ooRegistre;
-	
+	///addNode(parent, 'p');
 	var p = addNode(parent, 'p');
+	p.className += " obj";
 	
 	var ll = addNode(p, 'LABEL');
 	ll.id = idInputNombreObj + cc;
+	//addTextNode(ll, '|-');
 	addTextNode(ll, nb);
 	addTextNode(p, ' ');
 	addImgNode(p, objet.image);
@@ -505,7 +517,7 @@ function traiteObjet (objet, parent, nb) {
 	
 	for (var i = 0; i < objet.composants.length; i++) {
 		var objCompo =  search(listObjets, objet.composants[i].nomObjet);
-		traiteObjet(objCompo, p, objet.composants[i].nombre * nb);
+		traiteObjet(objCompo, p, objet.composants[i].nombre * nb, niv+1);
 	}
 }
 
