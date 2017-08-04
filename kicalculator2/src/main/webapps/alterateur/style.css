@@ -31,5 +31,7 @@ p.obj {
 	border-collapse: collapse;
 }
 
-
+label {
+	padding-left: 7px;
+}
 

@@ -110,7 +110,7 @@ Extraction
  */
 
 function getUt() {
-	return getEl(idBaseUt).value;
+	return parseFloat(getEl(idBaseUt).value);
 }
 
 
@@ -287,6 +287,7 @@ function changeNombre(value) {
 
 		if (oo.isProduit) {
 			synthProd.ut += ut;
+			synthProd.pdv += synthProd.ut * getUt();
 		} else {
 			var synth = search(synthese, oo.nom);
 			synth.nombre += nb;
@@ -295,23 +296,24 @@ function changeNombre(value) {
 	}
 	
 	
-	recalculTot();
+	caclulUtPdv();
 }
 
 
-function recalculTot() {
-	// recalcul par matpremière
-	// recalcul
+function caclulUtPdv() {
 	console.info(synthProd.ut);
-	synthProd.pdv = synthProd.ut * getUt();
 
-	getEl(idInputUtMat).value = synthMat.ut;
-	getEl(idInputPdvMat).value = synthMat.pdv;
+	getEl(idInputUtMat).value = synthMat.ut ;
 	getEl(idInputUtProduit).value = synthProd.ut;
-	getEl(idInputPdvProduit).value = synthProd.pdv;
 	getEl(idInputUtTot).value = synthMat.ut + synthProd.ut;
-	getEl(idInputPdvTot).value = (synthMat.ut + synthProd.ut) * getUt();
-
+	
+	var pdvMat = parseFloat(synthMat.ut) * getUt();
+	var pdvProd = parseFloat(synthProd.ut) * getUt();
+	var pdvTot = parseFloat(pdvMat + pdvProd);
+	
+	getEl(idInputPdvMat).value =  pdvMat;
+	getEl(idInputPdvProduit).value = pdvProd ;
+	getEl(idInputPdvTot).value = pdvTot;
 }
 
 function recalculCoef(cc) {
@@ -325,8 +327,6 @@ function recalculCoef(cc) {
 	var nodePdvMat = getEl(idInpSynthMatPdv + cc);
 
 	synthProd.pdv = synthProd.pdv - nodePdvMat.value;
-	
-	
 	nodeNbMat.value = synth.nombre;
 	var ut = calculUtProduit(synth.nombre, synth.objet.produitPar, synth.objet.uniteTravail);
 	// mise a jour du nombre d'ut
@@ -346,6 +346,7 @@ function recalculCoef(cc) {
 }
 
 
+// TODO DEBUG ça
 function recalculCoef() {
 	/*
 	 * 			nombre:0,
@@ -354,31 +355,8 @@ function recalculCoef() {
 				isModifiable:modifiable,
 				applicable:applicable		
 	 */
-	synthProd.pdv = 0;
 	for (var cc = 0; cc < synthese.length; cc++) {
-		var synth = synthese[cc];
-			
-		var nodeNbMat = getEl(idInpSynthMatNb + cc);
-		var nodeUtMat = getEl(idInpSynthMatUt + cc);
-		var nodeCoefBMat = getEl(idInpSynthMatCoefB + cc);
-		var nodeCoefMMat = getEl(idInpSynthMatCoefM + cc);
-		var nodePdvMat = getEl(idInpSynthMatPdv + cc);
-
-		nodeNbMat.value = synth.nombre;
-		var ut = calculUtProduit(synth.nombre, synth.objet.produitPar, synth.objet.uniteTravail);
-		// mise a jour du nombre d'ut
-		nodeUtMat.value = synth.nombre;
-		var mod = 0;
-		for (var aa = 0; aa <synth.applicable.length; aa++) {
-			var coef = search(modifCoef, synth.applicable[aa]);
-			if (coef.actif) {
-				mod += coef.valeur;
-			}
-		}		
-		nodeCoefMMat.value = nodeCoefBMat.value + mod;
-		nodePdvMat.value = nodeCoefMMat.value * nodeNbMat.value * getUt();
-		
-		synthProd.pdv += nodePdvMat.value;
+		recalculCoef(cc);
 	}
 }
 
@@ -427,36 +405,32 @@ function changeObj(selected) {
 	getEl(idNbProd).value = nb;
 	traiteObjet(obj, newDiv, nb, 0);
 	
-	
-	
-	
 	batimentsSynthese.sort(compareObjet);
 	synthese.sort(compareObjet);
 	
 	// Dans le tableau synthese ajouter des combos box etc
+	addBrNode(newDiv);
 	ajoutTableauSynthese(newDiv);
 	addBrNode(newDiv);
 	tableauUt(newDiv);
+	caclulUtPdv();
 	addBrNode(newDiv);
 	tableauBatiment(newDiv);
 }
 
 
 
+/**
+ * Traitement de l'objet pour l'affichage
+ * @param objet
+ * @param parent
+ * @param nb
+ * @param niv
+ */
 function traiteObjet (objet, parent, nb, niv) {
 	if (objet == null) {
 		return;
 	}
-	/*
-	if (niv > 0) {
-		addBrNode(parent);
-		addTextNode(parent, '|');
-		for (var cc=0; cc < niv; cc++) {
-			console.log("test");
-			addTextNode(parent, '  ');
-		}
-	}*/
-	
 	
 	if (objet.batiment != null) {
 		var batiment = search(batimentsSynthese, objet.batiment);
@@ -477,6 +451,7 @@ function traiteObjet (objet, parent, nb, niv) {
 	var txt = objet.nom;
 	var cc = compteurObj++;
 	
+	// Enregistre l'objet dans le registre
 	var ooRegistre = {
 		  nom:objet.nom,
 		  produitPar: objet.produitPar,
@@ -488,14 +463,17 @@ function traiteObjet (objet, parent, nb, niv) {
 	registre[registre.length] = ooRegistre;
 	///addNode(parent, 'p');
 	var p = addNode(parent, 'p');
-	p.className += " obj";
-	
+	p.className += "obj";
+		
 	var ll = addNode(p, 'LABEL');
 	ll.id = idInputNombreObj + cc;
 	//addTextNode(ll, '|-');
-	addTextNode(ll, nb);
+	addTextNode(ll,nb);
 	addTextNode(p, ' ');
-	addImgNode(p, objet.image);
+	// Ajout de l'image si le mode est activé
+	if (isImgDisplay()) {
+		addImgNode(p, objet.image);
+	}
 	addTextNode(p, ' ' + objet.nom + ' ');
 	ll = addNode(p, 'LABEL');
 	ll.id = idInputUtObj + cc;
@@ -512,9 +490,8 @@ function traiteObjet (objet, parent, nb, niv) {
 	} else {
 		synthProd.ut += ut;
 	}
-
-
 	
+	// Suite des composants de l'objet
 	for (var i = 0; i < objet.composants.length; i++) {
 		var objCompo =  search(listObjets, objet.composants[i].nomObjet);
 		traiteObjet(objCompo, p, objet.composants[i].nombre * nb, niv+1);
@@ -649,26 +626,26 @@ function tableauUt(parent) {
 	th = addThNode(tr);
 	addTextNode(th, 'Matières extraites');
 	td = addTdNode(tr);
-	addInputNode(td, idInputUtMat, synthMat.ut, true);
+	addInputNode(td, idInputUtMat, 0, true);
 	td = addTdNode(tr);
-	addInputNode(td, idInputPdvMat, synthMat.pdv, true);
+	addInputNode(td, idInputPdvMat, 0, true);
 	
 	tr = addTrNode(table);
 	th = addThNode(tr);
 	addTextNode(th, 'Produits');
 	td = addTdNode(tr);
-	addInputNode(td, idInputUtProduit, synthProd.ut, true);
+	addInputNode(td, idInputUtProduit, 0, true);
 	td = addTdNode(tr);
-	addInputNode(td, idInputPdvProduit, synthProd.pdv, true);
+	addInputNode(td, idInputPdvProduit, 0, true);
 			
 	tr = addTrNode(table);
 	th = addThNode(tr);
 	addTextNode(th, 'Total');
 	td = addTdNode(tr);
-	addInputNode(td, idInputUtTot, synthMat.ut + synthProd.ut, true);
+	addInputNode(td, idInputUtTot, 0, true);
 	td = addTdNode(tr);
 	
-	addInputNode(td, idInputPdvTot, (synthMat.ut + synthProd.ut) * getUt(), true);
+	addInputNode(td, idInputPdvTot, 0, true);
 }
 
 
