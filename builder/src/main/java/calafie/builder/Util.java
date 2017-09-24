@@ -1,14 +1,21 @@
 package calafie.builder;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import calafie.builder.jaxb.Ordre;
 
@@ -18,6 +25,8 @@ public class Util {
     private static Properties props;
     private static Logger log = Logger.getLogger(Util.class);
 
+    
+    
     public static String getMessage(String cle) {
         String result = cle;
 
@@ -119,5 +128,56 @@ public class Util {
     private static InputStreamReader getInput(String fileName) throws UnsupportedEncodingException, FileNotFoundException {
         return new InputStreamReader (new FileInputStream(new File(fileName)), Constantes.ENCODING_CHARSET);
         
+    }
+    
+
+
+    /**
+     * Ecrit le contenu de data dans le fichier.
+     * 
+     * @param data
+     *            données à écrire
+     * @param fichier
+     *            fichier d'écriture
+     * @throws IOException
+     */
+    public static void ecrire(String data, File fichier) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+                new FileOutputStream(fichier), Constantes.ENCODING_CHARSET));
+        writer.write(data);
+        writer.close();
+    }
+    
+    
+
+    /**
+     * Lit le contenu d'un fichier en utf8
+     * 
+     * @param fichier
+     *            fichier a lire
+     * @return contenu du fichier
+     * @throws IOException
+     */
+    public static String lire(String fichier) throws IOException {
+        StringBuilder result = new StringBuilder();
+
+        BufferedReader reder = new BufferedReader(getInput(fichier));
+
+        boolean fini = false;
+        while (fini != true) {
+            String temp = null;
+
+            temp = reder.readLine();
+
+            if (temp != null) {
+                result.append(temp);
+            } else {
+                fini = true;
+            }
+
+        }
+
+        reder.close();
+        return result.toString();
     }
 }

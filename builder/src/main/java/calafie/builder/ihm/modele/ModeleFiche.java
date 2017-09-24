@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import calafie.builder.PACalculator;
 import calafie.builder.ihm.modele.type.CaractEnum;
 import calafie.builder.ihm.modele.type.ComptEnum;
@@ -13,6 +16,7 @@ import calafie.builder.jaxb.Competences;
 import calafie.builder.jaxb.Fiche;
 import calafie.builder.jaxb.Vocation;
 import calafie.builder.jaxb.VocationType;
+import calafie.builder.json.modele.FicheJson;
 
 public class ModeleFiche extends Observable {
 
@@ -206,30 +210,37 @@ public class ModeleFiche extends Observable {
         builder.append("\n");
 
         for (TypeVocation type : TypeVocation.values()) {
-
             ChoixVocation choix = vocations.get(type);
-            builder.append(type.getNom());
-            builder.append(": ");
-            builder.append(choix.getNom());
-            builder.append(" ");
-            builder.append(choix.getValeur());
-            builder.append("\n");
+            boolean valid = !Kitheque.VOCATION_VIDE.getNom().equals(choix.getNom());
+            valid = valid && choix.getValeur() > 0;
+            if (valid) {
+                builder.append(type.getNom());
+                builder.append(": ");
+                builder.append(choix.getNom());
+                builder.append(" ");
+                builder.append(choix.getValeur());
+                builder.append("\n");
+            }
         }
 
         for (CaractEnum caract : CaractEnum.values()) {
             Caracteristique car = caracteristiques.get(caract);
-            builder.append(car.getNom());
-            builder.append(" ");
-            builder.append(car.getValeur());
-            builder.append("\n");
+            if (car.getValeur() > 1) {
+                builder.append(car.getNom());
+                builder.append(" ");
+                builder.append(car.getValeur());
+                builder.append("\n");
+            }
         }
 
         for (ComptEnum compt : ComptEnum.values()) {
             Competence comp = competences.get(compt);
-            builder.append(comp.getNom());
-            builder.append(" ");
-            builder.append(comp.getValeur());
-            builder.append("\n");
+            if (comp.getValeur() > 0) {
+                builder.append(comp.getNom());
+                builder.append(" ");
+                builder.append(comp.getValeur());
+                builder.append("\n");
+            }
         }
 
         builder.append("Note :");
@@ -239,83 +250,98 @@ public class ModeleFiche extends Observable {
 
         return builder.toString();
     }
+    
+    public FicheJson toJson() {
+        
+        FicheJson fj = new FicheJson();
+        fj.setNom(pseudo);
+        fj.setPA(PA);
+        fj.setNotes(note);
+        fj.setPdv(PV);
 
-    public Fiche toFiche() {
+        Map<String, Integer> compts = new HashMap<String, Integer>();
+        Map<String, Object[]> vocas = new HashMap<String, Object[]>();
+        Map<String, Integer> caracts = new HashMap<String, Integer>();
+        
+        fj.setCaracteristiques(caracts);
+        fj.setCompetences(compts);
+        fj.setVocations(vocas);
+        
+        for (TypeVocation type : TypeVocation.values()) {
+            ChoixVocation choix = vocations.get(type);
+            boolean valid = !Kitheque.VOCATION_VIDE.getNom().equals(choix.getNom());
+            valid = valid && choix.getValeur() > 0;
+            if (valid) {
+                Object[] val = {choix.getNom(), choix.getValeur()};
+                vocas.put(type.getNom(), val);
+            }
+        }
+        for (CaractEnum caract : CaractEnum.values()) {
+            Caracteristique car = caracteristiques.get(caract);
+            if (car.getValeur() > 1) {
+                caracts.put(car.getNom(), car.getValeur());
+            }
 
-        Fiche result = new Fiche();
-        Caracteristiques cars = new Caracteristiques();
-        result.setCaracteristiques(cars);
-        Competences compts = new Competences();
-        result.setCompetences(compts);
+        }
+        for (ComptEnum compt : ComptEnum.values()) {
+            Competence comp = competences.get(compt);
+            if (comp.getValeur() > 0) {
+                compts.put(comp.getNom(), comp.getValeur());
+            }
+        }
 
-        VocationType carriere = new VocationType();
-        VocationType type = new VocationType();
-        VocationType politique = new VocationType();
-        VocationType combat = new VocationType();
-        VocationType pouvoir = new VocationType();
-
-        result.setCarriere(carriere);
-        result.setType(type);
-        result.setPolitique(politique);
-        result.setCombat(combat);
-        result.setPouvoir(pouvoir);
-
-        ChoixVocation choix;
-
-        choix = vocations.get(TypeVocation.CARRIERE);
-        carriere.setNom(choix.getNom());
-        carriere.setNiveau(choix.getValeur());
-
-        choix = vocations.get(TypeVocation.TYPE);
-        type.setNom(choix.getNom());
-        type.setNiveau(choix.getValeur());
-
-        choix = vocations.get(TypeVocation.POLITIQUE);
-        politique.setNom(choix.getNom());
-        politique.setNiveau(choix.getValeur());
-
-        choix = vocations.get(TypeVocation.COMBAT);
-        combat.setNom(choix.getNom());
-        combat.setNiveau(choix.getValeur());
-
-        choix = vocations.get(TypeVocation.POUVOIR);
-        pouvoir.setNom(choix.getNom());
-        pouvoir.setNiveau(choix.getValeur());
-
-        result.setPointDeVie(PV);
-
-        cars.setForce(caracteristiques.get(CaractEnum.FOR).getValeur());
-        cars.setVolonte(caracteristiques.get(CaractEnum.VOL).getValeur());
-        cars.setCharisme(caracteristiques.get(CaractEnum.CHA).getValeur());
-        cars.setGestion(caracteristiques.get(CaractEnum.GES).getValeur());
-        cars.setIntelligence(caracteristiques.get(CaractEnum.INT).getValeur());
-        cars.setPerception(caracteristiques.get(CaractEnum.PER).getValeur());
-
-        compts.setBaratin(competences.get(ComptEnum.BARATIN).getValeur());
-        compts.setCombatContact(competences.get(ComptEnum.COMBAT_CT).getValeur());
-        compts.setCombatDistance(competences.get(ComptEnum.COMBAT_DI).getValeur());
-        compts.setCombatMainsNues(competences.get(ComptEnum.COMBAT_MN).getValeur());
-        compts.setCommerce(competences.get(ComptEnum.COMMERCE).getValeur());
-        compts.setDemolition(competences.get(ComptEnum.DEMOLITION).getValeur());
-        compts.setDiscretion(competences.get(ComptEnum.DISCRETION).getValeur());
-        compts.setEloquence(competences.get(ComptEnum.ELOQUENCE).getValeur());
-        compts.setFalsification(competences.get(ComptEnum.FALSIFICATION).getValeur());
-        compts.setFoi(competences.get(ComptEnum.FOI).getValeur());
-        compts.setInformatique(competences.get(ComptEnum.INFORMATIQUE).getValeur());
-        compts.setMedecine(competences.get(ComptEnum.MEDECINE).getValeur());
-        compts.setObservation(competences.get(ComptEnum.OBSERVATION).getValeur());
-        compts.setOrganisation(competences.get(ComptEnum.ORGANISATION).getValeur());
-        compts.setPouvoir(competences.get(ComptEnum.POUVOIR).getValeur());
-        compts.setSeduction(competences.get(ComptEnum.SEDUCTION).getValeur());
-        compts.setSurvie(competences.get(ComptEnum.SURVIE).getValeur());
-        compts.setVol(competences.get(ComptEnum.VOL).getValeur());
-
-        result.setNom(pseudo);
-        result.setNote(note.replace("\n", "\\n"));
-
-        return result;
-
+        return fj;
     }
+    
+    
+    public void FromJson(FicheJson fiche) {
+        reset();
+        
+        for (Map.Entry<String, Integer> entry : fiche.getCaracteristiques().entrySet()) {
+            String nom = entry.getKey();
+            Integer val = entry.getValue();
+            for (Map.Entry<CaractEnum, Caracteristique> cur : caracteristiques.entrySet()) {
+                if(cur.getKey().name().equalsIgnoreCase(nom)) {
+                    cur.getValue().setValeur(val);
+                }
+            }
+        }
+        for (Map.Entry<String, Integer> entry : fiche.getCompetences().entrySet()) {
+            String nom = entry.getKey();
+            Integer val = entry.getValue();
+            for (Map.Entry<ComptEnum, Competence> cur : competences.entrySet()) {
+                if(cur.getKey().getNom().equalsIgnoreCase(nom)) {
+                    cur.getValue().setValeur(val);
+                }
+            }
+        }
+        for (Map.Entry<String, Object[]> entry : fiche.getVocations().entrySet()) {
+            String nom = entry.getKey();
+            Object[] vocaDetail = entry.getValue();
+            
+            if(vocaDetail.length >= 2) {
+                TypeVocation type = TypeVocation.getTypeForName(nom);
+                if (type != null) {
+                    ChoixVocation cc = vocations.get(type);
+                    cc.setNom(vocaDetail[0].toString());
+                    Integer val = 0;
+                    try {
+                        val = Double.valueOf(vocaDetail[1].toString()).intValue();
+                    } catch (NumberFormatException e) {
+                        //
+                    }
+                    cc.setValeur(val);
+                    vocations.put(type, cc);
+                }
+            }
+        }
+        PV = fiche.getPdv(); 
+        note = fiche.getNotes();
+        pseudo = fiche.getNom();
+        recalculPA();
+    }
+    
+    
 
     public void fromFiche(Fiche fiche) {
         reset();
@@ -381,28 +407,23 @@ public class ModeleFiche extends Observable {
 
     public void recalculPA() {
         int result = 0;
-
         for (CaractEnum caract : CaractEnum.values()) {
             if (caracteristiques.get(caract).getValeur() != CaractEnum.base){
                 result += PACalculator.getDiffCoutCaract(CaractEnum.base, caracteristiques.get(caract).getValeur());
             }
         }
-
         for (ComptEnum compt : ComptEnum.values()) {
             if(competences.get(compt).getValeur() != ComptEnum.base) {
                 result += PACalculator.getCoutPaCompetence(competences.get(compt).getValeur());
             }
         }
-
         for (TypeVocation type : TypeVocation.values()) {
             ChoixVocation choix = vocations.get(type);
             if ( choix.getValeur() != TypeVocation.base ) {
                 result += PACalculator.getCoutPaVocation(choix.getValeur());
             }
         }
-
         result += PACalculator.getDiffCoutPV(PACalculator.basePV, PV);
-
         PA = result;
     }
 

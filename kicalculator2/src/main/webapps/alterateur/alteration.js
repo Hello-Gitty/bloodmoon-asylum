@@ -245,6 +245,8 @@ function recalcul() {
 	}
 	// Et on met la valeur dans la cellules des UT
 	getEl(idBaseUt).value = round(pourct * utT, 3);
+	recalculAllCoef();
+	caclulUtPdv();
 }
 
 function changeNombre(value) {
@@ -301,7 +303,10 @@ function changeNombre(value) {
 
 
 function caclulUtPdv() {
-	console.info(synthProd.ut);
+
+	// TODO doit prendre en compte les valeurs des matériaux
+	// dout le fait que les pdv soit la sommes des valeurs de matière première
+	// Faire collection des matériaux structure stockés
 
 	getEl(idInputUtMat).value = synthMat.ut ;
 	getEl(idInputUtProduit).value = synthProd.ut;
@@ -309,7 +314,8 @@ function caclulUtPdv() {
 	
 	var pdvMat = parseFloat(synthMat.ut) * getUt();
 	var pdvProd = parseFloat(synthProd.ut) * getUt();
-	var pdvTot = parseFloat(pdvMat + pdvProd);
+	var pdvTot = parseFloat(pdvMat) + parseFloat(pdvProd);
+	
 	
 	getEl(idInputPdvMat).value =  pdvMat;
 	getEl(idInputPdvProduit).value = pdvProd ;
@@ -326,6 +332,8 @@ function recalculCoef(cc) {
 	var nodeCoefMMat = getEl(idInpSynthMatCoefM + cc);
 	var nodePdvMat = getEl(idInpSynthMatPdv + cc);
 
+	var nombre = parseFloat(nodeNbMat);
+	
 	synthProd.pdv = synthProd.pdv - nodePdvMat.value;
 	nodeNbMat.value = synth.nombre;
 	var ut = calculUtProduit(synth.nombre, synth.objet.produitPar, synth.objet.uniteTravail);
@@ -333,21 +341,27 @@ function recalculCoef(cc) {
 	nodeUtMat.value = synth.nombre;
 	var mod = 0;
 	for (var aa = 0; aa <synth.applicable.length; aa++) {
-		var coef = search(modifCoef, synth.applicatble[aa]);
+		var coef = search(modifCoef, synth.applicable[aa]);
 		if (coef.actif) {
 			mod += coef.valeur;
 		}
 	}		
-	nodeCoefMMat.value = nodeCoefBMat.value + mod;
-	nodePdvMat.value = nodeCoefMMat.value * nodeNbMat.value * getUt();
 	
+	var coefMMat = parseFloat(nodeCoefBMat.value);
+	coefMMat = coefMMat + mod;
+	var pdvMMat = coefMMat * nombre * getUt();
+	
+	
+	nodeCoefMMat.value = coefMMat ;
+	nodePdvMat.value = pdvMMat;
+
+	// TODO ne met pas à jour la synthèse
 	synthProd.pdv += nodePdvMat.value;
-	
 }
 
 
-// TODO DEBUG ça
-function recalculCoef() {
+
+function recalculAllCoef() {
 	/*
 	 * 			nombre:0,
 				objet:objet,
@@ -653,9 +667,7 @@ function tableauBatiment(parent) {
 	var tr;
 	var th;
 	var td;
-	
-	
-	
+
 	var table = addTableNode(parent);
 	tr = addTrNode(table);
 	th = addThNode(tr); 

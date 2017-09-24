@@ -156,7 +156,6 @@ public class FichePanBack extends JPanel implements AffichageFiche{
         buttonReset = new JButton();
         areaNote.setLineWrap(true);        
         areaNote.setWrapStyleWord(true);
-
         
         fieldPa.setEditable(false);
         

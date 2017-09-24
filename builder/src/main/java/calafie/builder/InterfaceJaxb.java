@@ -1,4 +1,4 @@
-package calafie.builder.jaxb;
+package calafie.builder;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,9 +22,11 @@ import javax.xml.bind.Unmarshaller;
 
 import org.apache.log4j.Logger;
 
-import calafie.builder.Builder;
-import calafie.builder.Constantes;
-import calafie.builder.Util;
+import calafie.builder.jaxb.Fiche;
+import calafie.builder.jaxb.Ordres;
+import calafie.builder.jaxb.StatutChargement;
+import calafie.builder.jaxb.Vocations;
+import calafie.builder.jaxb.XmlObject;
 
 public class InterfaceJaxb {
 
@@ -32,83 +34,25 @@ public class InterfaceJaxb {
 
     public static String EXT_FILE_TXT = ".txt";
     public static String EXT_FILE_XML = ".xml";
-    private static File LAST;
-    
-
-    public static FileFilter FILE_FILTER = new javax.swing.filechooser.FileFilter() {
-
-        @Override
-        public String getDescription() {
-            return null;
-        }
-
-        @Override
-        public boolean accept(File f) {
-            return f.getName().endsWith(EXT_FILE_XML);
-        }
-    };
-
-    public static FileFilter FILE_FILTER_TXT = new javax.swing.filechooser.FileFilter() {
-
-        @Override
-        public String getDescription() {
-            return null;
-        }
-
-        @Override
-        public boolean accept(File f) {
-            return f.getName().endsWith(EXT_FILE_TXT);
-        }
-    };
 
     public void sauvegarde(String oo) {
-        try {
-            JFileChooser chooser = new JFileChooser();
-                        
-            if (LAST != null) {
-                chooser.setCurrentDirectory(LAST);
-            }
-            
-            int returnVal = chooser.showSaveDialog(getWindow());
-            if (returnVal == JFileChooser.CANCEL_OPTION) {
-                return;
-            }
+        File fichier = FileUtil.openDialoSaveFile();
 
-            File fichier = chooser.getSelectedFile();
-            LAST = fichier.getParentFile();
-            //On sauvegarde le dernier endroit où on enregistre ou charge un fichier pour que la prochaine fois
-            // qu'on veut charger ou sauvegarder on soit dans le même dossier.
-            
-            if (!fichier.getName().endsWith(EXT_FILE_TXT)) {
-                fichier = new File(fichier.getAbsolutePath() + EXT_FILE_TXT);
-            }
+        // On sauvegarde le dernier endroit où on enregistre ou charge un
+        // fichier pour que la prochaine fois
+        // qu'on veut charger ou sauvegarder on soit dans le même dossier.
 
-            ecrire(fichier, oo);
-
-        } catch (IOException e) {
-            log.error("Erreur lors de la sauvegarde");
-            log.debug("Exception", e);
-            return;
+        if (!fichier.getName().endsWith(EXT_FILE_TXT)) {
+            fichier = new File(fichier.getAbsolutePath() + EXT_FILE_TXT);
         }
+
+        FileUtil.writeFile(fichier, oo);
+
     }
 
     public void sauvegarde(Object oo) {
-        JFileChooser chooser = new JFileChooser();
-     
-        
-        if (LAST != null) {
-            chooser.setCurrentDirectory(LAST);
-        }
-        
-        int returnVal = chooser.showSaveDialog(getWindow());
-        if (returnVal == JFileChooser.CANCEL_OPTION) {
-            return;
-        }
 
-        File fichier = chooser.getSelectedFile();
-        //On sauvegarde le dernier endroit où on enregistre ou charge un fichier pour que la prochaine fois
-        // qu'on veut charger ou sauvegarder on soit dans le même dossier.
-        LAST = fichier.getParentFile();
+        File fichier = FileUtil.openDialoSaveFile();
         
         
         if (!fichier.getName().endsWith(EXT_FILE_XML)) {
@@ -129,30 +73,21 @@ public class InterfaceJaxb {
     }
 
     public XmlObject charger() {
-        JFileChooser chooser = new JFileChooser();
-        XmlObject result = new XmlObject();       
-        if (LAST != null) {
-            chooser.setCurrentDirectory(LAST);
-        }
         
+        XmlObject result = new XmlObject();  
         result.setStatut(StatutChargement.OK);
         
-        int returnVal = chooser.showOpenDialog(getWindow());
-        if (returnVal == JFileChooser.CANCEL_OPTION) {
+        File fichier = FileUtil.openDialogloadFile();
+        if (fichier == null) {
             result.setStatut(StatutChargement.CANCEL);
             return result;
         }
 
-        File fichier = chooser.getSelectedFile();
-        
-        LAST = fichier.getParentFile();
-        
         if (!fichier.getName().endsWith(EXT_FILE_XML)) {
             log.error("Le fichier n'est pas un fichier xml " + fichier.getAbsolutePath());
             result.setStatut(StatutChargement.NOXML);
             return result;
         }
-        
         
         Object xml = charger(fichier);
         result.setXmlResult(xml);
@@ -178,28 +113,15 @@ public class InterfaceJaxb {
         }
     }
 
-    public void sauvegarderVocation(Vocations voc) {
-        sauvegarde(voc);
-    }
-
-    public void sauvegarderOrdres(Ordres voc) {
-        sauvegarde(voc);
-    }
-
     public void sauvegarderFiche(Fiche voc) {
         sauvegarde(voc);
     }
 
-    public Fiche chargementFiche() {
-        XmlObject result = charger();
-        if (!StatutChargement.CANCEL.equals(result.getStatut()) && ( !StatutChargement.OK.equals(result.getStatut())
-                ||!(result.getXmlResult() instanceof Fiche)) ) {
-            String complement = "";
-            if (result.getXmlResult() != null) {
-                complement += " " + result.getXmlResult().getClass();
-            }
+    public Fiche chargementFiche(File fichier) {
+        Object xml = charger(fichier);
+        if (!(xml instanceof Fiche)) {
 
-            log.error("Le fichier chargé n'est pas un fichier de fiche valide" + complement);
+            log.error("Le fichier chargé n'est pas un fichier de fiche valide");
 
             JOptionPane.showMessageDialog(Builder.getInstance().getFenetre(),
                     Util.getMessage("builder.popErreur.nofiche"), Util.getMessage("builder.popErreur.titre"),
@@ -207,8 +129,7 @@ public class InterfaceJaxb {
             return null;
 
         }
-
-        return (Fiche) result.getXmlResult();
+        return (Fiche) xml;
     }
 
     public Vocations chargementVocation(File fichier) {
@@ -247,19 +168,7 @@ public class InterfaceJaxb {
         return (Ordres) result;
     }
 
-    public void ecrire(File file, String data) throws IOException {
 
-        if (file.exists()) {
-            file.delete();
-            file.createNewFile();
-        }
-
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file),
-                Constantes.ENCODING_CHARSET));
-        writer.write(data);
-        writer.close();
-
-    }
 
     public String lire(File file) throws FileNotFoundException {
 
@@ -331,21 +240,10 @@ public class InterfaceJaxb {
     }
 
     public void sauvegarde(Object oo, File fichier) {
-        try {
-
-            String contenu = encode(oo);
-
-            ecrire(fichier, contenu);
-
-        } catch (IOException e) {
-            log.error("Erreur lors de la sauvegarde");
-            log.debug("Exception", e);
-            return;
-        }
+        String contenu = encode(oo);
+        FileUtil.writeFile(fichier, contenu);
     }
 
-    private JFrame getWindow() {
-        return Builder.getFrame();
-    }
+
 
 }

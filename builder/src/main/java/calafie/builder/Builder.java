@@ -1,7 +1,5 @@
 package calafie.builder;
 
-import java.awt.Frame;
-
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -12,7 +10,6 @@ import calafie.builder.ihm.Fenetre;
 import calafie.builder.ihm.controleur.fiche.FicheObserver;
 import calafie.builder.ihm.modele.ModeleFiche;
 import calafie.builder.ihm.modele.Kitheque;
-import calafie.builder.jaxb.InterfaceJaxb;
 import calafie.builder.jaxb.Ordres;
 import calafie.builder.jaxb.Vocations;
 
