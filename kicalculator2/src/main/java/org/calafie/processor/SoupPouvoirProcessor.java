@@ -13,6 +13,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 /**
  * 
  * @author h-g
@@ -34,6 +37,7 @@ public class SoupPouvoirProcessor {
 		}
 		
 		Util.saveXML(pouvoirs, Constantes.LECTEUR + Constantes.CHEMIN + NOM_FICHIER);
+		//System.out.println(new GsonBuilder().setPrettyPrinting().create().toJson(pouvoirs)); 
 	}
 	
 	

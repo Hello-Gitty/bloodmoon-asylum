@@ -1,5 +1,7 @@
 package calafie.builder;
 
+import java.io.IOException;
+
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -110,7 +112,7 @@ public class Builder {
         biblio.setModif(false);
 
         Ordres ordres = new Ordres();
-        ordres.getOrdre().addAll(biblio.getOrdres());
+        ordres.getOrdres().addAll(biblio.getOrdres());
 
         interfaceJaxb.sauvegarde(ordres, Util.getFichierOrdres());
 
@@ -122,7 +124,14 @@ public class Builder {
     }
 
     public void chargerDonnee() {
-        biblio.addOrdres(interfaceJaxb.chargementOrdres(Util.getFichierOrdres()));
-        biblio.importerListVocation(interfaceJaxb.chargementVocation(Util.getFichierVocations()));
+
+        try {
+            biblio.addOrdres(InterfaceJson.readOrdres(Util.lire(Util.getFichierOrdres())));
+            biblio.importerListVocation(InterfaceJson.readVocations(Util.lire(Util.getFichierVocations())));
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
     }
 }

@@ -26,7 +26,6 @@ public class ListenerButtonsFiche {
         };
     }
     
-    
     public static ActionListener getListenerOverView() {
         return new ActionListener() {
             public void actionPerformed(ActionEvent e) {

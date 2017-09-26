@@ -103,9 +103,7 @@ public class InterfaceJaxb {
     public Object charger(File fichier) {
         try {
             String contenu = lire(fichier);
-
             return decode(contenu);
-
         } catch (IOException e) {
             log.error("Erreur lors du chargement");
             log.debug("Exception", e);

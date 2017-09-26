@@ -11,12 +11,14 @@ import org.calafie.modele.vocation.Sort;
 import org.calafie.modele.vocation.VocationPouvoir;
 import org.calafie.processor.SoupPouvoirProcessor;
 import org.calafie.processor.Util;
+import org.calafie.processor.Wirter;
+
+import com.google.gson.Gson;
 
 import calafie.builder.ihm.modele.type.TypeLegalite;
 import calafie.builder.ihm.modele.type.TypeOrdre;
 import calafie.builder.ihm.modele.type.TypeVocation;
 import calafie.builder.jaxb.Capacites;
-import calafie.builder.jaxb.InterfaceJaxb;
 import calafie.builder.jaxb.Vocations;
 
 public class VocationPouvTransformer {
@@ -72,10 +74,11 @@ public class VocationPouvTransformer {
 			vocationPouv.getCapacites().getCapacite().addAll(capas.values());
 		}
 		
-		
-		InterfaceJaxb inte = new InterfaceJaxb();
-		inte.sauvegarderVocation(vocationsFin);
-	}
+        String sortieName = Constantes.LECTEUR + Constantes.CHEMIN + "vocationsPouvoir" + ".json";
+        File fileSortie = new File(sortieName);
+        String jsonOo = Util.toPrettyJson(vocationsFin);
+        Wirter.ecrire(jsonOo, fileSortie);
+    }
 
 	private static String getTypeOrdre(String val) {
 

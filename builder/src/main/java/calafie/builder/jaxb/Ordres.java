@@ -37,12 +37,12 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ordres", namespace = "calafie/builder/ordre", propOrder = {
-    "ordre"
+    "ordres"
 })
 @XmlRootElement
 public class Ordres {
 
-    protected List<Ordre> ordre;
+    protected List<Ordre> ordres;
 
     /**
      * Gets the value of the ordre property.
@@ -66,11 +66,11 @@ public class Ordres {
      * 
      * 
      */
-    public List<Ordre> getOrdre() {
-        if (ordre == null) {
-            ordre = new ArrayList<Ordre>();
+    public List<Ordre> getOrdres() {
+        if (ordres == null) {
+            ordres = new ArrayList<Ordre>();
         }
-        return this.ordre;
+        return this.ordres;
     }
 
 }

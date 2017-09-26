@@ -49,6 +49,11 @@ public class OrdreSoupProcessor {
 
 		System.out.println("Nombre d'ordre : " + ordres.size());
 		Util.saveXML(ordres, Constantes.LECTEUR + Constantes.CHEMIN + NOM_FICHIER_ORDRE);
+	      
+		/*String dataJson = Util.toJson(ordres);
+	        File tt = new File(Constantes.LECTEUR + Constantes.CHEMIN + NOM_FICHIER_ORDRE+".json");
+	        Wirter.ecrire(dataJson, tt);*/
+		
 	}
 
 	private static void traiterPage(String page, Categorie categorie, List<Ordre> ordres) throws IOException {

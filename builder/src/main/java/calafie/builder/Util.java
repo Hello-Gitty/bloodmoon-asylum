@@ -129,6 +129,10 @@ public class Util {
         return new InputStreamReader (new FileInputStream(new File(fileName)), Constantes.ENCODING_CHARSET);
         
     }
+    private static InputStreamReader getInput(File fileName) throws UnsupportedEncodingException, FileNotFoundException {
+        return new InputStreamReader (new FileInputStream(fileName), Constantes.ENCODING_CHARSET);
+        
+    }
     
 
 
@@ -159,6 +163,37 @@ public class Util {
      * @throws IOException
      */
     public static String lire(String fichier) throws IOException {
+        StringBuilder result = new StringBuilder();
+
+        BufferedReader reder = new BufferedReader(getInput(fichier));
+
+        boolean fini = false;
+        while (fini != true) {
+            String temp = null;
+
+            temp = reder.readLine();
+
+            if (temp != null) {
+                result.append(temp);
+            } else {
+                fini = true;
+            }
+
+        }
+
+        reder.close();
+        return result.toString();
+    }
+    
+    /**
+     * Lit le contenu d'un fichier en utf8
+     * 
+     * @param fichier
+     *            fichier a lire
+     * @return contenu du fichier
+     * @throws IOException
+     */
+    public static String lire(File fichier) throws IOException {
         StringBuilder result = new StringBuilder();
 
         BufferedReader reder = new BufferedReader(getInput(fichier));

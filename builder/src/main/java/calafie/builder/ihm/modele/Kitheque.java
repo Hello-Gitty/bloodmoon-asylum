@@ -79,7 +79,7 @@ public class Kitheque extends Observable {
         }
 
         clearOrdres();
-        this.ordres.addAll(ordres.getOrdre());
+        this.ordres.addAll(ordres.getOrdres());
     }
 
     public List<Vocation> getAllVocations() {

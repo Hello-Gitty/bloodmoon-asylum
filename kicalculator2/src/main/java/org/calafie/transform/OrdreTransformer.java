@@ -8,10 +8,12 @@ import org.calafie.Constantes;
 import org.calafie.modele.ordres.Ordre;
 import org.calafie.processor.OrdreSoupProcessor;
 import org.calafie.processor.Util;
+import org.calafie.processor.Wirter;
+
+import com.google.gson.Gson;
 
 import calafie.builder.ihm.modele.type.ComptEnum;
 import calafie.builder.ihm.modele.type.TypeLegalite;
-import calafie.builder.jaxb.InterfaceJaxb;
 import calafie.builder.jaxb.Ordres;
 
 public class OrdreTransformer {
@@ -38,6 +40,8 @@ public class OrdreTransformer {
 		String fileName = Constantes.LECTEUR + Constantes.CHEMIN + OrdreSoupProcessor.NOM_FICHIER_ORDRE + ".xml";
 		File file = new File(fileName);
 		
+
+		
 		List<Ordre> ordres = Util.<List<Ordre>>lire(file);
 		
 		
@@ -46,7 +50,7 @@ public class OrdreTransformer {
 		
 		for (Ordre ordre : ordres) {
 			calafie.builder.jaxb.Ordre oo = new calafie.builder.jaxb.Ordre();
-			objetOrdre.getOrdre().add(oo);
+			
 
 			
 			String coutChaine = ordre.getCout(); // cout=Cout: 2000 FK | Fatigue: 3 PdV | Difficulte: 2
@@ -64,6 +68,10 @@ public class OrdreTransformer {
 			if (variable) {
 				automatique = true;
 			}
+			if (automatique) {
+			    continue;
+			}
+			
 			if (!automatique && !variable) {
 				difficulte =  getChaine(coutChaine, DIFFICULTE, null);
 				// Potentiel
@@ -108,13 +116,14 @@ public class OrdreTransformer {
 			oo.setCaracteristique(caract);
 			oo.setOposition(opp);
 			oo.setCompetence(compe);
+			objetOrdre.getOrdres().add(oo);
 			
 		}
 		
-		
-		InterfaceJaxb inte = new InterfaceJaxb();
-		inte.sauvegarderOrdres(objetOrdre);
-		
+		String sortieName = Constantes.LECTEUR + Constantes.CHEMIN + "ordresFull" + ".json";
+        File fileSortie = new File(sortieName);
+		String jsonOo = Util.toPrettyJson(objetOrdre);
+		Wirter.ecrire(jsonOo, fileSortie);
 		
 	}
 	
