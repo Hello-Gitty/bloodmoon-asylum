@@ -116,11 +116,11 @@ public class Builder {
 
         //interfaceJaxb.sauvegarde(ordres, Util.getFichierOrdres());
         try {
-            Util.ecrire(InterfaceJson.toJson(ordres), Util.getFichierOrdres());
+            Util.ecrire(InterfaceJson.toPrettyJson(ordres), Util.getFichierOrdres());
             Vocations vocations = new Vocations();
             vocations.getVocation().addAll(biblio.getAllVocations());
             //interfaceJaxb.sauvegarde(vocations, Util.getFichierVocations());
-            Util.ecrire(InterfaceJson.toJson(vocations), Util.getFichierVocations());
+            Util.ecrire(InterfaceJson.toPrettyJson(vocations), Util.getFichierVocations());
         } catch (Exception e ){
             e.printStackTrace();
         }
