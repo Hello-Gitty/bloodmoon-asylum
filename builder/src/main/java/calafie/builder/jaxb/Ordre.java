@@ -58,9 +58,9 @@ import javax.xml.bind.annotation.XmlType;
     "competence",
     "caracteristique",
     "oposition",
-    "legal",
     "eventuel",
     "critique",
+    "legal",
     "politique",
     "gravite",
     "description"

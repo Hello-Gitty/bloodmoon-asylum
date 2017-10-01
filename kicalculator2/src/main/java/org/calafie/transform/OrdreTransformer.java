@@ -69,7 +69,7 @@ public class OrdreTransformer {
 				automatique = true;
 			}
 			if (automatique) {
-			    continue;
+			    //continue;
 			}
 			
 			if (!automatique && !variable) {

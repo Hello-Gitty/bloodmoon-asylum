@@ -50,27 +50,6 @@ public class InterfaceJaxb {
 
     }
 
-    public void sauvegarde(Object oo) {
-
-        File fichier = FileUtil.openDialoSaveFile();
-        
-        
-        if (!fichier.getName().endsWith(EXT_FILE_XML)) {
-            fichier = new File(fichier.getAbsolutePath() + EXT_FILE_XML);
-        }
-        
-        if (fichier.exists()) {
-            int res = JOptionPane.showConfirmDialog(Builder.getInstance().getFenetre(),
-                    Util.getMessage("builder.popSave.message"), Util.getMessage("builder.popSave.titre"),
-                    JOptionPane.YES_NO_OPTION);
-            if (res == JOptionPane.NO_OPTION) {
-                return;
-            }
-        }
-        
-
-        sauvegarde(oo, fichier);
-    }
 
     public XmlObject charger() {
         
@@ -111,9 +90,7 @@ public class InterfaceJaxb {
         }
     }
 
-    public void sauvegarderFiche(Fiche voc) {
-        sauvegarde(voc);
-    }
+
 
     public Fiche chargementFiche(File fichier) {
         Object xml = charger(fichier);
@@ -212,7 +189,7 @@ public class InterfaceJaxb {
             unAjout = (E) decodeur.unmarshal(reader);
         } catch (Exception e) {
             log.error("Erreur lors du decodage");
-            log.debug("Exception", e);
+            log.error("Exception", e);
         }
         return unAjout;
     }
