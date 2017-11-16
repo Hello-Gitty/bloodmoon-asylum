@@ -101,15 +101,18 @@ public class Fenetre extends JFrame {
         paneFiche = new FichePanBack();
         paneOrdre = new PaneOrdre();
         paneVocation = new PanelVocation();
+        
 
         JScrollPane scrollTab1 = new JScrollPane(paneFiche);
         JScrollPane scrollTab2 = new JScrollPane(paneOrdre);
         JScrollPane scrollTab3 = new JScrollPane(paneVocation);
-
+        JScrollPane scrollTab4 = new JScrollPane(new FichePanelH());
+        
         pane.addTab(Util.getMessage("builder.tab.fiche.titre"), scrollTab1);
         pane.addTab(Util.getMessage("builder.tab.ordre.titre"), scrollTab2);
         pane.addTab(Util.getMessage("builder.tab.vocation.titre"), scrollTab3);
-
+        pane.addTab("tmp", scrollTab4);
+        
         this.add(pane);
     }
 

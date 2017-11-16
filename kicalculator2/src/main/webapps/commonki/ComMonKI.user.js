@@ -1,10 +1,12 @@
 ﻿// ==UserScript==
 // @name        ComMonKI
-// @include     http://www.kraland.org/*
+// @include     http://www.kraland.org
+// @include     http://www.kraland.org*
+// @include     http://www.kraland.org/main.php?p=2_2
 // @include     http://test.kraland.org/*
-// @grant unsafeWindow
+// @grant GM.unsafeWindow
 // @author Famine(794)
-// @version 1.11
+// @version 1.12
 // ==/UserScript==
 
 // COMmercial MONkey KI javaScript // HUHU
@@ -29,16 +31,6 @@ var listBatiment = JSON.parse(dataBatiments);
 var noImpot = ['BONS D\u0027ÉTAT / LOTERIE'];
 
 var listMarchandage = [{value:'Aucun', label:'Aucun'}, {value:'Achat', label:'Achat'}, {value:'Vente', label:'Vente'}, {value:'AchatVente', label:'Achat & Vente'}];
-
-// Code pour chrome (Eleonore -30207-)
-var unsafeWindow;
-if(window.navigator.vendor.match(/Google/)) {
-	var div = document.createElement("div");
-	div.setAttribute("onclick", "return window;");
-	unsafeWindow = div.onclick();
-} else {
-	unsafeWindow = unsafeWindow;
-}
 
 
 /*
@@ -98,6 +90,8 @@ var thCommerce;
 var parentCommerce;
 var buttonPosition;
 var buttonActive;
+
+
 
 
 
