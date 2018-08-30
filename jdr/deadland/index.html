@@ -10,15 +10,23 @@
 <body onload="init()">
 <h2>LE PIOCHEUR DE LA MORT</h2>
 
-<input type="number" id="ip-legendaire" /><input type="button" value="AJOUTER LEGENDAIRE" onclick="putleg()" />
+<input type="button" value="AJOUTER LEGENDAIRE" onclick="putjet('legendaire')" /><input type="number" id="ip-legendaire" /><br/>
+<input type="button" value="AJOUTER BLANC" onclick="putjet('blanc')" /><input type="number" id="ip-blanc" /><br/>
+<input type="button" value="AJOUTER BLEU" onclick="putjet('bleu')" /><input type="number" id="ip-bleu" /><br/>
+<input type="button" value="AJOUTER ROUGE" onclick="putjet('rouge')" /><input type="number" id="ip-rouge" /><br/>
 <input type="button" onclick="init()" value="RESET"/> <br/>
 <br/>
 <h3>Contenu du sac : </h3>
 <div id="sac"></div>
 <br/>
  
-<input type="button" onclick="pioche()" value="PIOCHER"/>
+<input type="button" onclick="piochePj()" value="PIOCHER HOMBRE"/>
+<input id="pnone" type="radio" name="isLuck" value="0" checked="checked" onchange="changeLuck(this.value)" /><label for="pnone">Normal</label>
+<input id="pluck" type="radio" name="isLuck" value="1" onchange="changeLuck(this.value)"/><label for="pluck">Chanceux</label>
+<input id="pvluck" type="radio" name="isLuck" value="2" onchange="changeLuck(this.value)"/><label for="pvluck">Très chanceux</label>
+<input id="pkeke" type="radio" name="isLuck" value="-1" onchange="changeLuck(this.value)"/><label for="pkeke">Joueur préféré</label>
 <br/>
+<input type="button" value="PIOCHE MARSHAL" onclick="piocheMarshal()" /><input type="number" id="ip-pioche" />
 
 <h3>Pioche: </h3>
 <div id="histo-pioche"></div> 
